@@ -1,0 +1,116 @@
+version: '3.8'
+
+services:
+  # Graph Database Service
+  graph-db:
+    build:
+      context: ./Graph Database Service
+      dockerfile: Dockerfile
+    container_name: cse-explorer-graph-db
+    ports:
+      - "7474:7474"  # Neo4j HTTP
+      - "7687:7687"  # Neo4j Bolt
+    environment:
+      - NEO4J_AUTH=neo4j/password
+      - NEO4J_dbms_security_procedures_unrestricted=gds.*,apoc.*
+      - NEO4J_dbms_security_procedures_allowlist=gds.*,apoc.*
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+    networks:
+      - cse-explorer-network
+
+  # Data Pipeline Service
+  data-pipeline:
+    build:
+      context: ./Data pipeline
+      dockerfile: Dockerfile
+    container_name: cse-explorer-data-pipeline
+    ports:
+      - "8000:8000"
+    depends_on:
+      - graph-db
+    environment:
+      - NEO4J_URI=bolt://graph-db:7687
+      - NEO4J_USER=neo4j
+      - NEO4J_PASSWORD=password
+    networks:
+      - cse-explorer-network
+
+  # RAG Service
+  rag-service:
+    build:
+      context: ./RAG
+      dockerfile: Dockerfile
+    container_name: cse-explorer-rag
+    ports:
+      - "8002:8002"
+    depends_on:
+      - graph-db
+    environment:
+      - NEO4J_URI=bolt://graph-db:7687
+      - NEO4J_USER=neo4j
+      - NEO4J_PASSWORD=password
+    networks:
+      - cse-explorer-network
+
+  # Natural Language Agent Service
+  nl-agent:
+    build:
+      context: ./Natural Language Agent
+      dockerfile: Dockerfile
+    container_name: cse-explorer-nl-agent
+    ports:
+      - "8001:8001"
+    depends_on:
+      - graph-db
+      - rag-service
+    environment:
+      - NEO4J_URI=bolt://graph-db:7687
+      - NEO4J_USER=neo4j
+      - NEO4J_PASSWORD=password
+      - RAG_SERVICE_URL=http://rag-service:8002
+    networks:
+      - cse-explorer-network
+
+  # API Gateway Service
+  api-gateway:
+    build:
+      context: ./API Gateway
+      dockerfile: Dockerfile
+    container_name: cse-explorer-api-gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - nl-agent
+      - rag-service
+      - data-pipeline
+    environment:
+      - NL_AGENT_URL=http://nl-agent:8001
+      - RAG_SERVICE_URL=http://rag-service:8002
+      - DATA_PIPELINE_URL=http://data-pipeline:8000
+    networks:
+      - cse-explorer-network
+
+  # Frontend Service
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    container_name: cse-explorer-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api-gateway
+    environment:
+      - REACT_APP_API_URL=http://localhost:8080
+    networks:
+      - cse-explorer-network
+
+volumes:
+  neo4j_data:
+  neo4j_logs:
+
+networks:
+  cse-explorer-network:
+    driver: bridge
