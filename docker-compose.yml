@@ -1,6 +1,26 @@
 version: '3.8'
 
 services:
+  # PostgreSQL Database for Authentication
+  postgres:
+    image: postgres:15-alpine
+    container_name: cse-explorer-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=cse_user
+      - POSTGRES_PASSWORD=cse_password
+      - POSTGRES_DB=cse_explorer_auth
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - cse-explorer-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cse_user -d cse_explorer_auth"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
   # Graph Database Service
   graph-db:
     build:
@@ -82,13 +102,37 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - nl-agent
-      - rag-service
-      - data-pipeline
+      postgres:
+        condition: service_healthy
+      nl-agent:
+        condition: service_started
+      rag-service:
+        condition: service_started
+      data-pipeline:
+        condition: service_started
     environment:
+      # Database Configuration
+      - DATABASE_URL=postgresql://cse_user:cse_password@postgres:5432/cse_explorer_auth
+      - POSTGRES_USER=cse_user
+      - POSTGRES_PASSWORD=cse_password
+      - POSTGRES_DB=cse_explorer_auth
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      # JWT Configuration
+      - JWT_SECRET_KEY=super-secret-jwt-key-change-this-in-production-cse-explorer-2024
+      - JWT_ALGORITHM=HS256
+      - JWT_ACCESS_TOKEN_EXPIRE_MINUTES=30
+      - JWT_REFRESH_TOKEN_EXPIRE_DAYS=7
+      # Development Configuration (set to false for production)
+      - DEVELOPMENT_MODE=false
+      # Service URLs
       - NL_AGENT_URL=http://nl-agent:8001
       - RAG_SERVICE_URL=http://rag-service:8002
       - DATA_PIPELINE_URL=http://data-pipeline:8000
+      # API Configuration
+      - API_HOST=0.0.0.0
+      - API_PORT=8080
+      - API_RELOAD=false
     networks:
       - cse-explorer-network
 
@@ -108,6 +152,7 @@ services:
       - cse-explorer-network
 
 volumes:
+  postgres_data:
   neo4j_data:
   neo4j_logs:
 
