@@ -4,6 +4,8 @@ This service uses a pre-built Neo4j image with Colombo Stock Exchange data.
 
 ## Quick Start
 
+replace `StrongPasswordHere` with a password more than or equal 8 chracters
+
 ```bash
 cd "Graph Database Service"
 docker build --tag project-neo4j:dev --file Dockerfile .
