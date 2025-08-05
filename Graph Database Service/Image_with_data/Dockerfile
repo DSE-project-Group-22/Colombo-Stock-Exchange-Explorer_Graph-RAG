@@ -1,20 +1,35 @@
-FROM neo4j:5.9
+# FROM neo4j:5.9
 
-# Set environment variables
-ENV NEO4J_dbms_default__listen__address=0.0.0.0
-ENV NEO4J_AUTH=neo4j/password
+# # Set build-time environment for data loading
+# ENV NEO4J_AUTH=neo4j/tempbuildpass
+# ENV NEO4J_dbms_default__listen__address=0.0.0.0
 
+# # Copy data and scripts
+# COPY init.cypher /tmp/init.cypher
+# COPY startup.sh /startup/startup.sh
+# RUN chmod +x /startup/startup.sh
 
+# # Install curl for health checks (if not present)
+# USER root
+# RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+# USER neo4j
 
-# Copy initialization script and startup script
-COPY init.cypher /tmp/init.cypher
-COPY startup.sh /startup/startup.sh
+# # Load data during build
+# RUN neo4j start & \
+#     echo "Waiting for Neo4j to start..." && \
+#     sleep 30 && \
+#     until cypher-shell -u neo4j -p tempbuildpass "RETURN 1;" > /dev/null 2>&1; do \
+#         echo "Still waiting for Neo4j..." && sleep 5; \
+#     done && \
+#     echo "Loading CSE data..." && \
+#     cypher-shell -u neo4j -p tempbuildpass < /tmp/init.cypher && \
+#     echo "Data loaded successfully!" && \
+#     neo4j stop && \
+#     sleep 10
 
-# Make startup script executable
-RUN chmod +x /startup/startup.sh
+# # Clean up
+# RUN rm /tmp/init.cypher
 
-# Expose ports
-EXPOSE 7687 7474
-
-# Use custom startup script
-ENTRYPOINT ["tini", "-g", "--", "/startup/startup.sh"]
+# EXPOSE 7687 7474
+# ENTRYPOINT ["/startup/startup.sh"]
+# CMD ["neo4j"]
