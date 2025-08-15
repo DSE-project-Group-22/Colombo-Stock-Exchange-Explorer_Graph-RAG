@@ -441,3 +441,5 @@ vector_cache/
 # Exception for schema files
 !schema.ttl
 !ontology.owl
+
+testing
