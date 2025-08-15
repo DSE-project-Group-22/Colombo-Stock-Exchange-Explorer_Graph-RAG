@@ -1,0 +1,17 @@
+# Docker Compose for Annual Report Finder
+version: '3.8'
+
+services:
+  annual-report-finder:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: annual-report-finder
+    volumes:
+      - ./reports:/app/reports
+    shm_size: 2gb
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: "no"
+    profiles:
+      - data-collection
