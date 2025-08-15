@@ -1,8 +1,15 @@
 FROM neo4j:5.9
 
+# Install APOC core plugin (copy from labs to plugins directory)
+RUN cp /var/lib/neo4j/labs/apoc-* /var/lib/neo4j/plugins/
+
 # Set default authentication
 ENV NEO4J_AUTH=neo4j/password
 ENV NEO4J_server_default__listen__address=0.0.0.0
+
+# Configure APOC security settings
+ENV NEO4J_dbms_security_procedures_unrestricted=apoc.*
+ENV NEO4J_dbms_security_procedures_allowlist=apoc.*
 
 # Copy init script
 COPY Image_with_data/init.cypher /var/lib/neo4j/import/init.cypher

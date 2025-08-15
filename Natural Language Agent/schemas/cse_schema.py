@@ -32,47 +32,47 @@ The relationships:
 (:Company)-[:COMPETES_WITH]->(:Company)
 """
 
-# Example queries for few-shot learning
+# Example queries for few-shot learning - Updated for actual CSE database structure
 CSE_EXAMPLES = [
     {
-        "user_input": "What are the top 5 companies by market capitalization?",
-        "cypher_query": "MATCH (c:Company)-[:HAS_STOCK]->(s:Stock) RETURN c.name, c.symbol, s.market_cap ORDER BY s.market_cap DESC LIMIT 5"
+        "user_input": "What companies are in the database?",
+        "cypher_query": "MATCH (c:Company) RETURN c.name, c.id LIMIT 10"
     },
     {
-        "user_input": "Show me banking sector companies",
-        "cypher_query": "MATCH (c:Company)-[:BELONGS_TO]->(sec:Sector {name: 'Banking'}) RETURN c.name, c.symbol, c.market_cap"
+        "user_input": "Show me all sectors",
+        "cypher_query": "MATCH (s:Sector) RETURN s.name, s.id"
     },
     {
-        "user_input": "Find stocks that increased more than 5% today",
-        "cypher_query": "MATCH (s:Stock) WHERE s.day_change_percent > 5.0 RETURN s.symbol, s.current_price, s.day_change_percent ORDER BY s.day_change_percent DESC"
+        "user_input": "Which companies are in the manufacturing sector?",
+        "cypher_query": "MATCH (c:Company)-[:IN_SECTOR]->(s:Sector {name: 'Manufacturing'}) RETURN c.name, c.id"
     },
     {
-        "user_input": "Which companies have PE ratio below 15?",
-        "cypher_query": "MATCH (c:Company) WHERE c.pe_ratio < 15 AND c.pe_ratio > 0 RETURN c.name, c.symbol, c.pe_ratio ORDER BY c.pe_ratio ASC"
+        "user_input": "Who are the directors of Abans Electricals PLC?",
+        "cypher_query": "MATCH (p:Person)-[:DIRECTOR_OF]->(c:Company {name: 'Abans Electricals PLC'}) RETURN p.name, r.role"
     },
     {
-        "user_input": "Show me the highest volume stocks today",
-        "cypher_query": "MATCH (s:Stock) RETURN s.symbol, s.volume, s.current_price ORDER BY s.volume DESC LIMIT 10"
+        "user_input": "What is the revenue of companies?",
+        "cypher_query": "MATCH (c:Company)-[r:HAS_METRIC]->(m:Metric {name: 'Revenue'}) RETURN c.name, r.value, r.year ORDER BY r.value DESC"
     },
     {
-        "user_input": "What are the telecommunications companies?",
-        "cypher_query": "MATCH (c:Company)-[:BELONGS_TO]->(sec:Sector) WHERE sec.name CONTAINS 'Telecom' OR sec.name CONTAINS 'Communication' RETURN c.name, c.symbol"
+        "user_input": "Show me companies with their total assets",
+        "cypher_query": "MATCH (c:Company)-[r:HAS_METRIC]->(m:Metric {name: 'Total Assets'}) RETURN c.name, r.value ORDER BY r.value DESC"
     },
     {
-        "user_input": "Find companies with market cap above 10 billion LKR",
-        "cypher_query": "MATCH (c:Company) WHERE c.market_cap > 10000000000 RETURN c.name, c.symbol, c.market_cap ORDER BY c.market_cap DESC"
+        "user_input": "What products does Abans Electricals offer?",
+        "cypher_query": "MATCH (c:Company {name: 'Abans Electricals PLC'})-[:OFFERS]->(p:Product) RETURN p.name"
     },
     {
-        "user_input": "Show me recent news about Dialog Axiata",
-        "cypher_query": "MATCH (c:Company {symbol: 'DIAL'})-[:RELATED_NEWS]->(n:News) RETURN n.title, n.published_date, n.sentiment ORDER BY n.published_date DESC LIMIT 5"
+        "user_input": "Find companies with high net profit",
+        "cypher_query": "MATCH (c:Company)-[r:HAS_METRIC]->(m:Metric {name: 'Net Profit'}) WHERE r.value > 100000000 RETURN c.name, r.value ORDER BY r.value DESC"
     },
     {
-        "user_input": "What is the average PE ratio in the banking sector?",
-        "cypher_query": "MATCH (c:Company)-[:BELONGS_TO]->(sec:Sector {name: 'Banking'}) WHERE c.pe_ratio > 0 RETURN AVG(c.pe_ratio) as avg_pe_ratio"
+        "user_input": "Show me ownership relationships",
+        "cypher_query": "MATCH (owner:Company)-[r:OWNS]->(owned:Company) RETURN owner.name, owned.name, r.pct"
     },
     {
-        "user_input": "Show me companies founded after 1990",
-        "cypher_query": "MATCH (c:Company) WHERE c.founded_year > 1990 RETURN c.name, c.symbol, c.founded_year ORDER BY c.founded_year DESC"
+        "user_input": "What sectors do companies operate in?",
+        "cypher_query": "MATCH (c:Company)-[:IN_SECTOR]->(s:Sector) RETURN c.name, s.name ORDER BY c.name"
     }
 ]
 
@@ -112,3 +112,4 @@ Major Companies: {', '.join(CSE_ENTITIES['major_companies'])}
 Stock Symbols: {', '.join(CSE_ENTITIES['stock_symbols'])}
     """
     return CSE_SCHEMA + entity_info
+
