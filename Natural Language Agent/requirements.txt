@@ -1,0 +1,31 @@
+# FastAPI and Web Framework
+fastapi>=0.104.1
+uvicorn[standard]>=0.24.0
+
+# Neo4j Database
+neo4j>=5.15.0
+
+# Neo4j GraphRAG (Recommended Solution) - Updated to latest version
+neo4j-graphrag[openai]>=1.9.0
+
+# LangChain Neo4j Integration (Alternative Solution)
+langchain-neo4j>=0.0.5
+langchain-openai>=0.1.0
+langchain-core>=0.1.0
+
+# Configuration and Environment
+python-dotenv>=1.0.0
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+
+# HTTP Client
+httpx>=0.25.2
+
+# Logging
+loguru>=0.7.2
+
+# Date and Time
+python-dateutil>=2.8.2
+
+# Optional: For advanced text processing (commented out for faster install)
+# spacy>=3.7.2
