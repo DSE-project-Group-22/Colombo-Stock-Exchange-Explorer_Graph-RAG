@@ -112,22 +112,138 @@ def extract_query_details(result: Dict[str, Any]) -> Dict[str, Any]:
         "final_answer": result.get("result", ""),
         "has_intermediate_steps": "intermediate_steps" in result,
         "intermediate_steps": result.get("intermediate_steps", []),
-        "error": result.get("error", False)
+        "error": result.get("error", False),
+        "cypher_query": "N/A",
+        "raw_results": "N/A"
     }
     
     # Try to extract specific intermediate step details if available
     if extracted["intermediate_steps"]:
-        print("🔍 Detailed Intermediate Steps Analysis:")
-        for i, step in enumerate(extracted["intermediate_steps"], 1):
-            print(f"  📋 Step {i}: {type(step).__name__} - {step}")
+        try:
+            # GraphCypherQAChain typically returns intermediate steps as a list
+            # First step usually contains the generated Cypher query
+            # Second step usually contains the raw database results
+            intermediate = extracted["intermediate_steps"]
+            
+            if len(intermediate) > 0 and isinstance(intermediate[0], dict):
+                # Look for query in first step
+                if "query" in intermediate[0]:
+                    extracted["cypher_query"] = intermediate[0]["query"]
+            
+            if len(intermediate) > 1 and isinstance(intermediate[1], dict):
+                # Look for context/results in second step
+                if "context" in intermediate[1]:
+                    extracted["raw_results"] = intermediate[1]["context"]
+            
+            # Alternative: sometimes the intermediate steps are structured differently
+            # Try to find query and context in any step
+            for step in intermediate:
+                if isinstance(step, dict):
+                    if "query" in step and extracted["cypher_query"] == "N/A":
+                        extracted["cypher_query"] = step["query"]
+                    if "context" in step and extracted["raw_results"] == "N/A":
+                        extracted["raw_results"] = step["context"]
+                        
+        except Exception as e:
+            print(f"⚠️  Could not parse intermediate steps: {e}")
     
     return extracted
 
-def main():
+def interactive_query_terminal():
     """
-    Demo function to test the natural language to Cypher functionality.
+    Interactive terminal for asking natural language questions to the graph database.
     """
-    print("🚀 Natural Language to Cypher Query Demo (with Intermediate Steps)")
+    print("🚀 Interactive Graph Query Terminal")
+    print("=" * 50)
+    print("Ask questions about your graph database in natural language!")
+    print("Type 'quit', 'exit', or 'q' to stop.")
+    print("Type 'help' for example questions.")
+    print("=" * 50)
+    
+    try:
+        # Initialize the chain once at startup
+        print("🔄 Initializing Graph Query Chain...")
+        chain = initialize_graph_qa_chain()
+        print("✅ Ready to answer your questions!\n")
+        
+        while True:
+            try:
+                # Get user input
+                question = input("🤔 Ask your question: ").strip()
+                
+                # Check for exit commands
+                if question.lower() in ['quit', 'exit', 'q']:
+                    print("👋 Goodbye!")
+                    break
+                
+                # Check for help
+                if question.lower() == 'help':
+                    print_help_examples()
+                    continue
+                
+                # Skip empty questions
+                if not question:
+                    print("❓ Please enter a question.")
+                    continue
+                
+                print(f"\n🔍 Processing: {question}")
+                print("-" * 40)
+                
+                # Get the answer
+                result = query_graph_with_natural_language(question, chain)
+                
+                # Display the answer clearly
+                if result.get("error"):
+                    print(f"❌ Error: {result.get('result', 'Unknown error')}")
+                else:
+                    print(f"� Answer: {result.get('result', 'No answer provided')}")
+                
+                # Show intermediate steps if verbose mode
+                if result.get("intermediate_steps"):
+                    show_verbose = input("\n🔧 Show technical details? (y/n): ").strip().lower()
+                    if show_verbose in ['y', 'yes']:
+                        details = extract_query_details(result)
+                        print(f"\n📋 Technical Details:")
+                        print(f"   Generated Cypher Query: {details.get('cypher_query', 'N/A')}")
+                        print(f"   Raw Database Results: {details.get('raw_results', 'N/A')}")
+                
+                print("\n" + "=" * 50)
+                
+            except KeyboardInterrupt:
+                print("\n👋 Goodbye!")
+                break
+            except Exception as e:
+                print(f"❌ Error processing question: {e}")
+                print("Please try again with a different question.\n")
+                
+    except Exception as e:
+        print(f"❌ Failed to initialize: {e}")
+        print("💡 Make sure:")
+        print("   1. Neo4j is running")
+        print("   2. OPENAI_API_KEY is set in your environment")
+        print("   3. Database has some data")
+
+def print_help_examples():
+    """Print example questions users can ask."""
+    print("\n💡 Example Questions You Can Ask:")
+    print("   • How many companies are in the database?")
+    print("   • Show me 3 companies from the database")
+    print("   • What are the different sectors in the stock exchange?")
+    print("   • List companies with market cap above 1 billion")
+    print("   • Show me recent trading data")
+    print("   • What is the average stock price?")
+    print("   • Find companies in the banking sector")
+    print("\n💭 Tips:")
+    print("   • Be specific in your questions")
+    print("   • Ask about counts, lists, or specific data")
+    print("   • Use natural language - no need for technical terms")
+    print()
+
+def demo_mode():
+    """
+    Demo function to test predefined questions (original functionality).
+    """
+    print("🚀 Natural Language to Cypher Query Demo (Predefined Questions)")
     print("=" * 65)
     
     # Test questions - customize these based on your graph schema
@@ -151,7 +267,7 @@ def main():
             # Extract and analyze the components
             details = extract_query_details(result)
             
-            print(f"\n� Summary:")
+            print(f"\n📊 Summary:")
             print(f"   Original Question: {details['original_question']}")
             print(f"   Final Answer: {details['final_answer']}")
             print(f"   Has Intermediate Steps: {details['has_intermediate_steps']}")
@@ -165,6 +281,18 @@ def main():
         print("   1. Neo4j is running")
         print("   2. OPENAI_API_KEY is set in your environment")
         print("   3. Database has some data")
+
+def main():
+    """
+    Main function - choose between interactive mode or demo mode.
+    """
+    import sys
+    
+    # Check command line arguments
+    if len(sys.argv) > 1 and sys.argv[1] == '--demo':
+        demo_mode()
+    else:
+        interactive_query_terminal()
 
 if __name__ == "__main__":
     main()
