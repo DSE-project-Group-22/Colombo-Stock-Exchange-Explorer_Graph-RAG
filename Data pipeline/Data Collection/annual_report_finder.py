@@ -18,6 +18,41 @@ import json
 SAVE_FOLDER = "reports"
 REPORT_YEAR = "2024"
 FALLBACK_YEAR = "2023"
+PROCESSED_COMPANIES_FILE = "processed_companies.txt"
+
+# --- Incremental Processing Functions ---
+def load_processed_companies():
+    """Load list of already processed companies"""
+    processed = set()
+    try:
+        if os.path.exists(PROCESSED_COMPANIES_FILE):
+            with open(PROCESSED_COMPANIES_FILE, 'r', encoding='utf-8') as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith('#'):
+                        # Parse format: COMPANY_NAME|DATE_PROCESSED|PDF_FILENAME
+                        parts = line.split('|')
+                        if len(parts) >= 1:
+                            processed.add(parts[0])
+    except Exception as e:
+        print(f"   ⚠️ Warning: Could not load processed companies file: {e}")
+    return processed
+
+def save_processed_company(company_name, pdf_filename):
+    """Save company as processed"""
+    try:
+        from datetime import datetime
+        timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        with open(PROCESSED_COMPANIES_FILE, 'a', encoding='utf-8') as f:
+            f.write(f"{company_name}|{timestamp}|{pdf_filename}\n")
+    except Exception as e:
+        print(f"   ⚠️ Warning: Could not save processed company: {e}")
+
+def get_companies_to_process():
+    """Get list of companies that haven't been processed yet"""
+    processed = load_processed_companies()
+    to_process = [company for company in company_names if company not in processed]
+    return to_process, processed
 
 # Your company list
 company_names = [
@@ -360,17 +395,39 @@ def main():
     if not os.path.exists(SAVE_FOLDER):
         os.makedirs(SAVE_FOLDER)
     
+    # Load companies to process (incremental processing)
+    companies_to_process, already_processed = get_companies_to_process()
+    
+    print(f"📊 Total companies: {len(company_names)}")
+    print(f"✅ Already processed: {len(already_processed)}")
+    print(f"🔄 To process: {len(companies_to_process)}")
+    
+    if len(already_processed) > 0:
+        print(f"📋 Previously processed companies:")
+        for company in sorted(already_processed):
+            print(f"   • {company}")
+        print()
+    
+    if len(companies_to_process) == 0:
+        print("🎉 All companies have been processed!")
+        print("💡 To reprocess all companies, delete or rename processed_companies.txt")
+        return
+    
     successful = 0
     failed = 0
     
-    for i, company in enumerate(company_names, 1):
-        print(f"\n📊 ({i}/{len(company_names)}) {company}")
+    for i, company in enumerate(companies_to_process, 1):
+        print(f"\n📊 ({i}/{len(companies_to_process)}) {company}")
         
         try:
             pdf_url = multi_engine_search(company, REPORT_YEAR, FALLBACK_YEAR)
             
             if pdf_url and download_pdf(pdf_url, company, SAVE_FOLDER):
                 successful += 1
+                # Save as processed
+                pdf_filename = f"{company.replace(' ', '_').replace('&', 'AND')}_Annual_Report.pdf"
+                save_processed_company(company, pdf_filename)
+                print(f"   ✅ Added to processed list: {company}")
             else:
                 print(f"   ❌ No annual report found")
                 failed += 1
@@ -386,6 +443,13 @@ def main():
         time.sleep(5)  # Be respectful
     
     print(f"\n🎯 Final Results: {successful} successful, {failed} failed")
+    print(f"📁 Total processed so far: {len(already_processed) + successful}")
+    
+    if successful > 0:
+        print(f"💡 Incremental processing enabled - processed companies saved to {PROCESSED_COMPANIES_FILE}")
+    
+    if failed > 0:
+        print(f"💡 To retry failed companies, delete their entries from {PROCESSED_COMPANIES_FILE}")
 
 if __name__ == "__main__":
     main()

@@ -1,1 +1,8 @@
-docling>=2.44.0
+pandas>=2.2.0
+numpy>=1.26.0
+thefuzz==0.22.1
+rapidfuzz>=3.0.0
+recordlinkage==0.16
+networkx>=3.2.1
+spacy>=3.7.2
+neo4j>=5.0.0
