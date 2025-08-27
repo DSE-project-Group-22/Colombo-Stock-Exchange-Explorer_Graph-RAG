@@ -443,3 +443,7 @@ vector_cache/
 !ontology.owl
 
 testing
+
+**/.langgraph__/**
+
+CLAUDE.md
