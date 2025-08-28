@@ -25,8 +25,29 @@ class InformationGap(BaseModel):
     """Represents missing information needed to answer the query"""
     gap_type: str
     description: str
-    priority: int = 1
-    suggested_query: Optional[str] = None
+    suggested_query: Optional[str] = None  # Natural language query suggestion
+    
+    # Tracking fields
+    attempt_count: int = 0  # How many times we've tried
+    is_fulfilled: bool = False  # Whether gap has been successfully filled
+    
+    # Results storage
+    discovered_data: Optional[Dict[str, Any]] = None  # Actual data found when filling this gap
+    discovered_summary: Optional[str] = None  # Human-readable summary of what was found
+    
+    # Failure tracking
+    failure_reason: Optional[str] = None  # Why it failed if not fulfilled
+    
+    def mark_fulfilled(self, data: Dict[str, Any], summary: str):
+        """Mark gap as fulfilled with the discovered data"""
+        self.is_fulfilled = True
+        self.discovered_data = data
+        self.discovered_summary = summary
+    
+    def mark_failed(self, reason: str):
+        """Mark gap as failed with reason"""
+        self.attempt_count += 1
+        self.failure_reason = reason
 
 
 class PlannedQuery(BaseModel):
@@ -62,6 +83,7 @@ class AdaptiveQueryState(BaseModel):
     # Information gaps and planning
     identified_gaps: List[InformationGap] = Field(default_factory=list)
     next_queries: List[PlannedQuery] = Field(default_factory=list)
+    current_gap_index: int = 0  # Track which gap we're working on
     
     # Control flow
     current_phase: Literal["exploring", "refining", "completing", "ready"] = "exploring"
@@ -116,11 +138,45 @@ class AdaptiveQueryState(BaseModel):
         """Get all discovered entities of a specific type"""
         return self.entity_mentions.get(entity_type, [])
     
-    def get_highest_priority_gap(self) -> Optional[InformationGap]:
-        """Get the most important information gap to fill"""
-        if not self.identified_gaps:
-            return None
-        return min(self.identified_gaps, key=lambda g: g.priority)
+    def get_current_gap(self) -> Optional[InformationGap]:
+        """Get the current gap to work on based on index"""
+        while self.current_gap_index < len(self.identified_gaps):
+            gap = self.identified_gaps[self.current_gap_index]
+            if not gap.is_fulfilled and gap.attempt_count < 2:
+                return gap
+            self.current_gap_index += 1
+        return None
+    
+    def get_fulfilled_gaps_context(self) -> str:
+        """Get context from all previously fulfilled gaps"""
+        context_parts = []
+        for i, gap in enumerate(self.identified_gaps[:self.current_gap_index]):
+            if gap.is_fulfilled and gap.discovered_summary:
+                context_parts.append(f"Gap {i} ({gap.gap_type}): {gap.discovered_summary}")
+        return "\n".join(context_parts) if context_parts else "No previous gaps fulfilled yet"
+    
+    def mark_gap_fulfilled(self, gap_index: int, data: Dict[str, Any], summary: str):
+        """Mark a specific gap as fulfilled with its discovered data"""
+        if gap_index < len(self.identified_gaps):
+            self.identified_gaps[gap_index].mark_fulfilled(data, summary)
+    
+    def get_all_discovered_gap_data(self) -> Dict[str, Any]:
+        """Aggregate all discovered data from fulfilled gaps"""
+        all_data = {}
+        for i, gap in enumerate(self.identified_gaps):
+            if gap.is_fulfilled and gap.discovered_data:
+                # Store with gap type as key
+                all_data[f"gap_{i}_{gap.gap_type}"] = gap.discovered_data
+        return all_data
+    
+    def has_unfulfilled_prerequisite_gaps(self) -> List[InformationGap]:
+        """Check if any gaps before current index are unfulfilled"""
+        unfulfilled = []
+        for i in range(min(self.current_gap_index, len(self.identified_gaps))):
+            gap = self.identified_gaps[i]
+            if not gap.is_fulfilled and gap.attempt_count >= 2:
+                unfulfilled.append(gap)
+        return unfulfilled
     
     def update_phase(self, new_phase: str) -> None:
         """Update the current phase based on LLM evaluation"""
