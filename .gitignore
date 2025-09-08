@@ -222,7 +222,7 @@ neo4j_data/
 neo4j_logs/
 
 # Graph database exports
-*.cypher
+# *.cypher
 *.graphml
 *.gexf
 graph_exports/

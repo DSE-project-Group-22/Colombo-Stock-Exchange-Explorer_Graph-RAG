@@ -28,8 +28,8 @@ services:
       dockerfile: Dockerfile
     container_name: cse-explorer-graph-db
     ports:
-      - "7474:7474"  # Neo4j HTTP
-      - "7687:7687"  # Neo4j Bolt
+      - "7474:7474"  # Neo4j HTTP (browser access only)
+      - "7687:7687"  # Neo4j Bolt (database connections)
     environment:
       - NEO4J_AUTH=neo4j/password
       - NEO4J_dbms_security_procedures_unrestricted=gds.*,apoc.*
@@ -93,6 +93,23 @@ services:
     networks:
       - cse-explorer-network
 
+  # Graph Backend (internal only, hidden behind API Gateway)
+  graph-backend:
+    build:
+      context: ./Graph Backend
+      dockerfile: Dockerfile
+    container_name: cse-explorer-graph-backend
+    expose:
+      - "8003"   # expose only inside Docker network
+    depends_on:
+      - graph-db
+    environment:
+      - NEO4J_URI=bolt://graph-db:7687
+      - NEO4J_USER=neo4j
+      - NEO4J_PASSWORD=password
+    networks:
+      - cse-explorer-network
+
   # API Gateway Service
   api-gateway:
     build:
@@ -110,6 +127,8 @@ services:
         condition: service_started
       data-pipeline:
         condition: service_started
+      graph-backend:
+        condition: service_started
     environment:
       # Database Configuration
       - DATABASE_URL=postgresql://cse_user:cse_password@postgres:5432/cse_explorer_auth
@@ -125,10 +144,11 @@ services:
       - JWT_REFRESH_TOKEN_EXPIRE_DAYS=7
       # Development Configuration (set to false for production)
       - DEVELOPMENT_MODE=false
-      # Service URLs
+      # Service URLs (internal, behind gateway)
       - NL_AGENT_URL=http://nl-agent:8001
       - RAG_SERVICE_URL=http://rag-service:8002
       - DATA_PIPELINE_URL=http://data-pipeline:8000
+      - GRAPH_BACKEND_URL=http://graph-backend:8003
       # API Configuration
       - API_HOST=0.0.0.0
       - API_PORT=8080
@@ -147,7 +167,7 @@ services:
     depends_on:
       - api-gateway
     environment:
-      - REACT_APP_API_URL=http://localhost:8080
+      - VITE_API_URL=http://api-gateway:8080
     networks:
       - cse-explorer-network
 
