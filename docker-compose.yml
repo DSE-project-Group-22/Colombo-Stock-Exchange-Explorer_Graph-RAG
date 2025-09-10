@@ -74,6 +74,23 @@ services:
     networks:
       - cse-explorer-network
 
+  # Redis Cache and Message Store
+  redis:
+    image: redis:7-alpine
+    container_name: cse-explorer-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes --appendfsync everysec
+    networks:
+      - cse-explorer-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
   # Natural Language Agent Service
   nl-agent:
     build:
@@ -85,11 +102,15 @@ services:
     depends_on:
       - graph-db
       - rag-service
+      - redis
     environment:
       - NEO4J_URI=bolt://graph-db:7687
       - NEO4J_USER=neo4j
       - NEO4J_PASSWORD=password
       - RAG_SERVICE_URL=http://rag-service:8002
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_DB=0
     networks:
       - cse-explorer-network
 
@@ -175,6 +196,7 @@ volumes:
   postgres_data:
   neo4j_data:
   neo4j_logs:
+  redis_data:
 
 networks:
   cse-explorer-network:
