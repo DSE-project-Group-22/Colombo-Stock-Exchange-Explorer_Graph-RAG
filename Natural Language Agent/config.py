@@ -79,6 +79,5 @@ def get_openai_config() -> dict:
     
     return {
         "api_key": settings.openai_api_key,
-        "model_name": "gpt-4o-mini",
-        "temperature": 0
+        "model_name": "gpt-5-mini",
     }

@@ -106,7 +106,6 @@ def supervisor_node(state: SupervisorState) -> SupervisorState:
     openai_config = get_openai_config()
     llm = ChatOpenAI(
         model=openai_config["model_name"],
-        temperature=0,
         api_key=openai_config["api_key"]
     )
     
