@@ -23,6 +23,13 @@ class Settings(BaseSettings):
     # OpenAI Configuration
     openai_api_key: Optional[str] = os.getenv("OPENAI_API_KEY")
     
+    # Redis Configuration
+    redis_host: str = os.getenv("REDIS_HOST", "localhost")
+    redis_port: int = int(os.getenv("REDIS_PORT", "6379"))
+    redis_db: int = int(os.getenv("REDIS_DB", "0"))
+    redis_password: Optional[str] = os.getenv("REDIS_PASSWORD", None)
+    redis_ttl_hours: int = int(os.getenv("REDIS_TTL_HOURS", "24"))
+    
     # Service Configuration
     host: str = os.getenv("HOST", "0.0.0.0")
     port: int = int(os.getenv("PORT", "8001"))
@@ -81,3 +88,20 @@ def get_openai_config() -> dict:
         "api_key": settings.openai_api_key,
         "model_name": "gpt-5-mini",
     }
+
+
+def get_redis_connection_params() -> dict:
+    """Get Redis connection parameters"""
+    return {
+        "host": settings.redis_host,
+        "port": settings.redis_port,
+        "db": settings.redis_db,
+        "password": settings.redis_password,
+        "decode_responses": True,  # Return strings instead of bytes
+    }
+
+
+def get_redis_url() -> str:
+    """Get Redis URL for connection"""
+    auth = f":{settings.redis_password}@" if settings.redis_password else ""
+    return f"redis://{auth}{settings.redis_host}:{settings.redis_port}/{settings.redis_db}"

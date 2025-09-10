@@ -33,5 +33,8 @@ loguru>=0.7.2
 # Date and Time
 python-dateutil>=2.8.2
 
+# Redis for chat history and caching
+redis>=5.0.0
+
 # Optional: For advanced text processing (commented out for faster install)
 # spacy>=3.7.2
