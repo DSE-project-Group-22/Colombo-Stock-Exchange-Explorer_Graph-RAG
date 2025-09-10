@@ -154,7 +154,7 @@ def store_message(message: ChatMessage) -> bool:
         metadata_key = f"chat:{message.thread_id}:metadata"
         timestamp_str = message.timestamp.isoformat()
         
-        # Use pipeline for atomic operations
+        # Use pipeline for atomic operations and reducing network operations by batching together transactions
         pipe = redis_client.pipeline()
         pipe.hset(metadata_key, mapping={
             "last_activity": timestamp_str,
