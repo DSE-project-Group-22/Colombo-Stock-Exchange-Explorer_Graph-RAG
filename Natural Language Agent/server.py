@@ -17,6 +17,7 @@ from pydantic import BaseModel, Field
 import uvicorn
 
 from config import settings, get_redis_connection_params
+from agent import execute_agent_query
 
 # Configure logging
 logging.basicConfig(
@@ -228,18 +229,6 @@ def get_thread_metadata(thread_id: str) -> Optional[Dict[str, Any]]:
         return None
 
 
-def generate_dummy_response(user_message: str, thread_id: str) -> str:
-    """Generate a dummy agent response"""
-    responses = [
-        f"I received your message: '{user_message[:50]}...' in thread {thread_id}",
-        f"Thank you for your message in thread {thread_id}. This is a placeholder response.",
-        f"Processing your request in thread {thread_id}. Agent integration coming soon!",
-        f"Thread {thread_id} message received. Real agent responses will be implemented next.",
-    ]
-    
-    # Simple rotation based on message length
-    index = len(user_message) % len(responses)
-    return responses[index]
 
 
 # API Endpoints
@@ -276,8 +265,8 @@ async def chat(request: ChatRequest):
         # Store user message
         store_message(user_message)
         
-        # Generate dummy agent response
-        agent_content = generate_dummy_response(request.message, request.thread_id)
+        # Generate agent response using LangGraph agent
+        agent_content = await execute_agent_query(request.thread_id, request.message, redis_client)
         
         # Create agent message
         agent_message = ChatMessage(
@@ -285,9 +274,9 @@ async def chat(request: ChatRequest):
             role=MessageRole.AGENT,
             content=agent_content,
             metadata=MessageMetadata(
-                agent_type="dummy",
-                model="placeholder",
-                processing_time=0.1
+                agent_type="langgraph",
+                model="gpt-4o-mini",
+                processing_time=0.1  # Could calculate actual time if needed
             )
         )
         
