@@ -454,6 +454,7 @@ async def delete_thread(thread_id: str):
 
 
 if __name__ == "__main__":
+
     uvicorn.run(
         "server:app",
         host=settings.host,

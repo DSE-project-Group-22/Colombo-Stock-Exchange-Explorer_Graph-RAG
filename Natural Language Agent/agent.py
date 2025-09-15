@@ -109,6 +109,11 @@ def query_graph_database(query: str) -> str:
             verbose=True       # Hardcoded
         )
         
+        # Convert any Neo4j Date objects to strings by serializing and deserializing through JSON
+        # This handles Date objects at any nesting level
+        import json
+        result = json.loads(json.dumps(result, default=str))
+        
         # Extract the answer
         if isinstance(result, dict) and 'answer' in result:
             return result['answer']
@@ -259,7 +264,10 @@ async def run_agent_with_transcript(conversation_transcript: str) -> str:
         
         # Run the graph
         result = await graph.ainvoke(initial_state, config)
-        
+
+        print("\n" + "="*30 + " DEBUG: FULL GRAPH STATE " + "="*30)
+        print(result)
+        print("="*80 + "\n")
         # Extract final AI message (last AIMessage without tool calls)
         final_message = None
         for message in reversed(result["messages"]):
