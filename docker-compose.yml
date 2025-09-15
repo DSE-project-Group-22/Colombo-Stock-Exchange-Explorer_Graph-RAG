@@ -192,9 +192,10 @@ services:
       - redis
       - kafka
     environment:
-      # - NEO4J_URI=bolt://graph-db:7687  # Commented out for now
-      # - NEO4J_USER=neo4j
-      # - NEO4J_PASSWORD=password
+      - NEO4J_URI=bolt://host.docker.internal:7687  # Connect to Neo4j on host machine
+      - NEO4J_USER=neo4j
+      - NEO4J_PASSWORD=password
+      - NEO4J_DATABASE=neo4j
       - RAG_SERVICE_URL=http://rag-service:8002
       - REDIS_HOST=redis
       - REDIS_PORT=6379

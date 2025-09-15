@@ -4,11 +4,9 @@ Provides chat endpoints with conversation history management and Kafka message p
 """
 import json
 import logging
-import uuid
 import asyncio
 from datetime import datetime, timezone
 from typing import Dict, Any, Optional, List
-from enum import Enum
 from contextlib import asynccontextmanager
 
 import redis
@@ -19,6 +17,9 @@ import uvicorn
 
 from config import settings, get_redis_connection_params
 from agent import execute_agent_query
+
+# Import shared models
+from models import ChatMessage, MessageRole, MessageMetadata
 
 # Import Kafka processing
 from message_processor import MessageProcessor
@@ -34,32 +35,6 @@ logger = logging.getLogger(__name__)
 redis_client: Optional[redis.Redis] = None
 kafka_processor: Optional[MessageProcessor] = None
 kafka_task: Optional[asyncio.Task] = None
-
-
-# Pydantic Models
-class MessageRole(str, Enum):
-    """Message sender role"""
-    USER = "user"
-    AGENT = "agent"
-
-
-class MessageMetadata(BaseModel):
-    """Optional metadata for messages"""
-    user_id: Optional[str] = None
-    agent_type: Optional[str] = None
-    model: Optional[str] = None
-    tokens_used: Optional[int] = None
-    processing_time: Optional[float] = None
-
-
-class ChatMessage(BaseModel):
-    """Complete message structure"""
-    id: str = Field(default_factory=lambda: f"msg_{uuid.uuid4().hex[:12]}")
-    thread_id: str
-    role: MessageRole
-    content: str
-    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
-    metadata: Optional[MessageMetadata] = None
 
 
 class ChatRequest(BaseModel):

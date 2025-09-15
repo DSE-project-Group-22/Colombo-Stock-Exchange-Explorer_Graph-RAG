@@ -9,8 +9,8 @@ import logging
 from typing import Optional, Dict, Any
 from datetime import datetime
 
-# Add parent directory to path to import utils
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# Add utils path for container environment
+sys.path.insert(0, '/utils')
 
 from utils.kafka_utils import SimpleKafkaProducer
 from utils.redis_utils import SimpleRedisPubSub

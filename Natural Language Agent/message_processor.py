@@ -6,17 +6,23 @@ import sys
 import os
 import json
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional
 
-# Add parent directory to path to import utils
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# Add utils path for container environment
+sys.path.insert(0, '/utils')
 
 from utils.kafka_utils import SimpleKafkaConsumer
 from utils.redis_utils import SimpleRedisPubSub
 
 # Import existing agent functionality
 from agent import execute_agent_query
+
+# Import shared models
+from models import ChatMessage, MessageRole, MessageMetadata
+
+# We need to import server for the store_message function and redis_client
+import server
 
 logger = logging.getLogger(__name__)
 
@@ -51,6 +57,10 @@ class MessageProcessor:
         try:
             await self.kafka.start()
             await self.redis.connect()
+            
+            # Set the global redis_client in server module for store_message to work
+            server.redis_client = self.redis.get_client()
+            
             logger.info("Message processor initialized successfully")
         except Exception as e:
             logger.error(f"Failed to initialize message processor: {e}")
@@ -90,6 +100,15 @@ class MessageProcessor:
                 
                 logger.info(f"Processing message: thread={thread_id}, correlation={correlation_id}")
                 
+                # Create and store user message in Redis (same as /chat endpoint)
+                user_msg = ChatMessage(
+                    thread_id=thread_id,
+                    role=MessageRole.USER,
+                    content=user_message,
+                    metadata=MessageMetadata(user_id=user_id) if user_id else None
+                )
+                server.store_message(user_msg)
+                
                 # Calculate processing start time
                 start_time = datetime.utcnow()
                 
@@ -104,6 +123,19 @@ class MessageProcessor:
                 # Calculate processing time
                 end_time = datetime.utcnow()
                 processing_time_ms = int((end_time - start_time).total_seconds() * 1000)
+                
+                # Create and store agent message in Redis (same as /chat endpoint)
+                agent_msg = ChatMessage(
+                    thread_id=thread_id,
+                    role=MessageRole.AGENT,
+                    content=response_text,
+                    metadata=MessageMetadata(
+                        agent_type="langgraph",
+                        model="gpt-4o-mini",
+                        processing_time=processing_time_ms / 1000.0  # Convert to seconds
+                    )
+                )
+                server.store_message(agent_msg)
                 
                 # Create response payload
                 response = {

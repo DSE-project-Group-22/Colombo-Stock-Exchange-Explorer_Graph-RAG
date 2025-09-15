@@ -5,7 +5,7 @@
 Start the entire development environment with hot-reload:
 
 ```bash
-./scripts/dev/setup.sh
+docker compose up
 ```
 
 This will:
@@ -40,12 +40,9 @@ No need to rebuild containers when you change code!
 ## 🛑 Stop Everything
 
 ```bash
-./scripts/dev/teardown.sh
+docker compose down          # Stop services
+docker compose down -v       # Stop and remove volumes for clean restart
 ```
-
-You'll be asked if you want to:
-- Remove data volumes (for a clean start next time)
-- Clean Docker build cache
 
 ## 🌐 Service URLs
 
@@ -56,13 +53,7 @@ Once running, access:
 
 ## 🧪 Test the Messaging Flow
 
-```bash
-# Activate test environment
-source utils/venv/bin/activate
-
-# Run test
-python utils/test_messaging.py
-```
+The Kafka consumer is integrated into the NL Agent service, so messaging works automatically once services are running. You can monitor messages in Kafka UI at http://localhost:8090.
 
 ## 📝 Development Workflow
 
@@ -83,16 +74,15 @@ docker compose ps
 ```
 
 ### Kafka topics not created?
+Topics are created automatically when Kafka starts. If there are issues, check Kafka logs:
 ```bash
-# Manually create topics
-python scripts/kafka/create_kafka_topics.py
+docker logs cse-explorer-kafka
 ```
 
 ### Need a fresh start?
 ```bash
 # Complete teardown with volume removal
-./scripts/dev/teardown.sh
-# Answer 'y' to remove volumes
+docker compose down -v
 ```
 
 ### Port conflicts?
@@ -108,13 +98,9 @@ Make sure these ports are free:
 
 ```
 /scripts/
-├── dev/
-│   ├── setup.sh       # Start everything
-│   ├── teardown.sh    # Stop everything
-│   └── logs.sh        # View logs
-└── kafka/
-    ├── create-kafka-topics.sh
-    └── create_kafka_topics.py
+└── dev/
+    ├── teardown.sh    # Stop everything
+    └── logs.sh        # View logs
 ```
 
 ## 🔄 Development Setup
