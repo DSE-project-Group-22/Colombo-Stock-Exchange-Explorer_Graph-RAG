@@ -4,6 +4,7 @@ Simple LangGraph Supervisor Agent for Query Orchestration
 This supervisor generates self-contained natural language queries for the nl_to_cypher_query executor.
 """
 
+import logging
 from typing import Dict, List, Optional, Any, TypedDict
 from pydantic import BaseModel, Field
 from langchain_openai import ChatOpenAI
@@ -12,6 +13,13 @@ from langgraph.graph import StateGraph, END
 # Import the existing nl_to_cypher_query functionality
 from nl_to_cypher_query import initialize_graph_qa_chain, query_graph_with_natural_language
 from config import get_openai_config
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
 
 # =====================================================================================
@@ -94,12 +102,12 @@ def supervisor_node(state: SupervisorState) -> SupervisorState:
     Supervisor node that analyzes context and decides next action.
     Generates self-contained queries that don't rely on conversation history.
     """
-    print(f"\n🎯 SUPERVISOR (Iteration {state['iteration']})")
+    logger.debug(f"SUPERVISOR (Iteration {state['iteration']})")
     
     # Check iteration limit (handled transparently)
     if state['iteration'] >= state['max_iterations']:
         state['should_continue'] = False
-        print(f"  Iteration limit reached - forcing final answer")
+        logger.info(f"Iteration limit reached - forcing final answer")
         # Continue to let supervisor provide final answer with available data
     
     # Get OpenAI config and initialize LLM
@@ -123,7 +131,7 @@ def supervisor_node(state: SupervisorState) -> SupervisorState:
     else:
         query_history_text = "QUERY HISTORY: No queries executed yet - Start with entity discovery"
 
-    print(query_history_text)
+    logger.debug(query_history_text)
     
     # Create simplified prompt with systematic query decomposition
     prompt = f"""
@@ -194,21 +202,21 @@ When providing final answer, synthesize ALL information from the query history i
     try:
         decision = structured_llm.invoke(prompt)
         
-        print(f"  Decision: {'Need more info' if decision.needs_more_info else 'Ready to answer'}")
-        print(f"  Reasoning: {decision.reasoning}")
+        logger.info(f"Decision: {'Need more info' if decision.needs_more_info else 'Ready to answer'}")
+        logger.debug(f"Reasoning: {decision.reasoning}")
         
         if decision.needs_more_info and decision.next_query:
             state['current_query'] = decision.next_query
             state['should_continue'] = True
-            print(f"  Next Query: {decision.next_query}")
+            logger.info(f"Next Query: {decision.next_query}")
         else:
             # Ready to provide final answer
             state['should_continue'] = False
             state['final_answer'] = decision.final_answer
-            print(f"  Final Answer Ready")
+            logger.info("Final Answer Ready")
             
     except Exception as e:
-        print(f"  Error in supervisor decision: {e}")
+        logger.error(f"Error in supervisor decision: {e}")
         # Fallback: try to provide answer based on what we have
         state['should_continue'] = False
         if state['query_history']:
@@ -235,13 +243,13 @@ def executor_node(state: SupervisorState) -> SupervisorState:
     Executor node that runs the current query using nl_to_cypher_query.
     Stores complete results with intermediate_steps in query_history.
     """
-    print(f"\n⚡ EXECUTOR")
+    logger.debug("EXECUTOR")
     
     if not state['current_query']:
-        print("  No query to execute")
+        logger.warning("No query to execute")
         return state
     
-    print(f"  Executing: {state['current_query']}")
+    logger.info(f"Executing: {state['current_query']}")
     
     try:
         # Initialize chain and execute query
@@ -262,7 +270,7 @@ def executor_node(state: SupervisorState) -> SupervisorState:
                 query_record['intermediate_steps'] = result['intermediate_steps']
             
             state['query_history'].append(query_record)
-            print(f"  ✓ Query successful")
+            logger.info("Query successful")
             
         else:
             # Store failed query with complete result
@@ -277,7 +285,7 @@ def executor_node(state: SupervisorState) -> SupervisorState:
                 query_record['intermediate_steps'] = result['intermediate_steps']
             
             state['query_history'].append(query_record)
-            print(f"  ✗ Query failed: {result.get('result', 'Unknown error')}")
+            logger.warning(f"Query failed: {result.get('result', 'Unknown error')}")
             
     except Exception as e:
         # Handle execution errors
@@ -286,7 +294,7 @@ def executor_node(state: SupervisorState) -> SupervisorState:
             'result': f"Execution error: {str(e)}",
             'success': False
         })
-        print(f"  ✗ Execution error: {e}")
+        logger.error(f"Execution error: {e}")
     
     # Clear current query and increment iteration
     state['current_query'] = None
@@ -401,6 +409,7 @@ def run_supervisor_query(
 
 def demo():
     """Demo function showing supervisor agent capabilities"""
+    logger.info("Starting Supervisor Agent Demo")
     print("\n" + "="*70)
     print("🤖 SUPERVISOR AGENT DEMO")
     print("="*70)
@@ -424,9 +433,11 @@ def demo():
     elif choice == '4':
         query = input("Enter your query: ").strip()
     else:
+        logger.warning("Invalid choice in demo")
         print("Invalid choice")
         return
     
+    logger.info(f"Demo query: {query}")
     print(f"\n📝 Query: {query}")
     print("-" * 70)
     
@@ -434,20 +445,24 @@ def demo():
     result = run_supervisor_query(query, max_iterations=5, verbose=True)
     
     # Display results
+    logger.info("Displaying demo results")
     print("\n" + "="*70)
     print("📊 RESULTS")
     print("="*70)
     
     if result['success']:
+        logger.info(f"Demo successful - Queries executed: {result['queries_executed']}")
         print(f"\n✅ Answer:\n{result['answer']}")
         print(f"\n📈 Statistics:")
         print(f"  - Queries executed: {result['queries_executed']}")
     else:
+        logger.error("Demo failed to generate answer")
         print(f"\n❌ Failed to generate answer")
     
     # Show executed queries if verbose
     show_details = input("\n🔍 Show query details? (y/n): ").strip().lower()
     if show_details == 'y':
+        logger.debug("Showing query history details")
         print("\nQuery History:")
         for i, eq in enumerate(result['query_history'], 1):
             status = "✓" if eq.get('success', False) else "✗"

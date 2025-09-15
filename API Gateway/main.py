@@ -8,10 +8,14 @@ from contextlib import asynccontextmanager
 from app.config import settings
 from app.routers import auth, api
 from app.database.connection import engine, Base
+from chat_handler import ChatHandler
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+# Initialize chat handler
+chat_handler = ChatHandler()
 
 
 @asynccontextmanager
@@ -22,13 +26,26 @@ async def lifespan(app: FastAPI):
         # Create database tables
         Base.metadata.create_all(bind=engine)
         logger.info("Database tables created successfully")
+        
+        # Initialize chat handler (Kafka and Redis connections)
+        await chat_handler.startup()
+        
+        # Set chat handler in API router
+        api.set_chat_handler(chat_handler)
+        
+        logger.info("Chat handler initialized successfully")
     except Exception as e:
-        logger.error(f"Failed to create database tables: {e}")
+        logger.error(f"Failed to initialize services: {e}")
     
     yield
     
     # Shutdown
     logger.info("Shutting down API Gateway...")
+    try:
+        await chat_handler.shutdown()
+        logger.info("Chat handler shut down successfully")
+    except Exception as e:
+        logger.error(f"Error during shutdown: {e}")
 
 
 app = FastAPI(
