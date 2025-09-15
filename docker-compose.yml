@@ -132,6 +132,16 @@ services:
       KAFKA_COMPRESSION_TYPE: "gzip"
     volumes:
       - kafka_data:/var/lib/kafka/data
+    command: >
+      bash -c "
+        /etc/confluent/docker/run &
+        echo 'Waiting for Kafka to start...'
+        sleep 30
+        kafka-topics --create --topic chat.requests --bootstrap-server localhost:29092 --partitions 3 --replication-factor 1 --if-not-exists
+        kafka-topics --create --topic chat.responses --bootstrap-server localhost:29092 --partitions 3 --replication-factor 1 --if-not-exists
+        echo 'Kafka topics created successfully'
+        wait
+      "
     networks:
       - cse-explorer-network
     healthcheck:
