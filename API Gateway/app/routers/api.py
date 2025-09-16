@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from typing import Optional
-from app.schemas.api import QueryResponse, HealthResponse
+from app.schemas.api import QueryResponse, HealthResponse, ChatRequestResponse, ChatPollResponse, ChatStatusResponse
 from app.auth.dependencies import get_current_active_user
 from app.models.user import User
 from app.config import settings
-from datetime import datetime
+from datetime import datetime, timezone
 import uuid
 
 router = APIRouter(prefix="/api", tags=["api"])
@@ -19,16 +19,10 @@ def set_chat_handler(handler):
     chat_handler = handler
 
 
-# Request/Response schemas for chat endpoint
+# Request schema for chat endpoint
 class ChatRequest(BaseModel):
     message: str
     thread_id: Optional[str] = None
-
-class ChatResponse(BaseModel):
-    thread_id: str
-    response: str
-    timestamp: str
-    processing_time_ms: Optional[int] = None
 
 
 @router.get("/query", response_model=QueryResponse)
@@ -41,7 +35,7 @@ def dummy_query(current_user: User = Depends(get_current_active_user)):
         message="Hello from CSE Explorer API Gateway! This is a dummy response.",
         data={
             "user": current_user.username,
-            "timestamp": datetime.utcnow().isoformat(),
+            "timestamp": datetime.now(timezone.utc).isoformat(),
             "services_available": [
                 "Natural Language Agent",
                 "RAG Service", 
@@ -54,13 +48,13 @@ def dummy_query(current_user: User = Depends(get_current_active_user)):
     )
 
 
-@router.post("/chat", response_model=ChatResponse)
+@router.post("/chat", response_model=ChatRequestResponse)
 async def chat_endpoint(
     request: ChatRequest,
     current_user: User = Depends(get_current_active_user)
 ):
     """
-    Send a chat message via Kafka and receive response via Redis.
+    Send a chat message via Kafka and return immediately with correlation_id.
     This endpoint is protected and requires authentication.
     """
     if not chat_handler:
@@ -75,25 +69,111 @@ async def chat_endpoint(
         thread_id = f"thread_{uuid.uuid4().hex[:8]}"
     
     try:
-        # Send request via Kafka and wait for response via Redis
-        result = await chat_handler.send_chat_request(
+        # Send request via Kafka and return correlation_id immediately
+        correlation_id = await chat_handler.send_chat_request_async(
             thread_id=thread_id,
             user_id=str(current_user.id),
-            message=request.message,
-            timeout=300.0  # 5 minutes to accommodate complex Neo4j queries
+            message=request.message
         )
         
-        return ChatResponse(**result)
+        timestamp = datetime.now(timezone.utc).isoformat()
         
-    except TimeoutError:
-        raise HTTPException(
-            status_code=504,
-            detail="Request timeout - Natural Language Agent did not respond in time"
+        return ChatRequestResponse(
+            correlation_id=correlation_id,
+            thread_id=thread_id,
+            status="processing",
+            message="Your request is being processed",
+            poll_url=f"/api/chat/poll/{correlation_id}",
+            timestamp=timestamp
         )
+        
     except Exception as e:
         raise HTTPException(
             status_code=500,
             detail=f"Error processing chat request: {str(e)}"
+        )
+
+
+@router.get("/chat/poll/{correlation_id}", response_model=ChatPollResponse)
+async def poll_chat_response(
+    correlation_id: str,
+    current_user: User = Depends(get_current_active_user)
+):
+    """
+    Poll for a chat response using correlation_id.
+    Returns the response if ready, or processing status if still processing.
+    This endpoint is protected and requires authentication.
+    """
+    if not chat_handler:
+        raise HTTPException(
+            status_code=503,
+            detail="Chat service not initialized"
+        )
+    
+    try:
+        response_data = await chat_handler.get_response(correlation_id)
+        
+        if not response_data:
+            raise HTTPException(
+                status_code=404,
+                detail=f"Request {correlation_id} not found or expired"
+            )
+        
+        return ChatPollResponse(
+            correlation_id=correlation_id,
+            thread_id=response_data.get('thread_id', ''),
+            status=response_data.get('status', 'processing'),
+            response=response_data.get('response'),
+            timestamp=response_data.get('timestamp', datetime.now(timezone.utc).isoformat()),
+            processing_time_ms=response_data.get('processing_time_ms')
+        )
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error polling chat response: {str(e)}"
+        )
+
+
+@router.get("/chat/status/{correlation_id}", response_model=ChatStatusResponse)
+async def get_chat_status(
+    correlation_id: str,
+    current_user: User = Depends(get_current_active_user)
+):
+    """
+    Get simple status of a chat request.
+    This endpoint is protected and requires authentication.
+    """
+    if not chat_handler:
+        raise HTTPException(
+            status_code=503,
+            detail="Chat service not initialized"
+        )
+    
+    try:
+        status_data = await chat_handler.get_request_status(correlation_id)
+        
+        if not status_data:
+            raise HTTPException(
+                status_code=404,
+                detail=f"Request {correlation_id} not found or expired"
+            )
+        
+        return ChatStatusResponse(
+            correlation_id=correlation_id,
+            status=status_data.get('status', 'unknown'),
+            thread_id=status_data.get('thread_id', ''),
+            timestamp=status_data.get('timestamp', datetime.now(timezone.utc).isoformat())
+        )
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error getting chat status: {str(e)}"
         )
 
 
@@ -113,7 +193,7 @@ async def health_check():
     
     return HealthResponse(
         status="healthy" if messaging_health.get('overall') == 'healthy' else "degraded",
-        timestamp=datetime.utcnow().isoformat(),
+        timestamp=datetime.now(timezone.utc).isoformat(),
         version="1.0.0",
         services={
             "database": "connected" if not settings.development_mode else "development_mode",

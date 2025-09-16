@@ -44,16 +44,24 @@ class AgentState(TypedDict):
 # REDIS HELPER FUNCTIONS
 # =====================================================================================
 
-def load_transcript_from_redis(redis_client: redis.Redis, thread_id: str) -> str:
+async def load_transcript_from_redis(redis_client, thread_id: str) -> str:
     """
     Load conversation history from Redis and format as transcript
+    Handles both sync and async Redis clients
     
     Returns:
         Formatted transcript as "Human: message\nAgent: response\n..."
     """
     try:
         thread_key = f"chat:{thread_id}:messages"
-        messages_json = redis_client.lrange(thread_key, 0, -1)
+        
+        # Check if it's an async client by checking for the method
+        if hasattr(redis_client, '__aenter__'):
+            # Async Redis client
+            messages_json = await redis_client.lrange(thread_key, 0, -1)
+        else:
+            # Sync Redis client
+            messages_json = redis_client.lrange(thread_key, 0, -1)
         
         if not messages_json:
             return ""
@@ -315,7 +323,7 @@ async def execute_agent_query(
         # Load existing transcript from Redis
         transcript = ""
         if redis_client:
-            transcript = load_transcript_from_redis(redis_client, thread_id)
+            transcript = await load_transcript_from_redis(redis_client, thread_id)
             logger.info(f"Loaded transcript for thread {thread_id}")
         else:
             logger.info("No Redis client provided, starting with empty transcript")

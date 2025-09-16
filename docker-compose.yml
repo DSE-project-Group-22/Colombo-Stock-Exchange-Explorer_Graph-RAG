@@ -189,8 +189,10 @@ services:
     depends_on:
       # - graph-db  # Commented out for now
       # - rag-service
-      - redis
-      - kafka
+      redis:
+        condition: service_started
+      kafka:
+        condition: service_healthy
     environment:
       - NEO4J_URI=bolt://host.docker.internal:7687  # Connect to Neo4j on host machine
       - NEO4J_USER=neo4j
