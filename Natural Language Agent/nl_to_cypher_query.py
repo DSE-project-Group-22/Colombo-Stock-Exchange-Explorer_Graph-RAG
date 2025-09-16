@@ -5,12 +5,20 @@ Converts natural language queries to Cypher and executes them on Neo4j database.
 """
 import os
 import sys
+import logging
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from typing import Dict, Any
 from langchain_neo4j import Neo4jGraph, GraphCypherQAChain
 from langchain_openai import ChatOpenAI
 from config import Settings
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
 # Initialize settings
 settings = Settings()
@@ -47,11 +55,11 @@ def initialize_graph_qa_chain() -> GraphCypherQAChain:
             return_intermediate_steps=True  # Enable intermediate steps for debugging
         )
         
-        print("✅ Successfully initialized GraphCypherQAChain")
+        logger.info("Successfully initialized GraphCypherQAChain")
         return chain
         
     except Exception as e:
-        print(f"❌ Error initializing GraphCypherQAChain: {e}")
+        logger.error(f"Error initializing GraphCypherQAChain: {e}")
         raise
 
 def query_graph_with_natural_language(question: str, chain: GraphCypherQAChain = None) -> Dict[str, Any]:
@@ -70,27 +78,26 @@ def query_graph_with_natural_language(question: str, chain: GraphCypherQAChain =
         if chain is None:
             chain = initialize_graph_qa_chain()
         
-        print(f"🔍 Processing question: {question}")
+        logger.info(f"Processing question: {question}")
         
         # Execute the query
         result = chain.invoke({"query": question})
         
-        # Print the entire result object
-        print(f"\n📋 COMPLETE RESULT OBJECT:")
-        print(f"Type: {type(result)}")
-        print(f"Keys: {list(result.keys()) if isinstance(result, dict) else 'Not a dict'}")
-        print(f"\n� All Key-Value Pairs:")
+        # Log the entire result object
+        logger.debug("COMPLETE RESULT OBJECT:")
+        logger.debug(f"Type: {type(result)}")
+        logger.debug(f"Keys: {list(result.keys()) if isinstance(result, dict) else 'Not a dict'}")
+        logger.debug("All Key-Value Pairs:")
         for key, value in result.items():
-            print(f"  🔑 {key}: {type(value).__name__}")
-            print(f"     Value: {value}")
-            print()
+            logger.debug(f"  {key}: {type(value).__name__}")
+            logger.debug(f"     Value: {value}")
         
-        print(f"✅ Query executed successfully")
+        logger.info("Query executed successfully")
         
         return result
         
     except Exception as e:
-        print(f"❌ Error processing question: {e}")
+        logger.error(f"Error processing question: {e}")
         return {
             "query": question,
             "result": f"Error: {str(e)}",
@@ -145,7 +152,7 @@ def extract_query_details(result: Dict[str, Any]) -> Dict[str, Any]:
                         extracted["raw_results"] = step["context"]
                         
         except Exception as e:
-            print(f"⚠️  Could not parse intermediate steps: {e}")
+            logger.warning(f"Could not parse intermediate steps: {e}")
     
     return extracted
 
@@ -164,6 +171,7 @@ def interactive_query_terminal():
         # Initialize the chain once at startup
         print("🔄 Initializing Graph Query Chain...")
         chain = initialize_graph_qa_chain()
+        logger.info("Graph Query Chain initialized successfully")
         print("✅ Ready to answer your questions!\n")
         
         while True:
@@ -186,6 +194,7 @@ def interactive_query_terminal():
                     print("❓ Please enter a question.")
                     continue
                 
+                logger.info(f"Processing interactive query: {question}")
                 print(f"\n🔍 Processing: {question}")
                 print("-" * 40)
                 
@@ -213,10 +222,11 @@ def interactive_query_terminal():
                 print("\n👋 Goodbye!")
                 break
             except Exception as e:
-                print(f"❌ Error processing question: {e}")
-                print("Please try again with a different question.\n")
+                logger.error(f"Error processing question: {e}")
+                print("❌ Error occurred. Please try again with a different question.\n")
                 
     except Exception as e:
+        logger.error(f"Failed to initialize: {e}")
         print(f"❌ Failed to initialize: {e}")
         print("💡 Make sure:")
         print("   1. Neo4j is running")
@@ -225,6 +235,7 @@ def interactive_query_terminal():
 
 def print_help_examples():
     """Print example questions users can ask."""
+    # Keep prints for user interface in interactive mode
     print("\n💡 Example Questions You Can Ask:")
     print("   • How many companies are in the database?")
     print("   • Show me 3 companies from the database")
@@ -243,6 +254,7 @@ def demo_mode():
     """
     Demo function to test predefined questions (original functionality).
     """
+    logger.info("Starting Natural Language to Cypher Query Demo")
     print("🚀 Natural Language to Cypher Query Demo (Predefined Questions)")
     print("=" * 65)
     
@@ -258,6 +270,7 @@ def demo_mode():
         
         # Test each question and show detailed analysis
         for question in test_questions:
+            logger.info(f"Demo testing question: {question}")
             print(f"\n📝 Question: {question}")
             print("-" * 50)
             
@@ -267,6 +280,8 @@ def demo_mode():
             # Extract and analyze the components
             details = extract_query_details(result)
             
+            # Log summary for debugging
+            logger.debug(f"Query Summary - Question: {details['original_question']}, Answer: {details['final_answer']}, Steps: {len(details['intermediate_steps'])}")
             print(f"\n📊 Summary:")
             print(f"   Original Question: {details['original_question']}")
             print(f"   Final Answer: {details['final_answer']}")
@@ -276,6 +291,7 @@ def demo_mode():
             print("=" * 65)
             
     except Exception as e:
+        logger.error(f"Demo failed: {e}")
         print(f"❌ Demo failed: {e}")
         print("💡 Make sure:")
         print("   1. Neo4j is running")

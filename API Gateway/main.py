@@ -4,14 +4,21 @@ from fastapi.responses import JSONResponse
 import uvicorn
 import logging
 from contextlib import asynccontextmanager
+from datetime import datetime, timezone
 
 from app.config import settings
 from app.routers import auth, api
 from app.database.connection import engine, Base
+from chat_handler import ChatHandler
+from response_subscriber import ResponseSubscriber
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+# Initialize chat handler and response subscriber
+chat_handler = ChatHandler()
+response_subscriber = ResponseSubscriber()
 
 
 @asynccontextmanager
@@ -22,13 +29,37 @@ async def lifespan(app: FastAPI):
         # Create database tables
         Base.metadata.create_all(bind=engine)
         logger.info("Database tables created successfully")
+        
+        # Initialize chat handler (Kafka and Redis connections)
+        await chat_handler.startup()
+        logger.info("Chat handler initialized successfully")
+        
+        # Initialize response subscriber
+        await response_subscriber.startup()
+        await response_subscriber.start_subscribing()
+        logger.info("Response subscriber initialized and started")
+        
+        # Set chat handler in API router
+        api.set_chat_handler(chat_handler)
+        
+        logger.info("All services initialized successfully")
     except Exception as e:
-        logger.error(f"Failed to create database tables: {e}")
+        logger.error(f"Failed to initialize services: {e}")
     
     yield
     
     # Shutdown
     logger.info("Shutting down API Gateway...")
+    try:
+        # Shutdown response subscriber first
+        await response_subscriber.shutdown()
+        logger.info("Response subscriber shut down successfully")
+        
+        # Shutdown chat handler
+        await chat_handler.shutdown()
+        logger.info("Chat handler shut down successfully")
+    except Exception as e:
+        logger.error(f"Error during shutdown: {e}")
 
 
 app = FastAPI(
@@ -77,6 +108,27 @@ async def general_exception_handler(request: Request, exc: Exception):
 # Include routers
 app.include_router(auth.router)
 app.include_router(api.router)
+
+
+# Add endpoint for response subscriber health
+@app.get("/internal/subscriber/health")
+async def subscriber_health():
+    """Internal health check for response subscriber"""
+    try:
+        health = await response_subscriber.health_check()
+        stats = await response_subscriber.get_stats()
+        return {
+            "subscriber_health": health,
+            "subscriber_stats": stats,
+            "timestamp": datetime.now(timezone.utc).isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Error checking subscriber health: {e}")
+        return {
+            "error": str(e),
+            "subscriber_health": {"subscriber": "error"},
+            "subscriber_stats": {}
+        }
 
 
 @app.get("/")

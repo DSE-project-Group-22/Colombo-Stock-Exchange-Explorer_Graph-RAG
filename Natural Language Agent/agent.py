@@ -44,16 +44,24 @@ class AgentState(TypedDict):
 # REDIS HELPER FUNCTIONS
 # =====================================================================================
 
-def load_transcript_from_redis(redis_client: redis.Redis, thread_id: str) -> str:
+async def load_transcript_from_redis(redis_client, thread_id: str) -> str:
     """
     Load conversation history from Redis and format as transcript
+    Handles both sync and async Redis clients
     
     Returns:
         Formatted transcript as "Human: message\nAgent: response\n..."
     """
     try:
         thread_key = f"chat:{thread_id}:messages"
-        messages_json = redis_client.lrange(thread_key, 0, -1)
+        
+        # Check if it's an async client by checking for the method
+        if hasattr(redis_client, '__aenter__'):
+            # Async Redis client
+            messages_json = await redis_client.lrange(thread_key, 0, -1)
+        else:
+            # Sync Redis client
+            messages_json = redis_client.lrange(thread_key, 0, -1)
         
         if not messages_json:
             return ""
@@ -111,7 +119,6 @@ def query_graph_database(query: str) -> str:
         
         # Convert any Neo4j Date objects to strings by serializing and deserializing through JSON
         # This handles Date objects at any nesting level
-        import json
         result = json.loads(json.dumps(result, default=str))
         
         # Extract the answer
@@ -265,9 +272,9 @@ async def run_agent_with_transcript(conversation_transcript: str) -> str:
         # Run the graph
         result = await graph.ainvoke(initial_state, config)
 
-        print("\n" + "="*30 + " DEBUG: FULL GRAPH STATE " + "="*30)
-        print(result)
-        print("="*80 + "\n")
+        logger.debug("="*30 + " DEBUG: FULL GRAPH STATE " + "="*30)
+        logger.debug(f"Graph result: {result}")
+        logger.debug("="*80)
         # Extract final AI message (last AIMessage without tool calls)
         final_message = None
         for message in reversed(result["messages"]):
@@ -316,7 +323,7 @@ async def execute_agent_query(
         # Load existing transcript from Redis
         transcript = ""
         if redis_client:
-            transcript = load_transcript_from_redis(redis_client, thread_id)
+            transcript = await load_transcript_from_redis(redis_client, thread_id)
             logger.info(f"Loaded transcript for thread {thread_id}")
         else:
             logger.info("No Redis client provided, starting with empty transcript")
@@ -375,9 +382,9 @@ def execute_agent_query_sync(
 # =====================================================================================
 
 if __name__ == "__main__":
-    print("="*70)
-    print("LANGGRAPH AGENT TEST")
-    print("="*70)
+    logger.info("="*70)
+    logger.info("LANGGRAPH AGENT TEST")
+    logger.info("="*70)
     
     # Test configuration
     test_thread_id = "test_agent_001"
@@ -389,13 +396,13 @@ if __name__ == "__main__":
         "What sector is it in?"
     ]
     
-    print("\nTesting without Redis (pure agent)...")
-    print("-"*50)
+    logger.info("Testing without Redis (pure agent)...")
+    logger.info("-"*50)
     
     # Test first query
     response = execute_agent_query_sync(test_thread_id, test_queries[0])
-    print(f"\nQuery: {test_queries[0]}")
-    print(f"Response: {response}\n")
+    logger.info(f"Query: {test_queries[0]}")
+    logger.info(f"Response: {response}")
     
     # Test with Redis if available
     try:
@@ -403,8 +410,8 @@ if __name__ == "__main__":
         redis_client = redis.Redis(**redis_params)
         redis_client.ping()
         
-        print("\nTesting with Redis integration...")
-        print("-"*50)
+        logger.info("Testing with Redis integration...")
+        logger.info("-"*50)
         
         # Clear any existing test thread
         redis_client.delete(f"chat:{test_thread_id}:messages")
@@ -412,7 +419,7 @@ if __name__ == "__main__":
         
         # Simulate conversation
         for i, query in enumerate(test_queries):
-            print(f"\nQuery {i+1}: {query}")
+            logger.info(f"Query {i+1}: {query}")
             
             # For testing, manually save user message to Redis
             from server import ChatMessage, MessageRole
@@ -426,7 +433,7 @@ if __name__ == "__main__":
             
             # Execute agent
             response = execute_agent_query_sync(test_thread_id, query, redis_client)
-            print(f"Response: {response[:200]}...")
+            logger.info(f"Response: {response[:200]}...")
             
             # Save agent response for next iteration
             agent_msg = ChatMessage(
@@ -436,9 +443,9 @@ if __name__ == "__main__":
             )
             redis_client.rpush(thread_key, json.dumps(agent_msg.model_dump(mode='json'), default=str))
         
-        print("\n" + "="*70)
-        print("Test completed successfully!")
+        logger.info("="*70)
+        logger.info("Test completed successfully!")
         
     except Exception as e:
-        print(f"\nRedis test skipped: {e}")
-        print("Test completed with pure agent only.")
+        logger.warning(f"Redis test skipped: {e}")
+        logger.info("Test completed with pure agent only.")

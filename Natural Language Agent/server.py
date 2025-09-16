@@ -1,13 +1,12 @@
 """
-Simplified Natural Language Agent FastAPI Service with Redis Chat Support
-Provides chat endpoints with conversation history management
+Simplified Natural Language Agent FastAPI Service with Redis Chat Support and Kafka Integration
+Provides chat endpoints with conversation history management and Kafka message processing
 """
 import json
 import logging
-import uuid
+import asyncio
 from datetime import datetime, timezone
 from typing import Dict, Any, Optional, List
-from enum import Enum
 from contextlib import asynccontextmanager
 
 import redis
@@ -19,6 +18,12 @@ import uvicorn
 from config import settings, get_redis_connection_params
 from agent import execute_agent_query
 
+# Import shared models
+from models import ChatMessage, MessageRole, MessageMetadata
+
+# Import Kafka processing
+from message_processor import MessageProcessor
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -26,34 +31,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Global Redis client
+# Global Redis client and Kafka processor
 redis_client: Optional[redis.Redis] = None
-
-
-# Pydantic Models
-class MessageRole(str, Enum):
-    """Message sender role"""
-    USER = "user"
-    AGENT = "agent"
-
-
-class MessageMetadata(BaseModel):
-    """Optional metadata for messages"""
-    user_id: Optional[str] = None
-    agent_type: Optional[str] = None
-    model: Optional[str] = None
-    tokens_used: Optional[int] = None
-    processing_time: Optional[float] = None
-
-
-class ChatMessage(BaseModel):
-    """Complete message structure"""
-    id: str = Field(default_factory=lambda: f"msg_{uuid.uuid4().hex[:12]}")
-    thread_id: str
-    role: MessageRole
-    content: str
-    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
-    metadata: Optional[MessageMetadata] = None
+kafka_processor: Optional[MessageProcessor] = None
+kafka_task: Optional[asyncio.Task] = None
 
 
 class ChatRequest(BaseModel):
@@ -92,10 +73,10 @@ class ChatHistoryResponse(BaseModel):
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Lifespan event handler for FastAPI application"""
-    global redis_client
+    global redis_client, kafka_processor, kafka_task
     
     # Startup
-    logger.info("Starting simplified Natural Language Agent service...")
+    logger.info("Starting Natural Language Agent service with Kafka...")
     try:
         # Initialize Redis connection
         redis_params = get_redis_connection_params()
@@ -111,10 +92,36 @@ async def lifespan(app: FastAPI):
     except Exception as e:
         logger.error(f"Unexpected error during startup: {e}")
     
+    # Start Kafka consumer in background
+    try:
+        kafka_processor = MessageProcessor()
+        await kafka_processor.startup()
+        
+        # Create background task for Kafka processing
+        kafka_task = asyncio.create_task(kafka_processor.process_messages())
+        logger.info("Kafka consumer started in background")
+        
+    except Exception as e:
+        logger.error(f"Failed to start Kafka consumer: {e}")
+        logger.warning("Service will run without Kafka support")
+    
     yield
     
     # Shutdown
     logger.info("Shutting down Natural Language Agent service...")
+    
+    # Stop Kafka consumer
+    if kafka_task and not kafka_task.done():
+        kafka_task.cancel()
+        try:
+            await kafka_task
+        except asyncio.CancelledError:
+            pass
+    
+    if kafka_processor:
+        await kafka_processor.shutdown()
+        logger.info("Kafka consumer stopped")
+    
     if redis_client:
         redis_client.close()
         logger.info("Redis connection closed")
