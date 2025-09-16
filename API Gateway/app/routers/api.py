@@ -80,7 +80,7 @@ async def chat_endpoint(
             thread_id=thread_id,
             user_id=str(current_user.id),
             message=request.message,
-            timeout=30.0
+            timeout=300.0  # 5 minutes to accommodate complex Neo4j queries
         )
         
         return ChatResponse(**result)

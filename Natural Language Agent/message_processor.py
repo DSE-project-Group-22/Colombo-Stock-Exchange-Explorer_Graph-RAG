@@ -8,6 +8,7 @@ import json
 import logging
 from datetime import datetime, timezone
 from typing import Optional
+import redis.asyncio as async_redis
 
 # Add utils path for container environment
 sys.path.insert(0, '/utils')
@@ -21,8 +22,8 @@ from agent import execute_agent_query
 # Import shared models
 from models import ChatMessage, MessageRole, MessageMetadata
 
-# We need to import server for the store_message function and redis_client
-import server
+# Import config for Redis settings
+from config import settings
 
 logger = logging.getLogger(__name__)
 
@@ -50,6 +51,51 @@ class MessageProcessor:
         
         self.is_running = False
     
+    async def store_message(self, message: ChatMessage) -> bool:
+        """Store a message in Redis (async version)"""
+        redis_client = self.redis.get_client()
+        
+        if not redis_client:
+            logger.warning("Redis not available, message not stored")
+            return False
+        
+        try:
+            # Store message in thread list
+            thread_key = f"chat:{message.thread_id}:messages"
+            message_json = json.dumps(message.model_dump(mode='json', exclude_none=True), default=str)
+            await redis_client.rpush(thread_key, message_json)
+            
+            # Update thread metadata
+            metadata_key = f"chat:{message.thread_id}:metadata"
+            timestamp_str = message.timestamp.isoformat()
+            
+            # Use pipeline for atomic operations
+            pipe = redis_client.pipeline()
+            pipe.hset(metadata_key, mapping={
+                "last_activity": timestamp_str,
+                "status": "active"
+            })
+            pipe.hincrby(metadata_key, "message_count", 1)
+            
+            # Set TTL on both keys
+            ttl_seconds = settings.redis_ttl_hours * 3600
+            pipe.expire(thread_key, ttl_seconds)
+            pipe.expire(metadata_key, ttl_seconds)
+            
+            # Execute pipeline
+            await pipe.execute()
+            
+            # Set created_at if this is the first message
+            exists = await redis_client.hexists(metadata_key, "created_at")
+            if not exists:
+                await redis_client.hset(metadata_key, "created_at", timestamp_str)
+            
+            return True
+            
+        except Exception as e:
+            logger.error(f"Failed to store message: {e}")
+            return False
+    
     async def startup(self) -> None:
         """
         Initialize connections on service startup.
@@ -57,10 +103,6 @@ class MessageProcessor:
         try:
             await self.kafka.start()
             await self.redis.connect()
-            
-            # Set the global redis_client in server module for store_message to work
-            server.redis_client = self.redis.get_client()
-            
             logger.info("Message processor initialized successfully")
         except Exception as e:
             logger.error(f"Failed to initialize message processor: {e}")
@@ -107,7 +149,7 @@ class MessageProcessor:
                     content=user_message,
                     metadata=MessageMetadata(user_id=user_id) if user_id else None
                 )
-                server.store_message(user_msg)
+                await self.store_message(user_msg)
                 
                 # Calculate processing start time
                 start_time = datetime.utcnow()
@@ -135,7 +177,7 @@ class MessageProcessor:
                         processing_time=processing_time_ms / 1000.0  # Convert to seconds
                     )
                 )
-                server.store_message(agent_msg)
+                await self.store_message(agent_msg)
                 
                 # Create response payload
                 response = {

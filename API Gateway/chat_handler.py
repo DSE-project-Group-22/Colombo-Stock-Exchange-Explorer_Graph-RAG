@@ -65,7 +65,7 @@ class ChatHandler:
         thread_id: str,
         user_id: str,
         message: str,
-        timeout: float = 30.0
+        timeout: float = 300.0  # Increased to 5 minutes for complex Neo4j queries
     ) -> Dict[str, Any]:
         """
         Send a chat request via Kafka and wait for response on Redis.
