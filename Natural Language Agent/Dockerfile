@@ -16,4 +16,4 @@ COPY . .
 EXPOSE 8001
 
 # Start the application
-CMD ["python", "agent.py"]
+CMD ["python", "server.py"]

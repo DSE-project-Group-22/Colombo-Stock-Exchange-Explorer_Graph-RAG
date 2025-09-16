@@ -196,7 +196,7 @@ def _identify_information_gaps(query: str, schema: str, state: AdaptiveQueryStat
     """
     
     prompt = f"""
-    Analyze what specific information needs to be gathered from the graph database to answer this query.
+    Analyze what information needs to be gathered from the graph database to answer this query.
     
     GRAPH SCHEMA:
     {schema}
@@ -204,20 +204,32 @@ def _identify_information_gaps(query: str, schema: str, state: AdaptiveQueryStat
     USER QUERY:
     "{query}"
     
-    Based on the schema, identify the SPECIFIC gaps in information needed. For each gap:
-    1. Identify the type (e.g., "nodes_Company", "relationship_OWNS", "metric_revenue")
-    2. Describe what specific data is needed
-    3. Assign priority (1=critical, 2=important, 3=nice-to-have)
-    4. Suggest a query that could fill this gap
+    CRITICAL INSTRUCTIONS:
+    1. Return gaps in the EXACT ORDER they should be executed
+    2. Earlier gaps are prerequisites for later ones
+    3. If gap[0] cannot be filled, the query likely cannot be answered
+    4. Each gap's suggested_query MUST be a NATURAL LANGUAGE question, NOT Cypher
     
-    Examples of gap types based on the schema:
-    - "nodes_Company" - need to find Company nodes
-    - "relationship_OWNS" - need ownership relationships
-    - "metric_market_cap" - need market capitalization metrics
-    - "property_founded_on" - need founding dates
-    - "relationship_DIRECTOR_OF" - need director relationships
+    Example ordering:
+    Gap 0: Check if entity exists 
+        - suggested_query: "Does John Keells Holdings exist in the database?"
+    Gap 1: Get entity details
+        - suggested_query: "What is the ID and basic information about John Keells Holdings?"
+    Gap 2: Get relationships
+        - suggested_query: "What companies does John Keells Holdings own?"
+    Gap 3: Get relationship properties
+        - suggested_query: "What are the ownership percentages for each company owned by John Keells Holdings?"
     
-    Be specific and actionable. Each gap should map to something queryable in the schema.
+    For each gap provide:
+    - gap_type: A short identifier (e.g., "entity_exists", "get_relationships", "get_properties")
+    - description: What information is needed and why
+    - suggested_query: A NATURAL LANGUAGE question (NOT Cypher!) to get this information
+    
+    Later gaps can reference earlier discoveries:
+    - "Using the company ID from the first query..."
+    - "For each of the companies found earlier..."
+    
+    Return gaps in execution order - most fundamental first, dependent queries later.
     """
     
     structured_llm = llm.with_structured_output(IdentifiedGaps)
@@ -228,12 +240,12 @@ def _identify_information_gaps(query: str, schema: str, state: AdaptiveQueryStat
             {"role": "user", "content": prompt}
         ])
         
-        print(f"   📍 Identified {len(result.gaps)} information gaps")
+        print(f"   📍 Identified {len(result.gaps)} information gaps (in execution order)")
         print(f"      Reasoning: {result.reasoning}")
         
-        # Log the gaps for debugging
-        for gap in result.gaps[:3]:  # Show first 3
-            print(f"      - {gap.description} (priority: {gap.priority})")
+        # Log all gaps in order
+        for i, gap in enumerate(result.gaps):
+            print(f"      Gap {i}: {gap.description}")
         
         return result.gaps
         
@@ -259,18 +271,39 @@ def _plan_adaptive_query(state: AdaptiveQueryState, llm: ChatOpenAI) -> Optional
     gaps_summary = _summarize_gaps(state.identified_gaps)
     queries_summary = _summarize_queries(state.completed_queries)
     
-    # Check if we have gaps with suggested queries
-    if state.identified_gaps and state.get_highest_priority_gap():
-        gap = state.get_highest_priority_gap()
-        if gap and gap.suggested_query:
-            # Use the suggested query from the gap
-            print(f"   Using suggested query from gap: {gap.gap_type}")
-            return NextQueryPlan(
-                query_text=gap.suggested_query,
-                reasoning=f"Filling gap: {gap.description}",
-                expected_facts=[gap.gap_type],
-                priority=gap.priority
-            )
+    # Get current gap based on index
+    gap = state.get_current_gap()
+    
+    if not gap:
+        # Check if we have unfulfilled prerequisites
+        unfulfilled = state.has_unfulfilled_prerequisite_gaps()
+        if unfulfilled:
+            print(f"   ❌ Cannot continue - prerequisite gaps failed:")
+            for g in unfulfilled:
+                print(f"      - {g.description}")
+            return None
+        
+        # All gaps processed or none left
+        print("   All gaps processed or none remaining")
+        return None
+    
+    # Get context from previously fulfilled gaps
+    previous_context = state.get_fulfilled_gaps_context()
+    
+    print(f"   Working on gap {state.current_gap_index}: {gap.description}")
+    
+    # Use suggested query if it's natural language (not Cypher)
+    if gap.suggested_query and not gap.suggested_query.strip().upper().startswith(('MATCH', 'CREATE', 'MERGE', 'WITH')):
+        # If we have context from previous gaps, we might want to enhance the query
+        if previous_context and previous_context != "No previous gaps fulfilled yet":
+            print(f"   Context available: {previous_context[:100]}...")
+        
+        return NextQueryPlan(
+            query_text=gap.suggested_query,
+            reasoning=f"Gap {state.current_gap_index}: {gap.description}",
+            expected_facts=[gap.gap_type],
+            priority=1
+        )
     
     # Create dynamic prompt based on phase
     if state.current_phase == "exploring":
@@ -1030,3 +1063,52 @@ def _generate_disclaimer(state: AdaptiveQueryState) -> str:
 
 
 # All synthesis is now LLM-driven - no hardcoded templates!
+
+
+# =====================================================================================
+# MAIN TEST FUNCTION
+# =====================================================================================
+
+def main():
+    """
+    Simple test function to demonstrate the adaptive query system.
+    """
+    from adaptive_graph import process_adaptive_query
+    
+    # Test query
+    test_query = "What companies does John Keells Holdings own and what are the ownership percentages?"
+    
+    print("\n" + "="*70)
+    print("🧪 TESTING ADAPTIVE QUERY SYSTEM")
+    print("="*70)
+    print(f"Query: {test_query}")
+    print("="*70)
+    
+    # Process the query
+    result = process_adaptive_query(
+        query=test_query,
+        max_iterations=10,  # Safety limit
+        verbose=True  # Show progress
+    )
+    
+    # Display results
+    print("\n" + "="*70)
+    print("📋 FINAL RESULT")
+    print("="*70)
+    
+    if result["success"]:
+        print(f"\n✅ Answer:\n{result['answer']}")
+        print(f"\n📊 Statistics:")
+        print(f"  - Phase: {result.get('phase', 'unknown')}")
+        print(f"  - Iterations: {result['iterations']}")
+        print(f"  - Queries executed: {result['queries_executed']}")
+        print(f"  - Facts discovered: {result['facts_discovered']}")
+        print(f"  - Execution time: {result['execution_time']:.1f}s")
+    else:
+        print(f"\n❌ Failed: {result.get('error')}")
+    
+    print("\n" + "="*70)
+
+
+if __name__ == "__main__":
+    main()

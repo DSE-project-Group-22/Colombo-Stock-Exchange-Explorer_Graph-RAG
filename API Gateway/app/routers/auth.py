@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from fastapi.security import HTTPAuthenticationCredentials
+from fastapi.security import HTTPAuthorizationCredentials
 from sqlalchemy.orm import Session
 from datetime import timedelta
 from app.database.connection import get_db
@@ -103,7 +103,7 @@ def read_users_me(current_user: User = Depends(get_current_active_user)):
 
 @router.get("/validate")
 def validate_token(
-    credentials: HTTPAuthenticationCredentials = Depends(security),
+    credentials: HTTPAuthorizationCredentials = Depends(security),
     db: Session = Depends(get_db)
 ):
     if settings.development_mode:
