@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, List
 
 
 class QueryResponse(BaseModel):
@@ -42,3 +42,20 @@ class ChatStatusResponse(BaseModel):
     status: str
     thread_id: str
     timestamp: str
+
+
+class ThreadMessage(BaseModel):
+    """Individual message in a thread"""
+    role: str  # "user" or "agent"
+    content: str
+    timestamp: str
+    metadata: Optional[Dict[str, Any]] = None
+
+
+class ThreadMessagesResponse(BaseModel):
+    """Response containing all messages in a thread"""
+    thread_id: str
+    message_count: int
+    messages: List[ThreadMessage]
+    created_at: Optional[str] = None
+    last_activity: Optional[str] = None

@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from typing import Optional
-from app.schemas.api import QueryResponse, HealthResponse, ChatRequestResponse, ChatPollResponse, ChatStatusResponse
+from app.schemas.api import QueryResponse, HealthResponse, ChatRequestResponse, ChatPollResponse, ChatStatusResponse, ThreadMessagesResponse, ThreadMessage
 from app.auth.dependencies import get_current_active_user
 from app.models.user import User
 from app.config import settings
@@ -174,6 +174,57 @@ async def get_chat_status(
         raise HTTPException(
             status_code=500,
             detail=f"Error getting chat status: {str(e)}"
+        )
+
+
+@router.get("/chat/thread/{thread_id}", response_model=ThreadMessagesResponse)
+async def get_thread_messages(
+    thread_id: str,
+    current_user: User = Depends(get_current_active_user)
+):
+    """
+    Get all messages for a specific thread.
+    This endpoint is protected and requires authentication.
+    """
+    if not chat_handler:
+        raise HTTPException(
+            status_code=503,
+            detail="Chat service not initialized"
+        )
+    
+    try:
+        thread_data = await chat_handler.get_thread_messages(thread_id)
+        
+        if not thread_data:
+            raise HTTPException(
+                status_code=404,
+                detail=f"Thread {thread_id} not found or has no messages"
+            )
+        
+        # Convert to response format
+        messages = []
+        for msg in thread_data.get('messages', []):
+            messages.append(ThreadMessage(
+                role=msg.get('role', ''),
+                content=msg.get('content', ''),
+                timestamp=msg.get('timestamp', ''),
+                metadata=msg.get('metadata')
+            ))
+        
+        return ThreadMessagesResponse(
+            thread_id=thread_id,
+            message_count=thread_data.get('message_count', 0),
+            messages=messages,
+            created_at=thread_data.get('created_at'),
+            last_activity=thread_data.get('last_activity')
+        )
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error retrieving thread messages: {str(e)}"
         )
 
 

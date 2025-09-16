@@ -222,6 +222,51 @@ class ChatHandler:
             logger.error(f"Error getting request status: {e}")
             return None
     
+    async def get_thread_messages(self, thread_id: str) -> Optional[Dict[str, Any]]:
+        """
+        Retrieve all messages for a specific thread from Redis.
+        
+        Args:
+            thread_id: Thread identifier
+            
+        Returns:
+            Dictionary containing thread messages and metadata
+        """
+        try:
+            # Get messages
+            thread_key = f"chat:{thread_id}:messages"
+            messages_json = await self.redis.client.lrange(thread_key, 0, -1)
+            
+            if not messages_json:
+                return None
+            
+            # Parse messages
+            messages = []
+            for msg_json in messages_json:
+                try:
+                    msg_data = json.loads(msg_json)
+                    messages.append(msg_data)
+                except Exception as e:
+                    logger.warning(f"Failed to parse message: {e}")
+                    continue
+            
+            # Get thread metadata
+            metadata_key = f"chat:{thread_id}:metadata"
+            metadata = await self.redis.client.hgetall(metadata_key)
+            
+            return {
+                'thread_id': thread_id,
+                'messages': messages,
+                'message_count': len(messages),
+                'created_at': metadata.get('created_at'),
+                'last_activity': metadata.get('last_activity'),
+                'status': metadata.get('status', 'active')
+            }
+            
+        except Exception as e:
+            logger.error(f"Error retrieving thread messages: {e}")
+            return None
+    
     async def health_check(self) -> Dict[str, Any]:
         """
         Check health of Kafka and Redis connections.
