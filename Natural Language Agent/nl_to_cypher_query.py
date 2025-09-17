@@ -104,7 +104,7 @@ def initialize_graph_qa_chain() -> GraphCypherQAChain:
 
 def query_graph_with_natural_language(question: str, chain: GraphCypherQAChain = None) -> Dict[str, Any]:
     """
-    Convert natural language question to Cypher query and execute it.
+    Convert natural language question to Cypher query and execute it (synchronous).
     
     Args:
         question (str): Natural language question
@@ -138,6 +138,51 @@ def query_graph_with_natural_language(question: str, chain: GraphCypherQAChain =
         
     except Exception as e:
         logger.error(f"Error processing question: {e}")
+        return {
+            "query": question,
+            "result": f"Error: {str(e)}",
+            "error": True
+        }
+
+
+async def aquery_graph_with_natural_language(question: str, chain: GraphCypherQAChain = None) -> Dict[str, Any]:
+    """
+    Convert natural language question to Cypher query and execute it (asynchronous).
+    
+    This is the async version that uses ainvoke() to avoid blocking the event loop.
+    
+    Args:
+        question (str): Natural language question
+        chain (GraphCypherQAChain, optional): Pre-initialized chain. If None, will create new one.
+    
+    Returns:
+        Dict[str, Any]: Query result containing 'query', 'result', and 'intermediate_steps'
+    """
+    try:
+        # Use cached chain if none provided
+        if chain is None:
+            chain = get_cached_chain()  # Note: Chain creation is still sync
+        
+        logger.info(f"Processing question (async): {question}")
+        
+        # Execute the query asynchronously
+        result = await chain.ainvoke({"query": question})
+        
+        # Log the entire result object
+        logger.debug("COMPLETE RESULT OBJECT (async):")
+        logger.debug(f"Type: {type(result)}")
+        logger.debug(f"Keys: {list(result.keys()) if isinstance(result, dict) else 'Not a dict'}")
+        logger.debug("All Key-Value Pairs:")
+        for key, value in result.items():
+            logger.debug(f"  {key}: {type(value).__name__}")
+            logger.debug(f"     Value: {value}")
+        
+        logger.info("Query executed successfully (async)")
+        
+        return result
+        
+    except Exception as e:
+        logger.error(f"Error processing question (async): {e}")
         return {
             "query": question,
             "result": f"Error: {str(e)}",
