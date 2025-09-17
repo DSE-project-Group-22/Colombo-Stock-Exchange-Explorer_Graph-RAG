@@ -238,7 +238,7 @@ When providing final answer, synthesize ALL information from the query history i
 # EXECUTOR NODE
 # =====================================================================================
 
-def executor_node(state: SupervisorState) -> SupervisorState:
+async def executor_node(state: SupervisorState) -> SupervisorState:
     """
     Executor node that runs the current query using nl_to_cypher_query.
     Stores complete results with intermediate_steps in query_history.
@@ -252,9 +252,9 @@ def executor_node(state: SupervisorState) -> SupervisorState:
     logger.info(f"Executing: {state['current_query']}")
     
     try:
-        # Get cached chain and execute query
+        # Get cached chain and execute query asynchronously
         chain = get_cached_chain()
-        result = query_graph_with_natural_language(state['current_query'], chain)
+        result = await query_graph_with_natural_language(state['current_query'], chain)
         
         # Check if query was successful
         if not result.get("error"):
@@ -347,13 +347,13 @@ def build_supervisor_graph() -> StateGraph:
 # MAIN INTERFACE
 # =====================================================================================
 
-def run_supervisor_query(
+async def run_supervisor_query(
     user_query: str,
     max_iterations: int = 20,
     verbose: bool = True
 ) -> Dict[str, Any]:
     """
-    Run a query through the supervisor agent.
+    Run a query through the supervisor agent asynchronously.
     
     Args:
         user_query: The user's natural language question
@@ -374,7 +374,7 @@ def run_supervisor_query(
     try:
         # Build graph
         graph = build_supervisor_graph()
-        app = graph.compile()
+        app = graph.compile()  # Compilation stays the same for async nodes
         
         # Initialize state
         initial_state = {
@@ -387,8 +387,8 @@ def run_supervisor_query(
             'max_iterations': max_iterations
         }
         
-        # Run the graph
-        result = app.invoke(initial_state)
+        # Run the graph asynchronously
+        result = await app.ainvoke(initial_state)
         
         # Extract results
         return {
@@ -407,7 +407,7 @@ def run_supervisor_query(
 # TEST AND DEMO
 # =====================================================================================
 
-def demo():
+async def demo():
     """Demo function showing supervisor agent capabilities"""
     logger.info("Starting Supervisor Agent Demo")
     print("\n" + "="*70)
@@ -442,7 +442,7 @@ def demo():
     print("-" * 70)
     
     # Run query
-    result = run_supervisor_query(query, max_iterations=5, verbose=True)
+    result = await run_supervisor_query(query, max_iterations=5, verbose=True)
     
     # Display results
     logger.info("Displaying demo results")
@@ -473,4 +473,5 @@ def demo():
 
 
 if __name__ == "__main__":
-    demo()
+    import asyncio
+    asyncio.run(demo())
