@@ -96,7 +96,7 @@ async def load_transcript_from_redis(redis_client, thread_id: str) -> str:
 # =====================================================================================
 
 @tool
-def query_graph_database(query: str) -> str:
+async def query_graph_database(query: str) -> str:
     """
     Execute a natural language query against the graph database using the supervisor agent.
     This tool can answer questions about companies, financial metrics, relationships, and more.
@@ -110,8 +110,8 @@ def query_graph_database(query: str) -> str:
     try:
         logger.info(f"Executing graph query: {query}")
         
-        # Call the supervisor agent with hardcoded parameters
-        result = run_supervisor_query(
+        # Call the supervisor agent asynchronously with hardcoded parameters
+        result = await run_supervisor_query(
             user_query=query,
             max_iterations=25,  # Hardcoded
             verbose=True       # Hardcoded
@@ -349,39 +349,11 @@ async def execute_agent_query(
 
 
 # =====================================================================================
-# SYNCHRONOUS WRAPPER
-# =====================================================================================
-
-def execute_agent_query_sync(
-    thread_id: str,
-    user_message: str,
-    redis_client: Optional[redis.Redis] = None
-) -> str:
-    """
-    Synchronous wrapper for execute_agent_query
-    
-    Used when calling from synchronous code.
-    """
-    # Get or create event loop
-    try:
-        loop = asyncio.get_event_loop()
-        if loop.is_closed():
-            raise RuntimeError("Event loop is closed")
-    except RuntimeError:
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-    
-    # Run the async function
-    return loop.run_until_complete(
-        execute_agent_query(thread_id, user_message, redis_client)
-    )
-
-
-# =====================================================================================
 # TEST CODE
 # =====================================================================================
 
-if __name__ == "__main__":
+async def test_agent():
+    """Async test function for the agent"""
     logger.info("="*70)
     logger.info("LANGGRAPH AGENT TEST")
     logger.info("="*70)
@@ -400,7 +372,7 @@ if __name__ == "__main__":
     logger.info("-"*50)
     
     # Test first query
-    response = execute_agent_query_sync(test_thread_id, test_queries[0])
+    response = await execute_agent_query(test_thread_id, test_queries[0])
     logger.info(f"Query: {test_queries[0]}")
     logger.info(f"Response: {response}")
     
@@ -432,7 +404,7 @@ if __name__ == "__main__":
             redis_client.rpush(thread_key, json.dumps(user_msg.model_dump(mode='json'), default=str))
             
             # Execute agent
-            response = execute_agent_query_sync(test_thread_id, query, redis_client)
+            response = await execute_agent_query(test_thread_id, query, redis_client)
             logger.info(f"Response: {response[:200]}...")
             
             # Save agent response for next iteration
@@ -449,3 +421,7 @@ if __name__ == "__main__":
     except Exception as e:
         logger.warning(f"Redis test skipped: {e}")
         logger.info("Test completed with pure agent only.")
+
+
+if __name__ == "__main__":
+    asyncio.run(test_agent())

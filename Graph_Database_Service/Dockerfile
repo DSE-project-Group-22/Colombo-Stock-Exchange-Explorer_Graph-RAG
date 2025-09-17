@@ -9,21 +9,23 @@ ENV NEO4J_dbms_security_procedures_unrestricted=gds.*,apoc.*
 ENV NEO4J_dbms_security_procedures_allowlist=gds.*,apoc.*
 
 # Allow connections from any host
-ENV NEO4J_dbms_default__listen__address=0.0.0.0
-ENV NEO4J_dbms_connector_bolt_listen__address=:7687
-ENV NEO4J_dbms_connector_http_listen__address=:7474
+ENV NEO4J_server_default_listen_address=0.0.0.0
+ENV NEO4J_server_bolt_listen_address=0.0.0.0:7687
+ENV NEO4J_server_http_listen_address=0.0.0.0:7474
+ENV NEO4J_server_config_strict_validation_enabled=false
 
-# Copy cypher scripts (note: cypher_queries not cypher_queries/)
-COPY ETL_Pipeline/Load/cypher_queries /var/lib/neo4j/import/cypher_queries/
+# Copy custom entrypoint script
+COPY entrypoint.sh /startup/entrypoint.sh
 
-# Copy initialization script
-COPY Graph_Database_Service/scripts/init-neo4j.sh /docker-entrypoint-initdb.d/
-
-# Make script executable
+# Make the entrypoint script executable
 USER root
-RUN chmod +x /docker-entrypoint-initdb.d/init-neo4j.sh
+RUN chmod +x /startup/entrypoint.sh
 
 # Switch back to neo4j user
 USER neo4j
 
+# Set custom entrypoint
+ENTRYPOINT ["/startup/entrypoint.sh"]
+
+# Expose Neo4j ports
 EXPOSE 7474 7687

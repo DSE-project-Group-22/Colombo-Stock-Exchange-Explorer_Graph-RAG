@@ -17,7 +17,7 @@ from pydantic import BaseModel, Field
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from graph_state import AdaptiveQueryState, QueryInfo, InformationGap, PlannedQuery
-from nl_to_cypher_query import initialize_graph_qa_chain, query_graph_with_natural_language
+from nl_to_cypher_query import get_cached_chain, query_graph_with_natural_language
 
 
 # =====================================================================================
@@ -465,7 +465,7 @@ def suggest_alternative_query(state: AdaptiveQueryState, failed_query: str, llm:
 # EXECUTOR NODE - Executes the planned query
 # =====================================================================================
 
-def executor_node(state: AdaptiveQueryState) -> AdaptiveQueryState:
+async def executor_node(state: AdaptiveQueryState) -> AdaptiveQueryState:
     """
     Executes the current planned query using nl_to_cypher.
     Handles failures with alternative queries.
@@ -479,9 +479,9 @@ def executor_node(state: AdaptiveQueryState) -> AdaptiveQueryState:
     print(f"   Executing: {state.current_query.query_text}")
     
     try:
-        # Initialize and execute query
-        chain = initialize_graph_qa_chain()
-        result = query_graph_with_natural_language(state.current_query.query_text, chain)
+        # Get cached chain and execute query
+        chain = get_cached_chain()
+        result = await query_graph_with_natural_language(state.current_query.query_text, chain)
         
         if not result.get("error"):
             state.current_result = result
@@ -498,7 +498,7 @@ def executor_node(state: AdaptiveQueryState) -> AdaptiveQueryState:
             if alt_query:
                 print(f"   🔄 Trying alternative: {alt_query.query_text}")
                 try:
-                    alt_result = query_graph_with_natural_language(alt_query.query_text, chain)
+                    alt_result = await query_graph_with_natural_language(alt_query.query_text, chain)
                     if not alt_result.get("error"):
                         state.current_result = alt_result
                         # Update the query to reflect what actually worked
@@ -1069,7 +1069,7 @@ def _generate_disclaimer(state: AdaptiveQueryState) -> str:
 # MAIN TEST FUNCTION
 # =====================================================================================
 
-def main():
+async def main():
     """
     Simple test function to demonstrate the adaptive query system.
     """
@@ -1085,7 +1085,7 @@ def main():
     print("="*70)
     
     # Process the query
-    result = process_adaptive_query(
+    result = await process_adaptive_query(
         query=test_query,
         max_iterations=10,  # Safety limit
         verbose=True  # Show progress
@@ -1111,4 +1111,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    import asyncio
+    asyncio.run(main())

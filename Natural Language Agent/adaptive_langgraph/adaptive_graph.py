@@ -6,6 +6,7 @@ Defines the graph structure and routing logic
 
 import os
 import sys
+import asyncio
 from typing import Literal
 from langgraph.graph import StateGraph, END, START
 from langgraph.types import Command
@@ -116,7 +117,7 @@ def build_adaptive_graph() -> StateGraph:
 # MAIN INTERFACE - Process queries through the graph
 # =====================================================================================
 
-def process_adaptive_query(query: str, max_iterations: int = 15, verbose: bool = True) -> dict:
+async def process_adaptive_query(query: str, max_iterations: int = 15, verbose: bool = True) -> dict:
     """
     Process a natural language query through the adaptive graph.
     
@@ -146,8 +147,8 @@ def process_adaptive_query(query: str, max_iterations: int = 15, verbose: bool =
     compiled_graph = graph.compile()
     
     try:
-        # Execute the graph
-        final_state = compiled_graph.invoke(initial_state)
+        # Execute the graph asynchronously
+        final_state = await compiled_graph.ainvoke(initial_state)
         
         # Extract results
         summary = final_state.get_summary()
@@ -197,7 +198,7 @@ export_graph = build_adaptive_graph().compile()
 # DEMO AND TESTING
 # =====================================================================================
 
-def demo():
+async def demo():
     """
     Demo the adaptive graph with sample queries.
     """
@@ -215,7 +216,7 @@ def demo():
         print(f"TEST {i}/{len(test_queries)}")
         print(f"{'='*80}")
         
-        result = process_adaptive_query(query, verbose=True)
+        result = await process_adaptive_query(query, verbose=True)
         
         print(f"\n🎯 FINAL ANSWER:")
         print("-"*50)
@@ -230,7 +231,7 @@ def demo():
     print("\n\n✨ Demo completed!")
 
 
-def interactive_mode():
+async def interactive_mode():
     """
     Interactive mode for testing queries.
     """
@@ -265,7 +266,7 @@ def interactive_mode():
             if not query:
                 continue
             
-            result = process_adaptive_query(query, verbose=verbose)
+            result = await process_adaptive_query(query, verbose=verbose)
             
             if not verbose:
                 print(f"\n{'='*60}")
@@ -285,15 +286,18 @@ def interactive_mode():
 if __name__ == "__main__":
     import sys
     
-    if len(sys.argv) > 1:
-        if sys.argv[1] == "--interactive":
-            interactive_mode()
-        elif sys.argv[1] == "--demo":
-            demo()
+    async def main():
+        if len(sys.argv) > 1:
+            if sys.argv[1] == "--interactive":
+                await interactive_mode()
+            elif sys.argv[1] == "--demo":
+                await demo()
+            else:
+                # Process single query from command line
+                query = " ".join(sys.argv[1:])
+                result = await process_adaptive_query(query, verbose=True)
+                print(f"\n🎯 ANSWER:\n{result['answer']}")
         else:
-            # Process single query from command line
-            query = " ".join(sys.argv[1:])
-            result = process_adaptive_query(query, verbose=True)
-            print(f"\n🎯 ANSWER:\n{result['answer']}")
-    else:
-        demo()
+            await demo()
+    
+    asyncio.run(main())
