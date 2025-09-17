@@ -167,7 +167,6 @@ langsmith_runs/
 *.pt
 *.onnx
 *.tflite
-models/
 checkpoints/
 artifacts/
 wandb/
