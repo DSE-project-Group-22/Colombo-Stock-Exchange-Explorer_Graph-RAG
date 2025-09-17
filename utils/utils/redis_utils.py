@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 class SimpleRedisPubSub:
     """
-    Simple, reusable Redis pub/sub client for any microservice.
+    Simple, reusable Redis client for publishing messages and managing connections.
     
     Example usage:
         redis_client = SimpleRedisPubSub()
@@ -22,8 +22,9 @@ class SimpleRedisPubSub:
         # Publish a message
         await redis_client.publish('channel:1', {'data': 'hello'})
         
-        # Subscribe and wait for one message
-        message = await redis_client.subscribe_and_wait('channel:1', timeout=30)
+        # Get raw client for direct operations
+        client = redis_client.get_client()
+        await client.hset('key', 'field', 'value')
         
         await redis_client.close()
     """
@@ -37,7 +38,6 @@ class SimpleRedisPubSub:
         """
         self.url = url
         self.client: Optional[redis.Redis] = None
-        self._pubsub: Optional[redis.client.PubSub] = None
     
     async def connect(self) -> None:
         """Connect to Redis server."""
@@ -71,99 +71,9 @@ class SimpleRedisPubSub:
         logger.debug(f"Published to {channel}, {subscriber_count} subscribers received")
         return subscriber_count
     
-    async def subscribe_and_wait(
-        self, 
-        channel: str, 
-        timeout: float = 30.0
-    ) -> Optional[Dict[str, Any]]:
-        """
-        Subscribe to a channel and wait for exactly one message.
-        
-        Args:
-            channel: Channel name to subscribe to
-            timeout: Maximum time to wait for a message (seconds)
-            
-        Returns:
-            Message dictionary with 'channel', 'data', 'pattern', 'type' keys
-            Returns None if timeout occurs
-            
-        Example:
-            message = await redis_client.subscribe_and_wait('response:123')
-            if message:
-                data = json.loads(message['data'])  # If data is JSON
-        """
-        if not self.client:
-            raise RuntimeError("Not connected. Call connect() first.")
-        
-        pubsub = self.client.pubsub()
-        await pubsub.subscribe(channel)
-        
-        try:
-            # Wait for a message with timeout
-            async def get_message():
-                async for message in pubsub.listen():
-                    # Skip subscription confirmation messages
-                    if message['type'] == 'message':
-                        logger.debug(f"Received message from {channel}")
-                        return message
-            
-            # Apply timeout
-            try:
-                message = await asyncio.wait_for(get_message(), timeout=timeout)
-                return message
-            except asyncio.TimeoutError:
-                logger.warning(f"Timeout waiting for message on {channel}")
-                return None
-                
-        finally:
-            # Always unsubscribe and close pubsub
-            await pubsub.unsubscribe(channel)
-            await pubsub.close()
-    
-    async def subscribe_multiple(self, *channels: str):
-        """
-        Subscribe to multiple channels for continuous listening.
-        Use get_message() to receive messages.
-        
-        Args:
-            channels: Channel names to subscribe to
-            
-        Example:
-            await redis_client.subscribe_multiple('channel:1', 'channel:2')
-            async for message in redis_client.listen():
-                print(message)
-        """
-        if not self.client:
-            raise RuntimeError("Not connected. Call connect() first.")
-        
-        if self._pubsub:
-            await self._pubsub.close()
-        
-        self._pubsub = self.client.pubsub(ignore_subscribe_messages=True)
-        await self._pubsub.subscribe(*channels)
-        logger.info(f"Subscribed to channels: {channels}")
-    
-    async def listen(self):
-        """
-        Listen for messages on subscribed channels.
-        Must call subscribe_multiple() first.
-        
-        Yields:
-            Message dictionaries
-        """
-        if not self._pubsub:
-            raise RuntimeError("Not subscribed. Call subscribe_multiple() first.")
-        
-        async for message in self._pubsub.listen():
-            if message['type'] == 'message':
-                yield message
     
     async def close(self) -> None:
         """Close Redis connection and cleanup."""
-        if self._pubsub:
-            await self._pubsub.close()
-            self._pubsub = None
-        
         if self.client:
             await self.client.aclose()
             self.client = None
