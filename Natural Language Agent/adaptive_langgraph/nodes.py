@@ -17,7 +17,7 @@ from pydantic import BaseModel, Field
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from graph_state import AdaptiveQueryState, QueryInfo, InformationGap, PlannedQuery
-from nl_to_cypher_query import initialize_graph_qa_chain, query_graph_with_natural_language
+from nl_to_cypher_query import get_cached_chain, query_graph_with_natural_language
 
 
 # =====================================================================================
@@ -479,8 +479,8 @@ def executor_node(state: AdaptiveQueryState) -> AdaptiveQueryState:
     print(f"   Executing: {state.current_query.query_text}")
     
     try:
-        # Initialize and execute query
-        chain = initialize_graph_qa_chain()
+        # Get cached chain and execute query
+        chain = get_cached_chain()
         result = query_graph_with_natural_language(state.current_query.query_text, chain)
         
         if not result.get("error"):

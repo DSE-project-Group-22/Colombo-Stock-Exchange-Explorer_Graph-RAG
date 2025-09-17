@@ -11,7 +11,7 @@ from langchain_openai import ChatOpenAI
 from langgraph.graph import StateGraph, END
 
 # Import the existing nl_to_cypher_query functionality
-from nl_to_cypher_query import initialize_graph_qa_chain, query_graph_with_natural_language
+from nl_to_cypher_query import get_cached_chain, query_graph_with_natural_language
 from config import get_openai_config
 
 # Configure logging
@@ -28,7 +28,7 @@ logger = logging.getLogger(__name__)
 
 GRAPH_SCHEMA = """
 Node Labels & Properties:
-- Company: id (string, unique), name (string), founded_on (date, optional), listed_on (string, optional), region (string, optional)
+- Company: id (string, unique), name (string),
 - Person: id (string, unique), name (string)
 - Sector: id (string, unique), name (string)
 - Product: id (string, unique), name (string)
@@ -252,8 +252,8 @@ def executor_node(state: SupervisorState) -> SupervisorState:
     logger.info(f"Executing: {state['current_query']}")
     
     try:
-        # Initialize chain and execute query
-        chain = initialize_graph_qa_chain()
+        # Get cached chain and execute query
+        chain = get_cached_chain()
         result = query_graph_with_natural_language(state['current_query'], chain)
         
         # Check if query was successful
