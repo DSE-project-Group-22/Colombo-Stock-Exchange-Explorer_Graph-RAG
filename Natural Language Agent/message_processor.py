@@ -154,13 +154,25 @@ class MessageProcessor:
                 # Calculate processing start time
                 start_time = datetime.utcnow()
                 
-                # Process with existing agent
-                # The agent already handles Redis chat history internally
-                response_text = await execute_agent_query(
-                    thread_id=thread_id,
-                    user_message=user_message,
-                    redis_client=self.redis.get_client()  # Pass Redis client for history
-                )
+                # Check if OpenAI API key is available
+                has_openai_key = settings.validate_openai_key()
+                
+                if not has_openai_key:
+                    # Return dummy response when no API key is available
+                    logger.warning("No OpenAI API key configured - returning dummy response")
+                    response_text = (
+                        "I'm currently unable to process your request as the OpenAI API key "
+                        "is not configured. Please contact your system administrator to set up "
+                        "the API key. Your message has been received: '{}'"
+                    ).format(user_message[:100] + "..." if len(user_message) > 100 else user_message)
+                else:
+                    # Process with existing agent
+                    # The agent already handles Redis chat history internally
+                    response_text = await execute_agent_query(
+                        thread_id=thread_id,
+                        user_message=user_message,
+                        redis_client=self.redis.get_client()  # Pass Redis client for history
+                    )
                 
                 # Calculate processing time
                 end_time = datetime.utcnow()
