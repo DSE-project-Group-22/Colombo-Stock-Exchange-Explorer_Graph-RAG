@@ -4,7 +4,6 @@ Uses redis.asyncio (redis-py) with latest async patterns.
 """
 import json
 import logging
-import asyncio
 from typing import Optional, Dict, Any
 import redis.asyncio as redis
 
@@ -13,7 +12,8 @@ logger = logging.getLogger(__name__)
 
 class SimpleRedisPubSub:
     """
-    Simple, reusable Redis client for publishing messages and managing connections.
+    Redis client for publishing messages and managing connections.
+    Used by API Gateway and NL Agent for pub/sub operations.
     
     Example usage:
         redis_client = SimpleRedisPubSub()
@@ -22,7 +22,7 @@ class SimpleRedisPubSub:
         # Publish a message
         await redis_client.publish('channel:1', {'data': 'hello'})
         
-        # Get raw client for direct operations
+        # Get raw client for direct operations (used by response_subscriber.py)
         client = redis_client.get_client()
         await client.hset('key', 'field', 'value')
         
@@ -90,50 +90,3 @@ class SimpleRedisPubSub:
         if not self.client:
             raise RuntimeError("Not connected. Call connect() first.")
         return self.client
-
-
-# Convenience function for simple publish operations
-async def publish_to_redis(
-    channel: str, 
-    message: Dict[str, Any], 
-    url: str = 'redis://redis:6379'
-) -> None:
-    """
-    Convenience function to publish a single message to Redis.
-    
-    Args:
-        channel: Target channel
-        message: Message dictionary to publish
-        url: Redis connection URL
-    """
-    redis_client = SimpleRedisPubSub(url)
-    await redis_client.connect()
-    try:
-        await redis_client.publish(channel, message)
-    finally:
-        await redis_client.close()
-
-
-# Convenience function for simple subscribe operations
-async def wait_for_redis_message(
-    channel: str,
-    timeout: float = 30.0,
-    url: str = 'redis://redis:6379'
-) -> Optional[Dict[str, Any]]:
-    """
-    Convenience function to wait for a single message from Redis.
-    
-    Args:
-        channel: Channel to subscribe to
-        timeout: Maximum wait time in seconds
-        url: Redis connection URL
-        
-    Returns:
-        Message dictionary or None if timeout
-    """
-    redis_client = SimpleRedisPubSub(url)
-    await redis_client.connect()
-    try:
-        return await redis_client.subscribe_and_wait(channel, timeout)
-    finally:
-        await redis_client.close()
