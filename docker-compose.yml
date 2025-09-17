@@ -21,46 +21,35 @@ services:
       timeout: 10s
       retries: 5
 
-  # Graph Database Service (Commented out for now)
-  # graph-db:
-  #   build:
-  #     context: ./Graph_Database_Service
-  #     dockerfile: Dockerfile
-  #   container_name: cse-explorer-graph-db
-  #   ports:
-  #     - "7474:7474"  # Neo4j HTTP (browser access only)
-  #     - "7687:7687"  # Neo4j Bolt (database connections)
-  #   environment:
-  #     - NEO4J_AUTH=neo4j/password
-  #     - NEO4J_dbms_security_procedures_unrestricted=gds.*,apoc.*
-  #     - NEO4J_dbms_security_procedures_allowlist=gds.*,apoc.*
-  #   volumes:
-  #     - neo4j_data:/data
-  #     - neo4j_logs:/logs
-  #   networks:
-  #     - cse-explorer-network
-  #   healthcheck:
-  #     test: ["CMD", "cypher-shell", "-u", "neo4j", "-p", "password", "RETURN 1"]
-  #     interval: 30s
-  #     timeout: 10s
-  #     retries: 5
-
-  # # Data Pipeline Service
-  # data-pipeline:
-  #   build:
-  #     context: ./Data pipeline
-  #     dockerfile: Dockerfile
-  #   container_name: cse-explorer-data-pipeline
-  #   ports:
-  #     - "8000:8000"
-  #   depends_on:
-  #     - graph-db
-  #   environment:
-  #     - NEO4J_URI=bolt://graph-db:7687
-  #     - NEO4J_USER=neo4j
-  #     - NEO4J_PASSWORD=password
-  #   networks:
-  #     - cse-explorer-network
+  # Graph Database Service
+  graph-db:
+    build:
+      context: .
+      dockerfile: Graph_Database_Service/Dockerfile
+    container_name: cse-explorer-graph-db
+    ports:
+      - "7474:7474"  # Neo4j HTTP (browser access)
+      - "7687:7687"  # Neo4j Bolt (database connections)
+    environment:
+      - NEO4J_AUTH=neo4j/password
+      - NEO4J_PLUGINS=["apoc", "graph-data-science"]
+      - NEO4J_dbms_security_procedures_unrestricted=gds.*,apoc.*
+      - NEO4J_dbms_security_procedures_allowlist=gds.*,apoc.*
+      - NEO4J_server_default_listen_address=0.0.0.0
+      - NEO4J_server_bolt_listen_address=0.0.0.0:7687
+      - NEO4J_server_http_listen_address=0.0.0.0:7474
+      - NEO4J_server_config_strict_validation_enabled=false
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+      - ./ETL_Pipeline/Load/cypher_queries:/cypher_queries:ro
+    networks:
+      - cse-explorer-network
+    healthcheck:
+      test: ["CMD", "cypher-shell", "-u", "neo4j", "-p", "password", "-a", "bolt://localhost:7687", "RETURN 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
 
 
 
