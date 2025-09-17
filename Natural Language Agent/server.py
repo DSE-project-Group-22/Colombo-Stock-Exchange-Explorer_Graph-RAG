@@ -5,6 +5,7 @@ Provides chat endpoints with conversation history management and Kafka message p
 import json
 import logging
 import asyncio
+import os
 from datetime import datetime, timezone
 from typing import Dict, Any, Optional, List
 from contextlib import asynccontextmanager
@@ -31,10 +32,12 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Global Redis client and Kafka processor
+# Global connections and status
 redis_client: Optional[redis.Redis] = None
 kafka_processor: Optional[MessageProcessor] = None
 kafka_task: Optional[asyncio.Task] = None
+neo4j_connected: bool = False
+neo4j_stats: Dict[str, Any] = {}
 
 
 class ChatRequest(BaseModel):
@@ -73,12 +76,65 @@ class ChatHistoryResponse(BaseModel):
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Lifespan event handler for FastAPI application"""
-    global redis_client, kafka_processor, kafka_task
+    global redis_client, kafka_processor, kafka_task, neo4j_connected, neo4j_stats
     
     # Startup
     logger.info("Starting Natural Language Agent service with Kafka...")
+    
+    # Test Neo4j connection
     try:
-        # Initialize Redis connection
+        from langchain_neo4j import Neo4jGraph
+        
+        neo4j_uri = os.getenv('NEO4J_URI', 'bolt://localhost:7687')
+        neo4j_user = os.getenv('NEO4J_USER', 'neo4j')
+        neo4j_password = os.getenv('NEO4J_PASSWORD', 'password')
+        neo4j_database = os.getenv('NEO4J_DATABASE', 'neo4j')
+        
+        logger.info(f"Testing Neo4j connection to {neo4j_uri}...")
+        
+        # Test connection
+        graph = Neo4jGraph(
+            url=neo4j_uri,
+            username=neo4j_user,
+            password=neo4j_password,
+            database=neo4j_database,
+            enhanced_schema=False
+        )
+        
+        # Run test query
+        result = graph.query("MATCH (n) RETURN count(n) as total")
+        total_nodes = result[0]['total'] if result else 0
+        
+        # Get node statistics
+        company_count = graph.query("MATCH (c:Company) RETURN count(c) as count")
+        companies = company_count[0]['count'] if company_count else 0
+        
+        neo4j_connected = True
+        neo4j_stats.update({
+            'uri': neo4j_uri,
+            'database': neo4j_database,
+            'total_nodes': total_nodes,
+            'companies': companies
+        })
+        
+        logger.info(f"✅ Neo4j connection successful!")
+        logger.info(f"   Database: {neo4j_database}")
+        logger.info(f"   Total nodes: {total_nodes}")
+        logger.info(f"   Companies: {companies}")
+        
+        # Get sample node types
+        node_types = graph.query("MATCH (n) RETURN DISTINCT labels(n) as types LIMIT 5")
+        if node_types:
+            types_list = [str(record['types']) for record in node_types]
+            logger.info(f"   Node types: {', '.join(types_list)}")
+            neo4j_stats['node_types'] = types_list
+            
+    except Exception as e:
+        neo4j_connected = False
+        logger.error(f"❌ Failed to connect to Neo4j: {e}")
+        logger.warning("Service will run without Neo4j connection - queries will fail")
+    # Initialize Redis connection  
+    try:
         redis_params = get_redis_connection_params()
         redis_client = redis.Redis(**redis_params)
         
@@ -387,6 +443,10 @@ async def health_check():
         "service": "healthy",
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "environment": settings.environment,
+        "neo4j": {
+            "connected": neo4j_connected,
+            "stats": neo4j_stats if neo4j_connected else {}
+        },
         "redis": {
             "connected": False,
             "host": settings.redis_host,
@@ -412,6 +472,11 @@ async def health_check():
     else:
         health_status["service"] = "degraded"
         health_status["redis"]["error"] = "Redis client not initialized"
+    
+    # Check Neo4j connection status
+    if not neo4j_connected:
+        health_status["service"] = "degraded"
+        health_status["neo4j"]["error"] = "Neo4j connection failed during startup"
     
     # Return appropriate HTTP status
     if health_status["service"] != "healthy":

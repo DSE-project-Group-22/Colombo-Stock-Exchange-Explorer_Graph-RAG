@@ -176,14 +176,15 @@ services:
       - /app/venv
       - /app/.pytest_cache
     depends_on:
-      # - graph-db  # Commented out for now
+      graph-db:
+        condition: service_healthy
       # - rag-service
       redis:
         condition: service_started
       kafka:
         condition: service_healthy
     environment:
-      - NEO4J_URI=bolt://host.docker.internal:7687  # Connect to Neo4j on host machine
+      - NEO4J_URI=bolt://graph-db:7687  # Connect to Neo4j in Docker network
       - NEO4J_USER=neo4j
       - NEO4J_PASSWORD=password
       - NEO4J_DATABASE=neo4j
