@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 import redis
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage, SystemMessage, ToolMessage
 from langchain_core.tools import tool
-from langchain_openai import ChatOpenAI
+from llm_manager import get_llm
 from langgraph.graph import StateGraph, START, END
 from langgraph.graph.message import add_messages
 from langgraph.prebuilt import ToolNode
@@ -19,6 +19,7 @@ from langgraph.checkpoint.memory import MemorySaver
 
 from config import settings, get_redis_connection_params
 from supervisor_agent import run_supervisor_query
+from helpers.redis_helper import get_chat_history, serialize_neo4j_dates
 
 # Configure logging
 logging.basicConfig(
@@ -46,49 +47,13 @@ class AgentState(TypedDict):
 
 async def load_transcript_from_redis(redis_client, thread_id: str) -> str:
     """
-    Load conversation history from Redis and format as transcript
-    Handles both sync and async Redis clients
+    Load conversation history from Redis and format as transcript.
+    Now uses the helper function from redis_helper.
     
     Returns:
         Formatted transcript as "Human: message\nAgent: response\n..."
     """
-    try:
-        thread_key = f"chat:{thread_id}:messages"
-        
-        # Check if it's an async client by checking for the method
-        if hasattr(redis_client, '__aenter__'):
-            # Async Redis client
-            messages_json = await redis_client.lrange(thread_key, 0, -1)
-        else:
-            # Sync Redis client
-            messages_json = redis_client.lrange(thread_key, 0, -1)
-        
-        if not messages_json:
-            return ""
-        
-        transcript_lines = []
-        for msg_json in messages_json:
-            try:
-                msg_data = json.loads(msg_json)
-                role = msg_data.get('role', '')
-                content = msg_data.get('content', '')
-                
-                if role == 'user':
-                    transcript_lines.append(f"Human: {content}")
-                elif role == 'agent':
-                    transcript_lines.append(f"Agent: {content}")
-                    
-            except Exception as e:
-                logger.warning(f"Failed to parse message: {e}")
-                continue
-        
-        transcript = "\n".join(transcript_lines)
-        logger.info(f"Loaded transcript with {len(transcript_lines)} messages for thread {thread_id}")
-        return transcript
-        
-    except Exception as e:
-        logger.error(f"Failed to load conversation history: {e}")
-        return ""
+    return await get_chat_history(redis_client, thread_id)
 
 
 # =====================================================================================
@@ -113,13 +78,12 @@ async def query_graph_database(query: str) -> str:
         # Call the supervisor agent asynchronously with hardcoded parameters
         result = await run_supervisor_query(
             user_query=query,
-            max_iterations=25,  # Hardcoded
-            verbose=True       # Hardcoded
+            max_iterations=settings.supervisor_max_iterations,
+            verbose=settings.agent_verbose
         )
         
-        # Convert any Neo4j Date objects to strings by serializing and deserializing through JSON
-        # This handles Date objects at any nesting level
-        result = json.loads(json.dumps(result, default=str))
+        # Convert any Neo4j Date objects to strings using helper
+        result = serialize_neo4j_dates(result)
         
         # Extract the answer
         if isinstance(result, dict) and 'answer' in result:
@@ -161,11 +125,8 @@ Important guidelines:
 - Provide clear, informative responses based on the data retrieved
 """
     
-    # Initialize LLM with tools
-    llm = ChatOpenAI(
-        model="gpt-5-mini",
-        api_key=settings.openai_api_key
-    )
+    # Get centralized LLM instance
+    llm = get_llm()
     
     # Bind the tool to the LLM
     llm_with_tools = llm.bind_tools([query_graph_database])
@@ -260,7 +221,7 @@ async def run_agent_with_transcript(conversation_transcript: str) -> str:
             "messages": [HumanMessage(content="Please answer the last question asked in the conversation history above.")],
             "conversation_transcript": conversation_transcript,
             "iteration_count": 0,
-            "max_iterations": 10  # Safety limit
+            "max_iterations": settings.agent_max_iterations  # From config
         }
         
         # Build and run the graph
@@ -347,81 +308,3 @@ async def execute_agent_query(
         error_response = f"I apologize, but I encountered an error: {str(e)}"
         return error_response
 
-
-# =====================================================================================
-# TEST CODE
-# =====================================================================================
-
-async def test_agent():
-    """Async test function for the agent"""
-    logger.info("="*70)
-    logger.info("LANGGRAPH AGENT TEST")
-    logger.info("="*70)
-    
-    # Test configuration
-    test_thread_id = "test_agent_001"
-    
-    # Test queries
-    test_queries = [
-        "What are the companies that share at least 3 directors in common",
-        "Tell me more about the largest company",
-        "What sector is it in?"
-    ]
-    
-    logger.info("Testing without Redis (pure agent)...")
-    logger.info("-"*50)
-    
-    # Test first query
-    response = await execute_agent_query(test_thread_id, test_queries[0])
-    logger.info(f"Query: {test_queries[0]}")
-    logger.info(f"Response: {response}")
-    
-    # Test with Redis if available
-    try:
-        redis_params = get_redis_connection_params()
-        redis_client = redis.Redis(**redis_params)
-        redis_client.ping()
-        
-        logger.info("Testing with Redis integration...")
-        logger.info("-"*50)
-        
-        # Clear any existing test thread
-        redis_client.delete(f"chat:{test_thread_id}:messages")
-        redis_client.delete(f"chat:{test_thread_id}:metadata")
-        
-        # Simulate conversation
-        for i, query in enumerate(test_queries):
-            logger.info(f"Query {i+1}: {query}")
-            
-            # For testing, manually save user message to Redis
-            from server import ChatMessage, MessageRole
-            user_msg = ChatMessage(
-                thread_id=test_thread_id,
-                role=MessageRole.USER,
-                content=query
-            )
-            thread_key = f"chat:{test_thread_id}:messages"
-            redis_client.rpush(thread_key, json.dumps(user_msg.model_dump(mode='json'), default=str))
-            
-            # Execute agent
-            response = await execute_agent_query(test_thread_id, query, redis_client)
-            logger.info(f"Response: {response[:200]}...")
-            
-            # Save agent response for next iteration
-            agent_msg = ChatMessage(
-                thread_id=test_thread_id,
-                role=MessageRole.AGENT,
-                content=response
-            )
-            redis_client.rpush(thread_key, json.dumps(agent_msg.model_dump(mode='json'), default=str))
-        
-        logger.info("="*70)
-        logger.info("Test completed successfully!")
-        
-    except Exception as e:
-        logger.warning(f"Redis test skipped: {e}")
-        logger.info("Test completed with pure agent only.")
-
-
-if __name__ == "__main__":
-    asyncio.run(test_agent())

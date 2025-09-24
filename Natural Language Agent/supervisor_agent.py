@@ -4,15 +4,18 @@ Simple LangGraph Supervisor Agent for Query Orchestration
 This supervisor generates self-contained natural language queries for the nl_to_cypher_query executor.
 """
 
+import json
 import logging
 from typing import Dict, List, Optional, Any, TypedDict
 from pydantic import BaseModel, Field
-from langchain_openai import ChatOpenAI
+from llm_manager import get_llm
 from langgraph.graph import StateGraph, END
 
 # Import the existing nl_to_cypher_query functionality
-from nl_to_cypher_query import get_cached_chain, query_graph_with_natural_language
-from config import get_openai_config
+from nl_to_cypher_query import query_graph_with_natural_language
+from helpers.redis_helper import serialize_neo4j_dates
+from config import settings
+from schemas.graph_schema import GRAPH_SCHEMA
 
 # Configure logging
 logging.basicConfig(
@@ -20,40 +23,6 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
-
-
-# =====================================================================================
-# GRAPH SCHEMA
-# =====================================================================================
-
-GRAPH_SCHEMA = """
-Node Labels & Properties:
-- Company: id (string, unique), name (string),
-- Person: id (string, unique), name (string)
-- Sector: id (string, unique), name (string)
-- Product: id (string, unique), name (string)
-- Metric: id (string, unique), name (string), unit (string)
-
-Relationship Types & Properties:
-Ownership & Shareholdings:
-- (Company)-[:OWNS]->(Company): pct (float - percent ownership), as_of (date)
-- (Person)-[:OWNS_SHARES]->(Company): count (int) or pct (float), as_of (date)
-
-Governance & Roles:
-- (Person)-[:DIRECTOR_OF]->(Company): role (string), as_of (date)
-- (Person)-[:HOLDS_POSITION]->(Company): title (string), as_of (date)
-
-Business Classification:
-- (Company)-[:IN_SECTOR]->(Sector): no properties
-- (Company)-[:OFFERS]->(Product): status (string, optional)
-
-Financial Metrics:
-- (Company)-[:HAS_METRIC]->(Metric): year (int, optional), as_of (date, optional), value (float/int)
-
-Auditing & Management:
-- (Company)-[:AUDITED_BY]->(Company): year (int)
-- (Company)-[:MANAGES]->(Company): description (string)
-"""
 
 
 # =====================================================================================
@@ -110,12 +79,8 @@ def supervisor_node(state: SupervisorState) -> SupervisorState:
         logger.info(f"Iteration limit reached - forcing final answer")
         # Continue to let supervisor provide final answer with available data
     
-    # Get OpenAI config and initialize LLM
-    openai_config = get_openai_config()
-    llm = ChatOpenAI(
-        model=openai_config["model_name"],
-        api_key=openai_config["api_key"]
-    )
+    # Get centralized LLM instance
+    llm = get_llm()
     
     # Format query history for prompt
     query_history_text = ""
@@ -136,6 +101,7 @@ def supervisor_node(state: SupervisorState) -> SupervisorState:
     # Create simplified prompt with systematic query decomposition
     prompt = f"""
 You are a database query orchestrator that MUST follow a SYSTEMATIC approach.
+You are going to query the Colombo Stock Exchange.
 
 🎯 CRITICAL QUERY STRATEGY:
 =========================================
@@ -202,13 +168,16 @@ When providing final answer, synthesize ALL information from the query history i
     try:
         decision = structured_llm.invoke(prompt)
         
-        logger.info(f"Decision: {'Need more info' if decision.needs_more_info else 'Ready to answer'}")
-        logger.debug(f"Reasoning: {decision.reasoning}")
+        # Print LLM decision for visibility when verbose
+        if settings.agent_verbose:
+            print(f"\n🤖 LLM Decision: {'Need more info' if decision.needs_more_info else 'Ready to answer'}")
+            print(f"💭 Reasoning: {decision.reasoning}")
         
         if decision.needs_more_info and decision.next_query:
             state['current_query'] = decision.next_query
             state['should_continue'] = True
-            logger.info(f"Next Query: {decision.next_query}")
+            if settings.agent_verbose:
+                print(f"🔎 Next Query: {decision.next_query}\n")
         else:
             # Ready to provide final answer
             state['should_continue'] = False
@@ -243,55 +212,70 @@ async def executor_node(state: SupervisorState) -> SupervisorState:
     Executor node that runs the current query using nl_to_cypher_query.
     Stores complete results with intermediate_steps in query_history.
     """
-    logger.debug("EXECUTOR")
-    
     if not state['current_query']:
-        logger.warning("No query to execute")
         return state
     
-    logger.info(f"Executing: {state['current_query']}")
+    if settings.agent_verbose:
+        print(f"⚙️ Executing: {state['current_query']}")
+        print("-" * 70)
     
     try:
-        # Get cached chain and execute query asynchronously
-        chain = get_cached_chain()
-        result = await query_graph_with_natural_language(state['current_query'], chain)
+        # Execute query asynchronously (will use cached chain from helper)
+        result = await query_graph_with_natural_language(state['current_query'])
         
         # Check if query was successful
         if not result.get("error"):
+            # Convert any Neo4j Date objects to strings using helper
+            serialized_result = serialize_neo4j_dates(result)
+            
             # Store successful query and complete result
             query_record = {
                 'query': state['current_query'],
-                'result': result.get('result', ''),
+                'result': serialized_result.get('result', ''),
                 'success': True
             }
             
             # Include intermediate_steps if available
-            if 'intermediate_steps' in result:
-                query_record['intermediate_steps'] = result['intermediate_steps']
+            if 'intermediate_steps' in serialized_result:
+                query_record['intermediate_steps'] = serialized_result['intermediate_steps']
             
             state['query_history'].append(query_record)
-            logger.info("Query successful")
+            if settings.agent_verbose:
+                print(f"✅ Query successful\n")
             
         else:
+            # Convert any Neo4j Date objects even for failed queries
+            serialized_result = serialize_neo4j_dates(result)
+            
             # Store failed query with complete result
             query_record = {
                 'query': state['current_query'],
-                'result': f"Error: {result.get('result', 'Unknown error')}",
+                'result': f"Error: {serialized_result.get('result', 'Unknown error')}",
                 'success': False
             }
             
             # Include intermediate_steps if available (even for failures)
-            if 'intermediate_steps' in result:
-                query_record['intermediate_steps'] = result['intermediate_steps']
+            if 'intermediate_steps' in serialized_result:
+                query_record['intermediate_steps'] = serialized_result['intermediate_steps']
             
             state['query_history'].append(query_record)
-            logger.warning(f"Query failed: {result.get('result', 'Unknown error')}")
+            if settings.agent_verbose:
+                print(f"❌ Query failed: {serialized_result.get('result', 'Unknown error')}\n")
             
     except Exception as e:
+        # Handle execution errors - convert any potential Date objects in error messages
+        error_message = str(e)
+        try:
+            # Attempt to clean any potential Neo4j objects from error message
+            error_message = json.loads(json.dumps(error_message, default=str))
+        except:
+            # If conversion fails, use original error message
+            pass
+        
         # Handle execution errors
         state['query_history'].append({
             'query': state['current_query'],
-            'result': f"Execution error: {str(e)}",
+            'result': f"Execution error: {error_message}",
             'success': False
         })
         logger.error(f"Execution error: {e}")
@@ -349,20 +333,26 @@ def build_supervisor_graph() -> StateGraph:
 
 async def run_supervisor_query(
     user_query: str,
-    max_iterations: int = 20,
-    verbose: bool = True
+    max_iterations: int = None,
+    verbose: bool = None
 ) -> Dict[str, Any]:
     """
     Run a query through the supervisor agent asynchronously.
     
     Args:
         user_query: The user's natural language question
-        max_iterations: Maximum number of query iterations
-        verbose: Whether to print progress
+        max_iterations: Maximum number of query iterations (defaults to config)
+        verbose: Whether to print progress (defaults to config)
     
     Returns:
         Dict with 'answer', 'queries_executed', 'success' keys
     """
+    
+    # Use config defaults if not specified
+    if max_iterations is None:
+        max_iterations = settings.supervisor_max_iterations
+    if verbose is None:
+        verbose = settings.agent_verbose
     
     if not verbose:
         # Suppress print statements
@@ -403,75 +393,3 @@ async def run_supervisor_query(
             sys.stdout = old_stdout
 
 
-# =====================================================================================
-# TEST AND DEMO
-# =====================================================================================
-
-async def demo():
-    """Demo function showing supervisor agent capabilities"""
-    logger.info("Starting Supervisor Agent Demo")
-    print("\n" + "="*70)
-    print("🤖 SUPERVISOR AGENT DEMO")
-    print("="*70)
-    
-    # Test queries
-    test_queries = [
-        "Who are the companies audited by earnst % young",
-        "List the top 5 companies by market capitalization",
-        "Who are the directors of Commercial Bank of Ceylon?",
-    ]
-    
-    print("\nChoose a test query or enter your own:")
-    for i, q in enumerate(test_queries, 1):
-        print(f"{i}. {q}")
-    print("4. Enter custom query")
-    
-    choice = input("\nSelect option (1-4): ").strip()
-    
-    if choice in ['1', '2', '3']:
-        query = test_queries[int(choice) - 1]
-    elif choice == '4':
-        query = input("Enter your query: ").strip()
-    else:
-        logger.warning("Invalid choice in demo")
-        print("Invalid choice")
-        return
-    
-    logger.info(f"Demo query: {query}")
-    print(f"\n📝 Query: {query}")
-    print("-" * 70)
-    
-    # Run query
-    result = await run_supervisor_query(query, max_iterations=5, verbose=True)
-    
-    # Display results
-    logger.info("Displaying demo results")
-    print("\n" + "="*70)
-    print("📊 RESULTS")
-    print("="*70)
-    
-    if result['success']:
-        logger.info(f"Demo successful - Queries executed: {result['queries_executed']}")
-        print(f"\n✅ Answer:\n{result['answer']}")
-        print(f"\n📈 Statistics:")
-        print(f"  - Queries executed: {result['queries_executed']}")
-    else:
-        logger.error("Demo failed to generate answer")
-        print(f"\n❌ Failed to generate answer")
-    
-    # Show executed queries if verbose
-    show_details = input("\n🔍 Show query details? (y/n): ").strip().lower()
-    if show_details == 'y':
-        logger.debug("Showing query history details")
-        print("\nQuery History:")
-        for i, eq in enumerate(result['query_history'], 1):
-            status = "✓" if eq.get('success', False) else "✗"
-            print(f"\n{i}. {status} {eq['query']}")
-            print(f"   Result: {str(eq['result'])[:200]}...")
-            if eq.get('intermediate_steps'):
-                print(f"   Intermediate Steps: {str(eq['intermediate_steps'])[:150]}...")
-
-
-if __name__ == "__main__":
-    import asyncio
-    asyncio.run(demo())

@@ -22,8 +22,9 @@ from agent import execute_agent_query
 # Import shared models
 from models import ChatMessage, MessageRole, MessageMetadata
 
-# Import config for Redis settings
-from config import settings
+# Import config and helpers
+from config import settings, get_redis_url
+from helpers.redis_helper import store_chat_message, publish_response, serialize_neo4j_dates
 
 logger = logging.getLogger(__name__)
 
@@ -35,14 +36,14 @@ class MessageProcessor:
     
     def __init__(self):
         """Initialize processor with Kafka consumer and Redis publisher."""
-        # Get configuration from environment or use defaults
-        kafka_servers = os.getenv('KAFKA_BOOTSTRAP_SERVERS', 'kafka:29092')
-        redis_url = os.getenv('REDIS_URL', 'redis://redis:6379')
+        # Use configuration from settings
+        kafka_servers = settings.kafka_bootstrap_servers
+        redis_url = get_redis_url()
         
         # Initialize Kafka consumer for chat requests
         self.kafka = SimpleKafkaConsumer(
-            topics=['chat.requests'],
-            group_id='nl-agent-group',
+            topics=[settings.kafka_request_topic],
+            group_id=settings.kafka_group_id,
             bootstrap_servers=kafka_servers
         )
         
@@ -52,49 +53,17 @@ class MessageProcessor:
         self.is_running = False
     
     async def store_message(self, message: ChatMessage) -> bool:
-        """Store a message in Redis (async version)"""
+        """Store a message in Redis using helper function"""
         redis_client = self.redis.get_client()
         
-        if not redis_client:
-            logger.warning("Redis not available, message not stored")
-            return False
-        
-        try:
-            # Store message in thread list
-            thread_key = f"chat:{message.thread_id}:messages"
-            message_json = json.dumps(message.model_dump(mode='json', exclude_none=True), default=str)
-            await redis_client.rpush(thread_key, message_json)
-            
-            # Update thread metadata
-            metadata_key = f"chat:{message.thread_id}:metadata"
-            timestamp_str = message.timestamp.isoformat()
-            
-            # Use pipeline for atomic operations
-            pipe = redis_client.pipeline()
-            pipe.hset(metadata_key, mapping={
-                "last_activity": timestamp_str,
-                "status": "active"
-            })
-            pipe.hincrby(metadata_key, "message_count", 1)
-            
-            # Set TTL on both keys
-            ttl_seconds = settings.redis_ttl_hours * 3600
-            pipe.expire(thread_key, ttl_seconds)
-            pipe.expire(metadata_key, ttl_seconds)
-            
-            # Execute pipeline
-            await pipe.execute()
-            
-            # Set created_at if this is the first message
-            exists = await redis_client.hexists(metadata_key, "created_at")
-            if not exists:
-                await redis_client.hset(metadata_key, "created_at", timestamp_str)
-            
-            return True
-            
-        except Exception as e:
-            logger.error(f"Failed to store message: {e}")
-            return False
+        # Use helper function to store message
+        return await store_chat_message(
+            redis_client=redis_client,
+            thread_id=message.thread_id,
+            role=message.role.value,
+            content=message.content,
+            timestamp=message.timestamp
+        )
     
     async def startup(self) -> None:
         """
@@ -185,7 +154,7 @@ class MessageProcessor:
                     content=response_text,
                     metadata=MessageMetadata(
                         agent_type="langgraph",
-                        model="gpt-4o-mini",
+                        model=settings.openai_model,
                         processing_time=processing_time_ms / 1000.0  # Convert to seconds
                     )
                 )
@@ -200,9 +169,12 @@ class MessageProcessor:
                     'processing_time_ms': processing_time_ms
                 }
                 
-                # Send response via Redis pub/sub
-                channel = f"response:{correlation_id}"
-                await self.redis.publish(channel, response)
+                # Send response via Redis pub/sub using helper
+                await publish_response(
+                    redis_client=self.redis.get_client(),
+                    correlation_id=correlation_id,
+                    response_data=response
+                )
                 
                 logger.info(
                     f"Response sent: correlation={correlation_id}, "
