@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 
 echo "Starting Neo4j database clearing and Cypher query execution..."
