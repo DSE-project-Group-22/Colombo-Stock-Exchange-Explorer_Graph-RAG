@@ -85,7 +85,8 @@ def get_qa_chain() -> GraphCypherQAChain:
                 graph=graph,
                 verbose=settings.agent_verbose,
                 allow_dangerous_requests=True,
-                return_intermediate_steps=True
+                return_intermediate_steps=True,
+                top_k=settings.cypher_qa_top_k  # Configure result limit
             )
             
             logger.info("GraphCypherQAChain initialized successfully")

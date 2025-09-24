@@ -41,6 +41,9 @@ class Settings(BaseSettings):
     supervisor_max_iterations: int = int(os.getenv("SUPERVISOR_MAX_ITERATIONS", "20"))
     agent_verbose: bool = os.getenv("AGENT_VERBOSE", "true").lower() == "true"
     
+    # GraphCypherQAChain Configuration
+    cypher_qa_top_k: int = int(os.getenv("CYPHER_QA_TOP_K", "100"))  # Number of results to return from Cypher queries
+    
     # Service Configuration
     host: str = os.getenv("HOST", "0.0.0.0")
     port: int = int(os.getenv("PORT", "8001"))
