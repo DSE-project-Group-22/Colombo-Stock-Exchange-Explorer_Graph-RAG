@@ -4,15 +4,15 @@ Simple LangGraph Supervisor Agent for Query Orchestration
 This supervisor generates self-contained natural language queries for the nl_to_cypher_query executor.
 """
 
+import json
 import logging
 from typing import Dict, List, Optional, Any, TypedDict
 from pydantic import BaseModel, Field
-from langchain_openai import ChatOpenAI
+from llm_manager import get_llm
 from langgraph.graph import StateGraph, END
 
 # Import the existing nl_to_cypher_query functionality
 from nl_to_cypher_query import get_cached_chain, query_graph_with_natural_language
-from config import get_openai_config
 
 # Configure logging
 logging.basicConfig(
@@ -110,12 +110,8 @@ def supervisor_node(state: SupervisorState) -> SupervisorState:
         logger.info(f"Iteration limit reached - forcing final answer")
         # Continue to let supervisor provide final answer with available data
     
-    # Get OpenAI config and initialize LLM
-    openai_config = get_openai_config()
-    llm = ChatOpenAI(
-        model=openai_config["model_name"],
-        api_key=openai_config["api_key"]
-    )
+    # Get centralized LLM instance
+    llm = get_llm()
     
     # Format query history for prompt
     query_history_text = ""
@@ -136,6 +132,7 @@ def supervisor_node(state: SupervisorState) -> SupervisorState:
     # Create simplified prompt with systematic query decomposition
     prompt = f"""
 You are a database query orchestrator that MUST follow a SYSTEMATIC approach.
+You are going to query the Colombo Stock Exchange.
 
 🎯 CRITICAL QUERY STRATEGY:
 =========================================
@@ -258,40 +255,66 @@ async def executor_node(state: SupervisorState) -> SupervisorState:
         
         # Check if query was successful
         if not result.get("error"):
+            # Convert any Neo4j Date objects to strings before storing
+            # This prevents msgpack serialization errors
+            try:
+                # Convert all Neo4j special types (Date, DateTime, etc.) to strings
+                serialized_result = json.loads(json.dumps(result, default=str))
+            except Exception as e:
+                logger.warning(f"Failed to convert Neo4j objects: {e}")
+                serialized_result = result
+            
             # Store successful query and complete result
             query_record = {
                 'query': state['current_query'],
-                'result': result.get('result', ''),
+                'result': serialized_result.get('result', ''),
                 'success': True
             }
             
             # Include intermediate_steps if available
-            if 'intermediate_steps' in result:
-                query_record['intermediate_steps'] = result['intermediate_steps']
+            if 'intermediate_steps' in serialized_result:
+                query_record['intermediate_steps'] = serialized_result['intermediate_steps']
             
             state['query_history'].append(query_record)
             logger.info("Query successful")
             
         else:
+            # Convert any Neo4j Date objects to strings even for failed queries
+            try:
+                # Convert all Neo4j special types (Date, DateTime, etc.) to strings
+                serialized_result = json.loads(json.dumps(result, default=str))
+            except Exception as e:
+                logger.warning(f"Failed to convert Neo4j objects in error case: {e}")
+                serialized_result = result
+            
             # Store failed query with complete result
             query_record = {
                 'query': state['current_query'],
-                'result': f"Error: {result.get('result', 'Unknown error')}",
+                'result': f"Error: {serialized_result.get('result', 'Unknown error')}",
                 'success': False
             }
             
             # Include intermediate_steps if available (even for failures)
-            if 'intermediate_steps' in result:
-                query_record['intermediate_steps'] = result['intermediate_steps']
+            if 'intermediate_steps' in serialized_result:
+                query_record['intermediate_steps'] = serialized_result['intermediate_steps']
             
             state['query_history'].append(query_record)
-            logger.warning(f"Query failed: {result.get('result', 'Unknown error')}")
+            logger.warning(f"Query failed: {serialized_result.get('result', 'Unknown error')}")
             
     except Exception as e:
+        # Handle execution errors - convert any potential Date objects in error messages
+        error_message = str(e)
+        try:
+            # Attempt to clean any potential Neo4j objects from error message
+            error_message = json.loads(json.dumps(error_message, default=str))
+        except:
+            # If conversion fails, use original error message
+            pass
+        
         # Handle execution errors
         state['query_history'].append({
             'query': state['current_query'],
-            'result': f"Execution error: {str(e)}",
+            'result': f"Execution error: {error_message}",
             'success': False
         })
         logger.error(f"Execution error: {e}")

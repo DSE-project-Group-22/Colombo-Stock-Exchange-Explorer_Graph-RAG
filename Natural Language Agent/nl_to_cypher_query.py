@@ -11,7 +11,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from typing import Dict, Any, Optional
 from langchain_neo4j import Neo4jGraph, GraphCypherQAChain
-from langchain_openai import ChatOpenAI
+from llm_manager import get_llm
 from config import Settings
 
 # Configure logging
@@ -81,10 +81,8 @@ def initialize_graph_qa_chain() -> GraphCypherQAChain:
         logger.info(f"Neo4j schema loaded. Size: {schema_size} characters")
         logger.debug(f"Schema preview: {graph.schema[:200]}..." if graph.schema else "No schema loaded")
         
-        # Initialize OpenAI LLM
-        llm = ChatOpenAI(
-            model="gpt-5-mini",
-        )
+        # Get centralized LLM instance
+        llm = get_llm()
         
         # Create the GraphCypherQAChain
         chain = GraphCypherQAChain.from_llm(

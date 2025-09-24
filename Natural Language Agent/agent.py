@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 import redis
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage, SystemMessage, ToolMessage
 from langchain_core.tools import tool
-from langchain_openai import ChatOpenAI
+from llm_manager import get_llm
 from langgraph.graph import StateGraph, START, END
 from langgraph.graph.message import add_messages
 from langgraph.prebuilt import ToolNode
@@ -118,8 +118,20 @@ async def query_graph_database(query: str) -> str:
         )
         
         # Convert any Neo4j Date objects to strings by serializing and deserializing through JSON
-        # This handles Date objects at any nesting level
-        result = json.loads(json.dumps(result, default=str))
+        # This handles Date objects at any nesting level and prevents msgpack serialization errors
+        try:
+            result = json.loads(json.dumps(result, default=str))
+            logger.debug("Successfully converted Neo4j Date objects to strings")
+        except Exception as conversion_error:
+            logger.warning(f"Failed to convert Neo4j objects: {conversion_error}")
+            # If conversion fails, try to extract just the essential parts
+            if isinstance(result, dict):
+                try:
+                    # Try to convert each field separately
+                    for key, value in result.items():
+                        result[key] = json.loads(json.dumps(value, default=str))
+                except Exception:
+                    logger.warning("Partial conversion failed, using original result")
         
         # Extract the answer
         if isinstance(result, dict) and 'answer' in result:
@@ -161,11 +173,8 @@ Important guidelines:
 - Provide clear, informative responses based on the data retrieved
 """
     
-    # Initialize LLM with tools
-    llm = ChatOpenAI(
-        model="gpt-5-mini",
-        api_key=settings.openai_api_key
-    )
+    # Get centralized LLM instance
+    llm = get_llm()
     
     # Bind the tool to the LLM
     llm_with_tools = llm.bind_tools([query_graph_database])
