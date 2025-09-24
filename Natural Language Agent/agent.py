@@ -19,6 +19,7 @@ from langgraph.checkpoint.memory import MemorySaver
 
 from config import settings, get_redis_connection_params
 from supervisor_agent import run_supervisor_query
+from helpers.redis_helper import get_chat_history, serialize_neo4j_dates
 
 # Configure logging
 logging.basicConfig(
@@ -46,49 +47,13 @@ class AgentState(TypedDict):
 
 async def load_transcript_from_redis(redis_client, thread_id: str) -> str:
     """
-    Load conversation history from Redis and format as transcript
-    Handles both sync and async Redis clients
+    Load conversation history from Redis and format as transcript.
+    Now uses the helper function from redis_helper.
     
     Returns:
         Formatted transcript as "Human: message\nAgent: response\n..."
     """
-    try:
-        thread_key = f"chat:{thread_id}:messages"
-        
-        # Check if it's an async client by checking for the method
-        if hasattr(redis_client, '__aenter__'):
-            # Async Redis client
-            messages_json = await redis_client.lrange(thread_key, 0, -1)
-        else:
-            # Sync Redis client
-            messages_json = redis_client.lrange(thread_key, 0, -1)
-        
-        if not messages_json:
-            return ""
-        
-        transcript_lines = []
-        for msg_json in messages_json:
-            try:
-                msg_data = json.loads(msg_json)
-                role = msg_data.get('role', '')
-                content = msg_data.get('content', '')
-                
-                if role == 'user':
-                    transcript_lines.append(f"Human: {content}")
-                elif role == 'agent':
-                    transcript_lines.append(f"Agent: {content}")
-                    
-            except Exception as e:
-                logger.warning(f"Failed to parse message: {e}")
-                continue
-        
-        transcript = "\n".join(transcript_lines)
-        logger.info(f"Loaded transcript with {len(transcript_lines)} messages for thread {thread_id}")
-        return transcript
-        
-    except Exception as e:
-        logger.error(f"Failed to load conversation history: {e}")
-        return ""
+    return await get_chat_history(redis_client, thread_id)
 
 
 # =====================================================================================
@@ -113,25 +78,12 @@ async def query_graph_database(query: str) -> str:
         # Call the supervisor agent asynchronously with hardcoded parameters
         result = await run_supervisor_query(
             user_query=query,
-            max_iterations=25,  # Hardcoded
-            verbose=True       # Hardcoded
+            max_iterations=settings.supervisor_max_iterations,
+            verbose=settings.agent_verbose
         )
         
-        # Convert any Neo4j Date objects to strings by serializing and deserializing through JSON
-        # This handles Date objects at any nesting level and prevents msgpack serialization errors
-        try:
-            result = json.loads(json.dumps(result, default=str))
-            logger.debug("Successfully converted Neo4j Date objects to strings")
-        except Exception as conversion_error:
-            logger.warning(f"Failed to convert Neo4j objects: {conversion_error}")
-            # If conversion fails, try to extract just the essential parts
-            if isinstance(result, dict):
-                try:
-                    # Try to convert each field separately
-                    for key, value in result.items():
-                        result[key] = json.loads(json.dumps(value, default=str))
-                except Exception:
-                    logger.warning("Partial conversion failed, using original result")
+        # Convert any Neo4j Date objects to strings using helper
+        result = serialize_neo4j_dates(result)
         
         # Extract the answer
         if isinstance(result, dict) and 'answer' in result:
@@ -269,7 +221,7 @@ async def run_agent_with_transcript(conversation_transcript: str) -> str:
             "messages": [HumanMessage(content="Please answer the last question asked in the conversation history above.")],
             "conversation_transcript": conversation_transcript,
             "iteration_count": 0,
-            "max_iterations": 10  # Safety limit
+            "max_iterations": settings.agent_max_iterations  # From config
         }
         
         # Build and run the graph

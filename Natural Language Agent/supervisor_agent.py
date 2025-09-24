@@ -12,7 +12,11 @@ from llm_manager import get_llm
 from langgraph.graph import StateGraph, END
 
 # Import the existing nl_to_cypher_query functionality
-from nl_to_cypher_query import get_cached_chain, query_graph_with_natural_language
+from nl_to_cypher_query import query_graph_with_natural_language
+from helpers.neo4j_helper import get_qa_chain
+from helpers.redis_helper import serialize_neo4j_dates
+from config import settings
+from schemas.graph_schema import GRAPH_SCHEMA
 
 # Configure logging
 logging.basicConfig(
@@ -20,40 +24,6 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
-
-
-# =====================================================================================
-# GRAPH SCHEMA
-# =====================================================================================
-
-GRAPH_SCHEMA = """
-Node Labels & Properties:
-- Company: id (string, unique), name (string),
-- Person: id (string, unique), name (string)
-- Sector: id (string, unique), name (string)
-- Product: id (string, unique), name (string)
-- Metric: id (string, unique), name (string), unit (string)
-
-Relationship Types & Properties:
-Ownership & Shareholdings:
-- (Company)-[:OWNS]->(Company): pct (float - percent ownership), as_of (date)
-- (Person)-[:OWNS_SHARES]->(Company): count (int) or pct (float), as_of (date)
-
-Governance & Roles:
-- (Person)-[:DIRECTOR_OF]->(Company): role (string), as_of (date)
-- (Person)-[:HOLDS_POSITION]->(Company): title (string), as_of (date)
-
-Business Classification:
-- (Company)-[:IN_SECTOR]->(Sector): no properties
-- (Company)-[:OFFERS]->(Product): status (string, optional)
-
-Financial Metrics:
-- (Company)-[:HAS_METRIC]->(Metric): year (int, optional), as_of (date, optional), value (float/int)
-
-Auditing & Management:
-- (Company)-[:AUDITED_BY]->(Company): year (int)
-- (Company)-[:MANAGES]->(Company): description (string)
-"""
 
 
 # =====================================================================================
@@ -249,20 +219,14 @@ async def executor_node(state: SupervisorState) -> SupervisorState:
     logger.info(f"Executing: {state['current_query']}")
     
     try:
-        # Get cached chain and execute query asynchronously
-        chain = get_cached_chain()
-        result = await query_graph_with_natural_language(state['current_query'], chain)
+        # Get chain and execute query asynchronously
+        chain = get_qa_chain()
+        result = await query_graph_with_natural_language(state['current_query'])
         
         # Check if query was successful
         if not result.get("error"):
-            # Convert any Neo4j Date objects to strings before storing
-            # This prevents msgpack serialization errors
-            try:
-                # Convert all Neo4j special types (Date, DateTime, etc.) to strings
-                serialized_result = json.loads(json.dumps(result, default=str))
-            except Exception as e:
-                logger.warning(f"Failed to convert Neo4j objects: {e}")
-                serialized_result = result
+            # Convert any Neo4j Date objects to strings using helper
+            serialized_result = serialize_neo4j_dates(result)
             
             # Store successful query and complete result
             query_record = {
@@ -279,13 +243,8 @@ async def executor_node(state: SupervisorState) -> SupervisorState:
             logger.info("Query successful")
             
         else:
-            # Convert any Neo4j Date objects to strings even for failed queries
-            try:
-                # Convert all Neo4j special types (Date, DateTime, etc.) to strings
-                serialized_result = json.loads(json.dumps(result, default=str))
-            except Exception as e:
-                logger.warning(f"Failed to convert Neo4j objects in error case: {e}")
-                serialized_result = result
+            # Convert any Neo4j Date objects even for failed queries
+            serialized_result = serialize_neo4j_dates(result)
             
             # Store failed query with complete result
             query_record = {
@@ -372,20 +331,26 @@ def build_supervisor_graph() -> StateGraph:
 
 async def run_supervisor_query(
     user_query: str,
-    max_iterations: int = 20,
-    verbose: bool = True
+    max_iterations: int = None,
+    verbose: bool = None
 ) -> Dict[str, Any]:
     """
     Run a query through the supervisor agent asynchronously.
     
     Args:
         user_query: The user's natural language question
-        max_iterations: Maximum number of query iterations
-        verbose: Whether to print progress
+        max_iterations: Maximum number of query iterations (defaults to config)
+        verbose: Whether to print progress (defaults to config)
     
     Returns:
         Dict with 'answer', 'queries_executed', 'success' keys
     """
+    
+    # Use config defaults if not specified
+    if max_iterations is None:
+        max_iterations = settings.supervisor_max_iterations
+    if verbose is None:
+        verbose = settings.agent_verbose
     
     if not verbose:
         # Suppress print statements

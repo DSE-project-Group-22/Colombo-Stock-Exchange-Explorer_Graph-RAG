@@ -11,6 +11,10 @@ load_dotenv()
 
 
 class Settings(BaseSettings):
+    # OpenAI Configuration
+    openai_api_key: Optional[str] = os.getenv("OPENAI_API_KEY")
+    openai_model: str = os.getenv("OPENAI_MODEL", "gpt-5-mini")
+    
     # Neo4j Configuration
     neo4j_uri: str = os.getenv("NEO4J_URI", "bolt://localhost:7687")
     neo4j_user: str = os.getenv("NEO4J_USER", "neo4j")
@@ -20,15 +24,22 @@ class Settings(BaseSettings):
     # Docker-specific Neo4j URI (for containerized deployment)
     neo4j_uri_docker: str = os.getenv("NEO4J_URI_DOCKER", "bolt://graph-db:7687")
     
-    # OpenAI Configuration
-    openai_api_key: Optional[str] = os.getenv("OPENAI_API_KEY")
-    
     # Redis Configuration
     redis_host: str = os.getenv("REDIS_HOST", "localhost")
     redis_port: int = int(os.getenv("REDIS_PORT", "6379"))
     redis_db: int = int(os.getenv("REDIS_DB", "0"))
     redis_password: Optional[str] = os.getenv("REDIS_PASSWORD", None)
     redis_ttl_hours: int = int(os.getenv("REDIS_TTL_HOURS", "24"))
+    
+    # Kafka Configuration
+    kafka_bootstrap_servers: str = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "kafka:29092")
+    kafka_group_id: str = os.getenv("KAFKA_GROUP_ID", "nl-agent-group")
+    kafka_request_topic: str = os.getenv("KAFKA_REQUEST_TOPIC", "chat.requests")
+    
+    # Agent Configuration
+    agent_max_iterations: int = int(os.getenv("AGENT_MAX_ITERATIONS", "10"))
+    supervisor_max_iterations: int = int(os.getenv("SUPERVISOR_MAX_ITERATIONS", "20"))
+    agent_verbose: bool = os.getenv("AGENT_VERBOSE", "true").lower() == "true"
     
     # Service Configuration
     host: str = os.getenv("HOST", "0.0.0.0")
@@ -86,7 +97,7 @@ def get_openai_config() -> dict:
     
     return {
         "api_key": settings.openai_api_key,
-        "model_name": "gpt-5-mini",
+        "model_name": settings.openai_model,
     }
 
 
