@@ -18,32 +18,45 @@ _chain: Optional[GraphCypherQAChain] = None
 _lock = threading.Lock()  # Thread safety for cache
 
 
-def get_graph() -> Neo4jGraph:
+def _get_graph_unsafe() -> Neo4jGraph:
     """
-    Get or create Neo4j graph connection.
-    Uses caching to avoid repeated initialization.
+    Internal function to get or create Neo4j graph connection WITHOUT lock.
+    Should only be called when lock is already held.
     
     Returns:
         Neo4jGraph: Connected graph instance
     """
     global _graph
     
-    with _lock:
-        if _graph is None:
-            logger.info("Creating new Neo4j graph connection")
-            _graph = Neo4jGraph(
-                url=settings.effective_neo4j_uri,
-                username=settings.neo4j_user,
-                password=settings.neo4j_password,
-                database=settings.neo4j_database,
-                enhanced_schema=True  # Keep simple to avoid APOC dependencies
-            )
-            
-            # Log schema info
-            schema_size = len(_graph.schema) if _graph.schema else 0
-            logger.info(f"Neo4j schema loaded. Size: {schema_size} characters")
-            
+    if _graph is None:
+        logger.info("Creating new Neo4j graph connection")
+        _graph = Neo4jGraph(
+            url=settings.effective_neo4j_uri,
+            username=settings.neo4j_user,
+            password=settings.neo4j_password,
+            database=settings.neo4j_database,
+            enhanced_schema=True  # Restored to True for full schema support with APOC
+        )
+        
+        # Log schema info
+        schema_size = len(_graph.schema) if _graph.schema else 0
+        logger.info(f"Neo4j schema loaded. Size: {schema_size} characters")
+        logger.debug(f"Schema preview: {_graph.schema[:200]}..." if _graph.schema else "No schema")
+        
     return _graph
+
+
+def get_graph() -> Neo4jGraph:
+    """
+    Get or create Neo4j graph connection.
+    Uses caching to avoid repeated initialization.
+    Thread-safe with lock.
+    
+    Returns:
+        Neo4jGraph: Connected graph instance
+    """
+    with _lock:
+        return _get_graph_unsafe()
 
 
 def get_qa_chain() -> GraphCypherQAChain:
@@ -60,8 +73,8 @@ def get_qa_chain() -> GraphCypherQAChain:
         if _chain is None:
             logger.info("Creating new GraphCypherQAChain")
             
-            # Get graph connection
-            graph = get_graph()
+            # Get graph connection using unsafe version since we already hold the lock
+            graph = _get_graph_unsafe()
             
             # Get centralized LLM instance
             llm = get_llm()
@@ -109,9 +122,17 @@ def reset_chain():
 def reset_all():
     """
     Reset both graph and chain connections.
+    Thread-safe implementation that avoids deadlock.
     """
-    reset_graph()
-    reset_chain()
+    global _graph, _chain
+    
+    with _lock:
+        if _graph is not None:
+            logger.info("Resetting Neo4j graph connection")
+            _graph = None
+        if _chain is not None:
+            logger.info("Resetting GraphCypherQAChain")
+            _chain = None
 
 
 async def execute_cypher_query(query: str) -> Dict[str, Any]:
