@@ -51,6 +51,12 @@ class Settings(BaseSettings):
     # Environment
     environment: str = os.getenv("ENVIRONMENT", "development")
     
+    # Langfuse Configuration
+    langfuse_public_key: Optional[str] = os.getenv("LANGFUSE_PUBLIC_KEY")
+    langfuse_secret_key: Optional[str] = os.getenv("LANGFUSE_SECRET_KEY")
+    langfuse_host: str = os.getenv("LANGFUSE_HOST", "https://cloud.langfuse.com")
+    langfuse_enabled: bool = os.getenv("LANGFUSE_ENABLED", "false").lower() == "true"
+    
     @property
     def is_development(self) -> bool:
         return self.environment.lower() == "development"

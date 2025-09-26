@@ -39,5 +39,8 @@ redis>=5.0.0
 # Kafka for message processing
 aiokafka>=0.10.0
 
+# Observability and Tracing
+langfuse>=3.0.0
+
 # Optional: For advanced text processing (commented out for faster install)
 # spacy>=3.7.2

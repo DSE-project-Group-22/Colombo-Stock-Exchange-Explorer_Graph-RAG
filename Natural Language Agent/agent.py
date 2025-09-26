@@ -196,6 +196,26 @@ def build_conversation_graph():
     memory = MemorySaver()
     compiled_graph = graph.compile(checkpointer=memory)
     
+    # Add Langfuse tracing if enabled
+    if settings.langfuse_enabled and settings.langfuse_public_key and settings.langfuse_secret_key:
+        try:
+            from langfuse import Langfuse
+            from langfuse.langchain import CallbackHandler
+            
+            # Initialize Langfuse client
+            Langfuse(
+                public_key=settings.langfuse_public_key,
+                secret_key=settings.langfuse_secret_key,
+                host=settings.langfuse_host
+            )
+            
+            # Attach callback to graph - propagates to ALL nested calls
+            langfuse_handler = CallbackHandler()
+            compiled_graph = compiled_graph.with_config({"callbacks": [langfuse_handler]})
+            logger.info("Langfuse tracing enabled for all LLM calls")
+        except Exception as e:
+            logger.warning(f"Could not enable Langfuse: {e}")
+    
     return compiled_graph
 
 
