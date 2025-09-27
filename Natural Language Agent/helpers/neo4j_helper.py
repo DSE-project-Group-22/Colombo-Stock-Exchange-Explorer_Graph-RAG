@@ -79,13 +79,14 @@ def get_qa_chain() -> GraphCypherQAChain:
             # Get centralized LLM instance
             llm = get_llm()
             
-            # Create the chain
+            # Create the chain with return_direct=True to bypass LLM processing of results
             _chain = GraphCypherQAChain.from_llm(
                 llm=llm,
                 graph=graph,
                 verbose=settings.agent_verbose,
                 allow_dangerous_requests=True,
                 return_intermediate_steps=True,
+                return_direct=True,  # Return raw query results without LLM processing
                 top_k=settings.cypher_qa_top_k  # Configure result limit
             )
             
