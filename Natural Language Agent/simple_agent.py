@@ -8,6 +8,11 @@ from helpers.redis_helper import get_chat_history
 from config import settings
 import redis
 
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
 logger = logging.getLogger(__name__)
 
 class SimpleAgentState(TypedDict):
@@ -57,7 +62,7 @@ async def supervisor_node(state: SimpleAgentState) -> Dict[str, Any]:
     return {"final_answer": final_answer}
 
 def build_simple_graph():
-    """Build the 2-node graph"""
+    """Build the 2-node graph with Langfuse tracing"""
     graph = StateGraph(SimpleAgentState)
     
     # Two nodes with simple linear flow
@@ -71,7 +76,30 @@ def build_simple_graph():
     
     logger.info("Built simple 2-node graph")
     
-    return graph.compile()
+    # Compile the graph
+    compiled_graph = graph.compile()
+    
+    # Add Langfuse tracing if enabled
+    if settings.langfuse_enabled and settings.langfuse_public_key and settings.langfuse_secret_key:
+        try:
+            from langfuse import Langfuse
+            from langfuse.langchain import CallbackHandler
+            
+            # Initialize Langfuse client
+            Langfuse(
+                public_key=settings.langfuse_public_key,
+                secret_key=settings.langfuse_secret_key,
+                host=settings.langfuse_host
+            )
+            
+            # Attach callback to graph - propagates to ALL nested calls
+            langfuse_handler = CallbackHandler()
+            compiled_graph = compiled_graph.with_config({"callbacks": [langfuse_handler]})
+            logger.info("Langfuse tracing enabled for simple agent")
+        except Exception as e:
+            logger.warning(f"Could not enable Langfuse: {e}")
+    
+    return compiled_graph
 
 async def execute_simple_agent(
     thread_id: str, 

@@ -89,9 +89,19 @@ def supervisor_node(state: SupervisorState) -> SupervisorState:
         for i, query_result in enumerate(state['query_history'], 1):
             success = "✓" if query_result.get('success', False) else "✗"
             query_history_text += f"{i}. {success} Query: {query_result.get('query', '')}\n"
-            query_history_text += f"   Result: {str(query_result.get('result', ''))[:200]}...\n"
-            if query_result.get('intermediate_steps'):
-                query_history_text += f"   Intermediate Steps: {str(query_result.get('intermediate_steps', ''))}...\n"
+            
+            if query_result.get('success'):
+                # For successful queries, show the actual data
+                result_preview = str(query_result.get('result', []))[:200]
+                query_history_text += f"   Result: {result_preview}...\n"
+            else:
+                # For failed queries, show the error
+                query_history_text += f"   Error: {query_result.get('error', 'Unknown error')}\n"
+            
+            # Include Cypher query if available (for debugging)
+            if query_result.get('cypher'):
+                query_history_text += f"   Cypher: {query_result.get('cypher')}\n"
+            
             query_history_text += "\n"
     else:
         query_history_text = "QUERY HISTORY: No queries executed yet - Start with entity discovery"
@@ -168,16 +178,16 @@ When providing final answer, synthesize ALL information from the query history i
     try:
         decision = structured_llm.invoke(prompt)
         
-        # Print LLM decision for visibility when verbose
+        # Log LLM decision for visibility when verbose
         if settings.agent_verbose:
-            print(f"\n🤖 LLM Decision: {'Need more info' if decision.needs_more_info else 'Ready to answer'}")
-            print(f"💭 Reasoning: {decision.reasoning}")
+            logger.info(f"LLM Decision: {'Need more info' if decision.needs_more_info else 'Ready to answer'}")
+            logger.info(f"Reasoning: {decision.reasoning}")
         
         if decision.needs_more_info and decision.next_query:
             state['current_query'] = decision.next_query
             state['should_continue'] = True
             if settings.agent_verbose:
-                print(f"🔎 Next Query: {decision.next_query}\n")
+                logger.info(f"Next Query: {decision.next_query}")
         else:
             # Ready to provide final answer
             state['should_continue'] = False
@@ -216,51 +226,63 @@ async def executor_node(state: SupervisorState) -> SupervisorState:
         return state
     
     if settings.agent_verbose:
-        print(f"⚙️ Executing: {state['current_query']}")
-        print("-" * 70)
+        logger.info(f"Executing: {state['current_query']}")
     
     try:
         # Execute query asynchronously (will use cached chain from helper)
         result = await query_graph_with_natural_language(state['current_query'])
+
+        if settings.agent_verbose:
+            logger.debug(f"Query result structure: {result}")
         
         # Check if query was successful
         if not result.get("error"):
             # Convert any Neo4j Date objects to strings using helper
             serialized_result = serialize_neo4j_dates(result)
             
-            # Store successful query and complete result
+            # Extract only the data from result (it's a list)
+            result_data = serialized_result.get('result', [])
+            
+            # Extract the Cypher query from intermediate_steps
+            cypher_query = None
+            if 'intermediate_steps' in serialized_result and serialized_result['intermediate_steps']:
+                cypher_query = serialized_result['intermediate_steps'][0].get('query', '')
+            
+            # Store optimized query record
             query_record = {
-                'query': state['current_query'],
-                'result': serialized_result.get('result', ''),
+                'query': state['current_query'],  # Keep the NL query
+                'result': result_data,  # Store just the data list
+                'cypher': cypher_query,  # Store the generated Cypher for debugging
                 'success': True
             }
             
-            # Include intermediate_steps if available
-            if 'intermediate_steps' in serialized_result:
-                query_record['intermediate_steps'] = serialized_result['intermediate_steps']
-            
             state['query_history'].append(query_record)
             if settings.agent_verbose:
-                print(f"✅ Query successful\n")
+                logger.info("Query successful")
             
         else:
             # Convert any Neo4j Date objects even for failed queries
             serialized_result = serialize_neo4j_dates(result)
             
-            # Store failed query with complete result
+            # For errors, store the error message
+            error_msg = serialized_result.get('result', 'Unknown error')
+            
+            # Extract the Cypher query even for failures (for debugging)
+            cypher_query = None
+            if 'intermediate_steps' in serialized_result and serialized_result['intermediate_steps']:
+                cypher_query = serialized_result['intermediate_steps'][0].get('query', '')
+            
+            # Store optimized error record
             query_record = {
                 'query': state['current_query'],
-                'result': f"Error: {serialized_result.get('result', 'Unknown error')}",
+                'error': str(error_msg),  # Store error separately
+                'cypher': cypher_query,  # Include Cypher for debugging failures
                 'success': False
             }
             
-            # Include intermediate_steps if available (even for failures)
-            if 'intermediate_steps' in serialized_result:
-                query_record['intermediate_steps'] = serialized_result['intermediate_steps']
-            
             state['query_history'].append(query_record)
             if settings.agent_verbose:
-                print(f"❌ Query failed: {serialized_result.get('result', 'Unknown error')}\n")
+                logger.warning(f"Query failed: {serialized_result.get('result', 'Unknown error')}")
             
     except Exception as e:
         # Handle execution errors - convert any potential Date objects in error messages
