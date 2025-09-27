@@ -1,0 +1,1 @@
+"""Centralized prompt templates for the NL Agent"""
