@@ -40,14 +40,14 @@ async def context_analyzer_node(state: SimpleAgentState) -> Dict[str, Any]:
     
     return {"reformulated_query": reformulated}
 
-async def supervisor_node(state: SimpleAgentState) -> Dict[str, Any]:
+async def query_executor_node(state: SimpleAgentState) -> Dict[str, Any]:
     """
-    Node 2: Run supervisor with reformulated query.
-    Supervisor handles its own internal iterations.
+    Node 2: Execute query with reformulated natural language.
+    Uses supervisor agent for systematic query decomposition and execution.
     """
     from supervisor_agent import run_supervisor_query
     
-    logger.info(f"Running supervisor with query: {state['reformulated_query']}")
+    logger.info(f"Executing query: {state['reformulated_query']}")
     
     # Run existing supervisor with reformulated query
     result = await run_supervisor_query(
@@ -57,7 +57,7 @@ async def supervisor_node(state: SimpleAgentState) -> Dict[str, Any]:
     )
     
     final_answer = result.get('answer', 'Unable to generate answer')
-    logger.info(f"Supervisor completed with {result.get('queries_executed', 0)} queries executed")
+    logger.info(f"Query execution completed with {result.get('queries_executed', 0)} sub-queries executed")
     
     return {"final_answer": final_answer}
 
@@ -67,12 +67,12 @@ def build_simple_graph():
     
     # Two nodes with simple linear flow
     graph.add_node("context_analyzer", context_analyzer_node)
-    graph.add_node("supervisor", supervisor_node)
+    graph.add_node("query_executor", query_executor_node)
     
-    # Linear flow: start -> context -> supervisor -> end
+    # Linear flow: start -> context -> query_executor -> end
     graph.set_entry_point("context_analyzer")
-    graph.add_edge("context_analyzer", "supervisor")
-    graph.add_edge("supervisor", END)
+    graph.add_edge("context_analyzer", "query_executor")
+    graph.add_edge("query_executor", END)
     
     logger.info("Built simple 2-node graph")
     

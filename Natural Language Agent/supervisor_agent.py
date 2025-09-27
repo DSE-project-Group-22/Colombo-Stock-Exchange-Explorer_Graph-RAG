@@ -16,6 +16,7 @@ from nl_to_cypher_query import query_graph_with_natural_language
 from helpers.redis_helper import serialize_neo4j_dates
 from config import settings
 from schemas.graph_schema import GRAPH_SCHEMA
+from prompts.supervisor import SUPERVISOR_PROMPT
 
 # Configure logging
 logging.basicConfig(
@@ -58,7 +59,7 @@ class SupervisorDecision(BaseModel):
     )
     final_answer: Optional[str] = Field(
         default=None,
-        description="The final answer if we have enough information"
+        description="The final markdown-formatted answer that directly addresses the user's question"
     )
 
 
@@ -91,9 +92,9 @@ def supervisor_node(state: SupervisorState) -> SupervisorState:
             query_history_text += f"{i}. {success} Query: {query_result.get('query', '')}\n"
             
             if query_result.get('success'):
-                # For successful queries, show the actual data
-                result_preview = str(query_result.get('result', []))[:200]
-                query_history_text += f"   Result: {result_preview}...\n"
+                # For successful queries, show the complete data - no truncation
+                full_result = str(query_result.get('result', []))
+                query_history_text += f"   Result: {full_result}\n"
             else:
                 # For failed queries, show the error
                 query_history_text += f"   Error: {query_result.get('error', 'Unknown error')}\n"
@@ -108,69 +109,12 @@ def supervisor_node(state: SupervisorState) -> SupervisorState:
 
     logger.debug(query_history_text)
     
-    # Create simplified prompt with systematic query decomposition
-    prompt = f"""
-You are a database query orchestrator that MUST follow a SYSTEMATIC approach.
-You are going to query the Colombo Stock Exchange.
-
-🎯 CRITICAL QUERY STRATEGY:
-=========================================
-STEP 1 - ENTITY NAME RESOLUTION (ALWAYS FIRST):
-- If user mentions ANY entity, FIRST find the EXACT name
-- Pattern: "List all companies with '[partial]' in the name"
-- Example: "John Keells" → "List all companies with 'John Keells' in the name"
-- Result: Discovers "John Keells Holdings PLC" (exact name)
-
-STEP 2 - USE EXACT NAMES FROM PREVIOUS QUERIES:
-- NEVER use partial names after Step 1
-- Use EXACT: "John Keells Holdings PLC" not "John Keells"
-- Extract exact names from previous query results
-
-STEP 3 - DECOMPOSE COMPLEX QUESTIONS:
-Example: "What companies does X own and percentages?"
-  Query 1: "List all companies with 'X' in the name"
-  Query 2: "What companies does [exact_X_name] own?"
-  Query 3: "What is the ownership percentage of [exact_X_name] in [company]?"
-
-STEP 4 - ERROR RECOVERY:
-- Failed query? → Try broader search
-- No results? → Verify entity exists
-- Still failing? → Alternative phrasing
-
-========================================
-DATABASE SCHEMA:
-========================================
-{GRAPH_SCHEMA}
-
-========================================
-USER'S QUESTION: {state['user_query']}
-========================================
-
-{query_history_text}
-
-========================================
-DECISION FRAMEWORK:
-========================================
-
-CHECK IN ORDER:
-1. NO queries yet? → Start with entity name discovery
-2. Entity names unresolved? → Find exact names first
-3. Previous query failed? → Try broader/alternative
-4. Have entities, need details? → Use EXACT names from previous results
-5. Have sufficient information? → Provide FINAL ANSWER
-
-QUERY PATTERNS TO USE:
-- Discovery: "List all companies with '[partial]' in the name"
-- Ownership: "What companies does [exact_name] own?"
-- Percentages: "What is the ownership percentage of [exact_parent] in [exact_child]?"
-- Directors: "Who are the directors of [exact_name]?"
-
-DECISION REQUIRED:
-- If you have enough information → Provide comprehensive FINAL ANSWER based on query history
-- Otherwise → Provide the next self-contained query
-
-When providing final answer, synthesize ALL information from the query history into a clear response.
-"""
+    # Use prompt from prompts folder with proper formatting
+    prompt = SUPERVISOR_PROMPT.format(
+        graph_schema=GRAPH_SCHEMA,
+        user_query=state['user_query'],
+        query_history=query_history_text
+    )
     
     # Get structured decision from LLM
     structured_llm = llm.with_structured_output(SupervisorDecision)
@@ -191,6 +135,7 @@ When providing final answer, synthesize ALL information from the query history i
         else:
             # Ready to provide final answer
             state['should_continue'] = False
+            state['current_query'] = None  # Clear any pending query
             state['final_answer'] = decision.final_answer
             logger.info("Final Answer Ready")
             
@@ -198,16 +143,18 @@ When providing final answer, synthesize ALL information from the query history i
         logger.error(f"Error in supervisor decision: {e}")
         # Fallback: try to provide answer based on what we have
         state['should_continue'] = False
+        state['current_query'] = None  # Clear any pending query
         if state['query_history']:
-            # Provide a basic answer from available data
+            # Provide a basic answer from available data in markdown format
             successful = [q for q in state['query_history'] if q.get('success', False)]
             if successful:
-                state['final_answer'] = f"Based on the information gathered:\n" + \
-                    "\n".join([f"- {q['query']}: {str(q['result'])[:100]}..." for q in successful])
+                # Format available data as markdown
+                results_text = "\n".join([f"- **{q['query']}**: {str(q['result'])}" for q in successful])
+                state['final_answer'] = f"Based on the available information:\n\n{results_text}\n\n*Note: Query processing was interrupted, but here's what was found.*"
             else:
-                state['final_answer'] = "I was unable to retrieve the necessary information to answer your question."
+                state['final_answer'] = "I was unable to retrieve the necessary information to answer your question. Please try rephrasing or simplifying your query."
         else:
-            state['final_answer'] = "I encountered an error while processing your question."
+            state['final_answer'] = "I encountered an error while processing your question. Please try again with a simpler query."
     
     return state
 
@@ -315,9 +262,19 @@ async def executor_node(state: SupervisorState) -> SupervisorState:
 # GRAPH CONSTRUCTION
 # =====================================================================================
 
-def should_continue(state: SupervisorState) -> str:
-    """Conditional edge function to determine next node"""
-    if state['should_continue'] and state['iteration'] < state['max_iterations']:
+def supervisor_decision_router(state: SupervisorState) -> str:
+    """Route from supervisor based on whether more queries are needed"""
+    if state['current_query'] and state['should_continue']:
+        # Supervisor has a new query to execute
+        return "executor"
+    else:
+        # Supervisor has final answer or hit iteration limit
+        return END
+
+
+def executor_to_supervisor_router(state: SupervisorState) -> str:
+    """Route from executor back to supervisor if iterations remain"""
+    if state['iteration'] < state['max_iterations']:
         return "supervisor"
     return END
 
@@ -335,11 +292,20 @@ def build_supervisor_graph() -> StateGraph:
     # Set entry point
     graph.set_entry_point("supervisor")
     
-    # Add edges
-    graph.add_edge("supervisor", "executor")
+    # Add conditional edges from supervisor
+    graph.add_conditional_edges(
+        "supervisor",
+        supervisor_decision_router,
+        {
+            "executor": "executor",
+            END: END
+        }
+    )
+    
+    # Add edge from executor back to supervisor
     graph.add_conditional_edges(
         "executor",
-        should_continue,
+        executor_to_supervisor_router,
         {
             "supervisor": "supervisor",
             END: END
