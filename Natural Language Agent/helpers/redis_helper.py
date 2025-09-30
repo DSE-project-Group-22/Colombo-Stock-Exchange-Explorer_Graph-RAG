@@ -4,7 +4,7 @@ Simple functions without complex abstractions.
 """
 import json
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List, Dict, Any, Optional
 
 from config import settings
@@ -225,4 +225,85 @@ async def update_thread_metadata(redis_client, thread_id: str, metadata: Dict[st
         
     except Exception as e:
         logger.error(f"Failed to update metadata: {e}")
+        return False
+
+
+async def publish_intermediate_step(
+    redis_client,
+    correlation_id: str,
+    user_id: str,
+    thread_id: str,
+    step_type: str,
+    content: Dict[str, Any],
+    step_number: int = 0,
+    metadata: Optional[Dict[str, Any]] = None
+) -> bool:
+    """
+    Publish intermediate processing step to multiple Redis channels.
+    Publishes to correlation, user, and thread channels for maximum flexibility.
+    
+    Args:
+        redis_client: Redis async client
+        correlation_id: Request correlation ID
+        user_id: User ID making the request
+        thread_id: Thread identifier
+        step_type: Type of step ("agent_thinking", "tool_call", "tool_result", "error")
+        content: Step content (message, tool info, etc.)
+        step_number: Sequential step number within request
+        metadata: Optional metadata about the step
+    
+    Returns:
+        True if successful, False otherwise
+    """
+    if not redis_client:
+        logger.warning("Redis client not available for publishing steps")
+        return False
+    
+    try:
+        # Create step message
+        step_data = {
+            "correlation_id": correlation_id,
+            "user_id": user_id,
+            "thread_id": thread_id,
+            "step_number": step_number,
+            "step_type": step_type,
+            "content": serialize_neo4j_dates(content),  # Handle Neo4j dates
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "metadata": metadata or {}
+        }
+        
+        # Serialize message
+        message = json.dumps(step_data, default=str)
+        
+        # Publish to multiple channels for flexibility
+        channels = [
+            f"steps:{correlation_id}",       # For request-specific monitoring
+            f"steps:user:{user_id}",         # For user's WebSocket (future)
+            f"steps:thread:{thread_id}"      # For thread history (optional)
+        ]
+        
+        # Publish to all channels
+        publish_count = 0
+        for channel in channels:
+            try:
+                await redis_client.publish(channel, message)
+                publish_count += 1
+                logger.debug(f"Published step to channel: {channel}")
+            except Exception as e:
+                logger.warning(f"Failed to publish to channel {channel}: {e}")
+        
+        # Log the step for monitoring
+        if step_type == "agent_thinking":
+            logger.info(f"[STEP] {correlation_id}: Agent thinking - {content.get('message', '')[:100]}")
+        elif step_type == "tool_call":
+            logger.info(f"[STEP] {correlation_id}: Calling tool {content.get('tool_name', 'unknown')}")
+        elif step_type == "tool_result":
+            logger.info(f"[STEP] {correlation_id}: Tool result received")
+        elif step_type == "error":
+            logger.warning(f"[STEP] {correlation_id}: Error - {content.get('error', 'unknown')}")
+        
+        return publish_count > 0
+        
+    except Exception as e:
+        logger.error(f"Failed to publish intermediate step: {e}")
         return False
