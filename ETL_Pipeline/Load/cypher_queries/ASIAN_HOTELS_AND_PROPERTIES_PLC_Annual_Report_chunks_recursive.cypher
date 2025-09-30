@@ -1,425 +1,239 @@
 // Query 1
-MERGE (c:Company {name: 'Asian Hotels and Properties PLC'}) ON CREATE SET c.id = 'asian_hotels_and_properties_plc';
+MERGE (c:Company {name: 'Asian Hotels and Properties PLC'}) ON CREATE SET c.id = 'asian_hotels_and_properties_plc', c.listed_on = 'Colombo Stock Exchange of Sri Lanka';
 
 // Query 2
-MERGE (p:Person {name: 'Krishan Niraj Jayasekara Balendra'}) ON CREATE SET p.id = 'krishan_niraj_jayasekara_balendra';
+MERGE (c:Company {name: 'John Keells Holdings PLC'}) ON CREATE SET c.id = 'john_keells_holdings_plc';
 
 // Query 3
-MATCH (p:Person {name: 'Krishan Niraj Jayasekara Balendra'}), (c:Company {name: 'Asian Hotels and Properties PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairperson', r.as_of = date('2024-03-31');
+MERGE (c:Company {name: 'Sampath Bank PLC'}) ON CREATE SET c.id = 'sampath_bank_plc';
 
 // Query 4
-MERGE (p:Person {name: 'Joseph Gihan Adisha Cooray'}) ON CREATE SET p.id = 'joseph_gihan_adisha_cooray';
+MERGE (c:Company {name: 'A E C Properties (Pvt) Ltd'}) ON CREATE SET c.id = 'a_e_c_properties_pvt_ltd';
 
 // Query 5
-MATCH (p:Person {name: 'Joseph Gihan Adisha Cooray'}), (c:Company {name: 'Asian Hotels and Properties PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-03-31');
+MERGE (c:Company {name: 'Associated Electrical Corporation Ltd'}) ON CREATE SET c.id = 'associated_electrical_corporation_ltd';
 
 // Query 6
-MERGE (p:Person {name: 'Suresh Rajendra'}) ON CREATE SET p.id = 'suresh_rajendra';
+MERGE (c:Company {name: 'Econic (Private) Ltd'}) ON CREATE SET c.id = 'econic_private_ltd';
 
 // Query 7
-MATCH (p:Person {name: 'Suresh Rajendra'}), (c:Company {name: 'Asian Hotels and Properties PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-03-31');
+MERGE (c:Company {name: 'Ashan de Zoysa & Co (Pvt) Ltd'}) ON CREATE SET c.id = 'ashan_de_zoysa_&_co_pvt_ltd';
 
 // Query 8
-MERGE (p:Person {name: 'Ashan Suresh De Zoysa'}) ON CREATE SET p.id = 'ashan_suresh_de_zoysa';
+MERGE (c:Company {name: 'Forest Sense (Pvt) Ltd'}) ON CREATE SET c.id = 'forest_sense_pvt_ltd';
 
 // Query 9
-MATCH (p:Person {name: 'Ashan Suresh De Zoysa'}), (c:Company {name: 'Asian Hotels and Properties PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-03-31');
+MERGE (c:Company {name: 'ADZ Insurance Brokers (Pvt) Ltd'}) ON CREATE SET c.id = 'adz_insurance_brokers_pvt_ltd';
 
 // Query 10
-MERGE (p:Person {name: 'Jegatheesan Durairatnam'}) ON CREATE SET p.id = 'jegatheesan_durairatnam';
+MERGE (c:Company {name: 'KPMG'}) ON CREATE SET c.id = 'kpmg';
 
 // Query 11
-MATCH (p:Person {name: 'Jegatheesan Durairatnam'}), (c:Company {name: 'Asian Hotels and Properties PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-03-31');
+MERGE (c:Company {name: 'Deloitte Advisory Services (Pvt) Ltd'}) ON CREATE SET c.id = 'deloitte_advisory_services_pvt_ltd';
 
 // Query 12
-MERGE (p:Person {name: 'Mikael Roland Svensson'}) ON CREATE SET p.id = 'mikael_roland_svensson';
+MERGE (p:Person {name: 'Krishan Niraj Jayasekara Balendra'}) ON CREATE SET p.id = 'krishan_niraj_jayasekara_balendra';
 
 // Query 13
-MATCH (p:Person {name: 'Mikael Roland Svensson'}), (c:Company {name: 'Asian Hotels and Properties PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-03-31');
+MERGE (p:Person {name: 'Joseph Gihan Adisha Cooray'}) ON CREATE SET p.id = 'joseph_gihan_adisha_cooray';
 
 // Query 14
-MERGE (p:Person {name: 'Changa Lashantha Poojitha Gunawardane'}) ON CREATE SET p.id = 'changa_lashantha_poojitha_gunawardane';
+MERGE (p:Person {name: 'Suresh Rajendra'}) ON CREATE SET p.id = 'suresh_rajendra';
 
 // Query 15
-MATCH (p:Person {name: 'Changa Lashantha Poojitha Gunawardane'}), (c:Company {name: 'Asian Hotels and Properties PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-03-31');
+MERGE (p:Person {name: 'Jegatheesan Durairatnam'}) ON CREATE SET p.id = 'jegatheesan_durairatnam';
 
 // Query 16
-MERGE (p:Person {name: 'Aroshi Nanayakkara'}) ON CREATE SET p.id = 'aroshi_nanayakkara';
+MERGE (p:Person {name: 'Ashan Suresh De Zoysa'}) ON CREATE SET p.id = 'ashan_suresh_de_zoysa';
 
 // Query 17
-MATCH (p:Person {name: 'Aroshi Nanayakkara'}), (c:Company {name: 'Asian Hotels and Properties PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-03-31');
+MERGE (p:Person {name: 'Mikael Roland Svensson'}) ON CREATE SET p.id = 'mikael_roland_svensson';
 
 // Query 18
-MERGE (m:Metric {name: 'Revenue from contracts with customers'}) ON CREATE SET m.id = 'revenue_from_contracts_with_customers', m.unit = 'Rs. Mn';
+MERGE (p:Person {name: 'Changa Lashantha Poojitha Gunawardane'}) ON CREATE SET p.id = 'changa_lashantha_poojitha_gunawardane';
 
 // Query 19
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Revenue from contracts with customers'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 10771.758, r.year = 2024;
+MERGE (p:Person {name: 'Aroshi Nanayakkara'}) ON CREATE SET p.id = 'aroshi_nanayakkara';
 
 // Query 20
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Revenue from contracts with customers'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 8416.558, r.year = 2023;
+MERGE (s:Sector {name: 'Consumer Services'}) ON CREATE SET s.id = 'consumer_services';
 
 // Query 21
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Revenue from contracts with customers'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 4095.0, r.year = 2022;
+MERGE (s:Sector {name: 'Real Estate'}) ON CREATE SET s.id = 'real_estate';
 
 // Query 22
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Revenue from contracts with customers'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1790.0, r.year = 2021;
+MERGE (p:Product {name: 'Hoteliering Services'}) ON CREATE SET p.id = 'hoteliering_services';
 
 // Query 23
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Revenue from contracts with customers'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 5560.0, r.year = 2020;
+MERGE (p:Product {name: 'Property Development'}) ON CREATE SET p.id = 'property_development';
 
 // Query 24
-MERGE (m:Metric {name: 'Results from operating activities'}) ON CREATE SET m.id = 'results_from_operating_activities', m.unit = 'Rs. Mn';
+MERGE (p:Product {name: 'Property Renting'}) ON CREATE SET p.id = 'property_renting';
 
 // Query 25
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Results from operating activities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 612.456, r.year = 2024;
+MERGE (p:Product {name: 'Food & Beverage'}) ON CREATE SET p.id = 'food_&_beverage';
 
 // Query 26
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Results from operating activities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 92.966, r.year = 2023;
+MERGE (p:Product {name: 'Rooms'}) ON CREATE SET p.id = 'rooms';
 
 // Query 27
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Results from operating activities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -407.0, r.year = 2022;
+MERGE (m:Metric {name: 'Revenue'}) ON CREATE SET m.id = 'revenue', m.unit = 'Rs';
 
 // Query 28
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Results from operating activities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -1913.0, r.year = 2021;
+MERGE (m:Metric {name: 'Results from operating activities'}) ON CREATE SET m.id = 'results_from_operating_activities', m.unit = 'Rs';
 
 // Query 29
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Results from operating activities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -28.0, r.year = 2020;
+MERGE (m:Metric {name: 'Profit before tax'}) ON CREATE SET m.id = 'profit_before_tax', m.unit = 'Rs';
 
 // Query 30
-MERGE (m:Metric {name: 'Profit Before Tax'}) ON CREATE SET m.id = 'profit_before_tax', m.unit = 'Rs. Mn';
+MERGE (m:Metric {name: 'Profit after tax'}) ON CREATE SET m.id = 'profit_after_tax', m.unit = 'Rs';
 
 // Query 31
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 212.336, r.year = 2024;
+MERGE (m:Metric {name: 'Total assets'}) ON CREATE SET m.id = 'total_assets', m.unit = 'Rs';
 
 // Query 32
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -132.509, r.year = 2023;
+MERGE (m:Metric {name: 'Total liabilities'}) ON CREATE SET m.id = 'total_liabilities', m.unit = 'Rs';
 
 // Query 33
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -459.0, r.year = 2022;
+MERGE (m:Metric {name: 'Gross Profit'}) ON CREATE SET m.id = 'gross_profit', m.unit = 'Rs';
 
 // Query 34
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -2370.0, r.year = 2021;
+MERGE (m:Metric {name: 'Finance cost'}) ON CREATE SET m.id = 'finance_cost', m.unit = 'Rs';
 
 // Query 35
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 199.0, r.year = 2020;
+MERGE (m:Metric {name: 'Finance income'}) ON CREATE SET m.id = 'finance_income', m.unit = 'Rs';
 
 // Query 36
-MERGE (m:Metric {name: 'Profit After Tax'}) ON CREATE SET m.id = 'profit_after_tax', m.unit = 'Rs. Mn';
+MERGE (m:Metric {name: 'Return on equity (ROE)'}) ON CREATE SET m.id = 'return_on_equity_(roe)', m.unit = '%';
 
 // Query 37
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 77.657, r.year = 2024;
+MERGE (m:Metric {name: 'Pre-Tax return on capital employed (ROCE)'}) ON CREATE SET m.id = 'pre-tax_return_on_capital_employed_(roce)', m.unit = '%';
 
 // Query 38
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -332.763, r.year = 2023;
+MERGE (m:Metric {name: 'Net debt'}) ON CREATE SET m.id = 'net_debt', m.unit = 'Rs';
 
 // Query 39
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -508.0, r.year = 2022;
+MERGE (m:Metric {name: 'Equity capital'}) ON CREATE SET m.id = 'equity_capital', m.unit = 'Rs';
 
 // Query 40
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -2244.0, r.year = 2021;
+MERGE (m:Metric {name: 'Debt capital'}) ON CREATE SET m.id = 'debt_capital', m.unit = 'Rs';
 
 // Query 41
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 106.0, r.year = 2020;
+MERGE (m:Metric {name: 'Net assets value per share'}) ON CREATE SET m.id = 'net_assets_value_per_share', m.unit = 'Rs';
 
 // Query 42
-MERGE (m:Metric {name: 'Dividends paid'}) ON CREATE SET m.id = 'dividends_paid', m.unit = 'Rs. Mn';
+MERGE (m:Metric {name: 'Total equity'}) ON CREATE SET m.id = 'total_equity', m.unit = 'Rs';
 
 // Query 43
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Dividends paid'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.0, r.year = 2024;
+MATCH (p:Person {name: 'Krishan Niraj Jayasekara Balendra'}), (c:Company {name: 'Asian Hotels and Properties PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairperson', r.as_of = date('2024-03-31');
 
 // Query 44
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Dividends paid'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.0, r.year = 2023;
+MATCH (p:Person {name: 'Joseph Gihan Adisha Cooray'}), (c:Company {name: 'Asian Hotels and Properties PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-03-31');
 
 // Query 45
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Dividends paid'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.0, r.year = 2022;
+MATCH (p:Person {name: 'Suresh Rajendra'}), (c:Company {name: 'Asian Hotels and Properties PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-03-31');
 
 // Query 46
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Dividends paid'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.0, r.year = 2021;
+MATCH (p:Person {name: 'Jegatheesan Durairatnam'}), (c:Company {name: 'Asian Hotels and Properties PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-03-31');
 
 // Query 47
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Dividends paid'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 442.0, r.year = 2020;
+MATCH (p:Person {name: 'Ashan Suresh De Zoysa'}), (c:Company {name: 'Asian Hotels and Properties PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-03-31');
 
 // Query 48
-MERGE (m:Metric {name: 'Return on equity (ROE)'}) ON CREATE SET m.id = 'return_on_equity_roe', m.unit = '%';
+MATCH (p:Person {name: 'Mikael Roland Svensson'}), (c:Company {name: 'Asian Hotels and Properties PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-03-31');
 
 // Query 49
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Return on equity (ROE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -0.07, r.year = 2024;
+MATCH (p:Person {name: 'Changa Lashantha Poojitha Gunawardane'}), (c:Company {name: 'Asian Hotels and Properties PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-03-31');
 
 // Query 50
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Return on equity (ROE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -0.92, r.year = 2023;
+MATCH (p:Person {name: 'Aroshi Nanayakkara'}), (c:Company {name: 'Asian Hotels and Properties PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-03-31');
 
 // Query 51
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Return on equity (ROE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -1.62, r.year = 2022;
+MATCH (p:Person {name: 'Krishan Niraj Jayasekara Balendra'}), (c:Company {name: 'John Keells Holdings PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairperson-CEO', r.as_of = date('2024-03-31');
 
 // Query 52
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Return on equity (ROE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -5.54, r.year = 2021;
+MATCH (p:Person {name: 'Joseph Gihan Adisha Cooray'}), (c:Company {name: 'John Keells Holdings PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Deputy Chairperson/ Group Finance Director', r.as_of = date('2024-03-31');
 
 // Query 53
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Return on equity (ROE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -0.15, r.year = 2020;
+MATCH (p:Person {name: 'Aroshi Nanayakkara'}), (c:Company {name: 'Sampath Bank PLC'}) MERGE (p)-[r:DIRECTOR_OF]->(c) ON CREATE SET r.role = 'Non-Executive', r.as_of = date('2024-03-31');
 
 // Query 54
-MERGE (m:Metric {name: 'Pre-Tax return on capital employed (ROCE)'}) ON CREATE SET m.id = 'pre_tax_return_on_capital_employed_roce', m.unit = '%';
+MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (s:Sector {name: 'Consumer Services'}) MERGE (c)-[:IN_SECTOR]->(s);
 
 // Query 55
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Pre-Tax return on capital employed (ROCE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1.86, r.year = 2024;
+MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (s:Sector {name: 'Real Estate'}) MERGE (c)-[:IN_SECTOR]->(s);
 
 // Query 56
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Pre-Tax return on capital employed (ROCE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.86, r.year = 2023;
+MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (p:Product {name: 'Hoteliering Services'}) MERGE (c)-[:OFFERS]->(p);
 
 // Query 57
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Pre-Tax return on capital employed (ROCE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -0.65, r.year = 2022;
+MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (p:Product {name: 'Property Development'}) MERGE (c)-[:OFFERS]->(p);
 
 // Query 58
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Pre-Tax return on capital employed (ROCE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -6.43, r.year = 2021;
+MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (p:Product {name: 'Property Renting'}) MERGE (c)-[:OFFERS]->(p);
 
 // Query 59
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Pre-Tax return on capital employed (ROCE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.61, r.year = 2020;
+MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (p:Product {name: 'Food & Beverage'}) MERGE (c)-[:OFFERS]->(p);
 
 // Query 60
-MERGE (m:Metric {name: 'Total assets'}) ON CREATE SET m.id = 'total_assets', m.unit = 'Rs. Mn';
+MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (p:Product {name: 'Rooms'}) MERGE (c)-[:OFFERS]->(p);
 
 // Query 61
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Total assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 48381.0, r.year = 2024;
+MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 10772000000, r.year = 2024;
 
 // Query 62
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Total assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 45912.0, r.year = 2023;
+MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Results from operating activities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 612000000, r.year = 2024;
 
 // Query 63
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Total assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 42509.0, r.year = 2022;
+MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Profit before tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 212000000, r.year = 2024;
 
 // Query 64
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Total assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 40869.0, r.year = 2021;
+MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Profit after tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 78000000, r.year = 2024;
 
 // Query 65
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Total assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 42582.0, r.year = 2020;
+MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Total assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 48381000000, r.year = 2024;
 
 // Query 66
-MERGE (m:Metric {name: 'Total liabilities'}) ON CREATE SET m.id = 'total_liabilities', m.unit = 'Rs. Mn';
+MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Total liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 14832000000, r.year = 2024;
 
 // Query 67
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Total liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 14832.0, r.year = 2024;
+MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Gross Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 4891000000, r.year = 2024;
 
 // Query 68
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Total liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 13674.0, r.year = 2023;
+MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Finance cost'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 336016000, r.year = 2024;
 
 // Query 69
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Total liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 7549.0, r.year = 2022;
+MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Finance income'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 25800000, r.year = 2024;
 
 // Query 70
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Total liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 6256.0, r.year = 2021;
+MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Return on equity (ROE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.07, r.year = 2024;
 
 // Query 71
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Total liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 5889.0, r.year = 2020;
+MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Pre-Tax return on capital employed (ROCE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1.86, r.year = 2024;
 
 // Query 72
-MERGE (m:Metric {name: 'Net debt / (Cash)'}) ON CREATE SET m.id = 'net_debt_cash', m.unit = 'Rs. Mn';
+MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Net debt'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 2284000000, r.year = 2024;
 
 // Query 73
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Net debt / (Cash)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 2284.0, r.year = 2024;
+MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Equity capital'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 29900000000, r.year = 2024;
 
 // Query 74
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Net debt / (Cash)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 2101.0, r.year = 2023;
+MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Debt capital'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 581000000, r.year = 2024;
 
 // Query 75
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Net debt / (Cash)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1645.0, r.year = 2022;
-
-// Query 76
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Net debt / (Cash)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 691.0, r.year = 2021;
-
-// Query 77
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Net debt / (Cash)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -587.0, r.year = 2020;
-
-// Query 78
-MERGE (m:Metric {name: 'Gross Profit'}) ON CREATE SET m.id = 'gross_profit', m.unit = 'Rs. Mn';
-
-// Query 79
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Gross Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 4890.591, r.year = 2024;
-
-// Query 80
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Gross Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 3408.155, r.year = 2023;
-
-// Query 81
-MERGE (m:Metric {name: 'Other operating income'}) ON CREATE SET m.id = 'other_operating_income', m.unit = 'Rs. Mn';
-
-// Query 82
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Other operating income'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 82.053, r.year = 2024;
-
-// Query 83
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Other operating income'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 55.711, r.year = 2023;
-
-// Query 84
-MERGE (m:Metric {name: 'Selling and Distribution expenses'}) ON CREATE SET m.id = 'selling_and_distribution_expenses', m.unit = 'Rs. Mn';
-
-// Query 85
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Selling and Distribution expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 442.079, r.year = 2024;
-
-// Query 86
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Selling and Distribution expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 300.740, r.year = 2023;
-
-// Query 87
-MERGE (m:Metric {name: 'Administrative expenses'}) ON CREATE SET m.id = 'administrative_expenses', m.unit = 'Rs. Mn';
-
-// Query 88
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Administrative expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 2786.533, r.year = 2024;
-
-// Query 89
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Administrative expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 2204.387, r.year = 2023;
-
-// Query 90
-MERGE (m:Metric {name: 'Other operating expenses'}) ON CREATE SET m.id = 'other_operating_expenses', m.unit = 'Rs. Mn';
-
-// Query 91
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Other operating expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1131.576, r.year = 2024;
-
-// Query 92
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Other operating expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 865.773, r.year = 2023;
-
-// Query 93
-MERGE (m:Metric {name: 'Finance cost'}) ON CREATE SET m.id = 'finance_cost', m.unit = 'Rs. Mn';
-
-// Query 94
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Finance cost'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 336.016, r.year = 2024;
-
-// Query 95
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Finance cost'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 393.477, r.year = 2023;
-
-// Query 96
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Finance cost'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 152.578, r.year = 2022;
-
-// Query 97
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Finance cost'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 191.090, r.year = 2021;
-
-// Query 98
-MERGE (m:Metric {name: 'Finance income'}) ON CREATE SET m.id = 'finance_income', m.unit = 'Rs. Mn';
-
-// Query 99
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Finance income'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 25.800, r.year = 2024;
-
-// Query 100
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Finance income'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 13.609, r.year = 2023;
-
-// Query 101
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Finance income'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 7.274, r.year = 2022;
-
-// Query 102
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Finance income'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 9.807, r.year = 2021;
-
-// Query 103
-MERGE (m:Metric {name: 'Change in fair value of investment property'}) ON CREATE SET m.id = 'change_in_fair_value_of_investment_property', m.unit = 'Rs. Mn';
-
-// Query 104
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Change in fair value of investment property'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -89.904, r.year = 2024;
-
-// Query 105
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Change in fair value of investment property'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 154.393, r.year = 2023;
-
-// Query 106
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Change in fair value of investment property'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -184.959, r.year = 2022;
-
-// Query 107
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Change in fair value of investment property'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -59.909, r.year = 2021;
-
-// Query 108
-MERGE (m:Metric {name: 'Income Tax'}) ON CREATE SET m.id = 'income_tax', m.unit = 'Rs. Mn';
-
-// Query 109
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Income Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 134.679, r.year = 2024;
-
-// Query 110
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Income Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 200.254, r.year = 2023;
-
-// Query 111
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Income Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 73.821, r.year = 2022;
-
-// Query 112
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Income Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 5.139, r.year = 2021;
-
-// Query 113
-MERGE (m:Metric {name: 'Net Finance cost'}) ON CREATE SET m.id = 'net_finance_cost', m.unit = 'Rs. Mn';
-
-// Query 114
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Net Finance cost'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -310.216, r.year = 2024;
-
-// Query 115
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Net Finance cost'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -379.868, r.year = 2023;
-
-// Query 116
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Net Finance cost'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -145.304, r.year = 2022;
-
-// Query 117
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Net Finance cost'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -181.283, r.year = 2021;
-
-// Query 118
-MERGE (m:Metric {name: 'Loss per share - Basic/Diluted'}) ON CREATE SET m.id = 'loss_per_share_basic_diluted', m.unit = 'Rs.';
-
-// Query 119
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Loss per share - Basic/Diluted'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -0.05, r.year = 2024;
-
-// Query 120
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Loss per share - Basic/Diluted'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -0.63, r.year = 2023;
-
-// Query 121
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Loss per share - Basic/Diluted'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -0.22, r.year = 2022;
-
-// Query 122
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Loss per share - Basic/Diluted'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -0.53, r.year = 2021;
-
-// Query 123
-MERGE (m:Metric {name: 'Dividend per share'}) ON CREATE SET m.id = 'dividend_per_share', m.unit = 'Rs.';
-
-// Query 124
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Dividend per share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.0, r.year = 2024;
-
-// Query 125
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Dividend per share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.0, r.year = 2023;
-
-// Query 126
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Dividend per share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.0, r.year = 2022;
-
-// Query 127
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Dividend per share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.0, r.year = 2021;
-
-// Query 128
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Dividend per share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1.0, r.year = 2020;
-
-// Query 129
-MERGE (m:Metric {name: 'Equity capital'}) ON CREATE SET m.id = 'equity_capital', m.unit = 'Rs. Bn';
-
-// Query 130
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Equity capital'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 29.9, r.year = 2024;
-
-// Query 131
-MERGE (m:Metric {name: 'Debt capital'}) ON CREATE SET m.id = 'debt_capital', m.unit = 'Rs. Mn';
-
-// Query 132
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Debt capital'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 581.0, r.year = 2024;
-
-// Query 133
-MERGE (m:Metric {name: 'Net assets value per share'}) ON CREATE SET m.id = 'net_assets_value_per_share', m.unit = 'Rs.';
-
-// Query 134
 MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Net assets value per share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 67.64, r.year = 2024;
 
-// Query 135
-MERGE (m:Metric {name: 'Cost of sales'}) ON CREATE SET m.id = 'cost_of_sales', m.unit = 'Rs. Mn';
+// Query 76
+MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Total equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 33549000000, r.year = 2024;
 
-// Query 136
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Cost of sales'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 5881.167, r.year = 2024;
+// Query 77
+MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (a:Company {name: 'KPMG'}) MERGE (c)-[r:AUDITED_BY]->(a) ON CREATE SET r.year = 2024;
 
-// Query 137
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (m:Metric {name: 'Cost of sales'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 5008.403, r.year = 2023;
+// Query 78
+UNWIND [{id: 'asian_hotels_and_properties_plc_directors_and_executives_0', content: 'listed and unlisted companies (outside the Group) in Sri Lanka by each Director as of 31 March 2024.\nName of Director No. of Board Seats Held in Other Listed \nSri Lankan Companies\nBoard Seats Held  in Other Unlisted Sri \nLankan Companies\nExecutive \nCapacity\nNon-Executive \nCapacity\nMr. K N J Balendra - - -\nMr. J G A Cooray - - -\nMr. M R Svensson - - -\nMr. S Rajendra - - -\nMr. C L P Gunawardane - - -\nMr. A S De Zoysa - - A E C Properties (Pvt) Ltd, Associated Electrical \nCorporation Ltd, Econic (Private) Ltd. Ashan de \nZoysa & Co (Pvt) Ltd, Forest Sense (Pvt) Ltd, ADZ \nInsurance Brokers (Pvt) Ltd\nMr. J Durairatnam - - -\nMs. A Nanayakkara - Sampath Bank PLC Global Consulting Company, Sri Lanka Institute of \nDIRECTORS\nRemuneration\nThe Remuneration policy is determined by the Human Resources \n& Compensation Committee of the ultimate parent company , JKH. \nThe remuneration policy is designed to attract and retain highly \ncapable executives and to motivate the implementation of business', chunk_type: 'directors_and_executives', index: 0}, {id: 'asian_hotels_and_properties_plc_directors_and_executives_1', content: '152  | ASIAN HOTELS AND PROPERTIES PLC\nDIRECTORS\nThe Board of DIRECTORS of the Company as at 31st March 2024 \nand brief profiles of each Director are given in the Board of \nDIRECTORS section of this Annual Report.\nThe DIRECTORS of the Company who held office during the year \nunder review are set out below:\nMr. K. N. J. Balendra - Chairperson \nMr. J. G. A. Cooray\nMr. S. Rajendra\nMr. A. S. De Zoysa \nMr. J. Durairatnam \nMr. M. R. Svensson\nMr. C.L.P. Gunawardane\nMs. A. Nanayakkara \nThe Board consists of eight (8) DIRECTORS comprising of five (5) \nNon-Executive Non- Independent DIRECTORS (NED/NID) and \nthree (3) Non-Executive Independent DIRECTORS (NED/ID).\nIn accordance with the criteria for ‘Independence’ specified by \nsection 7.10.4 of the listing rules of the CSE and as identified \nby the Code of Best Practice on Corporate Governance (2013) \njointly advocated by the SEC and CA Sri Lanka, the Board \naffirms that the aforesaid NED/IDs satisfy the criteria for', chunk_type: 'directors_and_executives', index: 1}, {id: 'asian_hotels_and_properties_plc_directors_and_executives_2', content: 'Annual Report 2023/24 |  13\nOverview Operating Context \nand Strategy\nFinancial  \nInformation\nCorporate \nGovernance and Risk \nManagement\nManagement \nDiscussion and \nAnalysis\nSupplementary \nInformation\nBoard of DIRECTORS\nKrishan Balendra\nChairperson\nKrishan Balendra is the Chairperson-CEO of John Keells PLC \nHoldings PLC (JKH). He is also the Chairman of the Employers \nFederation of Ceylon, Deputy Vice Chairman of the Ceylon \nChamber of Commerce and the Hon. Consul General of the \nRepublic of Poland in Sri Lanka. He is a former Chairman of \nNations Trust Bank and the Colombo Stock Exchange. Krishan \nstarted his career at UBS Warburg, Hong Kong, in investment \nbanking, focusing primarily on equity capital markets. He \njoined JKH in 2002. Krishan holds a law degree (LLB) from the \nUniversity of London and an MBA from INSEAD.\nGihan Cooray\nDirector\nGihan Cooray is the Deputy Chairperson/ Group Finance \nDirector of John Keells PLC Holdings PLC  (JKH) and has overall', chunk_type: 'directors_and_executives', index: 2}, {id: 'asian_hotels_and_properties_plc_directors_and_executives_3', content: 'Annual Report 2023/24 |  233\nCorporate Information\nNAME OF COMPANY\nAsian Hotels and Properties PLC\nLEGAL FORM\nA Public Limited Liability Company incorporated in Sri Lanka \nin 1993 and registered with the Board of Investment of Sri \nLanka under Section 17 of the Board of Investment Law No. 4 \nof 1978\nThe Company was re-registered under the New Companies Act \nNo. 7 of 2007 on 15th June 2007\nSTOCK EXCHANGE LISTING\nThe issued Ordinary shares of the Company are listed on the \nColombo Stock Exchange of Sri Lanka\nCOMPA NY REGISTRATION NO.\n PQ 2\nBOARD OF DIRECTORS\nMr. Krishan Niraj Jayasekara Balendra - Chairperson\nMr. Joseph Gihan Adisha Cooray\nMr. Suresh Rajendra\nMr. Jegatheesan Durairatnam\nMr. Ashan Suresh De Zoysa\nMr. Mikael Roland Svensson \nMr. Changa Lashantha Poojitha Gunawardane \nMs. Aroshi Nanayakkara\nCOMPA N Y SECRETARIES\nKeells Consultants (Private) Limited\n117, Sir Chiththapalam A .Gardiner Mawatha,Colombo 2.\nREGISTERED OFFICE\nNo.77, Galle Road, Colombo 03', chunk_type: 'directors_and_executives', index: 3}, {id: 'asian_hotels_and_properties_plc_directors_and_executives_4', content: 'Annual Report 2023/24 |  95\nOverview Operating Context \nand Strategy\nFinancial  \nInformation\nLeadership Management \nDiscussion and \nAnalysis\nSupplementary \nInformation\nBoard Of DIRECTORS\nRoles and Responsibilities\nThe Board has overall responsibility for formulating strategy, \nsetting risk appetite, ensuring consistency of workforce \npolicies with Company values, and monitoring achievement of \ngoals and objectives while balancing stakeholder interests. \nIntegrated thinking at the Board level ensures that \nEnvironmental, Social and Governance (ESG) perspectives are \nincorporated into policy and strategy across the Company.\nApproves Policy and \nCapital Planning \nGives effect to strategy, sets \ndirection, resource \nallocation and risk appetite\nOverlooks and Monitors\nImplementation by \nManagement\nSteers and Sets Strategic \nDirection   \nApproves strategy. Focuses on \nhigh environmental, social \nand governance standards\nEnsures Accountability\nFor organisational \nperformance through', chunk_type: 'directors_and_executives', index: 4}, {id: 'asian_hotels_and_properties_plc_financial_performance_0', content: 'Annual Report 2023/24 |  7\nOperating Context \nand Strategy\nFinancial  \nInformation\nLeadership Corporate \nGovernance and Risk \nManagement\nManagement \nDiscussion and \nAnalysis\nSupplementary \nInformation\nPerformance Highlights (Financial)\n2024 2023 2022 2021 2020\nGroup Operational Performance \nRevenue Rs. Mn  10,772  8,417  4,095  1,790  5,560 \nResults from operating activities Rs. Mn  612  93  (407)  (1,913)  (28)\nProfit/(Loss) before tax Rs. Mn  212  (133)  (459)  (2,370)  199 \nProfit/(Loss) after tax Rs. Mn  78  (333)  (508)  (2,244)  106 \nDividends paid Rs. Mn  -    -    -    -    442 \nReturn on equity (ROE) %  0.07)  (0.92)  (1.62)  (5.54)  (0.15)\nPre-Tax return on capital employed \n(ROCE)\n%  1.86  0.86  (0.65)  (6.43)  0.61 \nBalance Sheet Strength \nTotal assets Rs. Mn  48,381  45,912  42,509  40,869  42,582 \nTotal liabilities Rs. Mn  14,832  13,674  7,549  6,256  5,889 \nNet debt / (Cash) Rs. Mn  2,284  2,101  1,645  691  (587)', chunk_type: 'financial_performance', index: 0}, {id: 'asian_hotels_and_properties_plc_financial_performance_1', content: '44  | ASIAN HOTELS AND PROPERTIES PLC\nGross proﬁt, expenses and post tax proﬁtability YoY movement\nGross Proﬁt\n4,891\nOther \noperating\n income\n82\nDistribution \nexpenses\n-442\nAdministration\n expenses\n-2,787 -1,132 -336 26 -90 212 -135 78\nOther \noperating \nexpenses\nFinance\n cost\nFinance \nincome\nChange in \nFV of \ninvestment \nproperty\nPBT Income Tax PAT\nRs.Mn\nIncrease in Income/Proﬁt\nIncrease in Expense \nIncrease in Gross Proﬁt\n-3,000\n-2,000\n-1,000\n0\n1,000\n2,000\n3,000\n4,000\n5,000\nFinancial capital\nNet finance cost \nNet finance cost declined by a notable 18% to Rs. 310 Mn, driven by finance income of Rs. 26 Mn and finance expense of Rs. 336 Mn. \nFinance expense posted a notable decline of 15%, benefiting rom the decline in market-wide interest rates and also decline in \ninterest bearing borrowings under the non-current liabilities category. \nProfitability\nReversing the loss trend of the prior years, the Group posted a welcoming pre-tax profit of Rs. 212 Mn. With income taxes of Rs. 135', chunk_type: 'financial_performance', index: 1}, {id: 'asian_hotels_and_properties_plc_financial_performance_2', content: 'Results from operating activities 7  612,456  92,966 308,624  786 \n Finance cost  (336,016)  (393,477)  (152,578)  (191,090)\n Finance income  25,800  13,609  7,274  9,807 \nNet Finance cost 8  (310,216)  (379,868)  (145,304)  (181,283)\nChange in fair value of investment property 14  (89,904)  154,393  (184,959) (59,909)\n Profit/(Loss) before tax  212,336  (132,509)  (21,639)  (240,406)\n Tax (expense)/reversal 9  (134,679)  (200,254)  (73,821)  5,139 \n Profit/(Loss) for the year  77,657  (332,763) (95,460)  (235,267)\nAttributable to:\nEquity holders of the parent  (20,310)  (277,589)  (95,460)  (235,267)\nNon-controlling interest 97,967  (55,174)  -  - \n 77,657  (332,763)  (95,460)  (235,267)\n Rs.  Rs.  Rs.  Rs. \n Loss per share - Basic/Diluted 10  (0.05)  (0.63)  (0.22)  (0.53)\n Dividend per share 11  -  -  -  - \nFigures in brackets indicate deductions.\nThe accounting policies and notes as set out in pages 168 to 212 form an integral part of these Financial Statements.', chunk_type: 'financial_performance', index: 2}, {id: 'asian_hotels_and_properties_plc_financial_performance_3', content: '42  | ASIAN HOTELS AND PROPERTIES PLC\nFinancial capital\nAsian Hotels and Properties PLC’s financial capital is represented by the amalgam of funds comprising shareholders’ funds and \nborrowings. The robust financial capital base has enabled the Group’s strategic goals and growth plans. \n Equity capital - Rs. 29.9 Bn\n Debt capital - Rs. 581 Mn\nNet assets value per share – Rs. 67.64 \nRole of financial capital in our value creation process\nInputs\nOptimisation  of cost of capital with the declining interest rates and deployment of funds in \nreturn enhancing ventures. Supporting business growth and operations with timely provision \nof funds by maintaining adequate liquidity \nValue \ncreated\nKey strategic \nfocus areas \nduring the FY\nRevenue, costs and profitability\nIn Rs.Mn\nFor the year ended 31 March \nGroup\n2024 2023 YoY change\nRevenue from contracts with customers 10,772 8,417 28%\nCost of sales (5,881 ) (5,008 ) 17%\nGross Profit 4,891 3,408 43%\nOther operating income 82 56 47%', chunk_type: 'financial_performance', index: 3}, {id: 'asian_hotels_and_properties_plc_financial_performance_4', content: 'Annual Report 2023/24 |  161\nOverview Operating Context \nand Strategy\nFinancial  \nInformation\nLeadership Corporate \nGovernance and Risk \nManagement\nManagement \nDiscussion and \nAnalysis\nSupplementary \nInformation\nGROUP COMPANY\nFor the year ended 31st March 2024 2023 2024 2023\nIn Rs.’000s Note\nRevenue from contracts with customers 5  10,771,758  8,416,558  6,309,914  4,847,533 \nCost of sales  (5,881,167) (5,008,403)  (3,446,755)  (2,885,705)\nGross Profit  4,890,591 3,408,155  2,863,159  1,961,828 \n Other operating income 6 82,053  55,711 72,153  54,732 \n Selling and Distribution expenses  (442,079)  (300,740)  (224,832)  (157,144)\n Administrative expenses  (2,786,533)  (2,204,387)  (1,783,912)  (1,397,003)\n Other operating expenses  (1,131,576)  (865,773)  (617,944)  (461,627)\nResults from operating activities 7  612,456  92,966 308,624  786 \n Finance cost  (336,016)  (393,477)  (152,578)  (191,090)\n Finance income  25,800  13,609  7,274  9,807', chunk_type: 'financial_performance', index: 4}] AS chunk MERGE (ch:Chunk {id: chunk.id}) ON CREATE SET ch.content = chunk.content, ch.chunk_type = chunk.chunk_type, ch.index = chunk.index;
 
-// Query 138
-MERGE (s:Sector {name: 'Hotel'}) ON CREATE SET s.id = 'hotel';
+// Query 79
+MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}) WITH c UNWIND ['asian_hotels_and_properties_plc_directors_and_executives_0', 'asian_hotels_and_properties_plc_directors_and_executives_1', 'asian_hotels_and_properties_plc_directors_and_executives_2', 'asian_hotels_and_properties_plc_directors_and_executives_3', 'asian_hotels_and_properties_plc_directors_and_executives_4', 'asian_hotels_and_properties_plc_financial_performance_0', 'asian_hotels_and_properties_plc_financial_performance_1', 'asian_hotels_and_properties_plc_financial_performance_2', 'asian_hotels_and_properties_plc_financial_performance_3', 'asian_hotels_and_properties_plc_financial_performance_4'] AS chunk_id MATCH (ch:Chunk {id: chunk_id}) MERGE (c)-[:HAS_CONTENT]->(ch);
 
-// Query 139
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (s:Sector {name: 'Hotel'}) MERGE (c)-[:IN_SECTOR]->(s);
-
-// Query 140
-MERGE (s:Sector {name: 'Property'}) ON CREATE SET s.id = 'property';
-
-// Query 141
-MATCH (c:Company {name: 'Asian Hotels and Properties PLC'}), (s:Sector {name: 'Property'}) MERGE (c)-[:IN_SECTOR]->(s);
-
-// Total queries: 141
-// Generated on: 2025-09-03T13:45:41.802774
+// Total queries: 79
+// Generated on: 2025-09-30T14:33:16.753349
