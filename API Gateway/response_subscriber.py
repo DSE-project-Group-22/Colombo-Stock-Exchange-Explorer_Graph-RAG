@@ -73,14 +73,15 @@ class ResponseSubscriber:
     
     async def _subscribe_to_responses(self) -> None:
         """
-        Main subscription loop - subscribe to response:* pattern and process responses.
+        Main subscription loop - subscribe to response:* and steps:* patterns.
         """
-        logger.info("Starting response subscription loop...")
+        logger.info("Starting response and steps subscription loop...")
         
         try:
-            # Subscribe to all response channels
+            # Subscribe to response AND steps channels
             pubsub = self.redis.client.pubsub()
             await pubsub.psubscribe('response:*')
+            await pubsub.psubscribe('steps:*')  # Subscribe to intermediate steps
             
             while self.is_running:
                 try:
@@ -91,7 +92,12 @@ class ResponseSubscriber:
                     )
                     
                     if message and message['type'] == 'pmessage':
-                        await self._process_response_message(message)
+                        # Route based on channel pattern
+                        channel = message['channel'].decode() if isinstance(message['channel'], bytes) else message['channel']
+                        if channel.startswith('response:'):
+                            await self._process_response_message(message)
+                        elif channel.startswith('steps:'):
+                            await self._process_step_message(message)
                         
                 except asyncio.TimeoutError:
                     # Normal timeout - continue loop
@@ -148,6 +154,84 @@ class ResponseSubscriber:
             
         except Exception as e:
             logger.error(f"Error processing response message: {e}")
+    
+    async def _process_step_message(self, message: Dict[str, Any]) -> None:
+        """
+        Process intermediate step messages for logging and future WebSocket forwarding.
+        
+        Args:
+            message: Redis pub/sub message containing step data
+        """
+        try:
+            channel = message['channel'].decode() if isinstance(message['channel'], bytes) else message['channel']
+            step_data = json.loads(message['data'])
+            
+            # Extract channel type and ID
+            # Could be: steps:{correlation_id}, steps:user:{user_id}, steps:thread:{thread_id}
+            channel_parts = channel.split(':')
+            
+            if len(channel_parts) == 2:
+                # steps:{correlation_id}
+                correlation_id = channel_parts[1]
+                step_type = step_data.get('step_type', 'unknown')
+                step_num = step_data.get('step_number', 0)
+                content = step_data.get('content', {})
+                
+                # Format log message based on step type
+                if step_type == 'agent_thinking':
+                    log_msg = f"[STEP {step_num}] Correlation {correlation_id}: Agent thinking - {content.get('message', '')[:100]}"
+                elif step_type == 'tool_call':
+                    tool_name = content.get('tool_name', 'unknown')
+                    log_msg = f"[STEP {step_num}] Correlation {correlation_id}: Calling tool '{tool_name}'"
+                elif step_type == 'tool_result':
+                    log_msg = f"[STEP {step_num}] Correlation {correlation_id}: Tool result received"
+                elif step_type == 'error':
+                    log_msg = f"[STEP {step_num}] Correlation {correlation_id}: ERROR - {content.get('error', 'unknown')}"
+                else:
+                    log_msg = f"[STEP {step_num}] Correlation {correlation_id}: {step_type}"
+                
+                logger.info(log_msg)
+                
+            elif len(channel_parts) == 3:
+                # steps:user:{user_id} or steps:thread:{thread_id}
+                entity_type = channel_parts[1]
+                entity_id = channel_parts[2]
+                correlation_id = step_data.get('correlation_id')
+                step_type = step_data.get('step_type', 'unknown')
+                step_num = step_data.get('step_number', 0)
+                
+                logger.info(f"[STEP {step_num}] {entity_type.upper()} {entity_id} | Correlation {correlation_id}: {step_type}")
+            
+            # Optional: Cache recent steps for debugging (5-minute TTL)
+            if 'correlation_id' in step_data:
+                await self._cache_step(step_data['correlation_id'], step_data)
+            
+            # Future: Forward to WebSocket connections
+            # if self.websocket_manager:
+            #     await self.websocket_manager.forward_step(step_data)
+            
+        except Exception as e:
+            logger.error(f"Error processing step message: {e}")
+    
+    async def _cache_step(self, correlation_id: str, step_data: Dict) -> None:
+        """
+        Cache recent steps for debugging/retrieval.
+        
+        Args:
+            correlation_id: Request correlation ID
+            step_data: Step data to cache
+        """
+        try:
+            step_key = f"steps:cache:{correlation_id}"
+            
+            # Append to list of steps
+            await self.redis.client.rpush(step_key, json.dumps(step_data))
+            
+            # Expire after 5 minutes
+            await self.redis.client.expire(step_key, 300)
+            
+        except Exception as e:
+            logger.warning(f"Failed to cache step: {e}")
     
     async def health_check(self) -> Dict[str, Any]:
         """
