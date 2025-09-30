@@ -70,15 +70,15 @@ class SupervisorDecision(BaseModel):
 def supervisor_node(state: SupervisorState) -> SupervisorState:
     """
     Supervisor node that analyzes context and decides next action.
-    Generates self-contained queries that don't rely on conversation history.
+    Trusts the LLM to follow the two-phase approach intelligently.
     """
     logger.debug(f"SUPERVISOR (Iteration {state['iteration']})")
     
-    # Check iteration limit (handled transparently)
+    # Simple iteration limit check
     if state['iteration'] >= state['max_iterations']:
         state['should_continue'] = False
         logger.info(f"Iteration limit reached - forcing final answer")
-        # Continue to let supervisor provide final answer with available data
+        # The LLM will provide an appropriate final answer based on available data
     
     # Get centralized LLM instance
     llm = get_llm()

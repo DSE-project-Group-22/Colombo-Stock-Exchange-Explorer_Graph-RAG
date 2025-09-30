@@ -83,7 +83,7 @@ def get_qa_chain() -> GraphCypherQAChain:
             _chain = GraphCypherQAChain.from_llm(
                 llm=llm,
                 graph=graph,
-                verbose=settings.agent_verbose,
+                verbose=settings.cypher_verbose,  # Use dedicated Cypher verbose setting
                 allow_dangerous_requests=True,
                 return_intermediate_steps=True,
                 return_direct=True,  # Return raw query results without LLM processing
