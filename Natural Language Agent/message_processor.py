@@ -17,7 +17,7 @@ from utils.kafka_utils import SimpleKafkaConsumer
 from utils.redis_utils import SimpleRedisPubSub
 
 # Import existing agent functionality
-from agent import execute_agent_query
+from simple_agent import execute_simple_agent
 
 # Import shared models
 from models import ChatMessage, MessageRole, MessageMetadata
@@ -137,7 +137,7 @@ class MessageProcessor:
                 else:
                     # Process with existing agent
                     # The agent already handles Redis chat history internally
-                    response_text = await execute_agent_query(
+                    response_text = await execute_simple_agent(
                         thread_id=thread_id,
                         user_message=user_message,
                         redis_client=self.redis.get_client()  # Pass Redis client for history

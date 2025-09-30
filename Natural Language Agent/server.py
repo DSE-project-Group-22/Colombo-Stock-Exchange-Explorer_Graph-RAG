@@ -17,7 +17,7 @@ from pydantic import BaseModel, Field
 import uvicorn
 
 from config import settings, get_redis_connection_params
-from agent import execute_agent_query
+from simple_agent import execute_simple_agent
 
 # Import shared models
 from models import ChatMessage, MessageRole, MessageMetadata
@@ -329,7 +329,7 @@ async def chat(request: ChatRequest):
         store_message(user_message)
         
         # Generate agent response using LangGraph agent
-        agent_content = await execute_agent_query(request.thread_id, request.message, redis_client)
+        agent_content = await execute_simple_agent(request.thread_id, request.message, redis_client)
         
         # Create agent message
         agent_message = ChatMessage(

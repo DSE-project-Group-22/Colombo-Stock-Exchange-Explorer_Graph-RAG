@@ -16,6 +16,9 @@ langchain-core>=0.1.0
 # LangGraph for Agent Architecture
 langgraph>=0.2.74
 
+# MCP (Model Context Protocol) Support
+langchain-mcp-adapters>=0.1.0
+
 # LangGraph CLI for Studio debugging
 langgraph-cli[inmem]>=0.2.6
 
