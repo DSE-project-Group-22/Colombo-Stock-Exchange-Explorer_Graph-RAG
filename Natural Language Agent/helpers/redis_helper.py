@@ -275,22 +275,16 @@ async def publish_intermediate_step(
         # Serialize message
         message = json.dumps(step_data, default=str)
         
-        # Publish to multiple channels for flexibility
-        channels = [
-            f"steps:{correlation_id}",       # For request-specific monitoring
-            f"steps:user:{user_id}",         # For user's WebSocket (future)
-            f"steps:thread:{thread_id}"      # For thread history (optional)
-        ]
+        # Publish to correlation-specific channel only
+        channel = f"steps:{correlation_id}"
         
-        # Publish to all channels
-        publish_count = 0
-        for channel in channels:
-            try:
-                await redis_client.publish(channel, message)
-                publish_count += 1
-                logger.debug(f"Published step to channel: {channel}")
-            except Exception as e:
-                logger.warning(f"Failed to publish to channel {channel}: {e}")
+        try:
+            await redis_client.publish(channel, message)
+            logger.debug(f"Published step to channel: {channel}")
+            publish_count = 1
+        except Exception as e:
+            logger.warning(f"Failed to publish to channel {channel}: {e}")
+            publish_count = 0
         
         # Log the step for monitoring
         if step_type == "agent_thinking":

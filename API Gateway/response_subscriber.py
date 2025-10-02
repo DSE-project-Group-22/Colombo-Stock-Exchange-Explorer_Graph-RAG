@@ -1,5 +1,5 @@
 """
-Response subscriber service that listens for chat responses on Redis and caches them.
+Response subscriber service that listens for chat responses on Redis and marks them as completed.
 Runs as a background service in the API Gateway.
 """
 import sys
@@ -20,8 +20,8 @@ logger = logging.getLogger(__name__)
 
 class ResponseSubscriber:
     """
-    Background service that subscribes to Redis response channels and caches responses
-    for retrieval by the polling endpoints.
+    Background service that subscribes to Redis response channels and updates request status.
+    No longer caches responses as SSE handles real-time streaming directly.
     """
     
     def __init__(self):
@@ -120,6 +120,7 @@ class ResponseSubscriber:
     async def _process_response_message(self, message: Dict[str, Any]) -> None:
         """
         Process a response message from Redis pub/sub.
+        Only updates request status to completed - no caching.
         
         Args:
             message: Redis pub/sub message
@@ -129,28 +130,13 @@ class ResponseSubscriber:
             channel = message['channel'].decode() if isinstance(message['channel'], bytes) else message['channel']
             correlation_id = channel.split(':', 1)[1]
             
-            # Parse response data
-            response_data = json.loads(message['data'])
-            
             logger.info(f"Processing response for correlation_id: {correlation_id}")
             
             # Update request status to completed
             request_key = f"request:{correlation_id}"
             await self.redis.client.hset(request_key, 'status', 'completed')
             
-            # Cache the response with TTL
-            response_key = f"response:{correlation_id}"
-            cache_data = {
-                'response': response_data.get('response', ''),
-                'timestamp': response_data.get('timestamp', datetime.now(timezone.utc).isoformat()),
-                'processing_time_ms': str(response_data.get('processing_time_ms', 0))
-            }
-            
-            # Store response with 10-minute TTL
-            await self.redis.client.hset(response_key, mapping=cache_data)
-            await self.redis.client.expire(response_key, 600)  # 10 minutes
-            
-            logger.info(f"Cached response for correlation_id: {correlation_id}")
+            logger.info(f"Marked request as completed for correlation_id: {correlation_id}")
             
         except Exception as e:
             logger.error(f"Error processing response message: {e}")
@@ -166,11 +152,10 @@ class ResponseSubscriber:
             channel = message['channel'].decode() if isinstance(message['channel'], bytes) else message['channel']
             step_data = json.loads(message['data'])
             
-            # Extract channel type and ID
-            # Could be: steps:{correlation_id}, steps:user:{user_id}, steps:thread:{thread_id}
+            # Extract correlation_id from channel: steps:{correlation_id}
             channel_parts = channel.split(':')
             
-            if len(channel_parts) == 2:
+            if len(channel_parts) == 2 and channel_parts[0] == 'steps':
                 # steps:{correlation_id}
                 correlation_id = channel_parts[1]
                 step_type = step_data.get('step_type', 'unknown')
@@ -192,19 +177,8 @@ class ResponseSubscriber:
                 
                 logger.info(log_msg)
                 
-            elif len(channel_parts) == 3:
-                # steps:user:{user_id} or steps:thread:{thread_id}
-                entity_type = channel_parts[1]
-                entity_id = channel_parts[2]
-                correlation_id = step_data.get('correlation_id')
-                step_type = step_data.get('step_type', 'unknown')
-                step_num = step_data.get('step_number', 0)
-                
-                logger.info(f"[STEP {step_num}] {entity_type.upper()} {entity_id} | Correlation {correlation_id}: {step_type}")
-            
-            # Optional: Cache recent steps for debugging (5-minute TTL)
-            if 'correlation_id' in step_data:
-                await self._cache_step(step_data['correlation_id'], step_data)
+                # Optional: Cache recent steps for debugging (5-minute TTL)
+                await self._cache_step(correlation_id, step_data)
             
             # Future: Forward to WebSocket connections
             # if self.websocket_manager:
