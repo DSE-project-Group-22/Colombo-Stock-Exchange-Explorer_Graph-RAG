@@ -1,254 +1,503 @@
 // Query 1
-MERGE (c:Company {name: 'Paragon Ceylon PLC'}) ON CREATE SET c.id = 'paragon_ceylon_plc';
+MERGE (c:Company {name: 'Paragon Ceylon PLC'}) ON CREATE SET c.id = 'paragon_ceylon_plc', c.founded_on = date('1958-06-29'), c.listed_on = 'Colombo Stock Exchange', c.region = 'Sri Lanka';
 
 // Query 2
-MERGE (c:Company {name: 'Dipped Products PLC'}) ON CREATE SET c.id = 'dipped_products_plc';
+MERGE (c:Company {name: 'MGI SL Assurance Partners'}) ON CREATE SET c.id = 'mgi_sl_assurance_partners';
 
 // Query 3
-MERGE (c:Company {name: 'Commercial Credit and Finance PLC'}) ON CREATE SET c.id = 'commercial_credit_and_finance_plc';
+MERGE (c:Company {name: 'CT Holdings PLC'}) ON CREATE SET c.id = 'ct_holdings_plc';
 
 // Query 4
-MERGE (c:Company {name: 'Lankem Ceylon PLC'}) ON CREATE SET c.id = 'lankem_ceylon_plc';
+MERGE (c:Company {name: 'Cyril Gardiner (Private) Limited'}) ON CREATE SET c.id = 'cyril_gardiner_private_limited';
 
 // Query 5
-MERGE (c:Company {name: 'LCB Finance PLC'}) ON CREATE SET c.id = 'lcb_finance_plc';
+MERGE (p:Person {name: 'L. I. Ratnasabapathy'}) ON CREATE SET p.id = 'l_i_ratnasabapathy';
 
 // Query 6
-MERGE (p:Person {name: 'S.D.R. Arudpragasam'}) ON CREATE SET p.id = 's_d_r_arudpragasam';
+MERGE (p:Person {name: 'A. M. De Alwis'}) ON CREATE SET p.id = 'a_m_de_alwis';
 
 // Query 7
-MERGE (p:Person {name: 'R.C.A. Welikala'}) ON CREATE SET p.id = 'r_c_a_welikala';
+MERGE (p:Person {name: 'J. B. M. Ponrajah'}) ON CREATE SET p.id = 'j_b_m_ponrajah';
 
 // Query 8
-MERGE (p:Person {name: 'R.N. Bopearatchy'}) ON CREATE SET p.id = 'r_n_bopearatchy';
+MERGE (p:Person {name: 'P. S. R. Casie Chitty'}) ON CREATE SET p.id = 'p_s_r_casie_chitty';
 
 // Query 9
-MERGE (p:Person {name: 'E. T. De Zoysa'}) ON CREATE SET p.id = 'e_t_de_zoysa';
+MERGE (p:Person {name: 'M. M. Marzook'}) ON CREATE SET p.id = 'm_m_marzook';
 
 // Query 10
-MERGE (p:Person {name: 'R. S. A. Wickramasingha'}) ON CREATE SET p.id = 'r_s_a_wickramasingha';
+MERGE (p:Person {name: 'M. R. Y. Riffai'}) ON CREATE SET p.id = 'm_r_y_riffai';
 
 // Query 11
-MERGE (p:Person {name: 'D. S. Wickramasingha'}) ON CREATE SET p.id = 'd_s_wickramasingha';
+MERGE (p:Person {name: 'D. T. De Alwis'}) ON CREATE SET p.id = 'd_t_de_alwis';
 
 // Query 12
-MERGE (p:Person {name: 'N. K. Wickramasingha'}) ON CREATE SET p.id = 'n_k_wickramasingha';
+MERGE (p:Person {name: 'M. S. A. Kariapper'}) ON CREATE SET p.id = 'm_s_a_kariapper';
 
 // Query 13
-MERGE (p:Person {name: 'L. J. M. De Silva'}) ON CREATE SET p.id = 'l_j_m_de_silva';
+MERGE (p:Person {name: 'John Tilak Ratnanather'}) ON CREATE SET p.id = 'john_tilak_ratnanather';
 
 // Query 14
-MERGE (p:Person {name: 'M. U. S. G. Thilakawardana'}) ON CREATE SET p.id = 'm_u_s_g_thilakawardana';
+MERGE (p:Person {name: 'Barbera Antoinette Jeyamany Ratnasabapathy'}) ON CREATE SET p.id = 'barbera_antoinette_jeyamany_ratnasabapathy';
 
 // Query 15
-MERGE (p:Person {name: 'D. M. A. Kulasooriya'}) ON CREATE SET p.id = 'd_m_a_kulasooriya';
+MERGE (p:Person {name: 'Anthony Jehan Chanath Ratnanather'}) ON CREATE SET p.id = 'anthony_jehan_chanath_ratnanather';
 
 // Query 16
-MERGE (p:Person {name: 'M. S. Nanayakkara'}) ON CREATE SET p.id = 'm_s_nanayakkara';
+MERGE (s:Sector {name: 'Commercial and Professional Services'}) ON CREATE SET s.id = 'commercial_and_professional_services';
 
 // Query 17
-MERGE (m:Metric {name: 'Revenue'}) ON CREATE SET m.id = 'revenue', m.unit = 'Rs';
+MERGE (s:Sector {name: 'Real Estate'}) ON CREATE SET s.id = 'real_estate';
 
 // Query 18
-MERGE (m:Metric {name: 'Gross Profit'}) ON CREATE SET m.id = 'gross_profit', m.unit = 'Rs';
+MERGE (p:Product {name: 'Security Register Stationary'}) ON CREATE SET p.id = 'security_register_stationary';
 
 // Query 19
-MERGE (m:Metric {name: 'Operating Profit'}) ON CREATE SET m.id = 'operating_profit', m.unit = 'Rs';
+MERGE (p:Product {name: 'Computer Continuous Stationary'}) ON CREATE SET p.id = 'computer_continuous_stationary';
 
 // Query 20
-MERGE (m:Metric {name: 'Profit Before Tax'}) ON CREATE SET m.id = 'profit_before_tax', m.unit = 'Rs';
+MERGE (p:Product {name: 'Premises Rental'}) ON CREATE SET p.id = 'premises_rental';
 
 // Query 21
-MERGE (m:Metric {name: 'Profit After Tax'}) ON CREATE SET m.id = 'profit_after_tax', m.unit = 'Rs';
+MERGE (m:Metric {name: 'Revenue'}) ON CREATE SET m.id = 'revenue', m.unit = 'Rs';
 
 // Query 22
-MERGE (m:Metric {name: 'Total Assets'}) ON CREATE SET m.id = 'total_assets', m.unit = 'Rs';
+MERGE (m:Metric {name: 'Results from Operations'}) ON CREATE SET m.id = 'results_from_operations', m.unit = 'Rs';
 
 // Query 23
-MERGE (m:Metric {name: 'Gross Profit Margin'}) ON CREATE SET m.id = 'gross_profit_margin', m.unit = '%';
+MERGE (m:Metric {name: 'Net Finance Income'}) ON CREATE SET m.id = 'net_finance_income', m.unit = 'Rs';
 
 // Query 24
-MERGE (m:Metric {name: 'Operating Profit Margin'}) ON CREATE SET m.id = 'operating_profit_margin', m.unit = '%';
+MERGE (m:Metric {name: 'Profit Before Tax'}) ON CREATE SET m.id = 'profit_before_tax', m.unit = 'Rs';
 
 // Query 25
-MERGE (m:Metric {name: 'Profit Before Tax Margin'}) ON CREATE SET m.id = 'profit_before_tax_margin', m.unit = '%';
+MERGE (m:Metric {name: 'Tax Expenses'}) ON CREATE SET m.id = 'tax_expenses', m.unit = 'Rs';
 
 // Query 26
-MERGE (m:Metric {name: 'Return on Equity'}) ON CREATE SET m.id = 'return_on_equity', m.unit = '%';
+MERGE (m:Metric {name: 'Profit After Tax'}) ON CREATE SET m.id = 'profit_after_tax', m.unit = 'Rs';
 
 // Query 27
-MERGE (m:Metric {name: 'Return on Capital Employed'}) ON CREATE SET m.id = 'return_on_capital_employed', m.unit = '%';
+MERGE (m:Metric {name: 'Stated Capital'}) ON CREATE SET m.id = 'stated_capital', m.unit = 'Rs';
 
 // Query 28
-MERGE (m:Metric {name: 'Return on Assets'}) ON CREATE SET m.id = 'return_on_assets', m.unit = '%';
+MERGE (m:Metric {name: 'Reserves'}) ON CREATE SET m.id = 'reserves', m.unit = 'Rs';
 
 // Query 29
-MERGE (m:Metric {name: 'Interest Cover Ratio'}) ON CREATE SET m.id = 'interest_cover_ratio', m.unit = 'Times';
+MERGE (m:Metric {name: 'Total Equity'}) ON CREATE SET m.id = 'total_equity', m.unit = 'Rs';
 
 // Query 30
-MERGE (m:Metric {name: 'Current Ratio'}) ON CREATE SET m.id = 'current_ratio', m.unit = 'Times';
+MERGE (m:Metric {name: 'Trade Payables'}) ON CREATE SET m.id = 'trade_payables', m.unit = 'Rs';
 
 // Query 31
-MERGE (m:Metric {name: 'Quick Asset Ratio'}) ON CREATE SET m.id = 'quick_asset_ratio', m.unit = 'Times';
+MERGE (m:Metric {name: 'Current Assets'}) ON CREATE SET m.id = 'current_assets', m.unit = 'Rs';
 
 // Query 32
-MERGE (m:Metric {name: 'Gross Income'}) ON CREATE SET m.id = 'gross_income', m.unit = 'Rs';
+MERGE (m:Metric {name: 'Current Liabilities'}) ON CREATE SET m.id = 'current_liabilities', m.unit = 'Rs';
 
 // Query 33
-MERGE (m:Metric {name: 'Net Interest Income'}) ON CREATE SET m.id = 'net_interest_income', m.unit = 'Rs';
+MERGE (m:Metric {name: 'Net Current Assets'}) ON CREATE SET m.id = 'net_current_assets', m.unit = 'Rs';
 
 // Query 34
-MERGE (m:Metric {name: 'Profit Before Taxation'}) ON CREATE SET m.id = 'profit_before_taxation', m.unit = 'Rs';
+MERGE (m:Metric {name: 'Non-Current Liabilities'}) ON CREATE SET m.id = 'non_current_liabilities', m.unit = 'Rs';
 
 // Query 35
-MERGE (m:Metric {name: 'Profit After Taxation'}) ON CREATE SET m.id = 'profit_after_taxation', m.unit = 'Rs';
+MERGE (m:Metric {name: 'Non-Current Assets'}) ON CREATE SET m.id = 'non_current_assets', m.unit = 'Rs';
 
 // Query 36
-MERGE (m:Metric {name: 'Shareholders’ Funds'}) ON CREATE SET m.id = 'shareholders_funds', m.unit = 'Rs';
+MERGE (m:Metric {name: 'Total Net Assets'}) ON CREATE SET m.id = 'total_net_assets', m.unit = 'Rs';
 
 // Query 37
-MERGE (m:Metric {name: 'Earnings per Share'}) ON CREATE SET m.id = 'earnings_per_share', m.unit = 'Rs';
+MERGE (m:Metric {name: 'Growth in Annual Turnover'}) ON CREATE SET m.id = 'growth_in_annual_turnover', m.unit = '%';
 
 // Query 38
-MERGE (m:Metric {name: 'Net Assets per Share'}) ON CREATE SET m.id = 'net_assets_per_share', m.unit = 'Rs';
+MERGE (m:Metric {name: 'Earnings per Share'}) ON CREATE SET m.id = 'earnings_per_share', m.unit = 'Rs';
 
 // Query 39
-MERGE (m:Metric {name: 'Return on Average Assets'}) ON CREATE SET m.id = 'return_on_average_assets', m.unit = '%';
+MERGE (m:Metric {name: 'Dividend per Share'}) ON CREATE SET m.id = 'dividend_per_share', m.unit = 'Rs';
 
 // Query 40
-MERGE (m:Metric {name: 'Equity / Assets'}) ON CREATE SET m.id = 'equity_assets', m.unit = '%';
+MERGE (m:Metric {name: 'Market Price per Share'}) ON CREATE SET m.id = 'market_price_per_share', m.unit = 'Rs';
 
 // Query 41
-MERGE (m:Metric {name: 'Gross Non Performing Accommodations'}) ON CREATE SET m.id = 'gross_non_performing_accommodations', m.unit = '%';
+MERGE (m:Metric {name: 'Net Asset Value per Share'}) ON CREATE SET m.id = 'net_asset_value_per_share', m.unit = 'Rs';
 
 // Query 42
-MERGE (s:Sector {name: 'Consumer Services'}) ON CREATE SET s.id = 'consumer_services';
+MATCH (p:Person {name: 'L. I. Ratnasabapathy'}), (c:Company {name: 'Paragon Ceylon PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman/Managing Director', r.as_of = date('2024-03-31');
 
 // Query 43
-MERGE (s:Sector {name: 'Diversified Financials'}) ON CREATE SET s.id = 'diversified_financials';
+MATCH (p:Person {name: 'L. I. Ratnasabapathy'}), (c:Company {name: 'Paragon Ceylon PLC'}) MERGE (p)-[r:DIRECTOR_OF]->(c) ON CREATE SET r.role = 'Executive', r.as_of = date('2024-03-31');
 
 // Query 44
-MATCH (p:Person {name: 'S.D.R. Arudpragasam'}), (c:Company {name: 'Paragon Ceylon PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) SET r.title = 'Chairman';
+MATCH (p:Person {name: 'A. M. De Alwis'}), (c:Company {name: 'Paragon Ceylon PLC'}) MERGE (p)-[r:DIRECTOR_OF]->(c) ON CREATE SET r.role = 'Executive', r.as_of = date('2024-03-31');
 
 // Query 45
-MATCH (p:Person {name: 'R.C.A. Welikala'}), (c:Company {name: 'Paragon Ceylon PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) SET r.title = 'Director';
+MATCH (p:Person {name: 'J. B. M. Ponrajah'}), (c:Company {name: 'Paragon Ceylon PLC'}) MERGE (p)-[r:DIRECTOR_OF]->(c) ON CREATE SET r.role = 'Executive', r.as_of = date('2024-03-31');
 
 // Query 46
-MATCH (p:Person {name: 'R.N. Bopearatchy'}), (c:Company {name: 'Paragon Ceylon PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) SET r.title = 'Director';
+MATCH (p:Person {name: 'P. S. R. Casie Chitty'}), (c:Company {name: 'Paragon Ceylon PLC'}) MERGE (p)-[r:DIRECTOR_OF]->(c) ON CREATE SET r.role = 'Independent Non-Executive', r.as_of = date('2024-03-31');
 
 // Query 47
-MATCH (p:Person {name: 'E. T. De Zoysa'}), (c:Company {name: 'Paragon Ceylon PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) SET r.title = 'Managing Director', r.as_of = date('2021-03-31');
+MATCH (p:Person {name: 'M. M. Marzook'}), (c:Company {name: 'Paragon Ceylon PLC'}) MERGE (p)-[r:DIRECTOR_OF]->(c) ON CREATE SET r.role = 'Independent Non-Executive', r.as_of = date('2024-03-31');
 
 // Query 48
-MATCH (p:Person {name: 'R. S. A. Wickramasingha'}), (c:Company {name: 'Paragon Ceylon PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) SET r.title = 'Chairman', r.as_of = date('2021-03-31');
+MATCH (p:Person {name: 'M. R. Y. Riffai'}), (c:Company {name: 'Paragon Ceylon PLC'}) MERGE (p)-[r:DIRECTOR_OF]->(c) ON CREATE SET r.role = 'Independent Non-Executive', r.as_of = date('2023-12-01');
 
 // Query 49
-MATCH (p:Person {name: 'D. S. Wickramasingha'}), (c:Company {name: 'Paragon Ceylon PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) SET r.title = 'Director', r.as_of = date('2021-03-31');
+MATCH (p:Person {name: 'M. R. Y. Riffai'}), (c:Company {name: 'Paragon Ceylon PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Senior Independent Director', r.as_of = date('2023-12-01');
 
 // Query 50
-MATCH (p:Person {name: 'N. K. Wickramasingha'}), (c:Company {name: 'Paragon Ceylon PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) SET r.title = 'Director', r.as_of = date('2021-03-31');
+MATCH (p:Person {name: 'D. T. De Alwis'}), (c:Company {name: 'Paragon Ceylon PLC'}) MERGE (p)-[r:DIRECTOR_OF]->(c) ON CREATE SET r.role = 'Independent Non-Executive', r.as_of = date('2023-12-01');
 
 // Query 51
-MATCH (p:Person {name: 'L. J. M. De Silva'}), (c:Company {name: 'Paragon Ceylon PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) SET r.title = 'Director', r.as_of = date('2021-03-31');
+MATCH (p:Person {name: 'M. S. A. Kariapper'}), (c:Company {name: 'Paragon Ceylon PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Head of Finance', r.as_of = date('2024-08-29');
 
 // Query 52
-MATCH (p:Person {name: 'M. U. S. G. Thilakawardana'}), (c:Company {name: 'Paragon Ceylon PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) SET r.title = 'Director', r.as_of = date('2021-03-31');
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (a:Company {name: 'MGI SL Assurance Partners'}) MERGE (c)-[r:AUDITED_BY]->(a) ON CREATE SET r.year = 2024;
 
 // Query 53
-MATCH (p:Person {name: 'D. M. A. Kulasooriya'}), (c:Company {name: 'Paragon Ceylon PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) SET r.title = 'Director', r.as_of = date('2021-03-31');
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (s:Sector {name: 'Commercial and Professional Services'}) MERGE (c)-[:IN_SECTOR]->(s);
 
 // Query 54
-MATCH (p:Person {name: 'M. S. Nanayakkara'}), (c:Company {name: 'Paragon Ceylon PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) SET r.title = 'Director', r.as_of = date('2021-03-31');
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (s:Sector {name: 'Real Estate'}) MERGE (c)-[:IN_SECTOR]->(s);
 
 // Query 55
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 79289000000, r.year = 2025;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (p:Product {name: 'Security Register Stationary'}) MERGE (c)-[:OFFERS]->(p);
 
 // Query 56
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Gross Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 16564000000, r.year = 2025;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (p:Product {name: 'Computer Continuous Stationary'}) MERGE (c)-[:OFFERS]->(p);
 
 // Query 57
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 7172000000, r.year = 2025;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (p:Product {name: 'Premises Rental'}) MERGE (c)-[:OFFERS]->(p);
 
 // Query 58
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 6836000000, r.year = 2025;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 10520042.0, r.year = 2024;
 
 // Query 59
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 5032000000, r.year = 2025;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 7404970.0, r.year = 2023;
 
 // Query 60
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 74616000000, r.year = 2025;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 4540405.0, r.year = 2022;
 
 // Query 61
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Gross Profit Margin'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 21, r.year = 2025;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 4372400.0, r.year = 2021;
 
 // Query 62
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Operating Profit Margin'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 9, r.year = 2025;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 4666871.0, r.year = 2020;
 
 // Query 63
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Profit Before Tax Margin'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 9, r.year = 2025;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Results from Operations'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2356143.0, r.year = 2024;
 
 // Query 64
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Return on Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 13, r.year = 2025;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Results from Operations'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 480673.0, r.year = 2023;
 
 // Query 65
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Return on Capital Employed'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 14, r.year = 2025;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Results from Operations'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1070508.0, r.year = 2022;
 
 // Query 66
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Return on Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 7, r.year = 2025;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Results from Operations'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 867401.0, r.year = 2021;
 
 // Query 67
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Interest Cover Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 9, r.year = 2025;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Results from Operations'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 460509.0, r.year = 2020;
 
 // Query 68
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Current Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1.7, r.year = 2025;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Net Finance Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 46267.0, r.year = 2024;
 
 // Query 69
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Quick Asset Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1.1, r.year = 2025;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Net Finance Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 57810.0, r.year = 2023;
 
 // Query 70
-MATCH (c:Company {name: 'Commercial Credit and Finance PLC'}), (m:Metric {name: 'Gross Income'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 31055222000, r.year = 2024;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Net Finance Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -27191.0, r.year = 2022;
 
 // Query 71
-MATCH (c:Company {name: 'Commercial Credit and Finance PLC'}), (m:Metric {name: 'Net Interest Income'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 12808022000, r.year = 2024;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Net Finance Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 32532.0, r.year = 2021;
 
 // Query 72
-MATCH (c:Company {name: 'Commercial Credit and Finance PLC'}), (m:Metric {name: 'Profit Before Taxation'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 6594978000, r.year = 2024;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Net Finance Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 42502.0, r.year = 2020;
 
 // Query 73
-MATCH (c:Company {name: 'Commercial Credit and Finance PLC'}), (m:Metric {name: 'Profit After Taxation'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 4193917000, r.year = 2024;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2408379.0, r.year = 2024;
 
 // Query 74
-MATCH (c:Company {name: 'Commercial Credit and Finance PLC'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 107987834000, r.year = 2024;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 497610.0, r.year = 2023;
 
 // Query 75
-MATCH (c:Company {name: 'Commercial Credit and Finance PLC'}), (m:Metric {name: 'Shareholders’ Funds'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 24179669000, r.year = 2024;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1016465.0, r.year = 2022;
 
 // Query 76
-MATCH (c:Company {name: 'Commercial Credit and Finance PLC'}), (m:Metric {name: 'Earnings per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 13.19, r.year = 2024;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 910035.0, r.year = 2021;
 
 // Query 77
-MATCH (c:Company {name: 'Commercial Credit and Finance PLC'}), (m:Metric {name: 'Net Assets per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 76.02, r.year = 2024;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 458449.0, r.year = 2020;
 
 // Query 78
-MATCH (c:Company {name: 'Commercial Credit and Finance PLC'}), (m:Metric {name: 'Return on Average Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 3.99, r.year = 2024;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Tax Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.0, r.year = 2024;
 
 // Query 79
-MATCH (c:Company {name: 'Commercial Credit and Finance PLC'}), (m:Metric {name: 'Equity / Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 22.39, r.year = 2024;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Tax Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.0, r.year = 2023;
 
 // Query 80
-MATCH (c:Company {name: 'Commercial Credit and Finance PLC'}), (m:Metric {name: 'Gross Non Performing Accommodations'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 10.65, r.year = 2024;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Tax Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -221511.0, r.year = 2022;
 
 // Query 81
-MATCH (c:Company {name: 'Lankem Ceylon PLC'}), (s:Sector {name: 'Consumer Services'}) MERGE (c)-[:IN_SECTOR]->(s);
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Tax Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -7292.0, r.year = 2021;
 
 // Query 82
-MATCH (c:Company {name: 'LCB Finance PLC'}), (s:Sector {name: 'Diversified Financials'}) MERGE (c)-[:IN_SECTOR]->(s);
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Tax Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 26839.0, r.year = 2020;
 
 // Query 83
-UNWIND [{id: 'paragon_ceylon_plc_directors_and_executives_0', content: '(Pvt) Ltd\na\nr\nThe DIRECTORS of the Company are also DIRECTORS of following companies with which the Company had transactions\nin the ordinary course of business during the year.\nKey management includes members of the Board of DIRECTORS of the Company. The compensation paid or payable\nto key management for employee services is shown below:\nMr. H.N.J \nChandrasekara\nMr. K.A.K \nJayatilake\nr\na', chunk_type: 'directors_and_executives', index: 0}, {id: 'paragon_ceylon_plc_directors_and_executives_1', content: 'contracts in which they have an interest are disclosed in \nNote 34.1.1 to the financial statements on page 68.\nDIRECTORS’ Interest in Shares\nDIRECTORS of the Company who have an interest in the \nshares of the Company are required to disclose their \nshareholdings and any acquisitions/ disposals to the \nBoard in compliance with Section 200 of the Companies \nAct No. 07 of 2007. However, none of the DIRECTORS held \nany shares during the period under review nor in the \nprevious year.\nDIRECTORS’ Remuneration\nKey Management Personnel Compensation in respect of \nthe Company and the Group for the financial year 2021/ \n2022 is detailed in Note 34.1.2 to the Financial Statements \non page 68.\nDirectorate\nThe names of the DIRECTORS who held office during the \nfinancial year are given below and brief profiles of the \nDIRECTORS who are currently in office appear on pages 5 \nto 6.\nMr. S.D.R. Arudpragasam - Chairman\nMr. R.C.A. Welikala - Director\nMr. R.N. Bopearatchy - Director', chunk_type: 'directors_and_executives', index: 1}, {id: 'paragon_ceylon_plc_directors_and_executives_2', content: 'Company in the preparation of the Financial \nStatements are given on pages 71 to 79, \nwhich are consistent with those of the \nprevious period.\nDIRECTORS’ responsibility for Financial \nReporting\nThe DIRECTORS are responsible for the \npreparation of the Financial Statements of \nthe Company and the Group to reflect a true \nand fair view of the state of its affairs.\nInformation on the DIRECTORS of the \nCompany and the Group \nDIRECTORS of the Company as at  \n31st March 2021\nThe names of the DIRECTORS who held office \nas at the end of the accounting period are \ngiven below and their brief profiles appear on \npages 18 and 19.\nExecutive DIRECTORS\nMr. E. T . De Zoysa - Managing Director\nNon-Executive DIRECTORS\nMr. R. S. A. Wickramasingha - Chairman\nMs. D. S. Wickramasingha - Director\nMs. N. K. Wickramasingha - Director \nMr. L. J. M. De Silva - Director \nMr. M. U. S. G. Thilakawardana - Director*\nDr. D. M. A. Kulasooriya - Director*\nMr. M. S. Nanayakkara - Director*', chunk_type: 'directors_and_executives', index: 2}, {id: 'paragon_ceylon_plc_directors_and_executives_3', content: 'from pages 28 to 67 of the Annual Report. \nDIRECTORATE \nThe Board of DIRECTORS of the Company as at date is set out in \n“Corporate Information”. The DIRECTORS of the Company who held \noffice during the year under review and changes thereto are \nindicated below.', chunk_type: 'directors_and_executives', index: 3}, {id: 'paragon_ceylon_plc_directors_and_executives_4', content: 'in the Shareholders Information section on pages 166 to 167.\nThe Company endeavours at all times to ensure equitable treatment to all \nshareholders.\nSubstantial Shareholdings\nThere were 1738 registered shareholders, holding ordinary voting shares \nas at 31st March 2025 (1,582 registered shareholders as at 31st March \n2024).\nThe names of the twenty largest shareholders, the number of shares held, \nand the percentages held are given on page 167 of the Annual Report. \nThe distribution schedule of the shareholders and public holdings are \ndisclosed on page 166 of the Annual Report.\nDirectorate\nAs at 31st March 2025 the Board of DIRECTORS of the Company consisted \nof eight DIRECTORS with wide commercial, academic knowledge and \nexperience. The DIRECTORS profile is given on pages 56 to 57 of this Annual \nReport.\nThe Board of DIRECTORS of the Company and its subsidiaries as at 31st \nMarch 2025 are listed below.\nName of the Director\nJohn Keells PLC \nPLC\nJohn \nKeells PLC \nStockbrokers\nJohn Keells PLC', chunk_type: 'directors_and_executives', index: 4}, {id: 'paragon_ceylon_plc_financial_performance_0', content: 'About Us Management Discussion and Analysis Stewardship Financial Information Supplementary Information\nPERFORMANCE\nFINANCIAL INFORMATION\nPRECISION IN\nOur financial performance directly reflects the strategic decisions and thoughtful investments we \nmake by managing resources with precision. Each financial decision is focused on strengthening our \nfoundation and driving sustained success, offering the clarity and confidence necessary for informed \ndecision-making.', chunk_type: 'financial_performance', index: 0}, {id: 'paragon_ceylon_plc_financial_performance_1', content: 'About Us Management Discussion and Analysis Stewardship Financial Information Supplementary Information\nPERFORMANCE\nFINANCIAL INFORMATION\nPRECISION IN\nOur financial performance directly reflects the strategic decisions and thoughtful investments we \nmake by managing resources with precision. Each financial decision is focused on strengthening our \nfoundation and driving sustained success, offering the clarity and confidence necessary for informed \ndecision-making.', chunk_type: 'financial_performance', index: 1}, {id: 'paragon_ceylon_plc_financial_performance_2', content: 'Financial\nperformance\nCashﬂows\nFinancial\nposition\nCost of\ncapital\nAccess\nto ﬁnance\n-5 -4 -3 -2 -1 0 1 2 3 4 5\nFinancial\nperformance\nCashﬂows\nFinancial\nposition\nCost of\ncapital\nAccess\nto ﬁnance\nIntroduction | Understanding Value Creation and Impacts | Our Value Proposition on ESG\nNurturing Our Resources | Mindful Governance | Financial Statements | Supplementary', chunk_type: 'financial_performance', index: 2}, {id: 'paragon_ceylon_plc_financial_performance_3', content: '22 DIPPED PRODUCTS PLC  | Annual Report 2024/25\nPerformance Highlights\nMetric 2024/25 2023/24 % Y-o-Y\nSTRATEGIC PRIORITY- FINANCIAL PERFORMANCES   \nEarnings Highlights\nRevenue Rs. million 79,289 73,942  7 \nGross Profit Rs. million 16,564  17,059  (3)\nGross Profit Margin %  21  23  (2)\nOperating Profit Rs. million 7,172  7,729  (7)\nOperating Profit Margin %  9  10  (1)\nProfit Before Tax Rs. million 6,836  7,567  (10)\nProfit Before Tax Margin %  9  10  (1)\nProfit After Tax Rs. million 5,032  5,779  (13)\nReturn on Equity %  13  16  (3)\nReturn on Capital Employed % 14 17  (3)\nInterest Cover Ratio Times  9 10  (11)\nWorking Capital Ratios\nInventory Days Days  75  78  (3)\nDebtor Days Days  59 60  (1)\nCreditor Days Days  70 64  6 \nCash Conversion Cycle Days  64  74  (10)\nLiquidity Ratios\nCurrent Ratio Times  1.7  2.2  (24)\nQuick Asset Ratio Times  1.1  1.4  (22)\nFinancial Stability\nTotal Assets Rs. million  74,616  63,913  17 \nReturn on Assets %  7  9  (2)', chunk_type: 'financial_performance', index: 3}, {id: 'paragon_ceylon_plc_financial_performance_4', content: 'Commercial Credit and Finance PLC | Annual Report 2023/2024\n6\nFINANCIAL \nHIGHLIGHTS\n2023/24\nRs.‘000\'   \n2022/23\nRs.‘000\'    \n% \nChange\nFinancial Performance  \nGross Income  31,055,222  28,949,269 7 .3%\nNet Interest Income  12,808,022  11,106,651 15.3%\nProfit Before Taxation  6,594,978  3,859,879 70.9%\nProfit After Taxation  4,193,917  2,599,629 61.3%\nFinancial Position\nLeases, Hire Purchases, Loans and Advances  81,437 ,828  76,170,663 6.9%\nTotal Assets  107 ,987 ,834  102,154,440 5.7%\nTotal Deposit Base  62,121,240  59,243,651 4.9%\nBorrowings  13,902,823  17 ,555,544 -20.8%\nShareholders’ Funds  24,179,669  20,359,015 18.8%\nLiquid Assets  11,483,294  12,836,935 -10.5%\nKey Indicators per Ordinary Share\nEarnings per Share( Rs.)  13.19  8.17 \nNet Assets per Share ( Rs.)  76.02 64.01 \nYear end Market Price per Share (Rs.)  35.30  26.00 \nKey Performance Indicators\nReturn on Average Assets (%) 3.99 2.66\nEquity / Assets (%) 22.39 19.93\nGross Non Performing Accommodations (%) 10.65 11.07', chunk_type: 'financial_performance', index: 4}] AS chunk MERGE (ch:Chunk {id: chunk.id}) ON CREATE SET ch.content = chunk.content, ch.chunk_type = chunk.chunk_type, ch.index = chunk.index;
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2408379.0, r.year = 2024;
 
 // Query 84
-MATCH (c:Company {name: 'Paragon Ceylon PLC'}) WITH c UNWIND ['paragon_ceylon_plc_directors_and_executives_0', 'paragon_ceylon_plc_directors_and_executives_1', 'paragon_ceylon_plc_directors_and_executives_2', 'paragon_ceylon_plc_directors_and_executives_3', 'paragon_ceylon_plc_directors_and_executives_4', 'paragon_ceylon_plc_financial_performance_0', 'paragon_ceylon_plc_financial_performance_1', 'paragon_ceylon_plc_financial_performance_2', 'paragon_ceylon_plc_financial_performance_3', 'paragon_ceylon_plc_financial_performance_4'] AS chunk_id MATCH (ch:Chunk {id: chunk_id}) MERGE (c)-[:HAS_CONTENT]->(ch);
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 497610.0, r.year = 2023;
 
-// Total queries: 84
-// Generated on: 2025-09-30T12:57:50.943468
+// Query 85
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 794954.0, r.year = 2022;
+
+// Query 86
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 902743.0, r.year = 2021;
+
+// Query 87
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 485288.0, r.year = 2020;
+
+// Query 88
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Stated Capital'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1000280.0, r.year = 2024;
+
+// Query 89
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Stated Capital'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1000280.0, r.year = 2023;
+
+// Query 90
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Stated Capital'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1000280.0, r.year = 2022;
+
+// Query 91
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Stated Capital'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1000280.0, r.year = 2021;
+
+// Query 92
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Stated Capital'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1000280.0, r.year = 2020;
+
+// Query 93
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Reserves'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3317540.0, r.year = 2024;
+
+// Query 94
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Reserves'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 936725.0, r.year = 2023;
+
+// Query 95
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Reserves'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 430350.0, r.year = 2022;
+
+// Query 96
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Reserves'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -356512.0, r.year = 2021;
+
+// Query 97
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Reserves'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -1412990.0, r.year = 2020;
+
+// Query 98
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 4317820.0, r.year = 2024;
+
+// Query 99
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1937005.0, r.year = 2023;
+
+// Query 100
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1430650.0, r.year = 2022;
+
+// Query 101
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 643768.0, r.year = 2021;
+
+// Query 102
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -412710.0, r.year = 2020;
+
+// Query 103
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Trade Payables'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1732801.0, r.year = 2024;
+
+// Query 104
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Trade Payables'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2642276.0, r.year = 2023;
+
+// Query 105
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Trade Payables'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3551617.0, r.year = 2022;
+
+// Query 106
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Trade Payables'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1277008.0, r.year = 2021;
+
+// Query 107
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Trade Payables'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2688410.0, r.year = 2020;
+
+// Query 108
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Current Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 5093093.0, r.year = 2024;
+
+// Query 109
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Current Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 4621706.0, r.year = 2023;
+
+// Query 110
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Current Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 6295905.0, r.year = 2022;
+
+// Query 111
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Current Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3949279.0, r.year = 2021;
+
+// Query 112
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Current Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 6390949.0, r.year = 2020;
+
+// Query 113
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Current Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1732801.0, r.year = 2024;
+
+// Query 114
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Current Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3663825.0, r.year = 2023;
+
+// Query 115
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Current Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 5876505.0, r.year = 2022;
+
+// Query 116
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Current Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3650233.0, r.year = 2021;
+
+// Query 117
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Current Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 7190053.0, r.year = 2020;
+
+// Query 118
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Net Current Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3360292.0, r.year = 2024;
+
+// Query 119
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Net Current Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 957881.0, r.year = 2023;
+
+// Query 120
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Net Current Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 419400.0, r.year = 2022;
+
+// Query 121
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Net Current Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 299046.0, r.year = 2021;
+
+// Query 122
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Net Current Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -799104.0, r.year = 2020;
+
+// Query 123
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Non-Current Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.0, r.year = 2024;
+
+// Query 124
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Non-Current Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.0, r.year = 2023;
+
+// Query 125
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Non-Current Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.0, r.year = 2022;
+
+// Query 126
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Non-Current Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 922963.0, r.year = 2021;
+
+// Query 127
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Non-Current Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 840704.0, r.year = 2020;
+
+// Query 128
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Non-Current Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 957529.0, r.year = 2024;
+
+// Query 129
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Non-Current Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 979124.0, r.year = 2023;
+
+// Query 130
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Non-Current Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1011250.0, r.year = 2022;
+
+// Query 131
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Non-Current Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1267685.0, r.year = 2021;
+
+// Query 132
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Non-Current Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1227098.0, r.year = 2020;
+
+// Query 133
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Total Net Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 4317820.0, r.year = 2024;
+
+// Query 134
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Total Net Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1937005.0, r.year = 2023;
+
+// Query 135
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Total Net Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1430650.0, r.year = 2022;
+
+// Query 136
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Total Net Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 643768.0, r.year = 2021;
+
+// Query 137
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Total Net Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -412710.0, r.year = 2020;
+
+// Query 138
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Growth in Annual Turnover'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 42.06, r.year = 2024;
+
+// Query 139
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Growth in Annual Turnover'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 63.09, r.year = 2023;
+
+// Query 140
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Growth in Annual Turnover'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3.84, r.year = 2022;
+
+// Query 141
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Growth in Annual Turnover'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -6.30, r.year = 2021;
+
+// Query 142
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Growth in Annual Turnover'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.84, r.year = 2020;
+
+// Query 143
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Earnings per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2.41, r.year = 2024;
+
+// Query 144
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Earnings per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.50, r.year = 2023;
+
+// Query 145
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Earnings per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.79, r.year = 2022;
+
+// Query 146
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Earnings per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.90, r.year = 2021;
+
+// Query 147
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Earnings per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.49, r.year = 2020;
+
+// Query 148
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Dividend per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.00, r.year = 2024;
+
+// Query 149
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Dividend per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.00, r.year = 2023;
+
+// Query 150
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Dividend per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.00, r.year = 2022;
+
+// Query 151
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Dividend per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.00, r.year = 2021;
+
+// Query 152
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Dividend per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.00, r.year = 2020;
+
+// Query 153
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Market Price per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 63.00, r.year = 2024;
+
+// Query 154
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Market Price per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.00, r.year = 2023;
+
+// Query 155
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Market Price per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.00, r.year = 2022;
+
+// Query 156
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Market Price per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 42.00, r.year = 2021;
+
+// Query 157
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Market Price per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.00, r.year = 2020;
+
+// Query 158
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Net Asset Value per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 4.31, r.year = 2024;
+
+// Query 159
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Net Asset Value per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1.93, r.year = 2023;
+
+// Query 160
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Net Asset Value per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1.43, r.year = 2022;
+
+// Query 161
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Net Asset Value per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.64, r.year = 2021;
+
+// Query 162
+MATCH (c:Company {name: 'Paragon Ceylon PLC'}), (m:Metric {name: 'Net Asset Value per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -0.41, r.year = 2020;
+
+// Query 163
+MATCH (owner:Company {name: 'CT Holdings PLC'}), (company:Company {name: 'Paragon Ceylon PLC'}) MERGE (owner)-[r:OWNS_SHARES]->(company) ON CREATE SET r.count = 213060, r.as_of = date('2024-03-31');
+
+// Query 164
+MATCH (owner:Person {name: 'John Tilak Ratnanather'}), (company:Company {name: 'Paragon Ceylon PLC'}) MERGE (owner)-[r:OWNS_SHARES]->(company) ON CREATE SET r.count = 95140, r.as_of = date('2024-03-31');
+
+// Query 165
+MATCH (owner:Person {name: 'Barbera Antoinette Jeyamany Ratnasabapathy'}), (company:Company {name: 'Paragon Ceylon PLC'}) MERGE (owner)-[r:OWNS_SHARES]->(company) ON CREATE SET r.count = 48860, r.as_of = date('2024-03-31');
+
+// Query 166
+MATCH (owner:Person {name: 'Anthony Jehan Chanath Ratnanather'}), (company:Company {name: 'Paragon Ceylon PLC'}) MERGE (owner)-[r:OWNS_SHARES]->(company) ON CREATE SET r.count = 48710, r.as_of = date('2024-03-31');
+
+// Query 167
+MATCH (owner:Company {name: 'Cyril Gardiner (Private) Limited'}), (company:Company {name: 'Paragon Ceylon PLC'}) MERGE (owner)-[r:OWNS_SHARES]->(company) ON CREATE SET r.count = 47520, r.as_of = date('2024-03-31');
+
+// Total queries: 167
+// Generated on: 2025-10-02T18:11:33.107812

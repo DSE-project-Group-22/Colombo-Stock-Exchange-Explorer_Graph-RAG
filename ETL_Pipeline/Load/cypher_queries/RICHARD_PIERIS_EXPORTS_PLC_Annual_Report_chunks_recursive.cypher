@@ -1,83 +1,851 @@
 // Query 1
-MERGE (c:Company {name: 'Richard Pieris Exports PLC'}) ON CREATE SET c.id = 'richard_pieris_exports_plc';
+MERGE (c:Company {name: 'Richard Pieris Exports PLC'}) ON CREATE SET c.id = 'richard_pieris_exports_plc', c.founded_on = date('1983-06-30'), c.listed_on = 'CSE (Diri Savi Board) as of 2017-07-07', c.region = 'Sri Lanka';
 
 // Query 2
-MERGE (p:Person {name: 'H.N.J. Chandrasekara'}) ON CREATE SET p.id = 'h_n_j_chandrasekara';
+MERGE (c:Company {name: 'Richard Pieris Group Services (Private) Limited'}) ON CREATE SET c.id = 'richard_pieris_group_services_private_limited';
 
 // Query 3
-MERGE (p:Person {name: 'K.A.K. Jayatilake'}) ON CREATE SET p.id = 'k_a_k_jayatilake';
+MERGE (c:Company {name: 'Kreston MNS & Company'}) ON CREATE SET c.id = 'kreston_mns_and_company';
 
 // Query 4
-MERGE (p:Person {name: 'S.D.R. Arudpragasam'}) ON CREATE SET p.id = 's_d_r_arudpragasam';
+MERGE (c:Company {name: 'Richard Pieris & Company PLC'}) ON CREATE SET c.id = 'richard_pieris_and_company_plc';
 
 // Query 5
-MERGE (p:Person {name: 'R.C.A. Welikala'}) ON CREATE SET p.id = 'r_c_a_welikala';
+MERGE (c:Company {name: 'MSS Investments (Pvt) Limited'}) ON CREATE SET c.id = 'mss_investments_pvt_limited';
 
 // Query 6
-MERGE (p:Person {name: 'R.N. Bopearatchy'}) ON CREATE SET p.id = 'r_n_bopearatchy';
+MERGE (c:Company {name: 'Kalday Private Limited'}) ON CREATE SET c.id = 'kalday_private_limited';
 
 // Query 7
-MERGE (p:Person {name: 'E. T. De Zoysa'}) ON CREATE SET p.id = 'e_t_de_zoysa';
+MERGE (c:Company {name: 'Ransiri Enterprises (Pvt) Ltd'}) ON CREATE SET c.id = 'ransiri_enterprises_pvt_ltd';
 
 // Query 8
-MERGE (p:Person {name: 'R. S. A. Wickramasingha'}) ON CREATE SET p.id = 'r_s_a_wickramasingha';
+MERGE (c:Company {name: 'Union Investments (Pvt) ltd'}) ON CREATE SET c.id = 'union_investments_pvt_ltd';
 
 // Query 9
-MERGE (p:Person {name: 'D. S. Wickramasingha'}) ON CREATE SET p.id = 'd_s_wickramasingha';
+MERGE (p:Person {name: 'Dr. Sena Yaddehige'}) ON CREATE SET p.id = 'dr_sena_yadddehige';
 
 // Query 10
-MERGE (p:Person {name: 'N. K. Wickramasingha'}) ON CREATE SET p.id = 'n_k_wickramasingha';
+MERGE (p:Person {name: 'Shaminda Yaddehige'}) ON CREATE SET p.id = 'shaminda_yadddehige';
 
 // Query 11
-MERGE (p:Person {name: 'L. J. M. De Silva'}) ON CREATE SET p.id = 'l_j_m_de_silva';
+MERGE (p:Person {name: 'W.J. Viville P Perera'}) ON CREATE SET p.id = 'w_j_viville_p_perera';
 
 // Query 12
-MERGE (p:Person {name: 'M. U. S. G. Thilakawardana'}) ON CREATE SET p.id = 'm_u_s_g_thilakawardana';
+MERGE (p:Person {name: 'W R Abeysirigunawardena'}) ON CREATE SET p.id = 'w_r_abeysirigunawardena';
 
 // Query 13
-MERGE (p:Person {name: 'D. M. A. Kulasooriya'}) ON CREATE SET p.id = 'd_m_a_kulasooriya';
+MERGE (p:Person {name: 'Dr.L.M.K.Tillekeratne'}) ON CREATE SET p.id = 'dr_l_m_k_tillekeratne';
 
 // Query 14
-MERGE (p:Person {name: 'M. S. Nanayakkara'}) ON CREATE SET p.id = 'm_s_nanayakkara';
+MERGE (p:Person {name: 'Lalith Chandrasiri Wijeyesinghe'}) ON CREATE SET p.id = 'lalith_chandrasiri_wijeyesinghe';
 
 // Query 15
-MATCH (p:Person {name: 'S.D.R. Arudpragasam'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman';
+MERGE (p:Person {name: 'Dr.Lawrence Perera'}) ON CREATE SET p.id = 'dr_lawrence_perera';
 
 // Query 16
-MATCH (p:Person {name: 'R.C.A. Welikala'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director';
+MERGE (p:Person {name: 'Charith Ariyarathna'}) ON CREATE SET p.id = 'charith_ariyarathna';
 
 // Query 17
-MATCH (p:Person {name: 'R.N. Bopearatchy'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director';
+MERGE (p:Person {name: 'Mr T.T.T.Al-Nakib'}) ON CREATE SET p.id = 'mr_t_t_t_al_nakib';
 
 // Query 18
-MATCH (p:Person {name: 'E. T. De Zoysa'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Managing Director', r.as_of = date('2021-03-31');
+MERGE (p:Person {name: 'Mrs.V.Saraswathi'}) ON CREATE SET p.id = 'mrs_v_saraswathi';
 
 // Query 19
-MATCH (p:Person {name: 'R. S. A. Wickramasingha'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2021-03-31');
+MERGE (p:Person {name: 'Mr. P.Vijendran'}) ON CREATE SET p.id = 'mr_p_vijendran';
 
 // Query 20
-MATCH (p:Person {name: 'D. S. Wickramasingha'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MERGE (p:Person {name: 'Ms S Sinthuja'}) ON CREATE SET p.id = 'ms_s_sinthuja';
 
 // Query 21
-MATCH (p:Person {name: 'N. K. Wickramasingha'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MERGE (p:Person {name: 'Mr S Sivaharan'}) ON CREATE SET p.id = 'mr_s_sivaharan';
 
 // Query 22
-MATCH (p:Person {name: 'L. J. M. De Silva'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MERGE (p:Person {name: 'Mrs.M.Y.Amerasinghe'}) ON CREATE SET p.id = 'mrs_m_y_amerasinghe';
 
 // Query 23
-MATCH (p:Person {name: 'M. U. S. G. Thilakawardana'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MERGE (p:Person {name: 'Mr S.Malalasekera'}) ON CREATE SET p.id = 'mr_s_malalasekera';
 
 // Query 24
-MATCH (p:Person {name: 'D. M. A. Kulasooriya'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MERGE (s:Sector {name: 'Materials'}) ON CREATE SET s.id = 'materials';
 
 // Query 25
-MATCH (p:Person {name: 'M. S. Nanayakkara'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MERGE (p:Product {name: 'rubber based products'}) ON CREATE SET p.id = 'rubber_based_products';
 
 // Query 26
-UNWIND [{id: 'richard_pieris_exports_plc_directors_and_executives_0', content: '(Pvt) Ltd\na\nr\nThe DIRECTORS of the Company are also DIRECTORS of following companies with which the Company had transactions\nin the ordinary course of business during the year.\nKey management includes members of the Board of DIRECTORS of the Company. The compensation paid or payable\nto key management for employee services is shown below:\nMr. H.N.J \nChandrasekara\nMr. K.A.K \nJayatilake\nr\na', chunk_type: 'directors_and_executives', index: 0}, {id: 'richard_pieris_exports_plc_directors_and_executives_1', content: 'contracts in which they have an interest are disclosed in \nNote 34.1.1 to the financial statements on page 68.\nDIRECTORS’ Interest in Shares\nDIRECTORS of the Company who have an interest in the \nshares of the Company are required to disclose their \nshareholdings and any acquisitions/ disposals to the \nBoard in compliance with Section 200 of the Companies \nAct No. 07 of 2007. However, none of the DIRECTORS held \nany shares during the period under review nor in the \nprevious year.\nDIRECTORS’ Remuneration\nKey Management Personnel Compensation in respect of \nthe Company and the Group for the financial year 2021/ \n2022 is detailed in Note 34.1.2 to the Financial Statements \non page 68.\nDirectorate\nThe names of the DIRECTORS who held office during the \nfinancial year are given below and brief profiles of the \nDIRECTORS who are currently in office appear on pages 5 \nto 6.\nMr. S.D.R. Arudpragasam - Chairman\nMr. R.C.A. Welikala - Director\nMr. R.N. Bopearatchy - Director', chunk_type: 'directors_and_executives', index: 1}, {id: 'richard_pieris_exports_plc_directors_and_executives_2', content: 'Company in the preparation of the Financial \nStatements are given on pages 71 to 79, \nwhich are consistent with those of the \nprevious period.\nDIRECTORS’ responsibility for Financial \nReporting\nThe DIRECTORS are responsible for the \npreparation of the Financial Statements of \nthe Company and the Group to reflect a true \nand fair view of the state of its affairs.\nInformation on the DIRECTORS of the \nCompany and the Group \nDIRECTORS of the Company as at  \n31st March 2021\nThe names of the DIRECTORS who held office \nas at the end of the accounting period are \ngiven below and their brief profiles appear on \npages 18 and 19.\nExecutive DIRECTORS\nMr. E. T . De Zoysa - Managing Director\nNon-Executive DIRECTORS\nMr. R. S. A. Wickramasingha - Chairman\nMs. D. S. Wickramasingha - Director\nMs. N. K. Wickramasingha - Director \nMr. L. J. M. De Silva - Director \nMr. M. U. S. G. Thilakawardana - Director*\nDr. D. M. A. Kulasooriya - Director*\nMr. M. S. Nanayakkara - Director*', chunk_type: 'directors_and_executives', index: 2}, {id: 'richard_pieris_exports_plc_directors_and_executives_3', content: 'from pages 28 to 67 of the Annual Report. \nDIRECTORATE \nThe Board of DIRECTORS of the Company as at date is set out in \n“Corporate Information”. The DIRECTORS of the Company who held \noffice during the year under review and changes thereto are \nindicated below.', chunk_type: 'directors_and_executives', index: 3}, {id: 'richard_pieris_exports_plc_directors_and_executives_4', content: 'in the Shareholders Information section on pages 166 to 167.\nThe Company endeavours at all times to ensure equitable treatment to all \nshareholders.\nSubstantial Shareholdings\nThere were 1738 registered shareholders, holding ordinary voting shares \nas at 31st March 2025 (1,582 registered shareholders as at 31st March \n2024).\nThe names of the twenty largest shareholders, the number of shares held, \nand the percentages held are given on page 167 of the Annual Report. \nThe distribution schedule of the shareholders and public holdings are \ndisclosed on page 166 of the Annual Report.\nDirectorate\nAs at 31st March 2025 the Board of DIRECTORS of the Company consisted \nof eight DIRECTORS with wide commercial, academic knowledge and \nexperience. The DIRECTORS profile is given on pages 56 to 57 of this Annual \nReport.\nThe Board of DIRECTORS of the Company and its subsidiaries as at 31st \nMarch 2025 are listed below.\nName of the Director\nJohn Keells PLC \nPLC\nJohn \nKeells PLC \nStockbrokers\nJohn Keells PLC', chunk_type: 'directors_and_executives', index: 4}, {id: 'richard_pieris_exports_plc_financial_performance_0', content: 'About Us Management Discussion and Analysis Stewardship Financial Information Supplementary Information\nPERFORMANCE\nFINANCIAL INFORMATION\nPRECISION IN\nOur financial performance directly reflects the strategic decisions and thoughtful investments we \nmake by managing resources with precision. Each financial decision is focused on strengthening our \nfoundation and driving sustained success, offering the clarity and confidence necessary for informed \ndecision-making.', chunk_type: 'financial_performance', index: 0}, {id: 'richard_pieris_exports_plc_financial_performance_1', content: 'About Us Management Discussion and Analysis Stewardship Financial Information Supplementary Information\nPERFORMANCE\nFINANCIAL INFORMATION\nPRECISION IN\nOur financial performance directly reflects the strategic decisions and thoughtful investments we \nmake by managing resources with precision. Each financial decision is focused on strengthening our \nfoundation and driving sustained success, offering the clarity and confidence necessary for informed \ndecision-making.', chunk_type: 'financial_performance', index: 1}, {id: 'richard_pieris_exports_plc_financial_performance_2', content: 'Financial\nperformance\nCashﬂows\nFinancial\nposition\nCost of\ncapital\nAccess\nto ﬁnance\n-5 -4 -3 -2 -1 0 1 2 3 4 5\nFinancial\nperformance\nCashﬂows\nFinancial\nposition\nCost of\ncapital\nAccess\nto ﬁnance\nIntroduction | Understanding Value Creation and Impacts | Our Value Proposition on ESG\nNurturing Our Resources | Mindful Governance | Financial Statements | Supplementary', chunk_type: 'financial_performance', index: 2}, {id: 'richard_pieris_exports_plc_financial_performance_3', content: '22 DIPPED PRODUCTS PLC  | Annual Report 2024/25\nPerformance Highlights\nMetric 2024/25 2023/24 % Y-o-Y\nSTRATEGIC PRIORITY- FINANCIAL PERFORMANCES   \nEarnings Highlights\nRevenue Rs. million 79,289 73,942  7 \nGross Profit Rs. million 16,564  17,059  (3)\nGross Profit Margin %  21  23  (2)\nOperating Profit Rs. million 7,172  7,729  (7)\nOperating Profit Margin %  9  10  (1)\nProfit Before Tax Rs. million 6,836  7,567  (10)\nProfit Before Tax Margin %  9  10  (1)\nProfit After Tax Rs. million 5,032  5,779  (13)\nReturn on Equity %  13  16  (3)\nReturn on Capital Employed % 14 17  (3)\nInterest Cover Ratio Times  9 10  (11)\nWorking Capital Ratios\nInventory Days Days  75  78  (3)\nDebtor Days Days  59 60  (1)\nCreditor Days Days  70 64  6 \nCash Conversion Cycle Days  64  74  (10)\nLiquidity Ratios\nCurrent Ratio Times  1.7  2.2  (24)\nQuick Asset Ratio Times  1.1  1.4  (22)\nFinancial Stability\nTotal Assets Rs. million  74,616  63,913  17 \nReturn on Assets %  7  9  (2)', chunk_type: 'financial_performance', index: 3}, {id: 'richard_pieris_exports_plc_financial_performance_4', content: 'Commercial Credit and Finance PLC | Annual Report 2023/2024\n6\nFINANCIAL \nHIGHLIGHTS\n2023/24\nRs.‘000\'   \n2022/23\nRs.‘000\'    \n% \nChange\nFinancial Performance  \nGross Income  31,055,222  28,949,269 7 .3%\nNet Interest Income  12,808,022  11,106,651 15.3%\nProfit Before Taxation  6,594,978  3,859,879 70.9%\nProfit After Taxation  4,193,917  2,599,629 61.3%\nFinancial Position\nLeases, Hire Purchases, Loans and Advances  81,437 ,828  76,170,663 6.9%\nTotal Assets  107 ,987 ,834  102,154,440 5.7%\nTotal Deposit Base  62,121,240  59,243,651 4.9%\nBorrowings  13,902,823  17 ,555,544 -20.8%\nShareholders’ Funds  24,179,669  20,359,015 18.8%\nLiquid Assets  11,483,294  12,836,935 -10.5%\nKey Indicators per Ordinary Share\nEarnings per Share( Rs.)  13.19  8.17 \nNet Assets per Share ( Rs.)  76.02 64.01 \nYear end Market Price per Share (Rs.)  35.30  26.00 \nKey Performance Indicators\nReturn on Average Assets (%) 3.99 2.66\nEquity / Assets (%) 22.39 19.93\nGross Non Performing Accommodations (%) 10.65 11.07', chunk_type: 'financial_performance', index: 4}, {id: 'richard_pieris_exports_plc_risk_factors_0', content: 'KEY RISKS\nIdentifying and addressing risks and opportunities that impact our business, society, environment, and stakeholder decisions is paramount to \nour success.\nEach year, the Group conducts a comprehensive evaluation of material issues to gain deeper insights into these risks and opportunities. \nCollaborating closely with stakeholders and the management team, we prioritize these risks and opportunities to effectively manage them.\nThroughout the year, our Company and stakeholders faced significant challenges stemming from country risk, political and economic \nuncertainties, regulatory pressures, and shifts in the business landscape. Recognizing and navigating these risks remains a top priority for us.\n8 4\n2\n5 9\n10 3\n1\n6 7\n1112', chunk_type: 'risk_factors', index: 0}, {id: 'richard_pieris_exports_plc_risk_factors_1', content: 'factors that possess the potential to influence its operational dynamics, \nfinancial performance, and reputation. Among the salient risks are \nfluctuations in economic conditions, shifting consumer preferences, \nevolving market trends, and omnipresent competitive pressures, all of \nwhich could significantly impact the company’s revenue streams and \noverall profitability.\nFurther risk exposure lies in the volatility of exchange rates, interest \nrates, inflation rates, and tax rates, all of which have the potential to \ninfluence the company’s cost structure and cash flows. Additionally, \nregulatory mandates, legal commitments, \nenvironmental benchmarks, and societal expectations introduce a \nlayer of risk concerning compliance and sustainability. The company \nis also attuned to operational risks encompassing disruptions in its \nsupply chain, cyber threats, natural calamities, pandemics, and human \nerrors, all capable of causing interruptions in the supply and delivery of', chunk_type: 'risk_factors', index: 1}, {id: 'richard_pieris_exports_plc_risk_factors_2', content: 'driving operational efficiency and sustainability. However, increased \ndigitisation has also given rise to cyber threats and heightened the \nrisk of data losses.\nOur reliance on coconut shells, an agricultural input, exposes us to \nthe potential risks of climate change. However, the transition to a \nlow-carbon economy has led to emerging opportunities. The shift \ntowards renewable energy sources has given rise to innovation in \nenergy storage carbons, while sustainable resource consumption \nhas led to the utilization of activated carbon products across many \nindustries. Increased emphasis on addressing climate change has \nled to a rise in environmental regulations and corporate reporting \nrequirements has led to the utilization of activated carbon products \nacross many industries.\nOur global presence necessitates navigating the regulatory landscape \nof multiple jurisdictions giving rise to high levels of complexity. \nProactive monitoring for new laws and regulations across all', chunk_type: 'risk_factors', index: 2}, {id: 'richard_pieris_exports_plc_risk_factors_3', content: 'driving operational efficiency and sustainability. However, increased \ndigitisation has also given rise to cyber threats and heightened the \nrisk of data losses.\nOur reliance on coconut shells, an agricultural input, exposes us to \nthe potential risks of climate change. However, the transition to a \nlow-carbon economy has led to emerging opportunities. The shift \ntowards renewable energy sources has given rise to innovation in \nenergy storage carbons, while sustainable resource consumption \nhas led to the utilization of activated carbon products across many \nindustries. Increased emphasis on addressing climate change has \nled to a rise in environmental regulations and corporate reporting \nrequirements has led to the utilization of activated carbon products \nacross many industries.\nOur global presence necessitates navigating the regulatory landscape \nof multiple jurisdictions giving rise to high levels of complexity. \nProactive monitoring for new laws and regulations across all', chunk_type: 'risk_factors', index: 3}, {id: 'richard_pieris_exports_plc_risk_factors_4', content: 'in internal controls. A shortage of skilled employees could also \nimpede our business growth and expansion. Furthermore, the \neffectiveness and performance of our senior executives are \ncrucial for maintaining our competitive edge and driving future \ngrowth. The departure of key executives could pose challenges \nto our business strategy execution and have other detrimental \neffects.', chunk_type: 'risk_factors', index: 4}, {id: 'richard_pieris_exports_plc_business_segments_0', content: 'from one another. Top management of the Company considers the operating results and condition of its business segments in their \ndecision making process and performance evaluation. Types of products and services from which each operating segment derives its \nrevenues are described as follows.\n \nAn operating segment is a component of the Company that engages in business activities from which it may earn revenues and incur \nexpenses, including revenues and expenses that relate to transactions with any of the Company’s other components. All operating \nsegments’ operating results are reviewed regularly by the Senior Management to make decisions about resources to be allocated to \nthe segment and to assess its performance, and for which discrete financial information is available.', chunk_type: 'business_segments', index: 0}, {id: 'richard_pieris_exports_plc_business_segments_1', content: 'Lankem Ceylon PLC\nAnnual Report 2023/2024\n66\nNOTES TO THE FINANCIAL STATEMENTS\n5. REVENUE\n5.1 Revenue Streams\nConsolidated Company\nFor the Year Ended 31st March 2024 2023 2024 2023\nRs. \'000 Rs. \'000 Rs. \'000 Rs. \'000\nRevenue from contracts with customers \nSale of Goods  31,482,022  32,527,434 6,336,610 6,871,012 \nRendering of Services  2,119,716  1,227,120  -  - \n 33,601,738  33,754,554  6,336,610  6,871,012 \n5.2 Business Segment Analysis of Revenue\nSegmentation has been determined based on the operating activities of the companies or the sector, where multiple activities fall within one \ncompany or sector has been based on the core activities of that particular sector.\nTrading Consumer Products - Manufacturing, Selling and Distribution of Consumer Products\nTrading Industrial Products - Manufacturing, Selling and Distribution of Industrial Products\nLeisure - Owning and Operation of Resort Hotels Others -Special Projects and Other Services\n5.3 Segment Revenue\nConsolidated Company', chunk_type: 'business_segments', index: 1}, {id: 'richard_pieris_exports_plc_business_segments_2', content: 'resources and assessing performance of the operating \nsegments, has been identified as the Board of \nDirectors that makes strategic decisions. The revenue, \ncost, depreciation, amortisation, impairment, total \nassets, total liabilities and capital expenditure have \nbeen allocated to the respective segments based on \nthe internal reporting basis under the below stated \nsegments.\nThe reportable segments derive their revenue primarily \nfrom the provision of mobile services, data services, \ninternational direct dialling services, leasing of passive \ninfrastructure, provision of interconnect services, pay \ntelevision transmission services, provision of other data \nservices and digital services.\nAt 31 December 2023, the Group is organised into \nthree main business segments:\n Mobile operation\n Fixed telephony and broadband operation\n Television operations', chunk_type: 'business_segments', index: 2}, {id: 'richard_pieris_exports_plc_business_segments_3', content: 'LCB Finance PLC\nAnnual Report 2023/24\n187\n48. SEGMENTAL ANALYSIS\nAn operating segment is a component of the Company that engages in business activities from which it may earn revenues and incur \nexpenses, including revenues and expenses that relate to transactions with any of the Company’s other components, whose operating \nresults are reviewed regularly by the management to make decisions about resources allocated to each segment and assess its performance, \nand for which discrete financial information is available.\nFor management purposes, the Company has identified operating segments based on products and services. Management monitors \nthe operating results of its business units separately for the purpose of making decisions about resource allocation and performance \nassessment. Segment performance is evaluated based on turnover.\nNo revenue from transactions with a single external customer or counterparty amounted to 10% or more of the Company’s total revenue in \n2024 or 2023.', chunk_type: 'business_segments', index: 3}, {id: 'richard_pieris_exports_plc_business_segments_4', content: 'of its business segments rather than their geographical location. Each segment is separately managed as it requires \ndifferent management strategies, as underscored by the Group’s organizational structure.\nThe Group’s business operations are classified into eight segments based on the products or services rendered, namely, \nInvestment Holdings, Portfolio and Asset Management, Oil palm plantations, Oils & fats, Beverages, Real Estate, Leisure, \nand Management Services. The following table describes the operations of each segment.  \nInter segmental sales are made at prices that approximate the market prices. Segment revenue, expenses, and results \ninclude transactions between segments. On consolidation, these transactions and any unrealised profits and losses \nare eliminated. Segmental expenses are directly attributed to a relevant segment or a portion of expenses that can be \nallocated reasonably as determined by the management.        \n  \n   \nNotes to the Financial Statements', chunk_type: 'business_segments', index: 4}, {id: 'richard_pieris_exports_plc_future_outlook_0', content: 'WAY FORWARD\n Evolve our product portfolio in line with emerging trends \nincluding capitalizing on the business opportunities that arise \nfrom the transition to a low carbon economy\n Increase the contribution of value-added carbons to total \nrevenue to 50%. \n Innovate processes to optimise costs and improve efficiencies\n Expand and build expertise necessary for specialized \napplications including energy storage carbons to be a key \ncontributor of revenue and profits\n Strategic innovations in energy storage carbons including the \nhard carbon product range to capture emerging opportunities. \n Increase the contribution of value-added carbons to total \nrevenue to 30%.  \n Process innovation to enhance productivity and reduce our \nenvironmental impacts. \n Digitization of processes including production data capture in \norder to reduce costs, improve access to real-time data and \nfacilitate insightful decision making.\nShort term focus Medium to Long term focus\nLink to\nSDGs\nLink to\nStakeholders', chunk_type: 'future_outlook', index: 0}, {id: 'richard_pieris_exports_plc_future_outlook_1', content: 'Melstacorp PLC Annual Report 2023/24\n58\nOur Strategy\nAt Melstacorp PLC, as a diversified conglomerate we’re redefining the future with a powerful \nblend of global reach and local impact. Our commitment to sustainable growth drives us to \nstrategically invest in high-potential sectors through rigorous research and analysis.  \nBy diving deep into market insights before making moves, we uncover opportunities, manage risks, and understand market \ndynamics with precision. This strategic foresight ensures that our investments are both visionary and sustainable, perfectly \naligned with our corporate goals and national interests, and ultimately deliver exceptional value to our stakeholders.\nVISION\nPursue excellence. Make a difference.\nOUR OBJECTIVES\nMISSION\nResilient\nWe pride ourselves on our ability to adapt quickly, act decisively and \nmaintain operations even in the most difficult times.\nReliable\nConsistent quality, absolute integrity, and unfailing dependability', chunk_type: 'future_outlook', index: 1}, {id: 'richard_pieris_exports_plc_future_outlook_2', content: 'FUTURE OUTLOOK\nLRI will continue its current operations while \nfocusing on achieving a steady growth in \nthe future. Our success is largely due to our \nemployees’ hard work and dedication as they \nfollow our Company’s strong ethical values \nand modern business practices to expand \nour business and serve our customers. \nIn the longer term, our strategic plans \nfor the next five years will propel the \nCompany towards a future of exceptional \nachievements. These plans will serve as our \nroadmap, guiding us towards fulfilling our \ncommitments to stakeholders and realising \nour ambitious goals.\nThis is possible because of our asset-backed \nfoundation, which provides a robust platform \nto navigate towards a brighter and better \nfuture. We are confident in our ability to \nadapt to changing environments and remain \nunwaveringly committed to delivering \nexceptional value to all stakeholders as we \nstrive to build a stronger, more resilient \nfuture.\nAPPRECIATIONS', chunk_type: 'future_outlook', index: 2}, {id: 'richard_pieris_exports_plc_future_outlook_3', content: 'are, however, acutely aware of the increasing influence of shifting consumer preferences, escalating competitive pressures, and \nevolving regulatory requirements on the long-term market dynamics. Consequently, we are adopting a forward-looking approach \nto our business, concentrating on adapting to the ever-changing environment. Our primary objective at Group level is to cultivate \na consumer-centric, dynamic, and sustainable business model that consistently generates value for all stakeholders. This strategic \nfocus will guide our trajectory as we progress into the future.\nNOTES TO THE FINANCIAL STATEMENTS', chunk_type: 'future_outlook', index: 3}, {id: 'richard_pieris_exports_plc_future_outlook_4', content: 'superior products and services while \nmaintaining competitive advantages \nin each sector.\nStrategic Investments and \nPortfolio Optimisation: We \ncontinuously evaluate our portfolio \nto ensure alignment with our \nlong-term objectives. Strategic \nacquisitions, divestitures, and capital \nallocation decisions are guided \nby our commitment to enhancing \nshareholder value and reinforcing our \nleadership positions in key industries.\nStrategic Focus\nInnovation & \nDigital Transformation\nOperational \nExcellence\nStrategic \nInvestment\nSustainability Global \nExpansion\nSustainability and Social \nResponsibility: Our strategy is \nunderpinned by a strong commitment \nto sustainability and corporate \nsocial responsibility. We integrate \nenvironmental, social, and governance \n(ESG) principles into our operations, \nensuring that our growth contributes \npositively to society and the \nenvironment. This includes reducing \nour carbon footprint, promoting ethical \nbusiness practices, and supporting', chunk_type: 'future_outlook', index: 4}] AS chunk MERGE (ch:Chunk {id: chunk.id}) ON CREATE SET ch.content = chunk.content, ch.chunk_type = chunk.chunk_type, ch.index = chunk.index;
+MERGE (p:Product {name: 'fillers for the rubber industry'}) ON CREATE SET p.id = 'fillers_for_the_rubber_industry';
 
 // Query 27
-MATCH (c:Company {name: 'Richard Pieris Exports PLC'}) WITH c UNWIND ['richard_pieris_exports_plc_directors_and_executives_0', 'richard_pieris_exports_plc_directors_and_executives_1', 'richard_pieris_exports_plc_directors_and_executives_2', 'richard_pieris_exports_plc_directors_and_executives_3', 'richard_pieris_exports_plc_directors_and_executives_4', 'richard_pieris_exports_plc_financial_performance_0', 'richard_pieris_exports_plc_financial_performance_1', 'richard_pieris_exports_plc_financial_performance_2', 'richard_pieris_exports_plc_financial_performance_3', 'richard_pieris_exports_plc_financial_performance_4', 'richard_pieris_exports_plc_risk_factors_0', 'richard_pieris_exports_plc_risk_factors_1', 'richard_pieris_exports_plc_risk_factors_2', 'richard_pieris_exports_plc_risk_factors_3', 'richard_pieris_exports_plc_risk_factors_4', 'richard_pieris_exports_plc_business_segments_0', 'richard_pieris_exports_plc_business_segments_1', 'richard_pieris_exports_plc_business_segments_2', 'richard_pieris_exports_plc_business_segments_3', 'richard_pieris_exports_plc_business_segments_4', 'richard_pieris_exports_plc_future_outlook_0', 'richard_pieris_exports_plc_future_outlook_1', 'richard_pieris_exports_plc_future_outlook_2', 'richard_pieris_exports_plc_future_outlook_3', 'richard_pieris_exports_plc_future_outlook_4'] AS chunk_id MATCH (ch:Chunk {id: chunk_id}) MERGE (c)-[:HAS_CONTENT]->(ch);
+MERGE (m:Metric {name: 'Revenue (Company)'}) ON CREATE SET m.id = 'revenue_company', m.unit = 'Rs';
 
-// Total queries: 27
-// Generated on: 2025-09-30T14:35:28.638894
+// Query 28
+MERGE (m:Metric {name: 'Cost of Sales (Company)'}) ON CREATE SET m.id = 'cost_of_sales_company', m.unit = 'Rs';
+
+// Query 29
+MERGE (m:Metric {name: 'Gross Profit (Company)'}) ON CREATE SET m.id = 'gross_profit_company', m.unit = 'Rs';
+
+// Query 30
+MERGE (m:Metric {name: 'Other Operating Income (Company)'}) ON CREATE SET m.id = 'other_operating_income_company', m.unit = 'Rs';
+
+// Query 31
+MERGE (m:Metric {name: 'Distribution Costs (Company)'}) ON CREATE SET m.id = 'distribution_costs_company', m.unit = 'Rs';
+
+// Query 32
+MERGE (m:Metric {name: 'Administrative Expenses (Company)'}) ON CREATE SET m.id = 'administrative_expenses_company', m.unit = 'Rs';
+
+// Query 33
+MERGE (m:Metric {name: 'Profit from Operations (Company)'}) ON CREATE SET m.id = 'profit_from_operations_company', m.unit = 'Rs';
+
+// Query 34
+MERGE (m:Metric {name: 'Finance Income (Company)'}) ON CREATE SET m.id = 'finance_income_company', m.unit = 'Rs';
+
+// Query 35
+MERGE (m:Metric {name: 'Finance Cost (Company)'}) ON CREATE SET m.id = 'finance_cost_company', m.unit = 'Rs';
+
+// Query 36
+MERGE (m:Metric {name: 'Other Financial Items (Company)'}) ON CREATE SET m.id = 'other_financial_items_company', m.unit = 'Rs';
+
+// Query 37
+MERGE (m:Metric {name: 'Profit Before Tax (Company)'}) ON CREATE SET m.id = 'profit_before_tax_company', m.unit = 'Rs';
+
+// Query 38
+MERGE (m:Metric {name: 'Taxation (Company)'}) ON CREATE SET m.id = 'taxation_company', m.unit = 'Rs';
+
+// Query 39
+MERGE (m:Metric {name: 'Profit Attributable to Ordinary Shareholders (Company)'}) ON CREATE SET m.id = 'profit_attributable_to_ordinary_shareholders_company', m.unit = 'Rs';
+
+// Query 40
+MERGE (m:Metric {name: 'Earnings Per Share (Company)'}) ON CREATE SET m.id = 'earnings_per_share_company', m.unit = 'Rs';
+
+// Query 41
+MERGE (m:Metric {name: 'Dividend Per Share (Company)'}) ON CREATE SET m.id = 'dividend_per_share_company', m.unit = 'Rs';
+
+// Query 42
+MERGE (m:Metric {name: 'Total Assets (Company)'}) ON CREATE SET m.id = 'total_assets_company', m.unit = 'Rs';
+
+// Query 43
+MERGE (m:Metric {name: 'Total Equity (Company)'}) ON CREATE SET m.id = 'total_equity_company', m.unit = 'Rs';
+
+// Query 44
+MERGE (m:Metric {name: 'Stated Capital (Company)'}) ON CREATE SET m.id = 'stated_capital_company', m.unit = 'Rs';
+
+// Query 45
+MERGE (m:Metric {name: 'Revenue Reserves (Company)'}) ON CREATE SET m.id = 'revenue_reserves_company', m.unit = 'Rs';
+
+// Query 46
+MERGE (m:Metric {name: 'Retirement Benefit Obligation (Company)'}) ON CREATE SET m.id = 'retirement_benefit_obligation_company', m.unit = 'Rs';
+
+// Query 47
+MERGE (m:Metric {name: 'Trade and Other Payables (Company)'}) ON CREATE SET m.id = 'trade_and_other_payables_company', m.unit = 'Rs';
+
+// Query 48
+MERGE (m:Metric {name: 'Amounts Due to Related Parties (Company)'}) ON CREATE SET m.id = 'amounts_due_to_related_parties_company', m.unit = 'Rs';
+
+// Query 49
+MERGE (m:Metric {name: 'Total Liabilities (Company)'}) ON CREATE SET m.id = 'total_liabilities_company', m.unit = 'Rs';
+
+// Query 50
+MERGE (m:Metric {name: 'Net Asset Value per Share (Company)'}) ON CREATE SET m.id = 'net_asset_value_per_share_company', m.unit = 'Rs';
+
+// Query 51
+MERGE (m:Metric {name: 'Market Capitalization (Company)'}) ON CREATE SET m.id = 'market_capitalization_company', m.unit = 'Rs';
+
+// Query 52
+MERGE (m:Metric {name: 'Float adjusted Market Capitalization (Company)'}) ON CREATE SET m.id = 'float_adjusted_market_capitalization_company', m.unit = 'Rs';
+
+// Query 53
+MERGE (m:Metric {name: 'Price Earnings Ratio (Company)'}) ON CREATE SET m.id = 'price_earnings_ratio_company', m.unit = 'Times';
+
+// Query 54
+MERGE (m:Metric {name: 'Highest Share Price (Company)'}) ON CREATE SET m.id = 'highest_share_price_company', m.unit = 'Rs';
+
+// Query 55
+MERGE (m:Metric {name: 'Lowest Share Price (Company)'}) ON CREATE SET m.id = 'lowest_share_price_company', m.unit = 'Rs';
+
+// Query 56
+MERGE (m:Metric {name: 'Last Traded Price (Company)'}) ON CREATE SET m.id = 'last_traded_price_company', m.unit = 'Rs';
+
+// Query 57
+MERGE (m:Metric {name: 'Operating profit before working capital changes (Company)'}) ON CREATE SET m.id = 'operating_profit_before_working_capital_changes_company', m.unit = 'Rs';
+
+// Query 58
+MERGE (m:Metric {name: 'Cash generated from operations (Company)'}) ON CREATE SET m.id = 'cash_generated_from_operations_company', m.unit = 'Rs';
+
+// Query 59
+MERGE (m:Metric {name: 'Interest Paid (Company)'}) ON CREATE SET m.id = 'interest_paid_company', m.unit = 'Rs';
+
+// Query 60
+MERGE (m:Metric {name: 'Income Tax Paid (Company)'}) ON CREATE SET m.id = 'income_tax_paid_company', m.unit = 'Rs';
+
+// Query 61
+MERGE (m:Metric {name: 'Net cash flows from Operating activities (Company)'}) ON CREATE SET m.id = 'net_cash_flows_from_operating_activities_company', m.unit = 'Rs';
+
+// Query 62
+MERGE (m:Metric {name: 'Net cashflows from investing activities (Company)'}) ON CREATE SET m.id = 'net_cashflows_from_investing_activities_company', m.unit = 'Rs';
+
+// Query 63
+MERGE (m:Metric {name: 'Net cash inflow before financing (Company)'}) ON CREATE SET m.id = 'net_cash_inflow_before_financing_company', m.unit = 'Rs';
+
+// Query 64
+MERGE (m:Metric {name: 'Net cash flows from financing activities (Company)'}) ON CREATE SET m.id = 'net_cash_flows_from_financing_activities_company', m.unit = 'Rs';
+
+// Query 65
+MERGE (m:Metric {name: 'Net Increase in cash and cash equivalents (Company)'}) ON CREATE SET m.id = 'net_increase_in_cash_and_cash_equivalents_company', m.unit = 'Rs';
+
+// Query 66
+MERGE (m:Metric {name: 'Cash and cash equivalents at the beginning of the period (Company)'}) ON CREATE SET m.id = 'cash_and_cash_equivalents_at_the_beginning_of_the_period_company', m.unit = 'Rs';
+
+// Query 67
+MERGE (m:Metric {name: 'Cash and cash equivalents at the end of the period (Company)'}) ON CREATE SET m.id = 'cash_and_cash_equivalents_at_the_end_of_the_period_company', m.unit = 'Rs';
+
+// Query 68
+MERGE (m:Metric {name: 'Revenue (Consolidated)'}) ON CREATE SET m.id = 'revenue_consolidated', m.unit = 'Rs';
+
+// Query 69
+MERGE (m:Metric {name: 'Cost of Sales (Consolidated)'}) ON CREATE SET m.id = 'cost_of_sales_consolidated', m.unit = 'Rs';
+
+// Query 70
+MERGE (m:Metric {name: 'Gross Profit (Consolidated)'}) ON CREATE SET m.id = 'gross_profit_consolidated', m.unit = 'Rs';
+
+// Query 71
+MERGE (m:Metric {name: 'Other Operating Income (Consolidated)'}) ON CREATE SET m.id = 'other_operating_income_consolidated', m.unit = 'Rs';
+
+// Query 72
+MERGE (m:Metric {name: 'Distribution Costs (Consolidated)'}) ON CREATE SET m.id = 'distribution_costs_consolidated', m.unit = 'Rs';
+
+// Query 73
+MERGE (m:Metric {name: 'Administrative Expenses (Consolidated)'}) ON CREATE SET m.id = 'administrative_expenses_consolidated', m.unit = 'Rs';
+
+// Query 74
+MERGE (m:Metric {name: 'Profit Before Tax (Consolidated)'}) ON CREATE SET m.id = 'profit_before_tax_consolidated', m.unit = 'Rs';
+
+// Query 75
+MERGE (m:Metric {name: 'Taxation (Consolidated)'}) ON CREATE SET m.id = 'taxation_consolidated', m.unit = 'Rs';
+
+// Query 76
+MERGE (m:Metric {name: 'Profit for the Period from Continuing Operations (Consolidated)'}) ON CREATE SET m.id = 'profit_for_the_period_from_continuing_operations_consolidated', m.unit = 'Rs';
+
+// Query 77
+MERGE (m:Metric {name: 'Loss after tax for the period from discontinued operations (Consolidated)'}) ON CREATE SET m.id = 'loss_after_tax_for_the_period_from_discontinued_operations_consolidated', m.unit = 'Rs';
+
+// Query 78
+MERGE (m:Metric {name: 'Earnings Per Share (Consolidated)'}) ON CREATE SET m.id = 'earnings_per_share_consolidated', m.unit = 'Rs';
+
+// Query 79
+MERGE (m:Metric {name: 'Earnings Per Share from Continuing Operations (Consolidated)'}) ON CREATE SET m.id = 'earnings_per_share_from_continuing_operations_consolidated', m.unit = 'Rs';
+
+// Query 80
+MERGE (m:Metric {name: 'Dividend per Share (Consolidated)'}) ON CREATE SET m.id = 'dividend_per_share_consolidated', m.unit = 'Rs';
+
+// Query 81
+MERGE (m:Metric {name: 'Total Assets (Consolidated)'}) ON CREATE SET m.id = 'total_assets_consolidated', m.unit = 'Rs';
+
+// Query 82
+MERGE (m:Metric {name: 'Total Equity (Consolidated)'}) ON CREATE SET m.id = 'total_equity_consolidated', m.unit = 'Rs';
+
+// Query 83
+MERGE (m:Metric {name: 'Stated Capital (Consolidated)'}) ON CREATE SET m.id = 'stated_capital_consolidated', m.unit = 'Rs';
+
+// Query 84
+MERGE (m:Metric {name: 'Revenue Reserves (Consolidated)'}) ON CREATE SET m.id = 'revenue_reserves_consolidated', m.unit = 'Rs';
+
+// Query 85
+MERGE (m:Metric {name: 'Foreign Currency Translation (Consolidated)'}) ON CREATE SET m.id = 'foreign_currency_translation_consolidated', m.unit = 'Rs';
+
+// Query 86
+MERGE (m:Metric {name: 'Equity Attributable to Equity Holders of the Parent (Consolidated)'}) ON CREATE SET m.id = 'equity_attributable_to_equity_holders_of_the_parent_consolidated', m.unit = 'Rs';
+
+// Query 87
+MERGE (m:Metric {name: 'Non Controlling Interest (Equity) (Consolidated)'}) ON CREATE SET m.id = 'non_controlling_interest_equity_consolidated', m.unit = 'Rs';
+
+// Query 88
+MERGE (m:Metric {name: 'Retirement Benefit Obligation (Consolidated)'}) ON CREATE SET m.id = 'retirement_benefit_obligation_consolidated', m.unit = 'Rs';
+
+// Query 89
+MERGE (m:Metric {name: 'Lease Instalments Payable After One Year (Consolidated)'}) ON CREATE SET m.id = 'lease_instalments_payable_after_one_year_consolidated', m.unit = 'Rs';
+
+// Query 90
+MERGE (m:Metric {name: 'Total Liabilities (Consolidated)'}) ON CREATE SET m.id = 'total_liabilities_consolidated', m.unit = 'Rs';
+
+// Query 91
+MERGE (m:Metric {name: 'Net Asset Value per Share (Consolidated)'}) ON CREATE SET m.id = 'net_asset_value_per_share_consolidated', m.unit = 'Rs';
+
+// Query 92
+MERGE (m:Metric {name: 'Operating profit before working capital changes (Consolidated)'}) ON CREATE SET m.id = 'operating_profit_before_working_capital_changes_consolidated', m.unit = 'Rs';
+
+// Query 93
+MERGE (m:Metric {name: 'Loss from discontinued Operations (Consolidated)'}) ON CREATE SET m.id = 'loss_from_discontinued_operations_consolidated', m.unit = 'Rs';
+
+// Query 94
+MERGE (m:Metric {name: 'Cash generated from operations (Consolidated)'}) ON CREATE SET m.id = 'cash_generated_from_operations_consolidated', m.unit = 'Rs';
+
+// Query 95
+MERGE (m:Metric {name: 'Interest Paid (Consolidated)'}) ON CREATE SET m.id = 'interest_paid_consolidated', m.unit = 'Rs';
+
+// Query 96
+MERGE (m:Metric {name: 'Income Tax Paid (Consolidated)'}) ON CREATE SET m.id = 'income_tax_paid_consolidated', m.unit = 'Rs';
+
+// Query 97
+MERGE (m:Metric {name: 'Net cash flows from Operating activities (Consolidated)'}) ON CREATE SET m.id = 'net_cash_flows_from_operating_activities_consolidated', m.unit = 'Rs';
+
+// Query 98
+MERGE (m:Metric {name: 'Net cashflows from investing activities (Consolidated)'}) ON CREATE SET m.id = 'net_cashflows_from_investing_activities_consolidated', m.unit = 'Rs';
+
+// Query 99
+MERGE (m:Metric {name: 'Net cash inflow before financing (Consolidated)'}) ON CREATE SET m.id = 'net_cash_inflow_before_financing_consolidated', m.unit = 'Rs';
+
+// Query 100
+MERGE (m:Metric {name: 'Net cash flows from financing activities (Consolidated)'}) ON CREATE SET m.id = 'net_cash_flows_from_financing_activities_consolidated', m.unit = 'Rs';
+
+// Query 101
+MERGE (m:Metric {name: 'Net Increase in cash and cash equivalents (Consolidated)'}) ON CREATE SET m.id = 'net_increase_in_cash_and_cash_equivalents_consolidated', m.unit = 'Rs';
+
+// Query 102
+MERGE (m:Metric {name: 'Cash and cash equivalents at the beginning of the period (Consolidated)'}) ON CREATE SET m.id = 'cash_and_cash_equivalents_at_the_beginning_of_the_period_consolidated', m.unit = 'Rs';
+
+// Query 103
+MERGE (m:Metric {name: 'Cash and cash equivalents at the end of the period (Consolidated)'}) ON CREATE SET m.id = 'cash_and_cash_equivalents_at_the_end_of_the_period_consolidated', m.unit = 'Rs';
+
+// Query 104
+MATCH (p:Person {name: 'Dr. Sena Yaddehige'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2024-05-30');
+
+// Query 105
+MATCH (p:Person {name: 'Shaminda Yaddehige'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-05-30');
+
+// Query 106
+MATCH (p:Person {name: 'W.J. Viville P Perera'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-05-30');
+
+// Query 107
+MATCH (p:Person {name: 'W R Abeysirigunawardena'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-05-30');
+
+// Query 108
+MATCH (p:Person {name: 'Dr.L.M.K.Tillekeratne'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-05-30');
+
+// Query 109
+MATCH (p:Person {name: 'Lalith Chandrasiri Wijeyesinghe'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-05-30');
+
+// Query 110
+MATCH (p:Person {name: 'Dr.Lawrence Perera'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-05-30');
+
+// Query 111
+MATCH (p:Person {name: 'Charith Ariyarathna'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Finance Controller -Exports Sector', r.as_of = date('2024-05-30');
+
+// Query 112
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (a:Company {name: 'Kreston MNS & Company'}) MERGE (c)-[r:AUDITED_BY]->(a) ON CREATE SET r.year = 2024;
+
+// Query 113
+MATCH (parent:Company {name: 'Richard Pieris & Company PLC'}), (child:Company {name: 'Richard Pieris Exports PLC'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 84.13, r.as_of = date('2024-03-31');
+
+// Query 114
+MATCH (owner:Company {name: 'MSS Investments (Pvt) Limited'}), (company:Company {name: 'Richard Pieris Exports PLC'}) MERGE (owner)-[r:OWNS_SHARES]->(company) ON CREATE SET r.pct = 0.20, r.as_of = date('2024-03-31');
+
+// Query 115
+MATCH (owner:Company {name: 'Kalday Private Limited'}), (company:Company {name: 'Richard Pieris Exports PLC'}) MERGE (owner)-[r:OWNS_SHARES]->(company) ON CREATE SET r.pct = 0.48, r.as_of = date('2024-03-31');
+
+// Query 116
+MATCH (owner:Company {name: 'Ransiri Enterprises (Pvt) Ltd'}), (company:Company {name: 'Richard Pieris Exports PLC'}) MERGE (owner)-[r:OWNS_SHARES]->(company) ON CREATE SET r.pct = 0.38, r.as_of = date('2024-03-31');
+
+// Query 117
+MATCH (owner:Company {name: 'Union Investments (Pvt) ltd'}), (company:Company {name: 'Richard Pieris Exports PLC'}) MERGE (owner)-[r:OWNS_SHARES]->(company) ON CREATE SET r.pct = 0.35, r.as_of = date('2024-03-31');
+
+// Query 118
+MATCH (p:Person {name: 'W.J. Viville P Perera'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 100, r.as_of = date('2024-03-31');
+
+// Query 119
+MATCH (p:Person {name: 'W.J. Viville P Perera'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 100, r.as_of = date('2023-03-31');
+
+// Query 120
+MATCH (p:Person {name: 'Mr T.T.T.Al-Nakib'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 127000, r.pct = 1.14, r.as_of = date('2024-03-31');
+
+// Query 121
+MATCH (p:Person {name: 'Mrs.V.Saraswathi'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 100000, r.pct = 0.90, r.as_of = date('2024-03-31');
+
+// Query 122
+MATCH (p:Person {name: 'Mr. P.Vijendran'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 62500, r.pct = 0.56, r.as_of = date('2024-03-31');
+
+// Query 123
+MATCH (p:Person {name: 'Ms S Sinthuja'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 62200, r.pct = 0.56, r.as_of = date('2024-03-31');
+
+// Query 124
+MATCH (p:Person {name: 'Mr S Sivaharan'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 52700, r.pct = 0.47, r.as_of = date('2024-03-31');
+
+// Query 125
+MATCH (p:Person {name: 'Mrs.M.Y.Amerasinghe'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 21998, r.pct = 0.20, r.as_of = date('2024-03-31');
+
+// Query 126
+MATCH (p:Person {name: 'Mr S.Malalasekera'}), (c:Company {name: 'Richard Pieris Exports PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 19800, r.pct = 0.18, r.as_of = date('2024-03-31');
+
+// Query 127
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (s:Sector {name: 'Materials'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 128
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (p:Product {name: 'rubber based products'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 129
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (p:Product {name: 'fillers for the rubber industry'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 130
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Revenue (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1945498000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 131
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Revenue (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3141325000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 132
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Cost of Sales (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -1427884000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 133
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Cost of Sales (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -2006241000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 134
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Gross Profit (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 517614000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 135
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Gross Profit (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1135084000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 136
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Other Operating Income (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1178000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 137
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Other Operating Income (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1749000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 138
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Distribution Costs (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -90328000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 139
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Distribution Costs (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -336147000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 140
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Administrative Expenses (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -198552000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 141
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Administrative Expenses (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -153920000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 142
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Profit from Operations (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 229912000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 143
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Profit from Operations (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 646766000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 144
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Finance Income (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 110497000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 145
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Finance Income (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 195606000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 146
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Finance Cost (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -3257000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 147
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Finance Cost (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -5819000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 148
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Other Financial Items (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -102138000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 149
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Other Financial Items (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 231590000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 150
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Profit Before Tax (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 235014000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 151
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Profit Before Tax (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1068142000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 152
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Taxation (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -131832000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 153
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Taxation (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -139564000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 154
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Profit Attributable to Ordinary Shareholders (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 103182000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 155
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Profit Attributable to Ordinary Shareholders (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 928578000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 156
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Earnings Per Share (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 9.24, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 157
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Earnings Per Share (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 83.18, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 158
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Dividend Per Share (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 12.00, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 159
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Dividend Per Share (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 35.00, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 160
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Total Assets (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3384695000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 161
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Total Assets (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3310119000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 162
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Total Equity (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2940769000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 163
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Total Equity (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2990022000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 164
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Stated Capital (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 220262000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 165
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Stated Capital (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 220262000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 166
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Revenue Reserves (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2720507000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 167
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Revenue Reserves (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2769760000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 168
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Retirement Benefit Obligation (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 109013000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 169
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Retirement Benefit Obligation (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 76294000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 170
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Trade and Other Payables (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 226890000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 171
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Trade and Other Payables (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 220105000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 172
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Amounts Due to Related Parties (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 108023000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 173
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Amounts Due to Related Parties (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 23698000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 174
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Total Liabilities (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 443926000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 175
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Total Liabilities (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 320097000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 176
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Net Asset Value per Share (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 263.42, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 177
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Net Asset Value per Share (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 267.83, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 178
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Market Capitalization (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 4889720000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 179
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Market Capitalization (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 6223788000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 180
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Float adjusted Market Capitalization (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 775999000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 181
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Float adjusted Market Capitalization (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 987715000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 182
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Price Earnings Ratio (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 76.34, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 183
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Price Earnings Ratio (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 6.36, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 184
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Highest Share Price (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 610.00, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 185
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Highest Share Price (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 660.00, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 186
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Lowest Share Price (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 430.00, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 187
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Lowest Share Price (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 547.00, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 188
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Last Traded Price (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 438.00, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 189
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Last Traded Price (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 557.50, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 190
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Operating profit before working capital changes (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 159311000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 191
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Operating profit before working capital changes (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 901507000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 192
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Cash generated from operations (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 598187000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 193
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Cash generated from operations (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 600870000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 194
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Interest Paid (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -3257000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 195
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Interest Paid (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -5819000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 196
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Income Tax Paid (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -132433000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 197
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Income Tax Paid (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -331842000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 198
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Net cash flows from Operating activities (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 449511000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 199
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Net cash flows from Operating activities (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 259942000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 200
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Net cashflows from investing activities (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 46967000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 201
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Net cashflows from investing activities (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 56555000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 202
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Net cash inflow before financing (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 496478000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 203
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Net cash inflow before financing (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 316497000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 204
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Net cash flows from financing activities (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -133965000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 205
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Net cash flows from financing activities (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -390731000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 206
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Net Increase in cash and cash equivalents (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 362513000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 207
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Net Increase in cash and cash equivalents (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -74234000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 208
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Cash and cash equivalents at the beginning of the period (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 919714000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 209
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Cash and cash equivalents at the beginning of the period (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 993948000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 210
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Cash and cash equivalents at the end of the period (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1282227000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 211
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Cash and cash equivalents at the end of the period (Company)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 919714000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 212
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Revenue (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 7120443000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 213
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Revenue (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 9040796000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 214
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Cost of Sales (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -5731299000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 215
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Cost of Sales (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -6436887000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 216
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Gross Profit (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1389144000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 217
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Gross Profit (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2603909000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 218
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Other Operating Income (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 40565000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 219
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Other Operating Income (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 27663000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 220
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Distribution Costs (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -759240000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 221
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Distribution Costs (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -1440854000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 222
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Administrative Expenses (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -374461000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 223
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Administrative Expenses (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -454330000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 224
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Profit Before Tax (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 84631000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 225
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Profit Before Tax (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1287317000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 226
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Taxation (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -50495000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 227
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Taxation (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -240260000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 228
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Profit for the Period from Continuing Operations (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 34136000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 229
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Profit for the Period from Continuing Operations (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1047057000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 230
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Loss after tax for the period from discontinued operations (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -77000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 231
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Loss after tax for the period from discontinued operations (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -69000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 232
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Earnings Per Share (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 5.74, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 233
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Earnings Per Share (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 87.69, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 234
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Earnings Per Share from Continuing Operations (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 5.73, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 235
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Earnings Per Share from Continuing Operations (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 87.68, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 236
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Dividend per Share (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 12.00, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 237
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Dividend per Share (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 35.00, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 238
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Total Assets (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 9741087000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 239
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Total Assets (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 8313737000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 240
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Total Equity (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 5130615000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 241
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Total Equity (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 5290571000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 242
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Stated Capital (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 220262000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 243
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Stated Capital (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 220262000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 244
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Revenue Reserves (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3205775000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 245
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Revenue Reserves (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3298080000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 246
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Foreign Currency Translation (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 265112000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 247
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Foreign Currency Translation (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 298144000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 248
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Equity Attributable to Equity Holders of the Parent (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3691149000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 249
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Equity Attributable to Equity Holders of the Parent (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3816486000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 250
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Non Controlling Interest (Equity) (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1439466000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 251
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Non Controlling Interest (Equity) (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1474085000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 252
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Retirement Benefit Obligation (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 138266000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 253
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Retirement Benefit Obligation (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 107657000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 254
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Lease Instalments Payable After One Year (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 145270000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 255
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Lease Instalments Payable After One Year (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 153980000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 256
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Total Liabilities (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 4610472000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 257
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Total Liabilities (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3023166000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 258
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Net Asset Value per Share (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 330.64, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 259
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Net Asset Value per Share (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 341.86, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 260
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Operating profit before working capital changes (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 163620000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 261
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Operating profit before working capital changes (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1366736000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 262
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Loss from discontinued Operations (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -77000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 263
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Loss from discontinued Operations (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -69000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 264
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Cash generated from operations (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 223276000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 265
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Cash generated from operations (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1183068000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 266
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Interest Paid (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -42696000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 267
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Interest Paid (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -24182000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 268
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Income Tax Paid (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -185756000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 269
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Income Tax Paid (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -678335000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 270
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Net cash flows from Operating activities (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -40332000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 271
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Net cash flows from Operating activities (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 468860000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 272
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Net cashflows from investing activities (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -557208000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 273
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Net cashflows from investing activities (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -573794000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 274
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Net cash inflow before financing (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -597540000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 275
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Net cash inflow before financing (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -104934000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 276
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Net cash flows from financing activities (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 663806000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 277
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Net cash flows from financing activities (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -512940000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 278
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Net Increase in cash and cash equivalents (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 66266000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 279
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Net Increase in cash and cash equivalents (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -617874000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 280
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Cash and cash equivalents at the beginning of the period (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 332353000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 281
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Cash and cash equivalents at the beginning of the period (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 950227000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 282
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Cash and cash equivalents at the end of the period (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 398619000, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 283
+MATCH (c:Company {name: 'Richard Pieris Exports PLC'}), (m:Metric {name: 'Cash and cash equivalents at the end of the period (Consolidated)'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 332353000, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Total queries: 283
+// Generated on: 2025-10-02T20:28:29.650469

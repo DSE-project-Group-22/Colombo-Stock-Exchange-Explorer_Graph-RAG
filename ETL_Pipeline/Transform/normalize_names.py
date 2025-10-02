@@ -6,8 +6,6 @@ This script performs name normalization on a collection of JSON files using a tw
 1. Discovery Pass: Extract all unique person names from source files
 2. Transformation Pass: Apply canonical mapping and save cleaned files
 
-Author: Expert Python Developer
-Date: August 29, 2025
 """
 
 import os
@@ -34,7 +32,7 @@ def load_config() -> Dict[str, Any]:
         "SOURCE_DIR": str(base_dir / "ETL Pipeline" / "Extract" / "batch_output"),
         "OUTPUT_DIR": str(base_dir / "ETL Pipeline" / "Transform" / "cleaned_output"),
         "CANONICAL_MAP_FILE": str(base_dir / "ETL Pipeline" / "Transform" / "canonical_name_map.json"),
-        "SIMILARITY_THRESHOLD": 85,  # Fuzzy matching threshold (0-100)
+        "SIMILARITY_THRESHOLD": 85,  # Fuzzy matching threshold (0-100) for name parts
         "LOG_LEVEL": "INFO"
     }
 
@@ -226,6 +224,53 @@ def run_discovery_orchestrator(source_dir: str, nlp_model: spacy.Language) -> Se
     return all_names
 
 
+def custom_name_similarity(name1: str, name2: str, threshold: int) -> bool:
+    """
+    Custom similarity check for names: requires exact surname match, same structure,
+    and part-wise compatibility (abbreviations or fuzzy match).
+    
+    Args:
+        name1 (str): First name
+        name2 (str): Second name
+        threshold (int): Similarity threshold for non-abbreviation parts
+        
+    Returns:
+        bool: True if names are considered similar
+    """
+    name1 = name1.lower()
+    name2 = name2.lower()
+    parts1 = name1.split()
+    parts2 = name2.split()
+    
+    # Fallback for short/incomplete names
+    if len(parts1) < 2 or len(parts2) < 2:
+        return fuzz.ratio(name1, name2) >= threshold
+    
+    # Must have same surname
+    if parts1[-1] != parts2[-1]:
+        return False
+    
+    # Must have same number of given name parts
+    given1 = parts1[:-1]
+    given2 = parts2[:-1]
+    if len(given1) != len(given2):
+        return False
+    
+    # Check each given name part
+    for p1, p2 in zip(given1, given2):
+        if len(p1) == 1 or len(p2) == 1:
+            # Abbreviation check: shorter must prefix the longer
+            short, long = (p1, p2) if len(p1) < len(p2) else (p2, p1)
+            if not long.startswith(short):
+                return False
+        else:
+            # Fuzzy match for full parts
+            if fuzz.ratio(p1, p2) < threshold:
+                return False
+    
+    return True
+
+
 def create_canonical_map(names: Set[str], threshold: int) -> Dict[str, str]:
     """
     Cluster similar names and create a mapping from name variations to canonical forms.
@@ -254,10 +299,8 @@ def create_canonical_map(names: Set[str], threshold: int) -> Dict[str, str]:
             if name2 in processed:
                 continue
                 
-            # Calculate similarity
-            similarity = fuzz.ratio(name1.lower(), name2.lower())
-            
-            if similarity >= threshold:
+            # Use custom similarity instead of raw fuzz.ratio
+            if custom_name_similarity(name1, name2, threshold):
                 cluster.append(name2)
                 processed.add(name2)
         

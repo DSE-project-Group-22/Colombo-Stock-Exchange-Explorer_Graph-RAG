@@ -1,36 +1,1191 @@
 // Query 1
-MERGE (c:Company {name: 'Diesel Motor Engineering PLC'}) ON CREATE SET c.id = 'diesel_motor_engineering_plc';
+MERGE (c:Company {name: 'Diesel & Motor Engineering PLC'}) ON CREATE SET c.id = 'diesel_motor_engineering_plc', c.founded_on = date('1945-01-01'), c.listed_on = 'Colombo Stock Exchange', c.region = 'Sri Lanka';
 
 // Query 2
-MERGE (s:Sector {name: 'Automobiles and Components'}) ON CREATE SET s.id = 'automobiles_and_components';
+MERGE (c:Company {name: 'DIMO Lifeline (Pvt) Ltd'}) ON CREATE SET c.id = 'dimo_lifeline_pvt_ltd';
 
 // Query 3
-MERGE (s:Sector {name: 'Commercial and Professional Services'}) ON CREATE SET s.id = 'commercial_and_professional_services';
+MERGE (c:Company {name: 'Employee\'s Provident Fund'}) ON CREATE SET c.id = 'employees_provident_fund';
 
 // Query 4
-MERGE (p:Product {name: 'Motor Vehicle Repair and Maintenance Services'}) ON CREATE SET p.id = 'motor_vehicle_repair_and_maintenance_services';
+MERGE (c:Company {name: 'A & G Investments (Pvt) Ltd'}) ON CREATE SET c.id = 'a_and_g_investments_pvt_ltd';
 
 // Query 5
-MERGE (p:Product {name: 'Sale of Spare Parts'}) ON CREATE SET p.id = 'sale_of_spare_parts';
+MERGE (c:Company {name: 'Almar Trading Co (Pvt) Ltd'}) ON CREATE SET c.id = 'almar_trading_co_pvt_ltd';
 
 // Query 6
-MATCH (c:Company {name: 'Diesel Motor Engineering PLC'}), (s:Sector {name: 'Automobiles and Components'}) MERGE (c)-[:IN_SECTOR]->(s);
+MERGE (c:Company {name: 'Seylan Bank PLC'}) ON CREATE SET c.id = 'seylan_bank_plc';
 
 // Query 7
-MATCH (c:Company {name: 'Diesel Motor Engineering PLC'}), (s:Sector {name: 'Commercial and Professional Services'}) MERGE (c)-[:IN_SECTOR]->(s);
+MERGE (c:Company {name: 'Bank Of Ceylon'}) ON CREATE SET c.id = 'bank_of_ceylon';
 
 // Query 8
-MATCH (c:Company {name: 'Diesel Motor Engineering PLC'}), (p:Product {name: 'Motor Vehicle Repair and Maintenance Services'}) MERGE (c)-[:OFFERS]->(p);
+MERGE (c:Company {name: 'Rubber Investment Trust Ltd'}) ON CREATE SET c.id = 'rubber_investment_trust_ltd';
 
 // Query 9
-MATCH (c:Company {name: 'Diesel Motor Engineering PLC'}), (p:Product {name: 'Sale of Spare Parts'}) MERGE (c)-[:OFFERS]->(p);
+MERGE (c:Company {name: 'Commercial Bank of Ceylon PLC'}) ON CREATE SET c.id = 'commercial_bank_of_ceylon_plc';
 
 // Query 10
-UNWIND [{id: 'diesel_motor_engineering_plc_directors_and_executives_0', content: 'Company in the preparation of the Financial \nStatements are given on pages 71 to 79, \nwhich are consistent with those of the \nprevious period.\nDIRECTORS’ responsibility for Financial \nReporting\nThe DIRECTORS are responsible for the \npreparation of the Financial Statements of \nthe Company and the Group to reflect a true \nand fair view of the state of its affairs.\nInformation on the DIRECTORS of the \nCompany and the Group \nDIRECTORS of the Company as at  \n31st March 2021\nThe names of the DIRECTORS who held office \nas at the end of the accounting period are \ngiven below and their brief profiles appear on \npages 18 and 19.\nExecutive DIRECTORS\nMr. E. T . De Zoysa - Managing Director\nNon-Executive DIRECTORS\nMr. R. S. A. Wickramasingha - Chairman\nMs. D. S. Wickramasingha - Director\nMs. N. K. Wickramasingha - Director \nMr. L. J. M. De Silva - Director \nMr. M. U. S. G. Thilakawardana - Director*\nDr. D. M. A. Kulasooriya - Director*\nMr. M. S. Nanayakkara - Director*', chunk_type: 'directors_and_executives', index: 0}, {id: 'diesel_motor_engineering_plc_directors_and_executives_1', content: 'as at the end of the financial year under \nreview. The Company’s Board of DIRECTORS \nconsists of professionals in varied fields who \ncollectively possess a wealth of knowledge \nand experience are thus eminently suitable \nto provide the leadership and direction \nrequired.\nThe CEO has been given the responsibility \nof leading the organization as its chief \nexecutive by the Board. The Board has also \ndesignated additional Key Responsible \nPersons (KRPs) who direct activities, oversee \nbusiness operations, and have significant \ninfluence over policies.  The Board has \ncreated a comprehensive succession plan \nfor these critical roles in order to protect \noperational continuity and minimize \ninterruptions.\nThe Board has instituted an annual self-
-assessment program for each director \nto assess their own performance as well \nas the performance of the Board and its \ncommittees. The objective of this is to \nimprove the Board’s and its committees’ \neffectiveness. The senior director and', chunk_type: 'directors_and_executives', index: 1}, {id: 'diesel_motor_engineering_plc_directors_and_executives_2', content: 'Details pertaining to DIRECTORS and Chief Executive Officer’s \ndirect shareholdings are set out below.\nName of the Director No. of Shares\nAs at \n31.03.2024\nNo. of Shares\nAs at \n31.03.2023\nMr. A. Rajaratnam \n(Deceased 26.08.2023) N/A -\nMr. S.D.R. Arudpragasam 500 500\nDr. J.M. Swaminathan 561 561\nMr. A.M. de S. Jayaratne 467 467\nMr. S. Rajaratnam - -\nMr. Anushman Rajaratnam - -\nMr. R.M.M.J. Ratnayake 185 21\nMr. A . S. Azariah - CEO - -\nDIRECTORS’ Remuneration\nDIRECTORS’ remuneration in respect of the Company and the \nGroup for the financial year is given in Note 24 to the financial \nstatements on page 95.\nDirectorate\nThe names of the DIRECTORS who held office during the \nfinancial year are given below and brief profiles of the \nDIRECTORS currently in office appear on page 5.\nMr. S. D. R. Arudpragasam - Chairman\nMr. A. Rajaratnam - Director (Deceased – 26.08.2023)\nDr. J. M. Swaminathan - Director\nMr. A. M. de S. Jayaratne - Director\nMr. S. Rajaratnam - Director', chunk_type: 'directors_and_executives', index: 2}, {id: 'diesel_motor_engineering_plc_directors_and_executives_3', content: 'The following DIRECTORS held Office during the year under \nreview . The biographical details of  the Board members are set \nout on pages 24 to 25\nMr. A.K. Pathirage - (Chairman/ Managing Director) \nDr. S. Selliah – Deputy Chairman (Resigned w .e.f  29th July \n2024)\nDr. K.M.P Karunaratne – Group Chief  Executive Officer\nMr. G.L.H. Premaratne – Independent Non Executive \nDirector\nMr. H K Kaimal - Non-Executive Non Independent Director \n- (appointed w .e.f. 18th June 2024)\nFIT AND PROPER CRITERIA\nThe DIRECTORS hereby confirm that the DIRECTORS and CEO \nof  the company satisfy the fit and proper Assessment Criteria \nstipulated in section 9.7 of  the Listing Rules of  the Colombo \nStock Exchange for the year.\nDIRECTORS’ SHAREHOLDING \nName of Director No. of Shares \nas at 31/03/2024\nNo. of Shares \nas at 31/03/2023\nMr. A K Pathirage - -\nDr. S. Selliah 17,000 17,000\nDr. K.M.P Karunaratne 133 133\nMr. G.L.H Premaratne - -\nMr. S.A.B Rajapaksa - -\nMr. V .Bali - -\nMr. A.N Thadani - -', chunk_type: 'directors_and_executives', index: 3}, {id: 'diesel_motor_engineering_plc_directors_and_executives_4', content: 'disclosed in Note 27 to the financial statements on page 60.\nDuring the financial year the Company has not entered in to any \ncontracts in which the DIRECTORS have had a material interest.\nNeither the DIRECTORS nor their close family members have had any \nmaterial business relationships with other DIRECTORS.\n              No. of shares\nName of Director As at    \n31.03.2024\nAs at    \n31.03.2023\nMr. Amrit Rajaratnam 300,000 300,000\nCorporate Donations  \nDetails pertaining to corporate donations made by the Company \nduring the financial year 2023/24 are given in note 6 to the financial \nstatements on page 41.\nDirectorate\nThe names of the DIRECTORS who held office during the financial \nyear are given below and the profiles of the DIRECTORS who are \ncurrently in office are given on pages 8 and 9.\nMr. S. D. R. Arudpragasam - Chairman \nMr. C. P. R. Perera - Deputy Chairman \nMr. S. Rajaratnam \nMr. Amrit Rajaratnam \nMr. A. R. Rasiah\nMr. Anushman Rajaratnam', chunk_type: 'directors_and_executives', index: 4}, {id: 'diesel_motor_engineering_plc_financial_performance_0', content: 'Commercial Credit and Finance PLC | Annual Report 2023/2024\n6\nFINANCIAL \nHIGHLIGHTS\n2023/24\nRs.‘000\'   \n2022/23\nRs.‘000\'    \n% \nChange\nFinancial Performance  \nGross Income  31,055,222  28,949,269 7 .3%\nNet Interest Income  12,808,022  11,106,651 15.3%\nProfit Before Taxation  6,594,978  3,859,879 70.9%\nProfit After Taxation  4,193,917  2,599,629 61.3%\nFinancial Position\nLeases, Hire Purchases, Loans and Advances  81,437 ,828  76,170,663 6.9%\nTotal Assets  107 ,987 ,834  102,154,440 5.7%\nTotal Deposit Base  62,121,240  59,243,651 4.9%\nBorrowings  13,902,823  17 ,555,544 -20.8%\nShareholders’ Funds  24,179,669  20,359,015 18.8%\nLiquid Assets  11,483,294  12,836,935 -10.5%\nKey Indicators per Ordinary Share\nEarnings per Share( Rs.)  13.19  8.17 \nNet Assets per Share ( Rs.)  76.02 64.01 \nYear end Market Price per Share (Rs.)  35.30  26.00 \nKey Performance Indicators\nReturn on Average Assets (%) 3.99 2.66\nEquity / Assets (%) 22.39 19.93\nGross Non Performing Accommodations (%) 10.65 11.07', chunk_type: 'financial_performance', index: 0}, {id: 'diesel_motor_engineering_plc_financial_performance_1', content: 'effective cost management, and value creation for our stakeholders. This section provides a detailed overview of our \nfinancial performance, key metrics, and the strategies that have fortified our position as a leading player in the tea brokerage \nindustry, ensuring long-term sustainability and profitability.\nPROFIT AFTER TAX \nREVENUE\nREVENUE COMPOSITION\nBrokerage Fee 26%\nHandling Charges 6%\nLogistic & Transpotation Income 34%\nLot Fee 1%\nSundry Income 6%\nInterest Earned on Loans and Advances 27%', chunk_type: 'financial_performance', index: 1}, {id: 'diesel_motor_engineering_plc_financial_performance_2', content: 'decisive impact on the Group’s financial status or overall profitability.\nGROUP FINANCIAL HIGHLIGHTS\nFor the Year (Rs. Mn) 2024 2023 Change %\nIncome Statement\nRevenue 25,447.0 36,167.6 (10,720.6) (30)\nGross Profit /(Loss) 603.0 (6,323.6) 6926.6 (110)\nProfit/(Loss) after Tax (2,743.0) (11,006.4) 8,263.4 (76)\nBalance Sheet\nTotal Assets 43,860.7 39,325.1 4,535.6 12\nTotal Liabilities 38,370.1 36,034.1 2,336.0 6\nShareholders’ Funds 5,311.3 3,086.1 2,225.2 72\nNet Cash & Cash Equivalent 5,262.2 2,619.0 2,643.2 101\nInterest bearing borrowings 28,667.9 23,850.9 4,817.0 20\nFinancial Ratios\nEarnings Per Share (Rs.) (38.1) (153.4) 115.3 (75)\nDividend Per Share (Rs.) 0.0 0.0 0.0 0.0\nNet Assets Per Share (Rs.) 74.0 42.0 33.0 76\nGearing Ratio (%) 58.0 49.0 (9) 18\nReturn on Total Assets (%) (6.0) (31.0) 25.0 (81)\nWorking Capital to Assets (%) (16.0) (17.0) 1.0 (6)\nFINANCIAL PERFORMANCE OF THE GROUP\nGroup Revenue\nIn the 2024 financial year, the Group recorded total revenue of Rs. 25,447.0', chunk_type: 'financial_performance', index: 2}, {id: 'diesel_motor_engineering_plc_financial_performance_3', content: 'EBITDA 4,325,609,807 3,489,729,480 1,007,510,816 439,452,625 \nProfit / (loss) before taxes 3,064,604,666 1,431,828,783 272,628,768 (513,506,682)\nNet Profit / (loss) 2,547,480,785 841,049,839 271,144,953 (509,224,513)\nKEY RATIOS\nProfitability Ratios\nReturn on equity 27.15% 10.46% 6% -11%\nReturn on assets 11.78% 3.31% 3% -6%\nReturn on sales 15.01% 4.07% 151% -339%\nGross profit margin 29% 28% 100% 100%\nAsset turnover ratio 78% 81% 2% 2%\nEarnings Per Share (EPS) 1.61 0.17 0.27 (0.51)\nLeverage and Liquidity Ratios\nCurrent ratio 1.55 1.18 0.22 0.28 \nQuick or acid test ratio 1.42 0.95 0.22 0.28 \nLong-term debt ratio 0.12 0.27 0.25 0.06 \nDebt to equity ratio 1.31 2.16 0.83 0.99 \nNet Assets Value Per Share (NAV) 5.31 3.62 4.82 4.55 \nInterest coverage ratio 4.01 1.95 1.38 0.46 \nKey Ratios - Ratio Analysis\nPERFORMANCE HIGHLIGHTS', chunk_type: 'financial_performance', index: 3}, {id: 'diesel_motor_engineering_plc_financial_performance_4', content: 'CITIZENS DEVELOPMENT BUSINESS FINANCE PLC\nANNUAL REPORT 2024/25\n182\nFINANCIAL HIGHLIGHTS\nKey Performance Indicator 2025 2024 %\nFinancial Performance (Rs Mn)\nRevenue  25,599  23,894 7\nNet interest income  11,391  9,093 25\nTotal operating income  14,105  10,767 31\nProfit before taxes  7,922  4,599 72\nProfit before income tax  5,751  3,706 55\nProfit after tax  4,005  2,516 59\nPosition as at the year end (Rs Mn)\nLoans and receivables to customers  110,867  85,964 29\nTotal assets  156,936  128,778 22\nTotal equity  23,936  20,208 18\nDeposits from customers  86,849  73,259 19\nFinancial Ratios (%)\nProfitability perspective\nOperating profit margin 30.95 19.25\nNet interest margin  7.97  7.77 \nCost to income ratio 48.40 50.40\nReturn on average assets (ROA) - After tax  2.80  2.15 \nInvestor Perspective\nEarnings per share (Rs) 56.53 35.95\nEarnings yield (%) 24.06 17.12\nReturn on Equity (ROE) % - After Tax  18.15  13.10 \nDividend per share (Rs)*  15.00  7.00', chunk_type: 'financial_performance', index: 4}, {id: 'diesel_motor_engineering_plc_risk_factors_0', content: 'in internal controls. A shortage of skilled employees could also \nimpede our business growth and expansion. Furthermore, the \neffectiveness and performance of our senior executives are \ncrucial for maintaining our competitive edge and driving future \ngrowth. The departure of key executives could pose challenges \nto our business strategy execution and have other detrimental \neffects.', chunk_type: 'risk_factors', index: 0}, {id: 'diesel_motor_engineering_plc_risk_factors_1', content: 'or regional instability, which can lead to losing market \nshare or reduced pricing power. To address this, we \nfocus on niche market segments, diversify across \nregions and customer segments, and pursue targeted \nexpansion strategies.\n y Financial Risks involve changes in interest rates, \ncurrency fluctuations, temporary cash flow issues, \nor customer defaults. These can affect profitability, \nraise financing costs, and disrupt revenue. Our risk \nmanagement includes negotiating favorable loan terms, \nusing financial instruments for hedging, matching \ntransactions in foreign currencies, closely monitoring \ncash flows, maintaining reserves and credit lines, \nand applying strict credit assessments and contract \nprotections.\n y Product and Technological Risks relate to meeting \nregulatory standards and keeping up with new \ntechnologies, which, if not managed, could lead to \nproduct rejection or harm our reputation. We mitigate \nthese risks by securing certifications from recognized', chunk_type: 'risk_factors', index: 1}, {id: 'diesel_motor_engineering_plc_risk_factors_2', content: 'fluctuations. The Group monitors its interest rate exposure on a dynamic basis.\n6.   Exchange rate risk\n Exposure to Exchange Rate risk is minimal. Revenue streams are also largely independent of \nExchange Rate fluctuations except in the case of raw material imports.\n7.   Product safety\n The safety and quality of our products is of paramount importance to the Group as well as being \nessential for maintaining customer trust and confidence. A breach in confidence could adversely \naffect the size of our customer base and financial results. We have detailed and established \nprocedures for ensuring product integrity and quality at all times. We work in partnership with \nsuppliers to ensure mutual understanding of the standards required.  \n8.   Health and safety risks\n Provision of adequate safety to our staff and customers is of the utmost importance to us. Injury \nor loss of life cannot be measured in financial terms. We operate stringent health and safety', chunk_type: 'risk_factors', index: 2}, {id: 'diesel_motor_engineering_plc_risk_factors_3', content: '- Annual Report 2023\n53\n- Annual Report 2024\nRisk \nInterest Rate Risk\nTechnology & IT \nRisk\nInventory cycle\nRisk of\nCompetition\nCompany\nReputation Risk\nThreat Probability\nModerate\nModerate\nModerate\nModerate\nModerate \nRisk Assessment \nFiscal and monitory policy changes \nhave a direct impact on liquidity\nand production costs.\nLack of accurate and\ntimely information due to\nineffective IT systems. Increase in \ndigitization of operations pose a \nthreat of loss of data and hacking.\n \nLiquidity is impacted as the industry \nis cyclical with long gestation periods.\nCompetition from other major low \ncost producers.\nThe reputation of the company could \nbe damaged by noncompliance, \nunethical behavior, and inconsistent \nproduct quality.\nMitigating Strategies \n•\t Close\tmonitoring\tof\tinterest\trate\t\ndevelopments and negotiating with \nfunding partners\n•\t Capital\tdevelopment\n•\t Maintenance\tof\tbiological\tassets\t\nin optimum condition to enhance \nproductivity, turnover and cash-\nflows.', chunk_type: 'risk_factors', index: 3}, {id: 'diesel_motor_engineering_plc_risk_factors_4', content: '4–5\nCorporate  \nOverview\n6–25\nLeadership\n26–41\nManagement \nDiscussion and \nAnalysis\n42–44\nCorporate Social \nResponsibility\n45–50\nFinancial  \nReview\n51–85\nGovernance\n86–130\nFinancial  \nStatements\n131–140\nSupplementary \nInformation\nBusiness Risk\nLoss of Volumes/ \nMarket Share\nThe Company faces the risk of losing \nvolumes due to negative market growth, \nintense competition from existing players, \nnew entrants and unlicensed operators in \nthe market who sell adulterated products. \nA more effective regulatory mechanism is \nrequired to curb such illegal activities that \naffect the industry. The export volumes \nmay be affected by macro-economic \ndevelopments, political unrest, fiscal \npolicies of the respective geographies. \nRisk Response\nThe Company manages these risks through \ncustomer and channel partner education, \nmarketing communication on product \nvalue propositions, creating awareness \namong the relevant stakeholders and \nleveraging on the brand equity. We also', chunk_type: 'risk_factors', index: 4}, {id: 'diesel_motor_engineering_plc_business_segments_0', content: 'from one another. Top management of the Company considers the operating results and condition of its business segments in their \ndecision making process and performance evaluation. Types of products and services from which each operating segment derives its \nrevenues are described as follows.\n \nAn operating segment is a component of the Company that engages in business activities from which it may earn revenues and incur \nexpenses, including revenues and expenses that relate to transactions with any of the Company’s other components. All operating \nsegments’ operating results are reviewed regularly by the Senior Management to make decisions about resources to be allocated to \nthe segment and to assess its performance, and for which discrete financial information is available.', chunk_type: 'business_segments', index: 0}, {id: 'diesel_motor_engineering_plc_business_segments_1', content: 'resources and assessing performance of the operating \nsegments, has been identified as the Board of \nDirectors that makes strategic decisions. The revenue, \ncost, depreciation, amortisation, impairment, total \nassets, total liabilities and capital expenditure have \nbeen allocated to the respective segments based on \nthe internal reporting basis under the below stated \nsegments.\nThe reportable segments derive their revenue primarily \nfrom the provision of mobile services, data services, \ninternational direct dialling services, leasing of passive \ninfrastructure, provision of interconnect services, pay \ntelevision transmission services, provision of other data \nservices and digital services.\nAt 31 December 2023, the Group is organised into \nthree main business segments:\n Mobile operation\n Fixed telephony and broadband operation\n Television operations', chunk_type: 'business_segments', index: 1}, {id: 'diesel_motor_engineering_plc_business_segments_2', content: 'of its business segments rather than their geographical location. Each segment is separately managed as it requires \ndifferent management strategies, as underscored by the Group’s organizational structure.\nThe Group’s business operations are classified into eight segments based on the products or services rendered, namely, \nInvestment Holdings, Portfolio and Asset Management, Oil palm plantations, Oils & fats, Beverages, Real Estate, Leisure, \nand Management Services. The following table describes the operations of each segment.  \nInter segmental sales are made at prices that approximate the market prices. Segment revenue, expenses, and results \ninclude transactions between segments. On consolidation, these transactions and any unrealised profits and losses \nare eliminated. Segmental expenses are directly attributed to a relevant segment or a portion of expenses that can be \nallocated reasonably as determined by the management.        \n  \n   \nNotes to the Financial Statements', chunk_type: 'business_segments', index: 2}, {id: 'diesel_motor_engineering_plc_business_segments_3', content: 'the customer.\n » Providing motor vehicle repair and maintenance services including sale of spare parts and workshop related activities for value \naddition.\n » Investment and property holding where the entity engages in leasing out its investment properties and earning a rental income \namongst other investment activities.\nThe segment results for the year ended 31 March 2024 are as follows:\nMotor Repair & Investment Group\nvehicle maintenance & property \nsales services holding\nTotal segmental revenue - 222,688,903 82,996,899 305,685,802 \n- 222,688,903 82,996,899 305,685,802 \nOperating profit - (6,258,241) 328,220,941 321,962,700\nFinance income - - 60,174,145 60,174,145 \nFinance costs - (139,135,912) - (139,135,912)\nFinance (costs) / income - net - (139,135,912) 60,174,145 (78,961,767)\nProfit before income tax - (145,394,153) 388,395,086 243,000,933\nIncome tax expense - - (34,683,250) (34,683,250)\nNet profit - (145,394,153) 353,711,836 208,317,683', chunk_type: 'business_segments', index: 3}, {id: 'diesel_motor_engineering_plc_business_segments_4', content: 'its business segments rather than their geographical location. Each segment is separately managed as it requires different \nmanagement strategies, as underscored by the Group’s organizational structure.\nThe Group’s business operations are classified into eight segments based on the products or services rendered, namely, \nInvestment Holdings, Portfolio and Asset Management, Oil palm plantations, Oils & fats, Beverages, Real Estate, Leisure and \nManagement Services. The following table describes the operations of each segment.\nInter segmental sales are made at prices that approximate the market prices. Segment revenue, expenses, and results include \ntransactions between segments. On consolidation, these transactions and any unrealised profits and losses are eliminated. \nSegmental expenses are directly attributed to a relevant segment or a portion of expenses that can be allocated reasonably as \ndetermined by the management.', chunk_type: 'business_segments', index: 4}, {id: 'diesel_motor_engineering_plc_future_outlook_0', content: 'are, however, acutely aware of the increasing influence of shifting consumer preferences, escalating competitive pressures, and \nevolving regulatory requirements on the long-term market dynamics. Consequently, we are adopting a forward-looking approach \nto our business, concentrating on adapting to the ever-changing environment. Our primary objective at Group level is to cultivate \na consumer-centric, dynamic, and sustainable business model that consistently generates value for all stakeholders. This strategic \nfocus will guide our trajectory as we progress into the future.\nNOTES TO THE FINANCIAL STATEMENTS', chunk_type: 'future_outlook', index: 0}, {id: 'diesel_motor_engineering_plc_future_outlook_1', content: 'Consumer Products Limited).\n• Talent retention, training and development.\n• Expand our product range into adjacent \ncategories. \n• Proactively monitor shifts in consumer preferences \nand adapt our value propositions accordingly. \n• Expand revenue streams.\n• A purpose driven strategy to create long term \nvalue for all stakeholders. \n• Foster an inclusive culture and promote a gender \ndiverse work place. \nShort-term\nShort-term\nMedium-to-long term\nMedium-to-long term', chunk_type: 'future_outlook', index: 1}, {id: 'diesel_motor_engineering_plc_future_outlook_2', content: 'consumer preferences, streamlining logistics and driving operational efficiency. Deep market insights derived through advanced analytics enable \ndata-driven decision making, strengthening the Sector’s competitive edge.\nOutlook \nWe will continue to utilise advanced data analytics and actively optimise supply chains to capitalise on opportunities that arise as consumer \nspending patterns gradually return to previous norms. We will continue to evolve our product offering to serve all income segments through \nstrategic interventions that ensure affordability and value. Our strategic focus will remain on expanding both our prepared food offering and \nprivate label range to fulfil changing consumer lifestyles and preferences. We will also strengthen our market reach through an omni channel \napproach leveraging both physical and digital touchpoints to enhance accessibility and convenience. Concurrently, we remain committed to', chunk_type: 'future_outlook', index: 2}, {id: 'diesel_motor_engineering_plc_future_outlook_3', content: '01\nDRIVING PROGRESS  \nLEADING WITH PURPOSE\nOverview Executive  \nReview\nCrafting Our \nStrategy\nOur Business \nImperatives\nSustainability\nin Focus\nRisk Management  \n& Governance\nFinancial  \nStatements\nSupplementary \nInformation\nOur values show us the way to bring \nour purpose to life.\nThey are crafted in celebration of  \nwho we are today and in recognition  \nof who we will become.\nPioneers of change in a world that \nnever stands still.\nOur future is already in motion.\nOur values will guide us on our path \ntowards\nA BETTER TOMORROW TM', chunk_type: 'future_outlook', index: 3}, {id: 'diesel_motor_engineering_plc_future_outlook_4', content: '54\nManagement Discussion and Analysis\nCapital Alliance PLC     Annual Report  2023 | 2024\nOur Strategy and Strategic Imperatives\nOUR STRATEGY\nTo build a strong and adaptable organization, we are actively translating our purpose into actions by integrating our values and culture into our \nstrategic framework. Grounded in a deep understanding of market dynamics, regulatory requirements, and client needs, CALT’s strategy outlines \nour approach to achieving CALT goals and maintaining a leading position in the market. Thereby, we detail our strategic imperatives that guide our \nactions and decisions in pursuit of excellence.\nShort Term Long Term\n• Improve operational efficiencies and \nimplement process automation to \nstreamline business processes \n• To grow our market share in our fee \nbased business verticals To build a \ndigital eco-system which will allow \nus to scale our fee based businesses\n• To hire, retain and develop a staff \ncadre with an innovative mindset', chunk_type: 'future_outlook', index: 4}, {id: 'diesel_motor_engineering_plc_governance_structure_0', content: 'led by the CEO and includes Executive \nCommittee Members enabling strategic \ninput while maintaining execution agility. \nThis structure reflects a strong internal \ncommitment to ESG, embedded within \nthe highest tiers of management.\nOur Policies\n z Policy on the matters relating to \nthe Board of Directors\n z Policy on Board Committees\n z  Policy on Corporate Governance, \nNominations and Re-election\n z Policy on Remuneration\n z Policy on Internal Code of \nBusiness conduct and Ethics \nfor all Directors and employees, \nincluding policies on trading in \nthe Entity’s listed securities\n z Policy on Risk management and \ninternal controls\n z Policy on Relations with \nShareholders and Investors\n z Policy on Environmental, Social \nand Governance Sustainability\n z Policy on Control and \nManagement of Company Assets \nand Shareholder Investments\n z Policy on Corporate Disclosures\n z Policy on Whistleblowing\n z Policy on Anti-Bribery and \nCorruption\nThe Group has implemented a', chunk_type: 'governance_structure', index: 0}, {id: 'diesel_motor_engineering_plc_governance_structure_1', content: 'decisions within clearly defined parameters.\nAccordingly, the Company policies, in pursuing its strategic \nobjectives, have in place comprehensive policies and processes \nthat are designed to ensure that the Company is well managed \nwith effective controls and oversights. Execution is carried out \nwithin a framework of whole commitment and fairness reflecting \nground realities, and emphasized by corporate values of \nhonesty, fairness, integrity and accountability. Such internal \ngovernance policies and procedures are subject to periodic \nreview to ensure that they remain relevant and reflect progress in \nofficial values, and shareholder and stakeholder expectations. \nThe Board has collective responsibility for the supervision, \ndirection, and performance of the Company and its subsidiaries, \nensuring due regard is paid, always, to the interests of its \nstakeholders. The detailed governance structure ensures \nthe Board has the right level of oversight for matters that are', chunk_type: 'governance_structure', index: 1}, {id: 'diesel_motor_engineering_plc_governance_structure_2', content: 'the future. The below diagram depicts our latest corporate governance structure.\nCorporate Governance Structure\nEXTERNAL \nFRAMEWORKS\nASSURANCE FRAMEWORKS\nRegulatory Shareholders Board \nRemuneration \nCommittee\nArticles of Association of \nthe Company\nCode of ethics and conduct \nfor employees\nTerms of Reference of \nBoard Committees\nBoard approved Policies \nand Procedures\nBoard Audit \nCommittee\nBoard Nominations \nand Governance \nCommittee\nBoard Related Party \nTransactions Review \nCommittee\nExternal Auditors\nInternal Auditors\nBoard of Directors\n(Setting strategy and risk appetite with \noversight responsibility)\nChief Executive Officer and \nKey Employees\n(Strategy execution, driving performance and \nconducting operations)\nVoluntary\nINTERNAL \nFRAMEWORKS\nCORPORATE GOVERNANCE STRUCTURE\nResponsibility flow\nAppointment flow\nThe Board has established a governance framework and \nstructure appropriate to the Company’s size, nature, \ncomplexity, and risk profile. This framework is periodically', chunk_type: 'governance_structure', index: 2}, {id: 'diesel_motor_engineering_plc_governance_structure_3', content: 'plan approved by it, monitors the implementation of it by the \nmanagement and reviews the Company’s strategic direction. \nThe company’s governance framework is based on regulatory, \nstatutory and structural directions. The governance framework \nis set up by the Board Charter, and the Board oversee the \nimplementation of the Company’s governance framework \nperiodically reviewing the adequacy and the integrity of the \nframework to ensure that it remains appropriate to the conditions \nand the complexities of the Company’s operations. Also, Board \nappoints the Chairperson and CEO with well-defined roles and \nresponsibilities as its agents. \nCorporate \nCulture and \nValues 1.3\nThe Board at the top, sets up a sound corporate culture and \nvalues which are then cascaded to all levels of the organisation \nthrough shared ownership and responsibility. The Company’s \nPolicy Framework operationalises these embedded values and \nculture. Key policies—including the Board Charter, Code of', chunk_type: 'governance_structure', index: 3}, {id: 'diesel_motor_engineering_plc_governance_structure_4', content: 'a solid basis for our business, in \npromoting transparent and ethical \nbusiness conduct at all levels and \nadd value for our stakeholders. Thus, \nwe continue to be committed to \nthe highest standards of corporate \ngovernance across all dimensions of \nour operations and these standards \nare encapsulated in our governance \npolicies and documents.\nThe Board of Directors also wishes \nto confirm that, to the best of their \nknowledge and belief, the Company \nhas complied with all requirements \nunder the Companies Act No 07 of \n2007 and satisfied all its statutory \npayment obligations to the \nGovernment and other statutory/ \nregulatory bodies.\nGOVERNANCE \nSTRUCTURE\nThe Governance Structure of \nChrissworld PLC allows effective \nand efficient decision making \nwhile interconnecting elements in \ngovernance. It is enabled by having \nthe right balance of authority and \npower throughout the organization. \nIt comprises process and structures \nwhich affect the way an organization', chunk_type: 'governance_structure', index: 4}, {id: 'diesel_motor_engineering_plc_sustainability_initiatives_0', content: 'The Corporate Sustainability Committee \nis responsible for the implementation \nof the sustainability policy and reports \nto the Board of Directors on all related \nprojects. The Committee is assisted by \nsustainability coordinator and departmental \nrepresentatives, thereby ensuring that the \nCompany’s sustainability philosophy is \npropagated among all employees in the \norganization.\nCSR\nCFL’s Corporate Social Responsibility (CSR) \nstrategy is mainly focused on uplifting the \nfuture generation by imparting knowledge \nand conducting social development \nprograms. CSR activities are organized by \nthe CSR committee and sales and marketing \nteams with the help of employees and \nthe management. Committee members \nrepresent all levels from the Managing \nDirector to the factory employee. As part of \nour wider commitment to CSR, CFL reaches \nout to the community through corporate \nphilanthropy as well. A separate budget is \nallocated for CSR activities. \nKey CSR highlights for 2020/21', chunk_type: 'sustainability_initiatives', index: 0}, {id: 'diesel_motor_engineering_plc_sustainability_initiatives_1', content: '57\n \n   SUSTAINABILITY CONTEXT\nGrowing stakeholder \npressure to implement \nsustainable practices \nEnvironmental \nimplications of single-use \npolythene and plastic \nFocus on \ngender equality\nIncreasingly health-\nconscious consumers \n   SOCIAL \nEmpowering women in our communities \n• Established 4 women-led Material Recovery Facilities (MRF) \nunder the Elephant House Gunadamin Plastic Recycling \nInitiative.\n• The ‘Dinannee’ programme in Confectionery category to \npromote female entrepreneurship. \nResponding to consumer \nhealth preferences \n• Launched a vegan \nproduct range under \nConfectionery. \n• ‘Feelgood’ wellness \nrange under \nConfectionery offers \nlow calorie and \nno-added sugar ice \ncreams. \n• 99% of the CSD range \nis amber or green rated \nfor sugar content.\n• Responsible product \nlabelling and marketing.\nSupported the nutritional \nneeds of pre-school children\nPromoting a diverse and inclusive work environment \n• A policy framework that promotes an equitable and', chunk_type: 'sustainability_initiatives', index: 1}, {id: 'diesel_motor_engineering_plc_sustainability_initiatives_2', content: 'engagement with external stakeholders, \nincluding awareness programmes, publicity \ncampaigns, and partnerships to promote broader \nadoption of sustainable practices\nGovernance\n ♦ Maintain ethical and sustainable vendor \nrelationships by ensuring that they align with \nour sustainability values and contribute to \nresponsible business practices.\nOur ESG Focus\nGRI 2-23, GRI 2-24\nWe support the UN Sustainable Development \nGoals and a green economy through a \ncomprehensive Environmental, Social, and \nGovernance (ESG) Policy. Developed in line \nwith the CBSL and IFC frameworks, the policy \nensures effective management of our ESG risks, \npromotes sustainable financing for environmentally \nresponsible businesses and establishes a \nclear framework for measuring our impact in \ncollaboration with all stakeholders.\nOur Vision\nTo become a responsible corporate citizen \nprotecting our planet with love and humanity for \nfuture generations!\nOur Mission', chunk_type: 'sustainability_initiatives', index: 2}, {id: 'diesel_motor_engineering_plc_sustainability_initiatives_3', content: 'society, and economy with key initiatives aimed at reducing carbon \nfootprint, promoting resource efficiency and supporting community \ndevelopment. The Group also prioritises transparency and accountability \nin its sustainability efforts, regularly reporting on environmental, social \nand governance (ESG) performance. By championing sustainable \npractices, the CIC Group not only mitigates risks and enhances corporate \nreputation but also contributes to the broader goal of global sustainability\n-  Revenue Growth\n-  Cost Efficiency\n- Reduce Cost of Funding\n-  Liquidity Management\n-  Reduce Gearing Position\n-  Improving product island-wide \naccess\n-  Identify and service market gaps\n- Expanding the product range to \nreflect a wide range of price \npoints\n-  Emphasis on R & D and new \nproduct development\n-  Strengthen exports\n-  Build supply chain resilience\n-  Attract retain top talent\n-  Reinforce the performance-\ndriven culture\n-  Increase the investment in \ntraining', chunk_type: 'sustainability_initiatives', index: 3}, {id: 'diesel_motor_engineering_plc_sustainability_initiatives_4', content: 'our overall emissions by a great \nnumber with the best practices such \nas  route optimization,return journey \narrangement and optimization \nof truck utilization. Every mile we \ntraveled equals additional greenhouse \ngas in the atmosphere. So we  have \ngreatly reduced the carbon footprint \nby implementing such sound best \npractices along with ecological \ninitiatives such as converting \nour diesel  forklift fleet to battery \noperated trucks. \nChrissworld PLC has aligned its CSR \nprojects engaging with customers, \nsuppliers, regulators and communities \nto promote sustainability awareness \nand collaboration, by way of engaging \nin regular training and collaborative \nfunctions with regulatory bodies \nsuch as local authorities (Grama \nNiladhari Division), PHIs (Physical \nHealth Inspectors) and initiating \ncommunity cleaning programs to keep \na healthy environment in and around \nChrissworld locations.  Chrissworld PLC \nhas its sustainability strategy aligned \nwith the corporate strategy and', chunk_type: 'sustainability_initiatives', index: 4}, {id: 'diesel_motor_engineering_plc_market_position_0', content: '4–5\nCorporate  \nOverview\n6–25\nLeadership\n26–41\nManagement \nDiscussion and \nAnalysis\n42–44\nCorporate Social \nResponsibility\n45–50\nFinancial  \nReview\n51–85\nGovernance\n86–130\nFinancial  \nStatements\n131–140\nSupplementary \nInformation\nThrough the release of these strategic \ninitiatives, CLLP not only cemented \ncustomer ties but also yielded tangible \noutcomes, ensuring greater value, higher \nconfidence in the brand, and a greater \ncompetitive edge within the market.\nDriving competitive \nperformance\nDespite an increase in competition, the \nCompany has remained committed \nto maintaining market leadership and \ndeveloping solid segment shares. Through \nan appreciation for shifting consumer \ntrends – such as growing demand for \ncost-effective solutions and extended \nservice drain intervals – the Company \nlaunched strategic marketing solutions to \ncater to evolving customer needs.\nThe most significant driver of CLLP\'s \ncompetitive performance has been its \ncommitment to deliver value to our', chunk_type: 'market_position', index: 0}, {id: 'diesel_motor_engineering_plc_market_position_1', content: 'solidify our status as contemporary \nproperty in the area, ensuring that we \nstay competitive within our market \nsegment. With our strategies aligned \nwith the positive market trends, we \nexpect to experience continued growth \nand improve our position in the market \nin the years to come.\nIntroductory statements Business Review Governance & Risk Financial Information Other Information', chunk_type: 'market_position', index: 1}, {id: 'diesel_motor_engineering_plc_market_position_2', content: 'Reputation\nOrganizational capabilities\nThe result of the analysis gives a clear picture of company’s competitive and economic\nimplications, answering the questions if the resources mentioned above are:\nValuable?\nRare?\nCostly to imitate?\nOrganized properly?\n+357 96 030922\ninfo@marketpublishers.com\nColombo Investment Trust PLC Fundamental Company Report Including Financial, SWOT, Competitors and Industry An...', chunk_type: 'market_position', index: 2}, {id: 'diesel_motor_engineering_plc_market_position_3', content: 'company’s long-term solvency. This sort of company\'s information will\nassist and strengthen your company’s decision-making processes.\nIn the part that describes Colombo Investment Trust PLC competitors and the\nindustry in whole, the information about company\'s financial ratios is compared\nto those of its competitors and to the industry. The unique analysis of the market\nand company’s competitors along with detailed information about the internal\nand external factors affecting the relevant industry will help to manage your\nbusiness environment. Your company’s business and sales activities will be\nboosted by gaining an insight into your competitors’ businesses.\nAlso the report provides relevant news, an analysis of PR-activity, and stock\nprice movements. The latter are correlated with pertinent news and press\nreleases, and annual and quarterly forecasts are given by a variety of experts\nand market research firms. Such information creates your awareness about', chunk_type: 'market_position', index: 3}, {id: 'diesel_motor_engineering_plc_market_position_4', content: 'Company has adopted \nstrategies to diversify \nits products portfolio \nand position itself in a \nniche market, based on \ncompetitive advantage. We \nare adopting new marketing \nstrategies focusing on new \ngeographical markets, new \nmarket segments and new \nchannels. Focused yard \nexpansion projects are \nin the pipeline, to attract \navailable opportunities \nas much as possible, \nconquering the space \nlimitations.\n1.2 Information Technological Risk & Management\n02. EXTERNAL RISK\n2.1 Market Risk Management\nRisk Management\nGovernance Reports', chunk_type: 'market_position', index: 4}, {id: 'diesel_motor_engineering_plc_regulatory_compliance_0', content: 'Compliance and regulatory risk refer to the potential risk faced by \nthe Company due to non-compliance with applicable laws, rules, \nregulations, and codes of conduct that could lead to regulatory \nfines, financial losses, disruptions to business activities, and \nreputational damage. The Company has established the Compliance \nfunction to provide comfort that the regulatory compliance \nrequirements are continuously monitored and implemented as \nneeded. The compliance function is operated under the supervision \nof a dedicated officer of senior grade and supported by appropriate \nresources. \nA comprehensive Compliance Policy outlines how the Company \nidentifies, monitors, and manages compliance risks in a structured \nmanner. A series of measures have been implemented to reinforce \nregulatory compliance requirements and ensure effective \nmonitoring, testing and verification of compliance along with \nrisk mitigation activities across the Company and the Head of', chunk_type: 'regulatory_compliance', index: 0}, {id: 'diesel_motor_engineering_plc_regulatory_compliance_1', content: 'the legal and regulatory provisions and financial requirements applicable \nunder these regulatory benchmarks. Non-compliance or violation of these \nrequirements leads to the risk of cancellation / suspension of some \nlicenses issued by SEC, in addition to facing actions being taken by the \nrespective regulatory authorities etc. The management together with the \nCarson Group\'s legal division pro-actively identify and set up appropriate \nsystems and processes for legal and regulatory compliance with respect to \nthe Company’s operations.\nŸ Periodic training programmes are conducted for staff to ensure they remain \ncognisant of any changes in applicable laws and regulations.\nŸ Guardian Value Fund LLC and Guardian Fund Management LLC which are \ndomiciled in Mauritius are subject to laws and regulations imposed by the \ncountry’s regulatory authorities. Changes in regulatory environment in the \ncontext of these funds are continuously monitored with the assistance of', chunk_type: 'regulatory_compliance', index: 1}, {id: 'diesel_motor_engineering_plc_regulatory_compliance_2', content: 'by the respective regulatory authorities etc. The management together \nwith the Carson Group\'s legal division pro-actively identify and set up \nappropriate systems and processes for legal and regulatory compliance \nwith respect to the Company’s operations.\n • Periodic training programmes are conducted for staff to ensure they \nremain cognisant of any changes in applicable laws and regulations.\n • Guardian Value Fund LLC and Guardian Fund Management LLC \nwhich are domiciled in Mauritius are subject to laws and regulations \nimposed by the country’s regulatory authorities. Changes in regulatory \nenvironment in the context of these funds are continuously monitored \nwith the assistance of the Fund’s lawyers who have the necessary \nexpertise in this regard.\n • Reviews are conducted on a regular basis by the compliance team and \nthe certification of compliance with relevant laws and regulations is \nensured on a periodic basis.', chunk_type: 'regulatory_compliance', index: 2}, {id: 'diesel_motor_engineering_plc_regulatory_compliance_3', content: '- Internal Auditors review the status of compliance to regulatory \nrequirements and refer any non-compliance to the Board \nthrough Audit Committee. Their findings are discussed and \naddressed on a timely basis.\n- Experts are appointed to review changes to the regulatory \nregime and assess impact on the business as well as to \nadvise on compliance requirements.\n- A Compliance Officer is tasked with ensuring that regulatory \nrequirements are observed and complied.\nRisk Management', chunk_type: 'regulatory_compliance', index: 3}, {id: 'diesel_motor_engineering_plc_regulatory_compliance_4', content: 'regulatory requirements on a quarterly basis. \n Risk Management, Compliance & \nControl\nThe Group has established and implemented an \nEnterprise Risk Management System and Compliance \nProgram for identifying, assessing, monitoring, and \nmanaging material risk throughout the organization, \nwhich includes: \n• Company’s risk profile which includes risks facing \nthe Company including financial and non-financial;\n• Assessment and mitigation of cyber security risks \nand risks related to data privacy;', chunk_type: 'regulatory_compliance', index: 4}, {id: 'diesel_motor_engineering_plc_operational_highlights_0', content: 'PLC demonstrated resilience and \nagility, leveraging our deep industry \nexpertise, strong stakeholder \nrelationships, and technological \ncapabilities to optimize operations and \ndrive growth.\nOur strategic initiatives focused on \nenhancing operational efficiencies, \nexpanding our service offerings, and \nstrengthening our market presence. \nThese efforts were underpinned by \nour dedicated team, whose expertise \nand passion for the tea industry have \nbeen instrumental in our success. \nBy fostering a culture of continuous \nimprovement, we have been able to \ndeliver exceptional value to our clients \nand stakeholders.\nIn this section, we delve into the \nkey aspects of our operational \nperformance. We believe that our \nsteadfast commitment to operational \nexcellence will continue to propel \nCeylon Tea Brokers PLC towards \nsustained growth and long-term \nsuccess.\nTea Broking Segment Client Financing Activities\nManufacturing Advisory Warehousing & Logistic Segment\nTea Broking Segment', chunk_type: 'operational_highlights', index: 0}, {id: 'diesel_motor_engineering_plc_operational_highlights_1', content: 'automated operational processes \nto further strengthen our regulatory \nreporting and branch reporting \nefficiently. \nThrough process automation, we \neliminated six manual registers \nfrom across our branch network, \nfreeing time for our staff to \nengage in more value adding and \ncustomer-centric services.\nEnhance Customer-\ncentricity\nWe continued on our journey \nof relentlessly adding value \nto our customers, mainly \nthrough digitalisation and \nconvenient banking, offering \nmarket-competitive products \nand services, and speedy issue \nresolution through our dedicated \ncontact centre\nStrong Brand Presence\nWe maintained our premier \nbrand presence in the industry \nby disseminating authentic \ncommunications through a variety \nof channels, accurate and timely \nregulatory reporting, engagement \nwith industry specific events and \nmaintaining our visibility by being \nrepresented at governmental, \nregulatory, and business forums.\nCommitment to  \nSustainability and ESG', chunk_type: 'operational_highlights', index: 1}, {id: 'diesel_motor_engineering_plc_operational_highlights_2', content: 'extraordinary levels of customer satisfaction.\n Operational Excellence\nStriving for operational excellence remained a cornerstone of our strategy, aimed \nat optimizing costs and enhancing efficiencies. Despite business expansion, \nwe successfully contained operational costs through continuous process \nimprovements. Integration of our systems played a pivotal role in minimizing \npaperwork, eliminating delays, and mitigating errors. By streamlining our \nprocesses and adhering to industry best practices, we achieved a dual objective \nof cost reduction and heightened efficiency. These measures collectively \ncontributed to delivering superior service to our valued clients.\n Service Excellence\nGiven the service-centric nature of tea broking, our unwavering commitment \nto service excellence remained paramount for sustained growth. We prioritized \nthe continual enhancement of our services through investments in human', chunk_type: 'operational_highlights', index: 2}, {id: 'diesel_motor_engineering_plc_operational_highlights_3', content: '82\n Ceylon Tea Brokers PLC  Annual Report  2023/24\nOverview  Leadership & Strategy  Management Discussion & Analysis  Governance Reports  Financial Reports  Supplementary Information\nOPERATIONAL PERFORMANCE REVIEW \nOverview\nIn the year under review, Ceylon Tea \nBrokers PLC continued to strengthen \nits position as a pivotal player in \nthe tea broking industry, navigating \nthrough a complex landscape marked \nby both challenges and opportunities. \nOur unwavering commitment to \nexcellence has enabled us to deliver \nrobust operational performance, \nreinforcing our status as a trusted \npartner in the industry.\nThe fiscal year was characterized \nby dynamic market conditions, \nfluctuating demand, and evolving \nregulatory frameworks. Despite \nthese hurdles, Ceylon Tea Brokers \nPLC demonstrated resilience and \nagility, leveraging our deep industry \nexpertise, strong stakeholder \nrelationships, and technological \ncapabilities to optimize operations and \ndrive growth.', chunk_type: 'operational_highlights', index: 3}, {id: 'diesel_motor_engineering_plc_operational_highlights_4', content: 'Operational Highlights\nThroughout the year, we focused on enhancing the guest \nexperience and streamlining our operations. We invested in staff \ntraining programs to ensure high-quality service delivery and the \nfacilities at the property. Our efforts resulted in improved guest \nsatisfaction scores and increased operational productivity.\nMarket Trends and Outlook\nLooking ahead, we remain cautiously optimistic about the future \ndespite ongoing market volatility. We recognize the importance of \nstaying agile and adaptable in response to changing consumer \ndemands and market conditions. By closely monitoring industry \ntrends and consumer preferences, we aim to position ourselves \nfor continued success and sustainable growth.\nRisks and Challenges\nWhile we are confident in our ability to navigate challenges, we \nacknowledge the various risks that may impact our business. \nThese include fluctuations in demand, regulatory changes, \nand competitive pressures. To mitigate these risks, we have', chunk_type: 'operational_highlights', index: 4}, {id: 'diesel_motor_engineering_plc_dividend_policy_0', content: 'CITIZENS DEVELOPMENT BUSINESS FINANCE PLC\nANNUAL REPORT 2024/25\n305\nDividend per share & Dividend payout\n0\n3\n6\n9\n12\n15\nRs.\n2020/21 2021/22 2022/23 2023/24 2024/25\n5\n10\n15\n20\n25\n30\nDividend per share\nDividend payout ratio\nDIVIDEND POLICY\nIt is Company’s policy to pay around 30% of its earnings as dividends with the best interest of shareholders(Subject to CBSL Clearance and \nother conditions) . CDB has continuously maintained dividend pay-outs. The Board of Directors of CDB has given due consideration to the \nrequirements stipulated by CBSL and declared a First Interim cash dividend of Rs. 5.00 per share and the final Cash dividend of Rs.10 per share \nfor both voting and non-voting shares of Rs. 907,601,310 and Rs. 155,155,020 respectively, which aggregated to a sum of Rs. 1,062,756,330. \nFinal Cash dividend aggregated amount for both voting and Non-voting shares of Rs. 708,504,220 subject to shareholders’ approval at the \nAnnual General Meeting.\nCDB VOTING SHARE PERFORMANCE', chunk_type: 'dividend_policy', index: 0}, {id: 'diesel_motor_engineering_plc_dividend_policy_1', content: '202\n Ceylon Tea Brokers PLC  Annual Report  2023/24\nOverview  Leadership & Strategy  Management Discussion & Analysis  Governance Reports  Financial Reports  Supplementary Information\nDividends\nDuring the year under review, the Company paid a dividend to its shareholders. A \ndividend of Rs. 0.44 per share was paid out of the profits from the year ended 31st March \n2024. Details of the dividend paid by Company for each financial year is given below.\n 2024 2023 2022 2021 2020\nDividend per share \n(Paid for the year)\n 0.44 0.68 0.36 0.35 0.08\nDividend Pay-out Ratio (%)  56.55 51.75 59.80 59.40 67.70\nThe Company maintained its policy on distributing dividends of transferring 50% out \nof profits after tax as dividend. The Company directors distributed Rs. 80.25 million as \nDividends to shareholders, which is around 56.55 percent of 2023/24 annual profit \nafter tax.\nINVESTOR RELATIONS\nDividend Payout Ratio (%)\n0\n20\n30\n10\n50\n60\n70\n40\n80\n2020 2021 2022 2023 2024', chunk_type: 'dividend_policy', index: 1}, {id: 'diesel_motor_engineering_plc_dividend_policy_2', content: 'Table 1: Market Information on DIAL Share\nDIVIDENDS\nDialog has been guided by the published dividend \npolicy in declaring dividends, after taking into \nconsideration the Group performance and forward \ninvestment requirements to maintain leadership \nposition in the market. \nAccordingly, the Board of Directors, resolved to \npropose for consideration by the Shareholders of the \nCompany, a cash dividend to ordinary shareholders \namounting to One Rupee and Thirty-Four Cents  \n(Rs. 1.34) per share for FY 2023.\nThe said dividend, if approved by shareholders, would \ntranslate to a payout of 55% of consolidated Group \nPATAMI for FY 2023, which is above the minimum \npayout stipulated (50%) by the dividend policy, \ncorresponding to a total dividend of Rs. 11.1 billion \nand a dividend yield of 14.9%.\nTOTAL SHAREHOLDER RETURN\nThe Total Shareholder Return (TSR) for the share was \nat 21.8% in 2023 mainly due to the 14.9% yield on \nthe declared divided and capital appreciation of 5.9%.', chunk_type: 'dividend_policy', index: 2}, {id: 'diesel_motor_engineering_plc_dividend_policy_3', content: 'compared to Rs. 15.01 in 2023. \n20\n16\n12\n8\n4\n0\n15\n12\n9\n6\n3\n0\n2020\n2021\n2022\n2023\n2024\n9.27 \n15.01\n15.28\n16.36\n16.06\nEarnings per share & \nprice earnings\nRs. Times\n11.65\n6.91\n6.32\n6.01\n9.96\n Earnings Per Share (Rs.)\n Price Earnings (Times)\nInvestor return\nDividend per share amounted to Rs. 15.00 \nwhich translates to a dividend yield of \n9.4% based on the share price recorded \nas at end December 2024 compared \nto 6.6% recorded in 2023, whilst capital \ngrowth increased via a rebound in market \nshare price by 77.2% in comparison to a \ndecrease reported in 2023 of 6.4%. \nTotal Shareholder Return also was 93.8% \nin 2024 in comparison to a decrease \nreported in 2023 of -0.21%. \nAnnual Report 2024 \nChevron Lubricants Lanka PLC\n49', chunk_type: 'dividend_policy', index: 3}, {id: 'diesel_motor_engineering_plc_dividend_policy_4', content: 'CDPLC is committed to have a proper communication with its shareholders and other investors too. Thus, during the \nyear 2024 the Company continued to provide, timely, accurate disclosures like quarterly financial announcements, \npress releases and interviews with media, publication of the Annual Report etc. Encouraging the full participation of \nshareholders at the Annual General Meeting (AGM) adequate notice is given together with the Annual Report enabling \nthem to prepare in advance.\nFurther, the company is very much concerned about its statutory commitments to society.\nFINANCIAL PERFORMANCE\nDuring the year under review, the Company achieved total revenue of Rs. 23,695.5 Mn (2023 - Rs. 33,068.5 Mn) and \nnet loss of Rs. 2,757.4 Mn. (2023 – Net Loss Rs. 11,127.0Mn) leaving the shareholders’ value with Rs. 2,700.7 Mn \n(2023 - Rs. 473.4 Mn).\nDIVIDEND APPROVED\nNo dividend has been approved for the year end 2024.12.31 (2023 – Rs.0.00).\nDIVIDEND PAY OUT RATIO', chunk_type: 'dividend_policy', index: 4}, {id: 'diesel_motor_engineering_plc_capital_structure_0', content: 'capital structure and makes adjustments to it in light of changes in economic conditions. To maintain or adjust the \ncapital structure, the Company may adjust the dividend payment to shareholders, return capital to shareholders \nor issue new shares.\nNo changes were made in the objectives, policies or processes for managing capital during the years ended 31 \nMarch 2024.\nThe Company’s capital structure comprise of Stated Capital and Borrowings which are disclosed in Note 11 \nrespectively.\nThe Company does not hold collateral as security. The Company evaluates the concentration of risk with respect to \ntrade receivables as low based on the terms with which the long standing business relationship with the customer base. \n \nTrade Receivable Credit risk exposure disclosed in Note 8.1\n Liquidity risk\nThe Company monitors its risk to a shortage of funds using a recurring liquidity planning tool. The Company’s', chunk_type: 'capital_structure', index: 0}, {id: 'diesel_motor_engineering_plc_capital_structure_1', content: 'AMBEON CAPITAL PLC\n136\nANNUAL REPORT 2024\n35. FINANCIAL INSTRUMENTS AND RISK MANAGEMENT (Contd..)\nCapital management\nThe capital management strategy adopted by the Group is aimed at maintaining sufficient and adequate levels of working capital for day to \nday operations and long term capital for investment and growth. A suitability structured capital base is essential in order to maintain investor \nconfidence in the Group, and ensures that it achieves sustained long term growth while maintaining the capability to withstand fluctuating \neconomic fortunes. The capital of the Group consists of equity and debt. The components of the equity capital are the stated capital, retained \nearnings and reserves while the debt capital consist of short term debt sources.\n36. MATERIAL PARTLY-OWNED SUBSIDIARIES\nFinancial information of subsidiaries that have material non-controlling interests is provided below; \n36.1  Proportion of equity interest held by non-controlling interests:', chunk_type: 'capital_structure', index: 1}, {id: 'diesel_motor_engineering_plc_capital_structure_2', content: 'term investments.\nThe funding mix of the Company as of 31 December \n2024 is given in figure 5 below.\nFunding Mix as at 31 December 2024\nCustomer Deposits\nEquity\nBorrowing\n39%\n1% 60%\nFigure 5', chunk_type: 'capital_structure', index: 2}, {id: 'diesel_motor_engineering_plc_capital_structure_3', content: 'Borrowings 29,591,586 4,793,750 23,370,505 42,158,500 4,914,000\nTrade and other payables 49,714,488 - - - -\nLease liabilities 289,631 868,892 1,005,511 2,751,968 3,622,904\nAt 31 December 2022      \nBorrowings 10,571,804 24,535,444 3,341,667 23,486,148 38,454,742\nTrade and other payables 53,947,139 - - - -\nLease liabilities 835,008 1,059,651 1,140,263 2,126,229 4,560,494\n3.2 Capital risk management \nThe primary objective of the Company’s and the Group’s capital risk management is to ensure that it maintains a \nstrong credit rating and healthy capital ratios in order to support its business and maximize shareholder’s value.\nThe Group and the Company manage the capital structure and make adjustments to it, in light of changes in \neconomic conditions. To maintain or adjust the capital structure, the Group and the Company may or may not \nmake dividend payments to shareholders, return capital to shareholders or issue new shares or other instruments.', chunk_type: 'capital_structure', index: 3}, {id: 'diesel_motor_engineering_plc_capital_structure_4', content: '113\nC T Holdings PLCAnnual Report 2023 - 2024\n31.3 Capital management\nThe Group manages its capital to ensure that entities in the Group will be able to continue as going concern while maximizing the return \nto stakeholders through the optimization of the debt and equity balance. The Group’s overall strategy remains unchanged from 2017.\nThe capital structure of the Group consists of below:\nIn thousands of rupees Group Company\nAs at 31st March Note 2024 2023 2024 2023\nDebt (long and short term borrowings, excluding derivatives)\nInterest bearing loans and borrowings 27 55,346,873 53,729,956 401,579 698,742\nNet debt 55,346,873 53,729,956 401,579 698,742\nEquity (all capital and reserves of the Group  \n that are managed as capital)\nStated capital 25 6,489,758 6,489,758 6,489,758 6,489,758\nReserves 26 6,604,113 2,956,528 91,399 100,462\nRetained earnings 17,060,717 13,667,618 2,268,764 1,497,933\nNon-controlling interest 13,731,722 12,249,407 - -', chunk_type: 'capital_structure', index: 4}, {id: 'diesel_motor_engineering_plc_technology_digital_0', content: 'CITIZENS DEVELOPMENT BUSINESS FINANCE PLC\nANNUAL REPORT 2024/25\n66\nIT STRATEGY \nBuilding on our commitment to innovation, we continue to evolve our ecosystem by integrating advanced solutions \nacross our digital platforms. This approach ensures a secure, seamless experience that not only meets but anticipates the \nevolving needs of our customers, and empowering our team members for digitally driven decisions laying the foundation \nfor the next phase of our IT strategy.\nOur IT Strategy, developed through a comprehensive roadmap, outlines a clear vision for innovation, risk mitigation, and \noperational agility. Built on the dual pillars of Tech-Disruption and Sustainability, it provides the strategic direction for \ndigital investments across the organisation. Recognising the fast-evolving nature of financial technologies, we ensure our \nIT strategy is regularly updated to keep CDB at the forefront of fintech transformation.\nENABLING CUSTOMER-CENTRICITY', chunk_type: 'technology_digital', index: 0}, {id: 'diesel_motor_engineering_plc_technology_digital_1', content: 'efficiency.\n- Integration with various distribution channels.\n- Enhanced scalability and flexibility in operations.\n- Improved insights into customer behaviour and \npreferences.\n- Better data collection practices leading to more informed \ndecision-making.\n- Enhanced risk assessment capabilities.\n- Increased process efficiencies in underwriting and claims \nmanagement.\nCross-Referencing\n- Consideration of manufactured capital (Pages 99-100) \n- Intellectual capital (Pages 101-103) \n7. TECHNOLOGICAL AND DIGITAL \nTRANSFORMATION OVERVIEW\nTechnological and digital transformations are crucial for \nlong-term cost optimisation and enhancing service value. \nThese transformations support critical business functions, \ndriving financial growth and stability by improving operational \nefficiencies and customer engagement.\nStrategies\n- Make necessary improvements and adopt new systems to \nsupport critical business functions.\n- Implement slow-paced transformations to maintain optimal', chunk_type: 'technology_digital', index: 1}, {id: 'diesel_motor_engineering_plc_technology_digital_2', content: 'Management Discussion And Analysis\nCargills Bank PLC Annual Report 2024\n64\nInvestments in technology in FY 2024\nThis year, our strategic investments in advanced \ntechnology have centered on enhancing operational \nefficiency, fortifying security, and driving digital \ninnovation. These initiatives align with our vision of \nshaping the future of banking, ensuring seamless \naccessibility, and meeting the evolving needs of our \ncustomers in a rapidly transforming digital landscape. \nAccordingly, our key technology investments for \n2024 were focused on the following areas:\n1. Card System - ITM Version Upgrade fortifying \nsecurity\n2. Mobile App\n3. QR App\n4. Perimeter Firewall Replacement\n5. NAS Storage replacement\n6. Carbonite Licenses\n7. HSM Embossing Machine Replacement\n8. Change Request for New functionalities of \nMobile and Internet Banking\nStrengthening cyber security\nWe enhanced our cybersecurity framework in \n2024, ensuring the protection of customer data', chunk_type: 'technology_digital', index: 2}, {id: 'diesel_motor_engineering_plc_technology_digital_3', content: 'CITIZENS DEVELOPMENT BUSINESS FINANCE PLC\nANNUAL REPORT 2024/25\n64\nTECHNOLOGY\nCAPITAL\nTech disruption is a core pillar of our corporate strategy, fueling a comprehensive \ndigital transformation under our 2021–2030 Strategy. This transformation aims to \nenhance resilience, maintain competitiveness, and unlock long-term value in the rapidly \nevolving digital economy. We are evolving from a traditional, technology-enabled \nfinancial institution into a technology-driven fintech leader by investing in cutting-edge \ntechnologies, strengthening our digital infrastructure, and harnessing data analytics. \nAt the heart of this shift is our commitment to delivering personalised, secure, and \nseamless end-to-end customer experiences across all digital platforms.\nCDB driving innovation and building resilient financial infrastructure through its digital transformation. \nWith investments in AI-driven credit decisions, process automation, and the integrated digital banking', chunk_type: 'technology_digital', index: 3}, {id: 'diesel_motor_engineering_plc_technology_digital_4', content: 'Strategies\n- Make necessary improvements and adopt new systems to \nsupport critical business functions.\n- Implement slow-paced transformations to maintain optimal \ncost levels while ensuring sustainable progress.\nPotential concerns\n- Disruptive technologies render older solutions redundant.\n- Lack of policies leading to failures or inefficiencies.\n- Operational failures during the adoption of new \ninnovations.\n- Challenges in adapting to disruptive technologies, such as \nAI.\n- Need for rapid adoption is causing significant investments \nand operational disruptions.\nMateriality Assessment', chunk_type: 'technology_digital', index: 4}, {id: 'diesel_motor_engineering_plc_human_resources_0', content: '52  | ASIAN HOTELS AND PROPERTIES PLC\nRobust HR Policy guidelines\nThe Company’s HR practices are guided by a set of clearly articulated policies which enable consistent, transparent and \nunbiased treatment to all employees alike. The policies cover diverse aspects that affect an employee’s well-being.\n Policy on ombudsperson \n Policy on support network \n Recruitment and selection policy \n Performance management policy \n Reward and recognition policy \n Leave policy \n Flexi-hours policy \n Teleworking policy\n Compensation and benefits policy \n Code of conduct \n Policy against sexual harassment \n Diversity, Equity and Inclusion related policies \n Gender policy \n HIV AIDs workplace policy \n Policy on equal opportunity and non-discrimination \n Anti-fraud policy \n Grievance handling policy \n Disciplinary procedure \n Whistle blowing policy\n Part Time work policy\n Data Protection Policy\nTeam profile\nEmployees by contract and \ngender Male Female\nPermanent 451 44\nContract 268 54\nTot a l 719 98', chunk_type: 'human_resources', index: 0}, {id: 'diesel_motor_engineering_plc_human_resources_1', content: 'of Employment and Remuneration) Act, we benchmark best practices from the ILO convention \nand the United Nations Global Compact for Human Rights. We ensure equal opportunity for all, \nprohibiting discrimination based on age, marital status, religion, or any other legally protected \nstatus.\nOur Policy on Sexual Harassment, \nDiscrimination, Bullying, and Harassment \nunderscores our zero tolerance for such \nbehaviors. All claims are thoroughly \ninvestigated with confidentiality, ensuring \nno retaliation for speaking up. We conduct \nan annual diversity and inclusion refresher \nworkshop to reinforce these principles.\nHR POLICY FRAMEWORK\nA comprehensive structure of HR policies \nsafeguards employee interests, including:\n• Sexual Harassment, Discrimination, \nBullying, and Harassment Policy\n• Grievance Handling Policy\n• Holiday Leave and Sabbatical Policy\n• Paternity Leave Policy\n• Performance Management Policy\n• Membership Subscription Policy\nTALENT MANAGEMENT', chunk_type: 'human_resources', index: 1}, {id: 'diesel_motor_engineering_plc_human_resources_2', content: 'enhancing the capabilities of these \ndepartments and refining best practices \nto create a harmonious and conducive \nenvironment for all stakeholders.\nBy prioritizing the cultivation of our unique \nculture and investing in the development \nof our human resources, Commercial \nCredit is well-positioned to maintain its \ndistinctiveness and achieve sustainable \nsuccess in today\'s dynamic business \nlandscape.\nMAINTAINING COMPLIANCE\nThe company has implemented a \ncomprehensive framework of policies and \nprocedures to govern various aspects of \nemployee rights, privileges, duties, and \nresponsibilities. These guidelines serve as \nessential tools for employees to navigate \ntheir daily interactions and address \nunforeseen situations effectively. Aligned \nwith the provisions of the Shop and Office \nEmployees Act No. 15 of 1954, the company \nmeticulously upholds these human \nresources practices.\nAdditionally, the company has formulated \nits own set of policies and operational', chunk_type: 'human_resources', index: 2}, {id: 'diesel_motor_engineering_plc_human_resources_3', content: 'proposition which aligns both personal and organisational \ngoals in order to keep them motivated. \nHuman Capital \nHuman \nCapital\nMANAGING OUR HUMAN CAPITAL\nAligned with the Aitken Spence Group, our HR strategy, policies and procedures facilitate a conducive and inclusive work environment \nwhich promotes equal opportunity for all our employees. The policies and procedures comply with the relevant Sri Lankan labour laws \nand regulatory standards and are benchmarked to industry best practices. \nSalaries and Beneﬁts\n(Rs. Mn)\n2019/20\n2020/21\n2021/22\n2022/23\n2023/240\n50\n100\n150\n200\n250\nRECRUITMENT POLICY\nGives preference to candidates \nresiding within close proximity \nto our properties.\nGROUP CODE OF ETHICS\nProvides a blueprint for professional and ethical conduct expected from our \nemployees when engaging with external and internal stakeholders. \n• Principles of Conduct\n• Conflict of Interest\n• Healthy Work Environment\n• Entertainment & Corporate Gifts\n• Self-Dealing & Fair-Dealing', chunk_type: 'human_resources', index: 3}, {id: 'diesel_motor_engineering_plc_human_resources_4', content: 'Employees Act No. 15 of 1954, the company \nmeticulously upholds these human \nresources practices.\nAdditionally, the company has formulated \nits own set of policies and operational \nprotocols, covering a wide spectrum of \ncrucial HR domains. These encompass \ngrievance handling, attendance and leave \nmanagement, disciplinary procedures, \nperformance evaluations, recruitment \nprocesses, orientation programs, resignation \nand termination protocols, retirement \npolicies, staff amenities, as well as \nprocedures for transfers and promotions.\nIn accordance with its forward-thinking \nethos, the company has also instituted \nseveral specialized policies including an \nAnti-Sexual Harassment Policy, a  \nWhistle-blower Policy, and an Ethical \nFramework. These initiatives aim to cultivate \na workplace culture that promotes respect \nand inclusivity, while instilling a sense of \nself-discipline among employees.\nMAINTAINING EFFECTIVE \nINFRASTRUCTURE FOR PEOPLE\nThe Company places a high value on', chunk_type: 'human_resources', index: 4}, {id: 'diesel_motor_engineering_plc_audit_internal_controls_0', content: 'We worked with our internal IT specialists to perform audit \nprocedures to test the technology control environment for key IT \napplications (systems) used in processing significant transactions \nand recording balances in the general ledger. We also tested \nautomated controls embedded within these systems which link the \ntechnology-enabled business processes. \nOur further audit procedures included:\nGeneral IT controls design, observation and operation \n z Assessing the governance and higher-level controls in \nplace across the IT Environment, including those regarding \npolicy design, policy review and awareness, and IT Risk \nManagement practices;\n z Obtaining an understanding and testing operating effectiveness \nof the sample of key controls operating over the information \ntechnology in relation to financial accounting and reporting \nsystems, including system access and system change \nmanagement, monitor system integrity, program development \nand computer operations;', chunk_type: 'audit_internal_controls', index: 0}, {id: 'diesel_motor_engineering_plc_audit_internal_controls_1', content: 'We worked with our internal IT specialists to perform audit procedures to test the \ntechnology control environment for key IT applications (systems) used in processing \nsignificant transactions and recording balances in the general ledger. We also tested \nautomated controls embedded within these systems which link the technology-enabled \nbusiness processes. \nOur further audit procedures included:\nGeneral IT controls design, observation and operation \n• Assessing the governance and higher-level controls in place across the IT \nEnvironment, including those regarding policy design, policy review and awareness, \nand IT Risk Management practices;', chunk_type: 'audit_internal_controls', index: 1}, {id: 'diesel_motor_engineering_plc_audit_internal_controls_2', content: 'audit procedures, including the procedures performed to address the matters below, provide the basis for our audit opinion \non the accompanying financial statements.\n(Contd…2)', chunk_type: 'audit_internal_controls', index: 2}, {id: 'diesel_motor_engineering_plc_audit_internal_controls_3', content: 'and procedures for safeguarding assets, \npreventing and detecting frauds and/\nor errors as well as other irregularities \nwhich are reviewed, evaluated and \nupdated on an ongoing basis. \nWe confirm, based on our evaluations, \nthat there were no significant \ndeficiencies and material weaknesses \nin the design or operation of internal \ncontrols of the detection of fraud \nthat involves management or other \nemployees. Our Internal Auditors \nhave conducted periodic audits to \nprovide reasonable assurance that the \nestablished policies and procedures \nwere consistently followed. However, \nthere are inherent limitations that \nshould be recognised in weighing the \nassurances provided by any system of \ninternal control and accounting. \nThe Annual Report of the Directors \non pages 4 to 6 briefly covers the \nCompany’s Internal Control Over \nFinancial Reporting. In addition, the \nDirectors’ Statement on Internal \nControl Over Financial Reporting is \nalso provided on pages 174 and 175.', chunk_type: 'audit_internal_controls', index: 3}, {id: 'diesel_motor_engineering_plc_audit_internal_controls_4', content: 'statements of the current period. These matters were addressed in \nthe context of our audit of the financial statements as a whole, and \nin forming our opinion thereon, and we do not provide a separate \nopinion on these matters. For each matter below, our description of \nhow our audit addressed the matter is provided in that context.\nWe have fulfilled the responsibilities described in the Auditor’s \nresponsibilities for the audit of the financial statements section of \nour report, including in relation to these matters.  Accordingly, our \naudit included the performance of procedures designed to respond \nto our assessment of the risks of material misstatement of the \nfinancial statements. The results of our audit procedures, including \nthe procedures performed to address the matters below, provide the \nbasis for our audit opinion on the accompanying financial statements.', chunk_type: 'audit_internal_controls', index: 4}] AS chunk MERGE (ch:Chunk {id: chunk.id}) ON CREATE SET ch.content = chunk.content, ch.chunk_type = chunk.chunk_type, ch.index = chunk.index;
+MERGE (c:Company {name: 'DFCC Bank PLC'}) ON CREATE SET c.id = 'dfcc_bank_plc';
 
 // Query 11
-MATCH (c:Company {name: 'Diesel Motor Engineering PLC'}) WITH c UNWIND ['diesel_motor_engineering_plc_directors_and_executives_0', 'diesel_motor_engineering_plc_directors_and_executives_1', 'diesel_motor_engineering_plc_directors_and_executives_2', 'diesel_motor_engineering_plc_directors_and_executives_3', 'diesel_motor_engineering_plc_directors_and_executives_4', 'diesel_motor_engineering_plc_financial_performance_0', 'diesel_motor_engineering_plc_financial_performance_1', 'diesel_motor_engineering_plc_financial_performance_2', 'diesel_motor_engineering_plc_financial_performance_3', 'diesel_motor_engineering_plc_financial_performance_4', 'diesel_motor_engineering_plc_risk_factors_0', 'diesel_motor_engineering_plc_risk_factors_1', 'diesel_motor_engineering_plc_risk_factors_2', 'diesel_motor_engineering_plc_risk_factors_3', 'diesel_motor_engineering_plc_risk_factors_4', 'diesel_motor_engineering_plc_business_segments_0', 'diesel_motor_engineering_plc_business_segments_1', 'diesel_motor_engineering_plc_business_segments_2', 'diesel_motor_engineering_plc_business_segments_3', 'diesel_motor_engineering_plc_business_segments_4', 'diesel_motor_engineering_plc_future_outlook_0', 'diesel_motor_engineering_plc_future_outlook_1', 'diesel_motor_engineering_plc_future_outlook_2', 'diesel_motor_engineering_plc_future_outlook_3', 'diesel_motor_engineering_plc_future_outlook_4', 'diesel_motor_engineering_plc_governance_structure_0', 'diesel_motor_engineering_plc_governance_structure_1', 'diesel_motor_engineering_plc_governance_structure_2', 'diesel_motor_engineering_plc_governance_structure_3', 'diesel_motor_engineering_plc_governance_structure_4', 'diesel_motor_engineering_plc_sustainability_initiatives_0', 'diesel_motor_engineering_plc_sustainability_initiatives_1', 'diesel_motor_engineering_plc_sustainability_initiatives_2', 'diesel_motor_engineering_plc_sustainability_initiatives_3', 'diesel_motor_engineering_plc_sustainability_initiatives_4', 'diesel_motor_engineering_plc_market_position_0', 'diesel_motor_engineering_plc_market_position_1', 'diesel_motor_engineering_plc_market_position_2', 'diesel_motor_engineering_plc_market_position_3', 'diesel_motor_engineering_plc_market_position_4', 'diesel_motor_engineering_plc_regulatory_compliance_0', 'diesel_motor_engineering_plc_regulatory_compliance_1', 'diesel_motor_engineering_plc_regulatory_compliance_2', 'diesel_motor_engineering_plc_regulatory_compliance_3', 'diesel_motor_engineering_plc_regulatory_compliance_4', 'diesel_motor_engineering_plc_operational_highlights_0', 'diesel_motor_engineering_plc_operational_highlights_1', 'diesel_motor_engineering_plc_operational_highlights_2', 'diesel_motor_engineering_plc_operational_highlights_3', 'diesel_motor_engineering_plc_operational_highlights_4', 'diesel_motor_engineering_plc_dividend_policy_0', 'diesel_motor_engineering_plc_dividend_policy_1', 'diesel_motor_engineering_plc_dividend_policy_2', 'diesel_motor_engineering_plc_dividend_policy_3', 'diesel_motor_engineering_plc_dividend_policy_4', 'diesel_motor_engineering_plc_capital_structure_0', 'diesel_motor_engineering_plc_capital_structure_1', 'diesel_motor_engineering_plc_capital_structure_2', 'diesel_motor_engineering_plc_capital_structure_3', 'diesel_motor_engineering_plc_capital_structure_4', 'diesel_motor_engineering_plc_technology_digital_0', 'diesel_motor_engineering_plc_technology_digital_1', 'diesel_motor_engineering_plc_technology_digital_2', 'diesel_motor_engineering_plc_technology_digital_3', 'diesel_motor_engineering_plc_technology_digital_4', 'diesel_motor_engineering_plc_human_resources_0', 'diesel_motor_engineering_plc_human_resources_1', 'diesel_motor_engineering_plc_human_resources_2', 'diesel_motor_engineering_plc_human_resources_3', 'diesel_motor_engineering_plc_human_resources_4', 'diesel_motor_engineering_plc_audit_internal_controls_0', 'diesel_motor_engineering_plc_audit_internal_controls_1', 'diesel_motor_engineering_plc_audit_internal_controls_2', 'diesel_motor_engineering_plc_audit_internal_controls_3', 'diesel_motor_engineering_plc_audit_internal_controls_4'] AS chunk_id MATCH (ch:Chunk {id: chunk_id}) MERGE (c)-[:HAS_CONTENT]->(ch);
+MERGE (c:Company {name: 'Hatton National Bank PLC'}) ON CREATE SET c.id = 'hatton_national_bank_plc';
 
-// Total queries: 11
-// Generated on: 2025-09-30T13:26:10.856625
+// Query 12
+MERGE (c:Company {name: 'Hong Kong & Shanghai Banking Corporation Ltd'}) ON CREATE SET c.id = 'hong_kong_and_shanghai_banking_corporation_ltd';
+
+// Query 13
+MERGE (c:Company {name: 'Nations Trust Bank PLC'}) ON CREATE SET c.id = 'nations_trust_bank_plc';
+
+// Query 14
+MERGE (c:Company {name: 'People\'s Bank'}) ON CREATE SET c.id = 'peoples_bank';
+
+// Query 15
+MERGE (c:Company {name: 'Sampath Bank PLC'}) ON CREATE SET c.id = 'sampath_bank_plc';
+
+// Query 16
+MERGE (c:Company {name: 'Standard Chartered Bank'}) ON CREATE SET c.id = 'standard_chartered_bank';
+
+// Query 17
+MERGE (c:Company {name: 'Union Bank of Colombo PLC'}) ON CREATE SET c.id = 'union_bank_of_colombo_plc';
+
+// Query 18
+MERGE (c:Company {name: 'KPMG'}) ON CREATE SET c.id = 'kpmg';
+
+// Query 19
+MERGE (p:Person {name: 'A. R. Pandithage'}) ON CREATE SET p.id = 'a_r_pandithage';
+
+// Query 20
+MERGE (p:Person {name: 'A. G. Pandithage'}) ON CREATE SET p.id = 'a_g_pandithage';
+
+// Query 21
+MERGE (p:Person {name: 'S. C. Algama'}) ON CREATE SET p.id = 's_c_algama';
+
+// Query 22
+MERGE (p:Person {name: 'B. C. S. A. P. Gooneratne'}) ON CREATE SET p.id = 'b_c_s_a_p_gooneratne';
+
+// Query 23
+MERGE (p:Person {name: 'P. K. W. Mahendra'}) ON CREATE SET p.id = 'p_k_w_mahendra';
+
+// Query 24
+MERGE (p:Person {name: 'S. R. W. M. C. Ranawana'}) ON CREATE SET p.id = 's_r_w_m_c_ranawana';
+
+// Query 25
+MERGE (p:Person {name: 'D. N. K. Kurukulasuriya'}) ON CREATE SET p.id = 'd_n_k_kurukulasuriya';
+
+// Query 26
+MERGE (p:Person {name: 'C. R. Pandithage'}) ON CREATE SET p.id = 'c_r_pandithage';
+
+// Query 27
+MERGE (p:Person {name: 'R. K. J. Gunasekera'}) ON CREATE SET p.id = 'r_k_j_gunasekera';
+
+// Query 28
+MERGE (p:Person {name: 'R. D. M. P. Wickramasinghe'}) ON CREATE SET p.id = 'r_d_m_p_wickramasinghe';
+
+// Query 29
+MERGE (p:Person {name: 'H. M. P. D. B. Dematawa'}) ON CREATE SET p.id = 'h_m_p_d_b_dematawa';
+
+// Query 30
+MERGE (p:Person {name: 'G. P. M. S. Karunaratne'}) ON CREATE SET p.id = 'g_p_m_s_karunaratne';
+
+// Query 31
+MERGE (p:Person {name: 'M. H. B. U. S. B. Mahagedara'}) ON CREATE SET p.id = 'm_h_b_u_s_b_mahagedara';
+
+// Query 32
+MERGE (p:Person {name: 'M. D. H. Peiris'}) ON CREATE SET p.id = 'm_d_h_peiris';
+
+// Query 33
+MERGE (p:Person {name: 'A. M. Pandithage'}) ON CREATE SET p.id = 'a_m_pandithage';
+
+// Query 34
+MERGE (p:Person {name: 'Dr. H. Cabral'}) ON CREATE SET p.id = 'dr_h_cabral';
+
+// Query 35
+MERGE (p:Person {name: 'A. D. B. Talwatte'}) ON CREATE SET p.id = 'a_d_b_talwatte';
+
+// Query 36
+MERGE (p:Person {name: 'J. M. De Silva'}) ON CREATE SET p.id = 'j_m_de_silva';
+
+// Query 37
+MERGE (p:Person {name: 'H. M. A. Jayesinghe'}) ON CREATE SET p.id = 'h_m_a_jayesinghe';
+
+// Query 38
+MERGE (p:Person {name: 'Mrs. J. C. Pandithage'}) ON CREATE SET p.id = 'mrs_j_c_pandithage';
+
+// Query 39
+MERGE (p:Person {name: 'Mr. A. N. Algama'}) ON CREATE SET p.id = 'mr_a_n_algama';
+
+// Query 40
+MERGE (p:Person {name: 'Mr. T. G. H. Peries'}) ON CREATE SET p.id = 'mr_t_g_h_peries';
+
+// Query 41
+MERGE (p:Person {name: 'Mr. D. Jayanntha'}) ON CREATE SET p.id = 'mr_d_jayanntha';
+
+// Query 42
+MERGE (p:Person {name: 'Miss. T. R. N. C. Peries'}) ON CREATE SET p.id = 'miss_t_r_n_c_peries';
+
+// Query 43
+MERGE (p:Person {name: 'Mr. N. U. Algama'}) ON CREATE SET p.id = 'mr_n_u_algama';
+
+// Query 44
+MERGE (p:Person {name: 'Mr. M. L. Algama'}) ON CREATE SET p.id = 'mr_m_l_algama';
+
+// Query 45
+MERGE (p:Person {name: 'Ms. L. S. Algama'}) ON CREATE SET p.id = 'ms_l_s_algama';
+
+// Query 46
+MERGE (p:Person {name: 'Mrs. I. S. Salgado'}) ON CREATE SET p.id = 'mrs_i_s_salgado';
+
+// Query 47
+MERGE (s:Sector {name: 'Automobiles and Components'}) ON CREATE SET s.id = 'automobiles_and_components';
+
+// Query 48
+MERGE (s:Sector {name: 'Capital Goods'}) ON CREATE SET s.id = 'capital_goods';
+
+// Query 49
+MERGE (s:Sector {name: 'Transportation'}) ON CREATE SET s.id = 'transportation';
+
+// Query 50
+MERGE (s:Sector {name: 'Retailing'}) ON CREATE SET s.id = 'retailing';
+
+// Query 51
+MERGE (s:Sector {name: 'Food, Beverage, and Tobacco'}) ON CREATE SET s.id = 'food_beverage_and_tobacco';
+
+// Query 52
+MERGE (s:Sector {name: 'Utilities'}) ON CREATE SET s.id = 'utilities';
+
+// Query 53
+MERGE (s:Sector {name: 'Health Care Equipment and Services'}) ON CREATE SET s.id = 'health_care_equipment_and_services';
+
+// Query 54
+MERGE (s:Sector {name: 'Pharmaceuticals, Biotechnology, and Life Sciences'}) ON CREATE SET s.id = 'pharmaceuticals_biotechnology_and_life_sciences';
+
+// Query 55
+MERGE (pr:Product {name: 'Brand New Vehicles'}) ON CREATE SET pr.id = 'brand_new_vehicles';
+
+// Query 56
+MERGE (pr:Product {name: 'Special Purpose Vehicles'}) ON CREATE SET pr.id = 'special_purpose_vehicles';
+
+// Query 57
+MERGE (pr:Product {name: 'Pre-owned Vehicles'}) ON CREATE SET pr.id = 'pre_owned_vehicles';
+
+// Query 58
+MERGE (pr:Product {name: 'Automotive Engineering Services'}) ON CREATE SET pr.id = 'automotive_engineering_services';
+
+// Query 59
+MERGE (pr:Product {name: 'Marine Engineering Services'}) ON CREATE SET pr.id = 'marine_engineering_services';
+
+// Query 60
+MERGE (pr:Product {name: 'Vehicle Assembly'}) ON CREATE SET pr.id = 'vehicle_assembly';
+
+// Query 61
+MERGE (pr:Product {name: 'Pumps'}) ON CREATE SET pr.id = 'pumps';
+
+// Query 62
+MERGE (pr:Product {name: 'Camper Trailers'}) ON CREATE SET pr.id = 'camper_trailers';
+
+// Query 63
+MERGE (pr:Product {name: 'Engineering Education'}) ON CREATE SET pr.id = 'engineering_education';
+
+// Query 64
+MERGE (pr:Product {name: 'Automotive Parts'}) ON CREATE SET pr.id = 'automotive_parts';
+
+// Query 65
+MERGE (pr:Product {name: 'Tyres'}) ON CREATE SET pr.id = 'tyres';
+
+// Query 66
+MERGE (pr:Product {name: 'Auto-care Solutions'}) ON CREATE SET pr.id = 'auto_care_solutions';
+
+// Query 67
+MERGE (pr:Product {name: 'Lighting Products'}) ON CREATE SET pr.id = 'lighting_products';
+
+// Query 68
+MERGE (pr:Product {name: 'Power Tools'}) ON CREATE SET pr.id = 'power_tools';
+
+// Query 69
+MERGE (pr:Product {name: 'Home Appliances'}) ON CREATE SET pr.id = 'home_appliances';
+
+// Query 70
+MERGE (pr:Product {name: 'Gardening Solutions'}) ON CREATE SET pr.id = 'gardening_solutions';
+
+// Query 71
+MERGE (pr:Product {name: 'Construction Solutions'}) ON CREATE SET pr.id = 'construction_solutions';
+
+// Query 72
+MERGE (pr:Product {name: 'Construction Machinery'}) ON CREATE SET pr.id = 'construction_machinery';
+
+// Query 73
+MERGE (pr:Product {name: 'Storage Solutions'}) ON CREATE SET pr.id = 'storage_solutions';
+
+// Query 74
+MERGE (pr:Product {name: 'Material Handling Solutions'}) ON CREATE SET pr.id = 'material_handling_solutions';
+
+// Query 75
+MERGE (pr:Product {name: 'Car Parking Solutions'}) ON CREATE SET pr.id = 'car_parking_solutions';
+
+// Query 76
+MERGE (pr:Product {name: 'Water & Fluid Management Projects'}) ON CREATE SET pr.id = 'water_and_fluid_management_projects';
+
+// Query 77
+MERGE (pr:Product {name: 'Fertilizers'}) ON CREATE SET pr.id = 'fertilizers';
+
+// Query 78
+MERGE (pr:Product {name: 'Seeds'}) ON CREATE SET pr.id = 'seeds';
+
+// Query 79
+MERGE (pr:Product {name: 'Agrochemicals'}) ON CREATE SET pr.id = 'agrochemicals';
+
+// Query 80
+MERGE (pr:Product {name: 'Plant Nutrients'}) ON CREATE SET pr.id = 'plant_nutrients';
+
+// Query 81
+MERGE (pr:Product {name: 'Agri Machinery'}) ON CREATE SET pr.id = 'agri_machinery';
+
+// Query 82
+MERGE (pr:Product {name: 'Organic Food'}) ON CREATE SET pr.id = 'organic_food';
+
+// Query 83
+MERGE (pr:Product {name: 'Agri Advisory Services'}) ON CREATE SET pr.id = 'agri_advisory_services';
+
+// Query 84
+MERGE (pr:Product {name: 'Agriculture Pipes'}) ON CREATE SET pr.id = 'agriculture_pipes';
+
+// Query 85
+MERGE (pr:Product {name: 'Micro-irrigation'}) ON CREATE SET pr.id = 'micro_irrigation';
+
+// Query 86
+MERGE (pr:Product {name: 'Greenhouse Projects'}) ON CREATE SET pr.id = 'greenhouse_projects';
+
+// Query 87
+MERGE (pr:Product {name: 'Coconut Shell Charcoal'}) ON CREATE SET pr.id = 'coconut_shell_charcoal';
+
+// Query 88
+MERGE (pr:Product {name: 'Power Engineering Solutions'}) ON CREATE SET pr.id = 'power_engineering_solutions';
+
+// Query 89
+MERGE (pr:Product {name: 'Energy Solutions'}) ON CREATE SET pr.id = 'energy_solutions';
+
+// Query 90
+MERGE (pr:Product {name: 'Solar Power Generation'}) ON CREATE SET pr.id = 'solar_power_generation';
+
+// Query 91
+MERGE (pr:Product {name: 'Building Technologies'}) ON CREATE SET pr.id = 'building_technologies';
+
+// Query 92
+MERGE (pr:Product {name: 'Elevator Solutions'}) ON CREATE SET pr.id = 'elevator_solutions';
+
+// Query 93
+MERGE (pr:Product {name: 'Escalator Solutions'}) ON CREATE SET pr.id = 'escalator_solutions';
+
+// Query 94
+MERGE (pr:Product {name: 'Medical Equipment'}) ON CREATE SET pr.id = 'medical_equipment';
+
+// Query 95
+MERGE (pr:Product {name: 'Medical Consumables'}) ON CREATE SET pr.id = 'medical_consumables';
+
+// Query 96
+MERGE (pr:Product {name: 'Pharmaceuticals'}) ON CREATE SET pr.id = 'pharmaceuticals';
+
+// Query 97
+MERGE (pr:Product {name: 'Cardiology Devices'}) ON CREATE SET pr.id = 'cardiology_devices';
+
+// Query 98
+MERGE (pr:Product {name: 'Contrast Mediums'}) ON CREATE SET pr.id = 'contrast_mediums';
+
+// Query 99
+MERGE (m:Metric {name: 'Revenue'}) ON CREATE SET m.id = 'revenue', m.unit = 'Rs';
+
+// Query 100
+MERGE (m:Metric {name: 'Cost of Sales'}) ON CREATE SET m.id = 'cost_of_sales', m.unit = 'Rs';
+
+// Query 101
+MERGE (m:Metric {name: 'Gross Profit'}) ON CREATE SET m.id = 'gross_profit', m.unit = 'Rs';
+
+// Query 102
+MERGE (m:Metric {name: 'Other Operating Income'}) ON CREATE SET m.id = 'other_operating_income', m.unit = 'Rs';
+
+// Query 103
+MERGE (m:Metric {name: 'Selling and Distribution Expenses'}) ON CREATE SET m.id = 'selling_and_distribution_expenses', m.unit = 'Rs';
+
+// Query 104
+MERGE (m:Metric {name: 'Impairment Loss on Trade Receivables'}) ON CREATE SET m.id = 'impairment_loss_on_trade_receivables', m.unit = 'Rs';
+
+// Query 105
+MERGE (m:Metric {name: 'Administrative Expenses'}) ON CREATE SET m.id = 'administrative_expenses', m.unit = 'Rs';
+
+// Query 106
+MERGE (m:Metric {name: 'Operating Profit'}) ON CREATE SET m.id = 'operating_profit', m.unit = 'Rs';
+
+// Query 107
+MERGE (m:Metric {name: 'Finance Income'}) ON CREATE SET m.id = 'finance_income', m.unit = 'Rs';
+
+// Query 108
+MERGE (m:Metric {name: 'Finance Costs'}) ON CREATE SET m.id = 'finance_costs', m.unit = 'Rs';
+
+// Query 109
+MERGE (m:Metric {name: 'Net Finance Costs'}) ON CREATE SET m.id = 'net_finance_costs', m.unit = 'Rs';
+
+// Query 110
+MERGE (m:Metric {name: 'Share of Results of Equity-Accounted Investees'}) ON CREATE SET m.id = 'share_of_results_of_equity_accounted_investees', m.unit = 'Rs';
+
+// Query 111
+MERGE (m:Metric {name: 'Profit Before Tax'}) ON CREATE SET m.id = 'profit_before_tax', m.unit = 'Rs';
+
+// Query 112
+MERGE (m:Metric {name: 'Total Current Liabilities'}) ON CREATE SET m.id = 'total_current_liabilities', m.unit = 'Rs';
+
+// Query 113
+MERGE (m:Metric {name: 'Total Liabilities'}) ON CREATE SET m.id = 'total_liabilities', m.unit = 'Rs';
+
+// Query 114
+MERGE (m:Metric {name: 'Total Equity and Liabilities'}) ON CREATE SET m.id = 'total_equity_and_liabilities', m.unit = 'Rs';
+
+// Query 115
+MERGE (m:Metric {name: 'Total Assets'}) ON CREATE SET m.id = 'total_assets', m.unit = 'Rs';
+
+// Query 116
+MERGE (m:Metric {name: 'Stated Capital'}) ON CREATE SET m.id = 'stated_capital', m.unit = 'Rs';
+
+// Query 117
+MERGE (m:Metric {name: 'Other Components of Equity'}) ON CREATE SET m.id = 'other_components_of_equity', m.unit = 'Rs';
+
+// Query 118
+MERGE (m:Metric {name: 'Revenue Reserves'}) ON CREATE SET m.id = 'revenue_reserves', m.unit = 'Rs';
+
+// Query 119
+MERGE (m:Metric {name: 'Total Equity Attributable to Equity Holders of Parent'}) ON CREATE SET m.id = 'total_equity_attributable_to_equity_holders_of_parent', m.unit = 'Rs';
+
+// Query 120
+MERGE (m:Metric {name: 'Non-Controlling Interests'}) ON CREATE SET m.id = 'non_controlling_interests', m.unit = 'Rs';
+
+// Query 121
+MERGE (m:Metric {name: 'Total Equity'}) ON CREATE SET m.id = 'total_equity', m.unit = 'Rs';
+
+// Query 122
+MERGE (m:Metric {name: 'Interest Bearing Borrowings'}) ON CREATE SET m.id = 'interest_bearing_borrowings', m.unit = 'Rs';
+
+// Query 123
+MERGE (m:Metric {name: 'Lease Liabilities'}) ON CREATE SET m.id = 'lease_liabilities', m.unit = 'Rs';
+
+// Query 124
+MERGE (m:Metric {name: 'Employee Benefits'}) ON CREATE SET m.id = 'employee_benefits', m.unit = 'Rs';
+
+// Query 125
+MERGE (m:Metric {name: 'Deferred Tax Liabilities'}) ON CREATE SET m.id = 'deferred_tax_liabilities', m.unit = 'Rs';
+
+// Query 126
+MERGE (m:Metric {name: 'Contract Liabilities'}) ON CREATE SET m.id = 'contract_liabilities', m.unit = 'Rs';
+
+// Query 127
+MERGE (m:Metric {name: 'Net Asset Value Per Share'}) ON CREATE SET m.id = 'net_asset_value_per_share', m.unit = 'Rs';
+
+// Query 128
+MERGE (m:Metric {name: 'Quick Asset Ratio'}) ON CREATE SET m.id = 'quick_asset_ratio', m.unit = 'Ratio';
+
+// Query 129
+MERGE (m:Metric {name: 'Interest Cover'}) ON CREATE SET m.id = 'interest_cover', m.unit = 'Times';
+
+// Query 130
+MATCH (p:Person {name: 'A. R. Pandithage'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2024-09-30');
+
+// Query 131
+MATCH (p:Person {name: 'A. G. Pandithage'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Managing Director, Group Chief Executive Officer', r.as_of = date('2024-09-30');
+
+// Query 132
+MATCH (p:Person {name: 'A. M. Pandithage'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Board Member', r.as_of = date('2024-09-30');
+
+// Query 133
+MATCH (p:Person {name: 'B. C. S. A. P. Gooneratne'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director/Chief Financial Officer', r.as_of = date('2024-11-14');
+
+// Query 134
+MATCH (p:Person {name: 'Dr. H. Cabral'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Board Member', r.as_of = date('2024-09-30');
+
+// Query 135
+MATCH (p:Person {name: 'P. K. W. Mahendra'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Board Member', r.as_of = date('2024-09-30');
+
+// Query 136
+MATCH (p:Person {name: 'S. R. W. M. C. Ranawana'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Board Member', r.as_of = date('2024-09-30');
+
+// Query 137
+MATCH (p:Person {name: 'A. D. B. Talwatte'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Board Member', r.as_of = date('2024-09-30');
+
+// Query 138
+MATCH (p:Person {name: 'J. M. De Silva'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Board Member', r.as_of = date('2024-09-30');
+
+// Query 139
+MATCH (p:Person {name: 'D. N. K. Kurukulasuriya'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Board Member', r.as_of = date('2024-09-30');
+
+// Query 140
+MATCH (p:Person {name: 'C. R. Pandithage'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Board Member', r.as_of = date('2024-09-30');
+
+// Query 141
+MATCH (p:Person {name: 'H. M. A. Jayesinghe'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Board Member', r.as_of = date('2024-09-30');
+
+// Query 142
+MATCH (p:Person {name: 'S. C. Algama'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Group Management Committee Member', r.as_of = date('2024-09-30');
+
+// Query 143
+MATCH (p:Person {name: 'R. K. J. Gunasekera'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Group Management Committee Member', r.as_of = date('2024-09-30');
+
+// Query 144
+MATCH (p:Person {name: 'R. D. M. P. Wickramasinghe'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Group Management Committee Member', r.as_of = date('2024-09-30');
+
+// Query 145
+MATCH (p:Person {name: 'H. M. P. D. B. Dematawa'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Group Management Committee Member', r.as_of = date('2024-09-30');
+
+// Query 146
+MATCH (p:Person {name: 'G. P. M. S. Karunaratne'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Group Management Committee Member', r.as_of = date('2024-09-30');
+
+// Query 147
+MATCH (p:Person {name: 'M. H. B. U. S. B. Mahagedara'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'General Manager - Group Finance', r.as_of = date('2024-11-14');
+
+// Query 148
+MATCH (p:Person {name: 'M. D. H. Peiris'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Group Management Committee Member', r.as_of = date('2024-09-30');
+
+// Query 149
+MATCH (p:Person {name: 'A. R. Pandithage'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 2006924, r.pct = 21.74, r.as_of = date('2024-09-30');
+
+// Query 150
+MATCH (p:Person {name: 'A. G. Pandithage'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 593695, r.pct = 6.43, r.as_of = date('2024-09-30');
+
+// Query 151
+MATCH (p:Person {name: 'A. M. Pandithage'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 233138, r.pct = 2.53, r.as_of = date('2024-09-30');
+
+// Query 152
+MATCH (p:Person {name: 'C. R. Pandithage'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 228144, r.pct = 2.47, r.as_of = date('2024-09-30');
+
+// Query 153
+MATCH (c1:Company {name: 'Employee\'s Provident Fund'}), (c2:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (c1)-[r:OWNS_SHARES]->(c2) ON CREATE SET r.count = 1835870, r.pct = 19.89, r.as_of = date('2024-09-30');
+
+// Query 154
+MATCH (p:Person {name: 'Mrs. J. C. Pandithage'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 976042, r.pct = 10.57, r.as_of = date('2024-09-30');
+
+// Query 155
+MATCH (c1:Company {name: 'A & G Investments (Pvt) Ltd'}), (c2:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (c1)-[r:OWNS_SHARES]->(c2) ON CREATE SET r.count = 667395, r.pct = 7.23, r.as_of = date('2024-09-30');
+
+// Query 156
+MATCH (p:Person {name: 'S. C. Algama'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 590497, r.pct = 6.40, r.as_of = date('2024-09-30');
+
+// Query 157
+MATCH (p:Person {name: 'Mr. A. N. Algama'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 222288, r.pct = 2.41, r.as_of = date('2024-09-30');
+
+// Query 158
+MATCH (c1:Company {name: 'Almar Trading Co (Pvt) Ltd'}), (c2:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (c1)-[r:OWNS_SHARES]->(c2) ON CREATE SET r.count = 198900, r.pct = 2.15, r.as_of = date('2024-09-30');
+
+// Query 159
+MATCH (p:Person {name: 'Mr. T. G. H. Peries'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 189407, r.pct = 2.05, r.as_of = date('2024-09-30');
+
+// Query 160
+MATCH (p:Person {name: 'Mr. D. Jayanntha'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 166400, r.pct = 1.80, r.as_of = date('2024-09-30');
+
+// Query 161
+MATCH (p:Person {name: 'Miss. T. R. N. C. Peries'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 153929, r.pct = 1.67, r.as_of = date('2024-09-30');
+
+// Query 162
+MATCH (p:Person {name: 'Mr. N. U. Algama'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 123598, r.pct = 1.34, r.as_of = date('2024-09-30');
+
+// Query 163
+MATCH (c1:Company {name: 'Seylan Bank PLC'}), (c2:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (c1)-[r:OWNS_SHARES]->(c2) ON CREATE SET r.count = 85200, r.pct = 0.92, r.as_of = date('2024-09-30');
+
+// Query 164
+MATCH (p:Person {name: 'Mr. M. L. Algama'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 69976, r.pct = 0.76, r.as_of = date('2024-09-30');
+
+// Query 165
+MATCH (p:Person {name: 'Ms. L. S. Algama'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 69975, r.pct = 0.76, r.as_of = date('2024-09-30');
+
+// Query 166
+MATCH (c1:Company {name: 'Bank Of Ceylon'}), (c2:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (c1)-[r:OWNS_SHARES]->(c2) ON CREATE SET r.count = 61054, r.pct = 0.66, r.as_of = date('2024-09-30');
+
+// Query 167
+MATCH (c1:Company {name: 'Rubber Investment Trust Ltd'}), (c2:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (c1)-[r:OWNS_SHARES]->(c2) ON CREATE SET r.count = 52761, r.pct = 0.57, r.as_of = date('2024-09-30');
+
+// Query 168
+MATCH (p:Person {name: 'Mrs. I. S. Salgado'}), (c:Company {name: 'Diesel & Motor Engineering PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 47840, r.pct = 0.52, r.as_of = date('2024-09-30');
+
+// Query 169
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (s:Sector {name: 'Automobiles and Components'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 170
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (s:Sector {name: 'Capital Goods'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 171
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (s:Sector {name: 'Transportation'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 172
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (s:Sector {name: 'Retailing'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 173
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (s:Sector {name: 'Food, Beverage, and Tobacco'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 174
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (s:Sector {name: 'Utilities'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 175
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (s:Sector {name: 'Health Care Equipment and Services'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 176
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (s:Sector {name: 'Pharmaceuticals, Biotechnology, and Life Sciences'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 177
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Brand New Vehicles'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 178
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Special Purpose Vehicles'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 179
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Pre-owned Vehicles'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 180
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Automotive Engineering Services'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 181
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Marine Engineering Services'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 182
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Vehicle Assembly'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 183
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Pumps'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 184
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Camper Trailers'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 185
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Engineering Education'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 186
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Automotive Parts'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 187
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Tyres'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 188
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Auto-care Solutions'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 189
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Lighting Products'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 190
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Power Tools'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 191
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Home Appliances'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 192
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Gardening Solutions'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 193
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Construction Solutions'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 194
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Construction Machinery'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 195
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Storage Solutions'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 196
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Material Handling Solutions'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 197
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Car Parking Solutions'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 198
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Water & Fluid Management Projects'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 199
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Fertilizers'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 200
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Seeds'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 201
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Agrochemicals'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 202
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Plant Nutrients'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 203
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Agri Machinery'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 204
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Organic Food'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 205
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Agri Advisory Services'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 206
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Agriculture Pipes'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 207
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Micro-irrigation'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 208
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Greenhouse Projects'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 209
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Coconut Shell Charcoal'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 210
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Power Engineering Solutions'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 211
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Energy Solutions'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 212
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Solar Power Generation'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 213
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Building Technologies'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 214
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Elevator Solutions'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 215
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Escalator Solutions'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 216
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Medical Equipment'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 217
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Medical Consumables'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 218
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Pharmaceuticals'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 219
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Cardiology Devices'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 220
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (pr:Product {name: 'Contrast Mediums'}) MERGE (c)-[:OFFERS]->(pr);
+
+// Query 221
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 43644295000.0, r.as_of = date('2024-03-31');
+
+// Query 222
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 21518668000.0, r.as_of = date('2024-09-30');
+
+// Query 223
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 19652459000.0, r.as_of = date('2023-09-30');
+
+// Query 224
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Cost of Sales'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -31790151000.0, r.as_of = date('2024-03-31');
+
+// Query 225
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Cost of Sales'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -16194026000.0, r.as_of = date('2024-09-30');
+
+// Query 226
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Cost of Sales'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -14066533000.0, r.as_of = date('2023-09-30');
+
+// Query 227
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Gross Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 11854144000.0, r.as_of = date('2024-03-31');
+
+// Query 228
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Gross Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 5324642000.0, r.as_of = date('2024-09-30');
+
+// Query 229
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Gross Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 5585926000.0, r.as_of = date('2023-09-30');
+
+// Query 230
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Other Operating Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 575243000.0, r.as_of = date('2024-03-31');
+
+// Query 231
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Other Operating Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 285556000.0, r.as_of = date('2024-09-30');
+
+// Query 232
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Other Operating Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 437614000.0, r.as_of = date('2023-09-30');
+
+// Query 233
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Selling and Distribution Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -884002000.0, r.as_of = date('2024-03-31');
+
+// Query 234
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Selling and Distribution Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -639336000.0, r.as_of = date('2024-09-30');
+
+// Query 235
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Selling and Distribution Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -471473000.0, r.as_of = date('2023-09-30');
+
+// Query 236
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Impairment Loss on Trade Receivables'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -105241000.0, r.as_of = date('2024-03-31');
+
+// Query 237
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Impairment Loss on Trade Receivables'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -37134000.0, r.as_of = date('2024-09-30');
+
+// Query 238
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Impairment Loss on Trade Receivables'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -93230000.0, r.as_of = date('2023-09-30');
+
+// Query 239
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Administrative Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -8354442000.0, r.as_of = date('2024-03-31');
+
+// Query 240
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Administrative Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -4257665000.0, r.as_of = date('2024-09-30');
+
+// Query 241
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Administrative Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -4249817000.0, r.as_of = date('2023-09-30');
+
+// Query 242
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3085702000.0, r.as_of = date('2024-03-31');
+
+// Query 243
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 676063000.0, r.as_of = date('2024-09-30');
+
+// Query 244
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1209020000.0, r.as_of = date('2023-09-30');
+
+// Query 245
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Finance Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 58173000.0, r.as_of = date('2024-03-31');
+
+// Query 246
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Finance Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 50150000.0, r.as_of = date('2024-09-30');
+
+// Query 247
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Finance Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 151490000.0, r.as_of = date('2023-09-30');
+
+// Query 248
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Finance Costs'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -2992174000.0, r.as_of = date('2024-03-31');
+
+// Query 249
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Finance Costs'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -1292895000.0, r.as_of = date('2024-09-30');
+
+// Query 250
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Finance Costs'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -1646055000.0, r.as_of = date('2023-09-30');
+
+// Query 251
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Net Finance Costs'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -2934001000.0, r.as_of = date('2024-03-31');
+
+// Query 252
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Net Finance Costs'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -1242745000.0, r.as_of = date('2024-09-30');
+
+// Query 253
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Net Finance Costs'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -1494565000.0, r.as_of = date('2023-09-30');
+
+// Query 254
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Share of Results of Equity-Accounted Investees'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 31410000.0, r.as_of = date('2024-03-31');
+
+// Query 255
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Share of Results of Equity-Accounted Investees'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 29334000.0, r.as_of = date('2024-09-30');
+
+// Query 256
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Share of Results of Equity-Accounted Investees'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -5752000.0, r.as_of = date('2023-09-30');
+
+// Query 257
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -537348000.0, r.as_of = date('2024-09-30');
+
+// Query 258
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -291297000.0, r.as_of = date('2023-09-30');
+
+// Query 259
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Current Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 30091494000.0, r.as_of = date('2024-09-30');
+
+// Query 260
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Current Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 24370509000.0, r.as_of = date('2023-09-30');
+
+// Query 261
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Current Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 20979167000.0, r.as_of = date('2024-03-31');
+
+// Query 262
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Current Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 19121546000.0, r.as_of = date('2023-03-31');
+
+// Query 263
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 37266803000.0, r.as_of = date('2024-09-30');
+
+// Query 264
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 29222782000.0, r.as_of = date('2023-09-30');
+
+// Query 265
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 27089889000.0, r.as_of = date('2024-03-31');
+
+// Query 266
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 23160803000.0, r.as_of = date('2023-03-31');
+
+// Query 267
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Equity and Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 53820293000.0, r.as_of = date('2024-09-30');
+
+// Query 268
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Equity and Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 44153440000.0, r.as_of = date('2023-09-30');
+
+// Query 269
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Equity and Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 42528208000.0, r.as_of = date('2024-03-31');
+
+// Query 270
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Equity and Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 36842860000.0, r.as_of = date('2023-03-31');
+
+// Query 271
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 53820293000.0, r.as_of = date('2024-09-30');
+
+// Query 272
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 44153440000.0, r.as_of = date('2023-09-30');
+
+// Query 273
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 42528208000.0, r.as_of = date('2024-03-31');
+
+// Query 274
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 36842860000.0, r.as_of = date('2023-03-31');
+
+// Query 275
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Stated Capital'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 620578000.0, r.as_of = date('2024-03-31');
+
+// Query 276
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Stated Capital'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 620578000.0, r.as_of = date('2023-03-31');
+
+// Query 277
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Stated Capital'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 620578000.0, r.as_of = date('2024-09-30');
+
+// Query 278
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Stated Capital'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 620578000.0, r.as_of = date('2023-09-30');
+
+// Query 279
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Other Components of Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 7102059000.0, r.as_of = date('2024-03-31');
+
+// Query 280
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Other Components of Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 7107697000.0, r.as_of = date('2023-03-31');
+
+// Query 281
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Other Components of Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 7119923000.0, r.as_of = date('2024-09-30');
+
+// Query 282
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Other Components of Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 5545642000.0, r.as_of = date('2023-09-30');
+
+// Query 283
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Revenue Reserves'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 8679535000.0, r.as_of = date('2024-03-31');
+
+// Query 284
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Revenue Reserves'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 7699680000.0, r.as_of = date('2023-03-31');
+
+// Query 285
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Revenue Reserves'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 8281775000.0, r.as_of = date('2024-09-30');
+
+// Query 286
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Revenue Reserves'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 8397686000.0, r.as_of = date('2023-09-30');
+
+// Query 287
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Equity Attributable to Equity Holders of Parent'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 16402172000.0, r.as_of = date('2024-03-31');
+
+// Query 288
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Equity Attributable to Equity Holders of Parent'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 15427955000.0, r.as_of = date('2023-03-31');
+
+// Query 289
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Equity Attributable to Equity Holders of Parent'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 16022276000.0, r.as_of = date('2024-09-30');
+
+// Query 290
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Equity Attributable to Equity Holders of Parent'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 14563906000.0, r.as_of = date('2023-09-30');
+
+// Query 291
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Non-Controlling Interests'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 446463000.0, r.as_of = date('2024-03-31');
+
+// Query 292
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Non-Controlling Interests'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.0, r.as_of = date('2023-03-31');
+
+// Query 293
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Non-Controlling Interests'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 531214000.0, r.as_of = date('2024-09-30');
+
+// Query 294
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Non-Controlling Interests'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 366752000.0, r.as_of = date('2023-09-30');
+
+// Query 295
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 16848635000.0, r.as_of = date('2024-03-31');
+
+// Query 296
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 15427955000.0, r.as_of = date('2023-03-31');
+
+// Query 297
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 16553490000.0, r.as_of = date('2024-09-30');
+
+// Query 298
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 14930658000.0, r.as_of = date('2023-09-30');
+
+// Query 299
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Interest Bearing Borrowings'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2114973000.0, r.as_of = date('2024-03-31');
+
+// Query 300
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Interest Bearing Borrowings'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1899630000.0, r.as_of = date('2023-03-31');
+
+// Query 301
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Interest Bearing Borrowings'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2017916000.0, r.as_of = date('2024-09-30');
+
+// Query 302
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Interest Bearing Borrowings'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1125650000.0, r.as_of = date('2023-09-30');
+
+// Query 303
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Lease Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 517967000.0, r.as_of = date('2024-03-31');
+
+// Query 304
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Lease Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 373096000.0, r.as_of = date('2023-03-31');
+
+// Query 305
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Lease Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 524268000.0, r.as_of = date('2024-09-30');
+
+// Query 306
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Lease Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 307153000.0, r.as_of = date('2023-09-30');
+
+// Query 307
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Employee Benefits'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1241371000.0, r.as_of = date('2024-03-31');
+
+// Query 308
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Employee Benefits'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1085397000.0, r.as_of = date('2023-03-31');
+
+// Query 309
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Employee Benefits'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1288135000.0, r.as_of = date('2024-09-30');
+
+// Query 310
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Employee Benefits'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1063479000.0, r.as_of = date('2023-09-30');
+
+// Query 311
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Deferred Tax Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2860303000.0, r.as_of = date('2024-03-31');
+
+// Query 312
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Deferred Tax Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2860303000.0, r.as_of = date('2023-03-31');
+
+// Query 313
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Deferred Tax Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2911484000.0, r.as_of = date('2024-09-30');
+
+// Query 314
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Deferred Tax Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2168825000.0, r.as_of = date('2023-09-30');
+
+// Query 315
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Contract Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 868681000.0, r.as_of = date('2024-03-31');
+
+// Query 316
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Contract Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 95090000.0, r.as_of = date('2023-03-31');
+
+// Query 317
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Contract Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 433506000.0, r.as_of = date('2024-09-30');
+
+// Query 318
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Contract Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 187166000.0, r.as_of = date('2023-09-30');
+
+// Query 319
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Net Asset Value Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1735.61, r.as_of = date('2024-09-30');
+
+// Query 320
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Net Asset Value Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1577.63, r.as_of = date('2023-09-30');
+
+// Query 321
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Quick Asset Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.69, r.as_of = date('2024-09-30');
+
+// Query 322
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Quick Asset Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.62, r.as_of = date('2023-09-30');
+
+// Query 323
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Interest Cover'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.58, r.as_of = date('2024-09-30');
+
+// Query 324
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Interest Cover'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.81, r.as_of = date('2023-09-30');
+
+// Query 325
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 32557940000.0, r.as_of = date('2024-03-31'), r.year = 2024;
+
+// Query 326
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 16823287000.0, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 327
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 14738230000.0, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 328
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Cost of Sales'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -23364689000.0, r.as_of = date('2024-03-31'), r.year = 2024;
+
+// Query 329
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Cost of Sales'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -12567740000.0, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 330
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Cost of Sales'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -10232918000.0, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 331
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Gross Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 9193251000.0, r.as_of = date('2024-03-31'), r.year = 2024;
+
+// Query 332
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Gross Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 4255547000.0, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 333
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Gross Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 4505312000.0, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 334
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Other Operating Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 771686000.0, r.as_of = date('2024-03-31'), r.year = 2024;
+
+// Query 335
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Other Operating Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 559064000.0, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 336
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Other Operating Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 432380000.0, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 337
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Selling and Distribution Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -804412000.0, r.as_of = date('2024-03-31'), r.year = 2024;
+
+// Query 338
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Selling and Distribution Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -552752000.0, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 339
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Selling and Distribution Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -429821000.0, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 340
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Impairment Loss on Trade Receivables'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -50790000.0, r.as_of = date('2024-03-31'), r.year = 2024;
+
+// Query 341
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Impairment Loss on Trade Receivables'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 10004000.0, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 342
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Impairment Loss on Trade Receivables'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -50967000.0, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 343
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Administrative Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -6773205000.0, r.as_of = date('2024-03-31'), r.year = 2024;
+
+// Query 344
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Administrative Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -3413474000.0, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 345
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Administrative Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -3377948000.0, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 346
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2336530000.0, r.as_of = date('2024-03-31'), r.year = 2024;
+
+// Query 347
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 858389000.0, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 348
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1078956000.0, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 349
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Finance Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 669087000.0, r.as_of = date('2024-03-31'), r.year = 2024;
+
+// Query 350
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Finance Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 136783000.0, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 351
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Finance Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 380188000.0, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 352
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Finance Costs'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -2519671000.0, r.as_of = date('2024-03-31'), r.year = 2024;
+
+// Query 353
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Finance Costs'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -991986000.0, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 354
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Finance Costs'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -1351106000.0, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 355
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Net Finance Costs'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -1850584000.0, r.as_of = date('2024-03-31'), r.year = 2024;
+
+// Query 356
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Net Finance Costs'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -855203000.0, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 357
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Net Finance Costs'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -970918000.0, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 358
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 32520000.0, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 359
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 102286000.0, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 360
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Current Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 24541068000.0, r.as_of = date('2024-03-31'), r.year = 2024;
+
+// Query 361
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Current Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 19395774000.0, r.as_of = date('2023-03-31'), r.year = 2023;
+
+// Query 362
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 32144363000.0, r.as_of = date('2024-03-31'), r.year = 2024;
+
+// Query 363
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 25709290000.0, r.as_of = date('2023-03-31'), r.year = 2023;
+
+// Query 364
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Equity and Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 48992998000.0, r.as_of = date('2024-03-31'), r.year = 2024;
+
+// Query 365
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Equity and Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 41137245000.0, r.as_of = date('2023-03-31'), r.year = 2023;
+
+// Query 366
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 48992998000.0, r.as_of = date('2024-03-31'), r.year = 2024;
+
+// Query 367
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 41137245000.0, r.as_of = date('2023-03-31'), r.year = 2023;
+
+// Query 368
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Stated Capital'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 620578000.0, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 369
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Stated Capital'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 620578000.0, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 370
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Other Components of Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 7131040000.0, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 371
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Other Components of Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 5607323000.0, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 372
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Revenue Reserves'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 7686701000.0, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 373
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Revenue Reserves'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 7454156000.0, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 374
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Equity Attributable to Equity Holders of Parent'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 15438319000.0, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 375
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Equity Attributable to Equity Holders of Parent'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 13682057000.0, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 376
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Non-Controlling Interests'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.0, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 377
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Non-Controlling Interests'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.0, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 378
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 15438319000.0, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 379
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 13682057000.0, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 380
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Interest Bearing Borrowings'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1595723000.0, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 381
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Interest Bearing Borrowings'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 863625000.0, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 382
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Lease Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 339398000.0, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 383
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Lease Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 140508000.0, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 384
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Employee Benefits'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1121383000.0, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 385
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Employee Benefits'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 932627000.0, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 386
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Deferred Tax Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2852105000.0, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 387
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Deferred Tax Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2099139000.0, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 388
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Contract Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 202113000.0, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 389
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Contract Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3358000.0, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 390
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Net Asset Value Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1672.35, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 391
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Net Asset Value Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1482.11, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 392
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Quick Asset Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.74, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 393
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Quick Asset Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.66, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 394
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Interest Cover'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1.03, r.as_of = date('2024-09-30'), r.year = 2024;
+
+// Query 395
+MATCH (c:Company {name: 'Diesel & Motor Engineering PLC'}), (m:Metric {name: 'Interest Cover'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1.08, r.as_of = date('2023-09-30'), r.year = 2023;
+
+// Query 396
+MATCH (c1:Company {name: 'Diesel & Motor Engineering PLC'}), (c2:Company {name: 'DIMO Lifeline (Pvt) Ltd'}) MERGE (c1)-[r:OWNS]->(c2) ON CREATE SET r.pct = 75.0, r.as_of = date('2024-09-30');
+
+
+// Total queries: 397
+// Generated on: 2025-10-02T18:42:15.417677

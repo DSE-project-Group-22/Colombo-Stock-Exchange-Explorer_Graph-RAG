@@ -1,29 +1,1058 @@
 // Query 1
-MERGE (c:Company {name: 'Softlogic Capital PLC'}) ON CREATE SET c.id = 'softlogic_capital_plc';
+MERGE (c:Company {name: 'Softlogic Capital PLC'}) ON CREATE SET c.id = 'softlogic_capital_plc', c.region = 'Sri Lanka', c.listed_on = 'Colombo Stock Exchange';
 
 // Query 2
-MERGE (p:Person {name: 'S.D.R. Arudpragasam'}) ON CREATE SET p.id = 's_d_r_arudpragasam';
+MERGE (c:Company {name: 'Softlogic Holdings PLC'}) ON CREATE SET c.id = 'softlogic_holdings_plc';
 
 // Query 3
-MERGE (p:Person {name: 'R.C.A. Welikala'}) ON CREATE SET p.id = 'r_c_a_welikala';
+MERGE (c:Company {name: 'Softlogic Finance PLC'}) ON CREATE SET c.id = 'softlogic_finance_plc';
 
 // Query 4
-MERGE (p:Person {name: 'R.N. Bopearatchy'}) ON CREATE SET p.id = 'r_n_bopearatchy';
+MERGE (c:Company {name: 'Softlogic Life Insurance PLC'}) ON CREATE SET c.id = 'softlogic_life_insurance_plc';
 
 // Query 5
-MATCH (p:Person {name: 'S.D.R. Arudpragasam'}), (c:Company {name: 'Softlogic Capital PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2025-03-31');
+MERGE (c:Company {name: 'SCAP ONE (PVT) LTD'}) ON CREATE SET c.id = 'scap_one_pvt_ltd';
 
 // Query 6
-MATCH (p:Person {name: 'R.C.A. Welikala'}), (c:Company {name: 'Softlogic Capital PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2025-03-31');
+MERGE (c:Company {name: 'S R ONE (PVT) LTD'}) ON CREATE SET c.id = 's_r_one_pvt_ltd';
 
 // Query 7
-MATCH (p:Person {name: 'R.N. Bopearatchy'}), (c:Company {name: 'Softlogic Capital PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2025-03-31');
+MERGE (c:Company {name: 'Softlogic Stockbrokers (Pvt) Ltd'}) ON CREATE SET c.id = 'softlogic_stockbrokers_pvt_ltd';
 
 // Query 8
-UNWIND [{id: 'softlogic_capital_plc_directors_and_executives_0', content: '(Pvt) Ltd\na\nr\nThe DIRECTORS of the Company are also DIRECTORS of following companies with which the Company had transactions\nin the ordinary course of business during the year.\nKey management includes members of the Board of DIRECTORS of the Company. The compensation paid or payable\nto key management for employee services is shown below:\nMr. H.N.J \nChandrasekara\nMr. K.A.K \nJayatilake\nr\na', chunk_type: 'directors_and_executives', index: 0}, {id: 'softlogic_capital_plc_directors_and_executives_1', content: 'contracts in which they have an interest are disclosed in \nNote 34.1.1 to the financial statements on page 68.\nDIRECTORS’ Interest in Shares\nDIRECTORS of the Company who have an interest in the \nshares of the Company are required to disclose their \nshareholdings and any acquisitions/ disposals to the \nBoard in compliance with Section 200 of the Companies \nAct No. 07 of 2007. However, none of the DIRECTORS held \nany shares during the period under review nor in the \nprevious year.\nDIRECTORS’ Remuneration\nKey Management Personnel Compensation in respect of \nthe Company and the Group for the financial year 2021/ \n2022 is detailed in Note 34.1.2 to the Financial Statements \non page 68.\nDirectorate\nThe names of the DIRECTORS who held office during the \nfinancial year are given below and brief profiles of the \nDIRECTORS who are currently in office appear on pages 5 \nto 6.\nMr. S.D.R. Arudpragasam - Chairman\nMr. R.C.A. Welikala - Director\nMr. R.N. Bopearatchy - Director', chunk_type: 'directors_and_executives', index: 1}, {id: 'softlogic_capital_plc_directors_and_executives_2', content: 'Company in the preparation of the Financial \nStatements are given on pages 71 to 79, \nwhich are consistent with those of the \nprevious period.\nDIRECTORS’ responsibility for Financial \nReporting\nThe DIRECTORS are responsible for the \npreparation of the Financial Statements of \nthe Company and the Group to reflect a true \nand fair view of the state of its affairs.\nInformation on the DIRECTORS of the \nCompany and the Group \nDIRECTORS of the Company as at  \n31st March 2021\nThe names of the DIRECTORS who held office \nas at the end of the accounting period are \ngiven below and their brief profiles appear on \npages 18 and 19.\nExecutive DIRECTORS\nMr. E. T . De Zoysa - Managing Director\nNon-Executive DIRECTORS\nMr. R. S. A. Wickramasingha - Chairman\nMs. D. S. Wickramasingha - Director\nMs. N. K. Wickramasingha - Director \nMr. L. J. M. De Silva - Director \nMr. M. U. S. G. Thilakawardana - Director*\nDr. D. M. A. Kulasooriya - Director*\nMr. M. S. Nanayakkara - Director*', chunk_type: 'directors_and_executives', index: 2}, {id: 'softlogic_capital_plc_directors_and_executives_3', content: 'from pages 28 to 67 of the Annual Report. \nDIRECTORATE \nThe Board of DIRECTORS of the Company as at date is set out in \n“Corporate Information”. The DIRECTORS of the Company who held \noffice during the year under review and changes thereto are \nindicated below.', chunk_type: 'directors_and_executives', index: 3}, {id: 'softlogic_capital_plc_directors_and_executives_4', content: 'in the Shareholders Information section on pages 166 to 167.\nThe Company endeavours at all times to ensure equitable treatment to all \nshareholders.\nSubstantial Shareholdings\nThere were 1738 registered shareholders, holding ordinary voting shares \nas at 31st March 2025 (1,582 registered shareholders as at 31st March \n2024).\nThe names of the twenty largest shareholders, the number of shares held, \nand the percentages held are given on page 167 of the Annual Report. \nThe distribution schedule of the shareholders and public holdings are \ndisclosed on page 166 of the Annual Report.\nDirectorate\nAs at 31st March 2025 the Board of DIRECTORS of the Company consisted \nof eight DIRECTORS with wide commercial, academic knowledge and \nexperience. The DIRECTORS profile is given on pages 56 to 57 of this Annual \nReport.\nThe Board of DIRECTORS of the Company and its subsidiaries as at 31st \nMarch 2025 are listed below.\nName of the Director\nJohn Keells PLC \nPLC\nJohn \nKeells PLC \nStockbrokers\nJohn Keells PLC', chunk_type: 'directors_and_executives', index: 4}, {id: 'softlogic_capital_plc_financial_performance_0', content: 'About Us Management Discussion and Analysis Stewardship Financial Information Supplementary Information\nPERFORMANCE\nFINANCIAL INFORMATION\nPRECISION IN\nOur financial performance directly reflects the strategic decisions and thoughtful investments we \nmake by managing resources with precision. Each financial decision is focused on strengthening our \nfoundation and driving sustained success, offering the clarity and confidence necessary for informed \ndecision-making.', chunk_type: 'financial_performance', index: 0}, {id: 'softlogic_capital_plc_financial_performance_1', content: 'About Us Management Discussion and Analysis Stewardship Financial Information Supplementary Information\nPERFORMANCE\nFINANCIAL INFORMATION\nPRECISION IN\nOur financial performance directly reflects the strategic decisions and thoughtful investments we \nmake by managing resources with precision. Each financial decision is focused on strengthening our \nfoundation and driving sustained success, offering the clarity and confidence necessary for informed \ndecision-making.', chunk_type: 'financial_performance', index: 1}, {id: 'softlogic_capital_plc_financial_performance_2', content: '22 DIPPED PRODUCTS PLC  | Annual Report 2024/25\nPerformance Highlights\nMetric 2024/25 2023/24 % Y-o-Y\nSTRATEGIC PRIORITY- FINANCIAL PERFORMANCES   \nEarnings Highlights\nRevenue Rs. million 79,289 73,942  7 \nGross Profit Rs. million 16,564  17,059  (3)\nGross Profit Margin %  21  23  (2)\nOperating Profit Rs. million 7,172  7,729  (7)\nOperating Profit Margin %  9  10  (1)\nProfit Before Tax Rs. million 6,836  7,567  (10)\nProfit Before Tax Margin %  9  10  (1)\nProfit After Tax Rs. million 5,032  5,779  (13)\nReturn on Equity %  13  16  (3)\nReturn on Capital Employed % 14 17  (3)\nInterest Cover Ratio Times  9 10  (11)\nWorking Capital Ratios\nInventory Days Days  75  78  (3)\nDebtor Days Days  59 60  (1)\nCreditor Days Days  70 64  6 \nCash Conversion Cycle Days  64  74  (10)\nLiquidity Ratios\nCurrent Ratio Times  1.7  2.2  (24)\nQuick Asset Ratio Times  1.1  1.4  (22)\nFinancial Stability\nTotal Assets Rs. million  74,616  63,913  17 \nReturn on Assets %  7  9  (2)', chunk_type: 'financial_performance', index: 2}, {id: 'softlogic_capital_plc_financial_performance_3', content: 'Commercial Credit and Finance PLC | Annual Report 2023/2024\n6\nFINANCIAL \nHIGHLIGHTS\n2023/24\nRs.‘000\'   \n2022/23\nRs.‘000\'    \n% \nChange\nFinancial Performance  \nGross Income  31,055,222  28,949,269 7 .3%\nNet Interest Income  12,808,022  11,106,651 15.3%\nProfit Before Taxation  6,594,978  3,859,879 70.9%\nProfit After Taxation  4,193,917  2,599,629 61.3%\nFinancial Position\nLeases, Hire Purchases, Loans and Advances  81,437 ,828  76,170,663 6.9%\nTotal Assets  107 ,987 ,834  102,154,440 5.7%\nTotal Deposit Base  62,121,240  59,243,651 4.9%\nBorrowings  13,902,823  17 ,555,544 -20.8%\nShareholders’ Funds  24,179,669  20,359,015 18.8%\nLiquid Assets  11,483,294  12,836,935 -10.5%\nKey Indicators per Ordinary Share\nEarnings per Share( Rs.)  13.19  8.17 \nNet Assets per Share ( Rs.)  76.02 64.01 \nYear end Market Price per Share (Rs.)  35.30  26.00 \nKey Performance Indicators\nReturn on Average Assets (%) 3.99 2.66\nEquity / Assets (%) 22.39 19.93\nGross Non Performing Accommodations (%) 10.65 11.07', chunk_type: 'financial_performance', index: 3}, {id: 'softlogic_capital_plc_financial_performance_4', content: 'reinforcing stakeholder trust and \nsupporting our vision for sustainable \ngrowth. By aligning financial strategy with \nour broader purpose, we continue to \ncreate enduring value for shareholders, \npartners, and the communities we serve.\nANALYSIS OF THE FINANCIAL \nPERFORMANCE \neChannelling PLC remained focused on \ndriving profitability through stringent cost \nmanagement and operational efficiency. \nProactive cost optimisation strategies \nenabled the Company to mitigate \nrevenue pressures and sustain operating \nprofit growth. This disciplined approach \nreflects our financial agility and resilience, \nreinforcing our commitment to delivering \nvalue even in a challenging economic \nlandscape. The strategy of broadening \nrevenue streams through non-healthcare \nsegments continued to contribute \npositively to top-line\nREVENUE \nDuring the FY 2024 eChannelling \nrecorded a moderate decline in revenue \nto Rs 256 Mn displaying a reduction of \nrevenue of 6% compared to Rs. 271', chunk_type: 'financial_performance', index: 4}, {id: 'softlogic_capital_plc_risk_factors_0', content: 'KEY RISKS\nIdentifying and addressing risks and opportunities that impact our business, society, environment, and stakeholder decisions is paramount to \nour success.\nEach year, the Group conducts a comprehensive evaluation of material issues to gain deeper insights into these risks and opportunities. \nCollaborating closely with stakeholders and the management team, we prioritize these risks and opportunities to effectively manage them.\nThroughout the year, our Company and stakeholders faced significant challenges stemming from country risk, political and economic \nuncertainties, regulatory pressures, and shifts in the business landscape. Recognizing and navigating these risks remains a top priority for us.\n8 4\n2\n5 9\n10 3\n1\n6 7\n1112', chunk_type: 'risk_factors', index: 0}, {id: 'softlogic_capital_plc_risk_factors_1', content: 'factors that possess the potential to influence its operational dynamics, \nfinancial performance, and reputation. Among the salient risks are \nfluctuations in economic conditions, shifting consumer preferences, \nevolving market trends, and omnipresent competitive pressures, all of \nwhich could significantly impact the company’s revenue streams and \noverall profitability.\nFurther risk exposure lies in the volatility of exchange rates, interest \nrates, inflation rates, and tax rates, all of which have the potential to \ninfluence the company’s cost structure and cash flows. Additionally, \nregulatory mandates, legal commitments, \nenvironmental benchmarks, and societal expectations introduce a \nlayer of risk concerning compliance and sustainability. The company \nis also attuned to operational risks encompassing disruptions in its \nsupply chain, cyber threats, natural calamities, pandemics, and human \nerrors, all capable of causing interruptions in the supply and delivery of', chunk_type: 'risk_factors', index: 1}, {id: 'softlogic_capital_plc_risk_factors_2', content: 'driving operational efficiency and sustainability. However, increased \ndigitisation has also given rise to cyber threats and heightened the \nrisk of data losses.\nOur reliance on coconut shells, an agricultural input, exposes us to \nthe potential risks of climate change. However, the transition to a \nlow-carbon economy has led to emerging opportunities. The shift \ntowards renewable energy sources has given rise to innovation in \nenergy storage carbons, while sustainable resource consumption \nhas led to the utilization of activated carbon products across many \nindustries. Increased emphasis on addressing climate change has \nled to a rise in environmental regulations and corporate reporting \nrequirements has led to the utilization of activated carbon products \nacross many industries.\nOur global presence necessitates navigating the regulatory landscape \nof multiple jurisdictions giving rise to high levels of complexity. \nProactive monitoring for new laws and regulations across all', chunk_type: 'risk_factors', index: 2}, {id: 'softlogic_capital_plc_risk_factors_3', content: 'driving operational efficiency and sustainability. However, increased \ndigitisation has also given rise to cyber threats and heightened the \nrisk of data losses.\nOur reliance on coconut shells, an agricultural input, exposes us to \nthe potential risks of climate change. However, the transition to a \nlow-carbon economy has led to emerging opportunities. The shift \ntowards renewable energy sources has given rise to innovation in \nenergy storage carbons, while sustainable resource consumption \nhas led to the utilization of activated carbon products across many \nindustries. Increased emphasis on addressing climate change has \nled to a rise in environmental regulations and corporate reporting \nrequirements has led to the utilization of activated carbon products \nacross many industries.\nOur global presence necessitates navigating the regulatory landscape \nof multiple jurisdictions giving rise to high levels of complexity. \nProactive monitoring for new laws and regulations across all', chunk_type: 'risk_factors', index: 3}, {id: 'softlogic_capital_plc_risk_factors_4', content: 'in internal controls. A shortage of skilled employees could also \nimpede our business growth and expansion. Furthermore, the \neffectiveness and performance of our senior executives are \ncrucial for maintaining our competitive edge and driving future \ngrowth. The departure of key executives could pose challenges \nto our business strategy execution and have other detrimental \neffects.', chunk_type: 'risk_factors', index: 4}, {id: 'softlogic_capital_plc_business_segments_0', content: 'from one another. Top management of the Company considers the operating results and condition of its business segments in their \ndecision making process and performance evaluation. Types of products and services from which each operating segment derives its \nrevenues are described as follows.\n \nAn operating segment is a component of the Company that engages in business activities from which it may earn revenues and incur \nexpenses, including revenues and expenses that relate to transactions with any of the Company’s other components. All operating \nsegments’ operating results are reviewed regularly by the Senior Management to make decisions about resources to be allocated to \nthe segment and to assess its performance, and for which discrete financial information is available.', chunk_type: 'business_segments', index: 0}, {id: 'softlogic_capital_plc_business_segments_1', content: 'Lankem Ceylon PLC\nAnnual Report 2023/2024\n66\nNOTES TO THE FINANCIAL STATEMENTS\n5. REVENUE\n5.1 Revenue Streams\nConsolidated Company\nFor the Year Ended 31st March 2024 2023 2024 2023\nRs. \'000 Rs. \'000 Rs. \'000 Rs. \'000\nRevenue from contracts with customers \nSale of Goods  31,482,022  32,527,434 6,336,610 6,871,012 \nRendering of Services  2,119,716  1,227,120  -  - \n 33,601,738  33,754,554  6,336,610  6,871,012 \n5.2 Business Segment Analysis of Revenue\nSegmentation has been determined based on the operating activities of the companies or the sector, where multiple activities fall within one \ncompany or sector has been based on the core activities of that particular sector.\nTrading Consumer Products - Manufacturing, Selling and Distribution of Consumer Products\nTrading Industrial Products - Manufacturing, Selling and Distribution of Industrial Products\nLeisure - Owning and Operation of Resort Hotels Others -Special Projects and Other Services\n5.3 Segment Revenue\nConsolidated Company', chunk_type: 'business_segments', index: 1}, {id: 'softlogic_capital_plc_business_segments_2', content: 'resources and assessing performance of the operating \nsegments, has been identified as the Board of \nDirectors that makes strategic decisions. The revenue, \ncost, depreciation, amortisation, impairment, total \nassets, total liabilities and capital expenditure have \nbeen allocated to the respective segments based on \nthe internal reporting basis under the below stated \nsegments.\nThe reportable segments derive their revenue primarily \nfrom the provision of mobile services, data services, \ninternational direct dialling services, leasing of passive \ninfrastructure, provision of interconnect services, pay \ntelevision transmission services, provision of other data \nservices and digital services.\nAt 31 December 2023, the Group is organised into \nthree main business segments:\n Mobile operation\n Fixed telephony and broadband operation\n Television operations', chunk_type: 'business_segments', index: 2}, {id: 'softlogic_capital_plc_business_segments_3', content: 'SMB FINANCE PLC\n215\nANNUAL REPORT  2024\nOVERVIEW MANAGEMENT DISCUSSION AND ANALYSIS CORPORATE STEWARDSHIP FINANCIAL REPORTS SUPPLEMENTARY INFORMATION\nA segment is a distinguishable component of the Company that is engaged in providing products and services. (Business \nsegment, which is subject to risks and rewards that are different from those of other segment.)\nSegment results, assets and liabilities include items directly attributable to a segment as well as those that can be allocated \non a reasonable basis.\nManagement of the Company consider the operating results and condition of its business segments in their decision \nmaking process and performance evaluation. Types of products and services from which each operating segment derives its \nrevenues described as follows:\nLoans\nThis segment includes loan products offered to the customers.\nLeasing\nThis segment includes leasing products offered to the customers.\nTreasury\nThis segment includes treasury and other investment activities.', chunk_type: 'business_segments', index: 3}, {id: 'softlogic_capital_plc_business_segments_4', content: 'LCB Finance PLC\nAnnual Report 2023/24\n187\n48. SEGMENTAL ANALYSIS\nAn operating segment is a component of the Company that engages in business activities from which it may earn revenues and incur \nexpenses, including revenues and expenses that relate to transactions with any of the Company’s other components, whose operating \nresults are reviewed regularly by the management to make decisions about resources allocated to each segment and assess its performance, \nand for which discrete financial information is available.\nFor management purposes, the Company has identified operating segments based on products and services. Management monitors \nthe operating results of its business units separately for the purpose of making decisions about resource allocation and performance \nassessment. Segment performance is evaluated based on turnover.\nNo revenue from transactions with a single external customer or counterparty amounted to 10% or more of the Company’s total revenue in \n2024 or 2023.', chunk_type: 'business_segments', index: 4}, {id: 'softlogic_capital_plc_future_outlook_0', content: 'WAY FORWARD\n Evolve our product portfolio in line with emerging trends \nincluding capitalizing on the business opportunities that arise \nfrom the transition to a low carbon economy\n Increase the contribution of value-added carbons to total \nrevenue to 50%. \n Innovate processes to optimise costs and improve efficiencies\n Expand and build expertise necessary for specialized \napplications including energy storage carbons to be a key \ncontributor of revenue and profits\n Strategic innovations in energy storage carbons including the \nhard carbon product range to capture emerging opportunities. \n Increase the contribution of value-added carbons to total \nrevenue to 30%.  \n Process innovation to enhance productivity and reduce our \nenvironmental impacts. \n Digitization of processes including production data capture in \norder to reduce costs, improve access to real-time data and \nfacilitate insightful decision making.\nShort term focus Medium to Long term focus\nLink to\nSDGs\nLink to\nStakeholders', chunk_type: 'future_outlook', index: 0}, {id: 'softlogic_capital_plc_future_outlook_1', content: 'Melstacorp PLC Annual Report 2023/24\n58\nOur Strategy\nAt Melstacorp PLC, as a diversified conglomerate we’re redefining the future with a powerful \nblend of global reach and local impact. Our commitment to sustainable growth drives us to \nstrategically invest in high-potential sectors through rigorous research and analysis.  \nBy diving deep into market insights before making moves, we uncover opportunities, manage risks, and understand market \ndynamics with precision. This strategic foresight ensures that our investments are both visionary and sustainable, perfectly \naligned with our corporate goals and national interests, and ultimately deliver exceptional value to our stakeholders.\nVISION\nPursue excellence. Make a difference.\nOUR OBJECTIVES\nMISSION\nResilient\nWe pride ourselves on our ability to adapt quickly, act decisively and \nmaintain operations even in the most difficult times.\nReliable\nConsistent quality, absolute integrity, and unfailing dependability', chunk_type: 'future_outlook', index: 1}, {id: 'softlogic_capital_plc_future_outlook_2', content: 'FUTURE OUTLOOK\nLRI will continue its current operations while \nfocusing on achieving a steady growth in \nthe future. Our success is largely due to our \nemployees’ hard work and dedication as they \nfollow our Company’s strong ethical values \nand modern business practices to expand \nour business and serve our customers. \nIn the longer term, our strategic plans \nfor the next five years will propel the \nCompany towards a future of exceptional \nachievements. These plans will serve as our \nroadmap, guiding us towards fulfilling our \ncommitments to stakeholders and realising \nour ambitious goals.\nThis is possible because of our asset-backed \nfoundation, which provides a robust platform \nto navigate towards a brighter and better \nfuture. We are confident in our ability to \nadapt to changing environments and remain \nunwaveringly committed to delivering \nexceptional value to all stakeholders as we \nstrive to build a stronger, more resilient \nfuture.\nAPPRECIATIONS', chunk_type: 'future_outlook', index: 2}, {id: 'softlogic_capital_plc_future_outlook_3', content: 'are, however, acutely aware of the increasing influence of shifting consumer preferences, escalating competitive pressures, and \nevolving regulatory requirements on the long-term market dynamics. Consequently, we are adopting a forward-looking approach \nto our business, concentrating on adapting to the ever-changing environment. Our primary objective at Group level is to cultivate \na consumer-centric, dynamic, and sustainable business model that consistently generates value for all stakeholders. This strategic \nfocus will guide our trajectory as we progress into the future.\nNOTES TO THE FINANCIAL STATEMENTS', chunk_type: 'future_outlook', index: 3}, {id: 'softlogic_capital_plc_future_outlook_4', content: 'superior products and services while \nmaintaining competitive advantages \nin each sector.\nStrategic Investments and \nPortfolio Optimisation: We \ncontinuously evaluate our portfolio \nto ensure alignment with our \nlong-term objectives. Strategic \nacquisitions, divestitures, and capital \nallocation decisions are guided \nby our commitment to enhancing \nshareholder value and reinforcing our \nleadership positions in key industries.\nStrategic Focus\nInnovation & \nDigital Transformation\nOperational \nExcellence\nStrategic \nInvestment\nSustainability Global \nExpansion\nSustainability and Social \nResponsibility: Our strategy is \nunderpinned by a strong commitment \nto sustainability and corporate \nsocial responsibility. We integrate \nenvironmental, social, and governance \n(ESG) principles into our operations, \nensuring that our growth contributes \npositively to society and the \nenvironment. This includes reducing \nour carbon footprint, promoting ethical \nbusiness practices, and supporting', chunk_type: 'future_outlook', index: 4}, {id: 'softlogic_capital_plc_governance_structure_0', content: 'led by the CEO and includes Executive \nCommittee Members enabling strategic \ninput while maintaining execution agility. \nThis structure reflects a strong internal \ncommitment to ESG, embedded within \nthe highest tiers of management.\nOur Policies\n z Policy on the matters relating to \nthe Board of Directors\n z Policy on Board Committees\n z  Policy on Corporate Governance, \nNominations and Re-election\n z Policy on Remuneration\n z Policy on Internal Code of \nBusiness conduct and Ethics \nfor all Directors and employees, \nincluding policies on trading in \nthe Entity’s listed securities\n z Policy on Risk management and \ninternal controls\n z Policy on Relations with \nShareholders and Investors\n z Policy on Environmental, Social \nand Governance Sustainability\n z Policy on Control and \nManagement of Company Assets \nand Shareholder Investments\n z Policy on Corporate Disclosures\n z Policy on Whistleblowing\n z Policy on Anti-Bribery and \nCorruption\nThe Group has implemented a', chunk_type: 'governance_structure', index: 0}, {id: 'softlogic_capital_plc_governance_structure_1', content: 'The Company has adopted the Policy framework \nwhich has been made available in the  \nCompany’s website\nThe following policies are included in the policy \nframework.\n- Policy on the Matters Relating to the Board of  \nDirectors\n- Policy on Board Committees \n-  Policy on Corporate Governance, Nomination \nand Re-Election \n-  Policy on Remuneration \n-  Policy on Internal Code of Business and Ethics \nfor All Directors and Employees Including \nPolicies on Trading in the Company’s Listed \nSecurities \n-  Policy on Risk Management and Internal \nControls \n-  Policy on Relations with Shareholders and \nInvestors \n-  Policy on Environmental, Social, Governance \n(ESG) Sustainability \n-  Policy on Control and Management of Compa-\nny Assets and Shareholder Investments \n-  Policy on Corporate Disclosures \n-  Policy on Whistleblowing \n-  Policy on Anti-Bribery and Anti-Corruption', chunk_type: 'governance_structure', index: 1}, {id: 'softlogic_capital_plc_governance_structure_2', content: 'decisions within clearly defined parameters.\nAccordingly, the Company policies, in pursuing its strategic \nobjectives, have in place comprehensive policies and processes \nthat are designed to ensure that the Company is well managed \nwith effective controls and oversights. Execution is carried out \nwithin a framework of whole commitment and fairness reflecting \nground realities, and emphasized by corporate values of \nhonesty, fairness, integrity and accountability. Such internal \ngovernance policies and procedures are subject to periodic \nreview to ensure that they remain relevant and reflect progress in \nofficial values, and shareholder and stakeholder expectations. \nThe Board has collective responsibility for the supervision, \ndirection, and performance of the Company and its subsidiaries, \nensuring due regard is paid, always, to the interests of its \nstakeholders. The detailed governance structure ensures \nthe Board has the right level of oversight for matters that are', chunk_type: 'governance_structure', index: 2}, {id: 'softlogic_capital_plc_governance_structure_3', content: 'the future. The below diagram depicts our latest corporate governance structure.\nCorporate Governance Structure\nEXTERNAL \nFRAMEWORKS\nASSURANCE FRAMEWORKS\nRegulatory Shareholders Board \nRemuneration \nCommittee\nArticles of Association of \nthe Company\nCode of ethics and conduct \nfor employees\nTerms of Reference of \nBoard Committees\nBoard approved Policies \nand Procedures\nBoard Audit \nCommittee\nBoard Nominations \nand Governance \nCommittee\nBoard Related Party \nTransactions Review \nCommittee\nExternal Auditors\nInternal Auditors\nBoard of Directors\n(Setting strategy and risk appetite with \noversight responsibility)\nChief Executive Officer and \nKey Employees\n(Strategy execution, driving performance and \nconducting operations)\nVoluntary\nINTERNAL \nFRAMEWORKS\nCORPORATE GOVERNANCE STRUCTURE\nResponsibility flow\nAppointment flow\nThe Board has established a governance framework and \nstructure appropriate to the Company’s size, nature, \ncomplexity, and risk profile. This framework is periodically', chunk_type: 'governance_structure', index: 3}, {id: 'softlogic_capital_plc_governance_structure_4', content: 'Compliance.\n•  Company Secretary – Shareholders \nmay contact the Company Secretary \nto bring critical concerns to the \nattention of the Board which are \nthen informed to the Chairman for \nsuitable action\nPolicy commitments\nThe Board ensures that risk \nmanagement, compliance, and controls \nare integrated into all key processes, \nstriking an appropriate balance \nbetween seizing opportunities for \ngain and mitigating potential risks. \nThe Company’s control environment \nencompasses an enterprise-wide \nsuite of internal controls and risk \nmanagement frameworks, processes, \nand activities, providing a robust \nframework for maneuvering through \nboth internal and external challenges \nand opportunities.\nThe policy framework, outlined below, \noffers reasonable assurance for the \neffective delivery of the Company’s \nOverview Leadership Strategy Governance & Risk Financial StatementsManagement Discussion & Analysis', chunk_type: 'governance_structure', index: 4}, {id: 'softlogic_capital_plc_sustainability_initiatives_0', content: 'The Corporate Sustainability Committee \nis responsible for the implementation \nof the sustainability policy and reports \nto the Board of Directors on all related \nprojects. The Committee is assisted by \nsustainability coordinator and departmental \nrepresentatives, thereby ensuring that the \nCompany’s sustainability philosophy is \npropagated among all employees in the \norganization.\nCSR\nCFL’s Corporate Social Responsibility (CSR) \nstrategy is mainly focused on uplifting the \nfuture generation by imparting knowledge \nand conducting social development \nprograms. CSR activities are organized by \nthe CSR committee and sales and marketing \nteams with the help of employees and \nthe management. Committee members \nrepresent all levels from the Managing \nDirector to the factory employee. As part of \nour wider commitment to CSR, CFL reaches \nout to the community through corporate \nphilanthropy as well. A separate budget is \nallocated for CSR activities. \nKey CSR highlights for 2020/21', chunk_type: 'sustainability_initiatives', index: 0}, {id: 'softlogic_capital_plc_sustainability_initiatives_1', content: 'Sustainable practices are entrenched across all \nfacets of our business from the products  that \nwe market to our operations from sourcing, \ndistribution through our Retail Outlets.\n	� Drive environmental sustainability as part of \noperations.\n	� Maintain our commitment to highest ethical \nstandards and integrity.\n	� Strategic CSR initiatives targeted at addressing \nissues of national importance.\n	� Rs. 270 Mn investment in social \nsustainability as an advocate of \ninitiatives.\n	� Continue to implement \nmore climate-friendly \ninitiatives.', chunk_type: 'sustainability_initiatives', index: 1}, {id: 'softlogic_capital_plc_sustainability_initiatives_2', content: 'upliftment and environmental conservation. During the year, a few CSR initiatives were \ncarried out extending our support to the neighbouring community and schools surrounding \nthe factory premises. This includes provision of nutritious supplements to neighbouring \nschools, offering extensive internships for university undergraduates and students at \ntechnical institutes, as well as allowing students to visit factories and gain comprehensive \nexposure and knowledge regarding the overall industry and its processes. \nWith regards to the environment, we continue with our commitment to minimize the \nCompany’s ecological impact, prudently managing our inputs and outputs thereby \nmaintaining a balance between our business agenda and the overall commitment as a \nresponsible corporate to contribute to a healthy ecosystem. Towards this end, we are \nprimarily guided by a comprehensive environmental management system that stipulates', chunk_type: 'sustainability_initiatives', index: 2}, {id: 'softlogic_capital_plc_sustainability_initiatives_3', content: 'a myriad of initiatives designed to empower the \ncommunity, enhance financial literacy, promote \nsustainable Agriculture, foster skills development, \nimprove healthcare access, and uphold social \nresponsibility. By nurturing youth entrepreneurship, \nencouraging self-employment, and imparting savings \nFurther, we are actively engaged in aligning our \nsustainability efforts with the Science Based Targets \ninitiative (SBTi). We have submitted our targets \nto SBTi and are currently undergoing the process \nof target validation. In addition to  our renewable \nenergy and greenhouse gas reduction efforts, we \nhave empowered our factories with advanced water \nmetering systems. These systems play a crucial \nrole in improving the accuracy of monitoring water \nwithdrawals for our operations;  and have expedited \nthe conservation of biodiversity by completing the \n2\nnd round biodiversity assessments and reforestation \nprogrammes. Among the various  initiatives, are three \nflagship initiatives:', chunk_type: 'sustainability_initiatives', index: 3}, {id: 'softlogic_capital_plc_sustainability_initiatives_4', content: 'and governance targets. \n  Numerous initiatives to enhance \nenergy resilience including the \ninstallation of solar PV panels. \n  Implemented initiatives to enable \nsustainable water withdrawal and \nreduce consumption including \nrainwater harvesting, recycling and \npump tests in Sri Lanka to ascertain \nthe sustainable water yield.   \n  Increased emphasis on enhancing \nbusiness resilience to the \nimplications of climate change \nthrough a strategic assessment of \nthe related risks and opportunities \nand relevant mitigating strategies. \n  Long-term focused initiatives, \nincluding Puritas Sath Diyawara \nand Puritas Sath Diyawara – Going \nBeyond that positively impacted the \ncommunity.  \n  Focus on community empowerment \nthrough improving health, nutrition, \nand education through initiatives \nsuch as Sisu Divi Pahana, Sath \nDiyawara, Going Beyond and \nassistance to university students.\n  Continued contribution to tree \nplanting initiatives and turtles \nconservation in Sri Lanka.', chunk_type: 'sustainability_initiatives', index: 4}, {id: 'softlogic_capital_plc_market_position_0', content: 'remain central to this transformation. \n \nCOMPETITIVE LANDSCAPE \nFirst Capital Treasuries operates in a \ncompetitive and evolving \ngovernment securities market in Sri \nLanka. The Company maintains a \nleading market position within the \nstandalone PD segment, while facing \nboth direct and indirect competitive \nforces across the broader investment \nlandscape. \nDirect Competition: Other Primary \nDealers \nAt the close of 2024, Sri Lanka’s \nPrimary Dealer system comprised 10 \nactive dealers, split equally between: \n5 Licensed Commercial Banks \n(LCBs) operating PD businesses \n 5 standalone PDs including FCT. \n \nFCT demonstrates superior \nperformance across key metrics such \nas: \n Assets \n Primary auction participation \n Secondary market turnover \n Digitalisation \n Client acquisition and servicing \n \nBank-affiliated PDs represent \nformidable direct competition due \nto: \n Broader funding bases, \n Integrated balance sheet \nmanagement, \n Cross-selling opportunities \nacross client relationships', chunk_type: 'market_position', index: 0}, {id: 'softlogic_capital_plc_market_position_1', content: 'ANNUAL REPORT- 2024\n29\n13. Competition\n Most sectors of the Company face very competitive business environments. The management \nregularly reviews the competitor environment in order to develop appropriate counter strategies. \nDue to the widespread nature of operations, Company’s sales are not dependent on a single or \nsmall group of customers.\n14. Information systems and cyber security\n The Company is heavily reliant on computerised operational and financial systems to ensure \nefficiency of operations and financial reporting. These systems and the associated controls are \nregularly monitored and reviewed. Measures have been put in place to protect the Company \nagainst factors such as natural disasters, accidents, data losses, computer viruses and unauthorised \naccess. \n16. Supply chain\n Raw material, and finished goods for re-sale are sourced from third-party suppliers, contract \nmanufacturers and primary producers exposes the Company to market volatility and availability.\nConclusion', chunk_type: 'market_position', index: 1}, {id: 'softlogic_capital_plc_market_position_2', content: 'Annual Report 2023/24 | Haycarb PLC  | 105\n BUSINESS CASE\nMarket leadership  \nposition\nWe are a leader in \nthe coconut shell \nactivated carbon \nmarket with a global \nmarket share of 16%.\nCapacity to innovate \nwith state-of-the-\nart machinery and \nequipment\nState of the art \nmanufacturing \nfacilities and \nstrong research \nand development \ncapabilities to develop \nnew products that \nfulfill emerging needs. \nA product portfolio of \n>1,500 products.\n \n \n \n \nGlobal presence\nOur operations are \nspread across 7 \ncountries including 7 \nmanufacturing plants \nin Sri Lanka, Thailand \nand Indonesia and \nmarketing offices in \nUK, Germany, USA \nand Australia and a \ndistributor network \nspread globally.\nGRI 2-1\nCapable team and \nstrategic  \npartnerships\nOur business success \nis underpinned by \nan empowered \nand highly skilled \nteam, long-\nstanding customer \nrelationships, \nmutually beneficial \npartnerships with \nbusiness partners and \nsuppliers.\nResponsible \nbusiness practices \nand sustainability', chunk_type: 'market_position', index: 2}, {id: 'softlogic_capital_plc_market_position_3', content: 'materials and innovative designs.\nStrategic Priorities Effects of the Operating Environment Our Strategy\nStrengths\nThreats\nWeaknesses\nOpportunities\n y Innovation and product diversification:  \nWide range of innovative products, including eco-\nfriendly and industry-specific packaging solutions.\n y High production capacity and efficiency:  \n93% production utilisation rate and continuous \ninvestment in advanced machinery.\n y Intense competition:  \nCompeting with global and local packaging firms \nin an evolving industry.\n y Economic and political uncertainty:  \nFluctuations in exchange rates, inflation, and \npolitical instability in key markets.\n y Dependence on raw material imports:  \nVulnerable to price fluctuations and supply chain disruptions\n y High operational costs:  \nRising material and energy costs may impact profitability.\n y Limited skilled labour pool:  \nWorkforce shortages due to emigration of skilled workers.\n y Increasing demand for sustainable packaging:', chunk_type: 'market_position', index: 3}, {id: 'softlogic_capital_plc_market_position_4', content: 'to address identified weaknesses and \nimprove our overall position\n Weaknesses – Threats – How \ncan we mitigate the impact of our \nweaknesses while navigating potential \nthreats stemming from the external \nenvironment. \nThe result of this analysis is presented below.  \nS1 Market position and strong global brand\nS2 Capacity to innovate.\nS3 Sustainable and sound business practices\nS4 Capable leadership team\nS5 Strong financial position and performance\n Strong demand in the East Asian and \nIndian markets & rising demand for \npremium and specialized activated carbon \nproducts (S1, O1)\n Growth potential in Maldives and the \nregion for Environmental Engineering \nSolutions services (S1, O3)\n Continuing to invest in R&D to develop \nproducts and processes to provide \ncompetitive advantage to Haycarb.  \n(S2, S3, S5, O2)\nO1 Strong growth \npotential\nO2 Technological \nadvancements\nO3 Strategic partnerships\n Manufacturing footprint in proximity to raw', chunk_type: 'market_position', index: 4}, {id: 'softlogic_capital_plc_regulatory_compliance_0', content: 'Compliance and regulatory risk refer to the potential risk faced by \nthe Company due to non-compliance with applicable laws, rules, \nregulations, and codes of conduct that could lead to regulatory \nfines, financial losses, disruptions to business activities, and \nreputational damage. The Company has established the Compliance \nfunction to provide comfort that the regulatory compliance \nrequirements are continuously monitored and implemented as \nneeded. The compliance function is operated under the supervision \nof a dedicated officer of senior grade and supported by appropriate \nresources. \nA comprehensive Compliance Policy outlines how the Company \nidentifies, monitors, and manages compliance risks in a structured \nmanner. A series of measures have been implemented to reinforce \nregulatory compliance requirements and ensure effective \nmonitoring, testing and verification of compliance along with \nrisk mitigation activities across the Company and the Head of', chunk_type: 'regulatory_compliance', index: 0}, {id: 'softlogic_capital_plc_regulatory_compliance_1', content: 'Annual Report 2024/25 167 \nFirst Capital Treasuries PLC \n \n \n \n \n \n \n \nSection Regulator Requirement Compliance \nStatus by \nthe Company \nDetails/ Reference \n Ensuring compliance with laws, regulations and \nethical standards. \nComplied The responsibility is delegated to the Board \nAudit Committee. The status of the same is \nbeing reported to the Board for review. All \nnew regulations pertaining to compliance with \nlaws and regulations are discussed at the \nBoard Meetings thus ensuring the \ncommitment of the highest governing body. \n A stringent governance, risk and compliance \n(GRC) framework tailored to Company and \nregulatory requirements which enhance \nproactive compliance culture. \nEnsuring all stakeholder interests are considered in Complied \ncorporate decisions. \nThe Company has established a strong set of \nvalues and adhering to these values and \nprinciples are encouraged at all times. The \nBoard evaluates the impact on all the key \nstakeholders of the Company before arriving', chunk_type: 'regulatory_compliance', index: 1}, {id: 'softlogic_capital_plc_regulatory_compliance_2', content: 'compliance process to eliminate possible \nthreats. \n — Regular communications with company \nlawyers to identify and understand \nchanges required, while incorporating their \nrecommendations on corporate matters to \ncounter any adverse effects on the business \nactivities of the Company.\nL\nREGULATORY RISK\nRisk impact Risk mitigation Risk exposure Risk trend\nThe risk associated with \nchanges in laws and \nregulations will materially \nimpact the Company’s \nbusiness operations, financial \ncompliance, information \nsecurity, technology usage, \ngovernance, and marketing \nand promotional activities. \nAs such, keeping abreast of \nsuch changes is mandatory to \nmanage a successful business \nand conduct ethical business \noperations.\n — Adopt a sound corporate governance \nstructure and practices to align with \nindustry best practices. \n — Regularly review and adapt changes to laws \nand regulations. \n — Maintain an up-to-date compliance \ncalendar. \n — Monthly monitoring mechanisms to catch', chunk_type: 'regulatory_compliance', index: 2}, {id: 'softlogic_capital_plc_regulatory_compliance_3', content: '(iii)  They made arrangements to make themselves aware \nof applicable laws, rules and regulations and are aware \nof changes particularly to Listing Rules and applicable \ncapital market provisions\n(iv)  Disclosure of relevant areas of any material non-\ncompliance with law or regulation and any fines, which \nare material, imposed by any government or regulatory \nauthority in any jurisdiction where the Entity has \noperations.\nComplied \nComplied \nComplied \nComplied \nRefer page 149.\nRefer page 216.\nRefer page 144.\nRefer page 141.', chunk_type: 'regulatory_compliance', index: 3}, {id: 'softlogic_capital_plc_regulatory_compliance_4', content: 'A compliance statement is presented to every Board Meeting.\nCompany officials closely work with Regulators to ensure that regulatory \nrequirements are fully understood and complied with.\nSeek professional advice from external consultants such as legal, and tax \nconsultants as and when needed.', chunk_type: 'regulatory_compliance', index: 4}, {id: 'softlogic_capital_plc_operational_highlights_0', content: 'PLC demonstrated resilience and \nagility, leveraging our deep industry \nexpertise, strong stakeholder \nrelationships, and technological \ncapabilities to optimize operations and \ndrive growth.\nOur strategic initiatives focused on \nenhancing operational efficiencies, \nexpanding our service offerings, and \nstrengthening our market presence. \nThese efforts were underpinned by \nour dedicated team, whose expertise \nand passion for the tea industry have \nbeen instrumental in our success. \nBy fostering a culture of continuous \nimprovement, we have been able to \ndeliver exceptional value to our clients \nand stakeholders.\nIn this section, we delve into the \nkey aspects of our operational \nperformance. We believe that our \nsteadfast commitment to operational \nexcellence will continue to propel \nCeylon Tea Brokers PLC towards \nsustained growth and long-term \nsuccess.\nTea Broking Segment Client Financing Activities\nManufacturing Advisory Warehousing & Logistic Segment\nTea Broking Segment', chunk_type: 'operational_highlights', index: 0}, {id: 'softlogic_capital_plc_operational_highlights_1', content: 'automated operational processes \nto further strengthen our regulatory \nreporting and branch reporting \nefficiently. \nThrough process automation, we \neliminated six manual registers \nfrom across our branch network, \nfreeing time for our staff to \nengage in more value adding and \ncustomer-centric services.\nEnhance Customer-\ncentricity\nWe continued on our journey \nof relentlessly adding value \nto our customers, mainly \nthrough digitalisation and \nconvenient banking, offering \nmarket-competitive products \nand services, and speedy issue \nresolution through our dedicated \ncontact centre\nStrong Brand Presence\nWe maintained our premier \nbrand presence in the industry \nby disseminating authentic \ncommunications through a variety \nof channels, accurate and timely \nregulatory reporting, engagement \nwith industry specific events and \nmaintaining our visibility by being \nrepresented at governmental, \nregulatory, and business forums.\nCommitment to  \nSustainability and ESG', chunk_type: 'operational_highlights', index: 1}, {id: 'softlogic_capital_plc_operational_highlights_2', content: 'stabilisation of our operational base, and the careful construction \nof a platform to support future growth. Despite numerous external \nconstraints that continued to exert pressure on the operating \nenvironment, we achieved notable progress across several core \ndimensions. Our performance in 2024/25 reflected measurable \ngrowth in profitability, marked improvements in operational \nresilience, and significant strides in digital advancement each of \nwhich served to validate our strategic direction and execution.\nSTRATEGIC SHIFT AND OPERATIONAL EFFICIENCIES \nOur operational strategy during the year under review centered \non three interlinked focus areas: improving asset quality, \nreshaping our product mix, and enhancing profitability. Each \narea contributed meaningfully to our overall trajectory of growth', chunk_type: 'operational_highlights', index: 2}, {id: 'softlogic_capital_plc_operational_highlights_3', content: 'extraordinary levels of customer satisfaction.\n Operational Excellence\nStriving for operational excellence remained a cornerstone of our strategy, aimed \nat optimizing costs and enhancing efficiencies. Despite business expansion, \nwe successfully contained operational costs through continuous process \nimprovements. Integration of our systems played a pivotal role in minimizing \npaperwork, eliminating delays, and mitigating errors. By streamlining our \nprocesses and adhering to industry best practices, we achieved a dual objective \nof cost reduction and heightened efficiency. These measures collectively \ncontributed to delivering superior service to our valued clients.\n Service Excellence\nGiven the service-centric nature of tea broking, our unwavering commitment \nto service excellence remained paramount for sustained growth. We prioritized \nthe continual enhancement of our services through investments in human', chunk_type: 'operational_highlights', index: 3}, {id: 'softlogic_capital_plc_operational_highlights_4', content: '82\n Ceylon Tea Brokers PLC  Annual Report  2023/24\nOverview  Leadership & Strategy  Management Discussion & Analysis  Governance Reports  Financial Reports  Supplementary Information\nOPERATIONAL PERFORMANCE REVIEW \nOverview\nIn the year under review, Ceylon Tea \nBrokers PLC continued to strengthen \nits position as a pivotal player in \nthe tea broking industry, navigating \nthrough a complex landscape marked \nby both challenges and opportunities. \nOur unwavering commitment to \nexcellence has enabled us to deliver \nrobust operational performance, \nreinforcing our status as a trusted \npartner in the industry.\nThe fiscal year was characterized \nby dynamic market conditions, \nfluctuating demand, and evolving \nregulatory frameworks. Despite \nthese hurdles, Ceylon Tea Brokers \nPLC demonstrated resilience and \nagility, leveraging our deep industry \nexpertise, strong stakeholder \nrelationships, and technological \ncapabilities to optimize operations and \ndrive growth.', chunk_type: 'operational_highlights', index: 4}, {id: 'softlogic_capital_plc_dividend_policy_0', content: 'CITIZENS DEVELOPMENT BUSINESS FINANCE PLC\nANNUAL REPORT 2024/25\n305\nDividend per share & Dividend payout\n0\n3\n6\n9\n12\n15\nRs.\n2020/21 2021/22 2022/23 2023/24 2024/25\n5\n10\n15\n20\n25\n30\nDividend per share\nDividend payout ratio\nDIVIDEND POLICY\nIt is Company’s policy to pay around 30% of its earnings as dividends with the best interest of shareholders(Subject to CBSL Clearance and \nother conditions) . CDB has continuously maintained dividend pay-outs. The Board of Directors of CDB has given due consideration to the \nrequirements stipulated by CBSL and declared a First Interim cash dividend of Rs. 5.00 per share and the final Cash dividend of Rs.10 per share \nfor both voting and non-voting shares of Rs. 907,601,310 and Rs. 155,155,020 respectively, which aggregated to a sum of Rs. 1,062,756,330. \nFinal Cash dividend aggregated amount for both voting and Non-voting shares of Rs. 708,504,220 subject to shareholders’ approval at the \nAnnual General Meeting.\nCDB VOTING SHARE PERFORMANCE', chunk_type: 'dividend_policy', index: 0}, {id: 'softlogic_capital_plc_dividend_policy_1', content: '202\n Ceylon Tea Brokers PLC  Annual Report  2023/24\nOverview  Leadership & Strategy  Management Discussion & Analysis  Governance Reports  Financial Reports  Supplementary Information\nDividends\nDuring the year under review, the Company paid a dividend to its shareholders. A \ndividend of Rs. 0.44 per share was paid out of the profits from the year ended 31st March \n2024. Details of the dividend paid by Company for each financial year is given below.\n 2024 2023 2022 2021 2020\nDividend per share \n(Paid for the year)\n 0.44 0.68 0.36 0.35 0.08\nDividend Pay-out Ratio (%)  56.55 51.75 59.80 59.40 67.70\nThe Company maintained its policy on distributing dividends of transferring 50% out \nof profits after tax as dividend. The Company directors distributed Rs. 80.25 million as \nDividends to shareholders, which is around 56.55 percent of 2023/24 annual profit \nafter tax.\nINVESTOR RELATIONS\nDividend Payout Ratio (%)\n0\n20\n30\n10\n50\n60\n70\n40\n80\n2020 2021 2022 2023 2024', chunk_type: 'dividend_policy', index: 1}, {id: 'softlogic_capital_plc_dividend_policy_2', content: 'Table 1: Market Information on DIAL Share\nDIVIDENDS\nDialog has been guided by the published dividend \npolicy in declaring dividends, after taking into \nconsideration the Group performance and forward \ninvestment requirements to maintain leadership \nposition in the market. \nAccordingly, the Board of Directors, resolved to \npropose for consideration by the Shareholders of the \nCompany, a cash dividend to ordinary shareholders \namounting to One Rupee and Thirty-Four Cents  \n(Rs. 1.34) per share for FY 2023.\nThe said dividend, if approved by shareholders, would \ntranslate to a payout of 55% of consolidated Group \nPATAMI for FY 2023, which is above the minimum \npayout stipulated (50%) by the dividend policy, \ncorresponding to a total dividend of Rs. 11.1 billion \nand a dividend yield of 14.9%.\nTOTAL SHAREHOLDER RETURN\nThe Total Shareholder Return (TSR) for the share was \nat 21.8% in 2023 mainly due to the 14.9% yield on \nthe declared divided and capital appreciation of 5.9%.', chunk_type: 'dividend_policy', index: 2}, {id: 'softlogic_capital_plc_dividend_policy_3', content: 'SEYLAN BANK PLC | Annual Report 2024\n47\nDividend Payout \nThe Bank creates a maximum value for its shareholders through its Dividend Policy. In certain \nyears in order to improve market capitalisation while taking into consideration the requirement \nof profit retention the Bank also aims to build the organic Capital, which in return safeguards \nshareholders’ interests in the long run.\n \n \nShare Price Movement for Last 5 Years\n Highest  Lowest\n0\n10.00\n20.00\n30.00\n40.00\n50.00\n70.00\n90.00\nLKR\n60.00\n80.00\nvoting\nNon-voting\n53.50\n25.00\n35.70\n19.30\n2020\nvoting\nNon-voting 32.90\n60.00\n42.80\n68.00\n2021\nvoting\nNon-voting\n47.00\n26.00\n37.00\n14.00\n2022\nvoting 60.50\n25.00\nNon-voting 48.20\n15.30\n2023\nNon-voting 32.00\n58.20\nvoting 40.10\n79.50\n2024\nShare Price Movement Across Quarters - Financial Year 2024\n Highest  Lowest  Market Prices\nVoting\n1Q 2Q 3Q 4Q\nNon-Voting Voting Non-Voting Voting Non-Voting Voting Non-Voting\n0\n10.00\n20.00\n30.00\n50.00\n40.00\n70.00\n60.00\n80.00\n90.00\nLKR\n48.00\n 40.60 \n 47.00', chunk_type: 'dividend_policy', index: 3}, {id: 'softlogic_capital_plc_dividend_policy_4', content: 'CDPLC is committed to have a proper communication with its shareholders and other investors too. Thus, during the \nyear 2024 the Company continued to provide, timely, accurate disclosures like quarterly financial announcements, \npress releases and interviews with media, publication of the Annual Report etc. Encouraging the full participation of \nshareholders at the Annual General Meeting (AGM) adequate notice is given together with the Annual Report enabling \nthem to prepare in advance.\nFurther, the company is very much concerned about its statutory commitments to society.\nFINANCIAL PERFORMANCE\nDuring the year under review, the Company achieved total revenue of Rs. 23,695.5 Mn (2023 - Rs. 33,068.5 Mn) and \nnet loss of Rs. 2,757.4 Mn. (2023 – Net Loss Rs. 11,127.0Mn) leaving the shareholders’ value with Rs. 2,700.7 Mn \n(2023 - Rs. 473.4 Mn).\nDIVIDEND APPROVED\nNo dividend has been approved for the year end 2024.12.31 (2023 – Rs.0.00).\nDIVIDEND PAY OUT RATIO', chunk_type: 'dividend_policy', index: 4}, {id: 'softlogic_capital_plc_capital_structure_0', content: 'First Capital Holdings PLC\nAnnual Report 2023/24\n309\nMONUMENTAL\n The Group’s policy is to maintain a strong capital base to ensure investor, creditor and market confidence in order to sustain \nfuture development of the business while complying with regulatory requirements (i.e. externally imposed capital requirements). \nThe impact of the shareholders’ return is also recognised, and the Group recognises the need to maintain a balance between \nhigher returns that might be possible with greater gearing and the benefits and security provided by a sound capital position. \nThe Company manages its capital structure and adjusts it accordingly in line with changes in economic, market and regulatory \nconditions and its overall risk appetite. Summary of the capital structure of the Group and the Company is as follows:\nGroup Company\nAs at 31 March 2024 2023 2024 2023\nRs. Mn Rs. Mn Rs. Mn Rs. Mn\nBorrowing on listed debentures 2,775 2,776 2,029 2,027 \nTotal equity 7,940 6,681 7,119 6,095', chunk_type: 'capital_structure', index: 0}, {id: 'softlogic_capital_plc_capital_structure_1', content: 'to withstand external economic pressures. The absence of financial \nleverage eliminates exposure to debt-related risks, providing the \nCompany with enhanced operational flexibility and stability.\nThe consistent growth in the equity base, from Rs. 4.59 Bn in 2024 to \nRs. 6.04 Bn in 2025, has been driven by robust profitability and the \nefficient reinvestment of earnings. This conservative capital structure \npositions the Company to capitalize on strategic investment \nopportunities while reinforcing its ability to deliver sustainable \nshareholder returns and safeguard long-term financial security.\nThe total assets of the Company as at the ending period, were funded \nby;\nTotal Assets as at 31st March 2025                                                                                                       \nRs. 10,424.19 Mn\nFunding Channels\nShareholder Fund\n58%\nLong Term Funding / Employee Benefits \n1%\nShort Term Funding / Creditors \n41%\nEBITDARevenue\nEBITDA EBITDA EBITDA EBITDA EBITDA', chunk_type: 'capital_structure', index: 1}, {id: 'softlogic_capital_plc_capital_structure_2', content: '403DIPPED PRODUCTS PLC  | Annual Report 2024/25\n Capital Management  \n The Board’s policy is to maintain a strong capital base so as to maintain investor, creditor and market confidence and to \nsustain future development of the business. Capital consists of share capital, reserves, retained earnings and non-controlling \ninterests of the Group. The Board of Directors monitors the return on capital as well as the level of dividends to ordinary \nshareholders.\nGroup Company\n2025 2024 2025 2024\nRs.’000 Rs.’000 Rs.’000 Rs.’000\nInterest-Bearing borrowing (non-current) 3,820,982 4,300,664  223,250  400,308 \nCurrent portion of long term interest-bearing borrowings 1,841,214 1,845,743  399,879  366,105 \nShort term interest-bearing borrowings 6,351,569 3,444,791  1,889,553  494,524 \nTotal borrowings 12,013,765 9,591,198 2,512,682 1,260,937\nEquity 39,631,220 36,079,875 10,733,473 10,354,703\nEquity and debts 51,644,985 45,671,073 13,246,156 11,615,640\nGearing Ratio (%) 23% 21% 19% 11%', chunk_type: 'capital_structure', index: 2}, {id: 'softlogic_capital_plc_capital_structure_3', content: 'capital structure and makes adjustments to it in light of changes in economic conditions. To maintain or adjust the \ncapital structure, the Company may adjust the dividend payment to shareholders, return capital to shareholders \nor issue new shares.\nNo changes were made in the objectives, policies or processes for managing capital during the years ended 31 \nMarch 2024.\nThe Company’s capital structure comprise of Stated Capital and Borrowings which are disclosed in Note 11 \nrespectively.\nThe Company does not hold collateral as security. The Company evaluates the concentration of risk with respect to \ntrade receivables as low based on the terms with which the long standing business relationship with the customer base. \n \nTrade Receivable Credit risk exposure disclosed in Note 8.1\n Liquidity risk\nThe Company monitors its risk to a shortage of funds using a recurring liquidity planning tool. The Company’s', chunk_type: 'capital_structure', index: 3}, {id: 'softlogic_capital_plc_capital_structure_4', content: 'to shareholders, return capital to shareholders, issue new shares or sell assets to reduce debt.  \n \n  \n2024 \nRs.  \n2023 \nRs. \nTotal borrowings   8,500,000  8,950,000 \nLess – Cash and cash equivalents  (14,751)  (3,652) \nNet borrowings  8,485,249  8,946,348 \nTotal equity  288,882,749  286,447,510 \nTotal capital  297,367,998  295,393,858 \nGearing ratio  2.85%  3.03% \n \nThe Company is wholly capitalised by the equity shareholders.', chunk_type: 'capital_structure', index: 4}, {id: 'softlogic_capital_plc_technology_digital_0', content: '272 DIPPED PRODUCTS PLC  | Annual Report 2024/25\nStrategic Focus Areas\nOur IT strategy delivers a transformative digital management platform engineered to accelerate growth, optimise efficiency, and \nembed robust security across operations. Through the integration of leading cloud technologies and innovative solutions, we \nare creating the scalable, secure, and future-proof IT backbone essential for driving sustained business success. We focus on the \nbelow key areas;\nIntellectual Capital \nInformation Technology (IT) \nInfrastructure Development\nDigitization Initiatives Cyber Security & Data Protection\nEnhancing IT Infrastructure Driving future-ready operations \nthrough digitisation\nStrengthening cyber security and data \nprotection\n• Migrating on-premises file servers to \nSharePoint Online to enhance secure \ndata accessibility, enable seamless \ncollaboration, and strengthen disaster \nrecovery capabilities while laying the \nfoundation for AI-driven document', chunk_type: 'technology_digital', index: 0}, {id: 'softlogic_capital_plc_technology_digital_1', content: 'and ensuring the integrity and availability of our digital systems. To bolster this, we \nimplemented the following cybersecurity and data protection enhancements:\nData Classification Implementation: Deployed a comprehensive data classification \nsystem for documents and emails (e.g., Restricted, Confidential, Unrestricted).\nAutomated Security Enforcement: The system automatically applies security policies \nbased on classification (e.g., preventing external forwarding/editing of ‘Highly Confidential’ \ndata), strengthening protection measures.\nImproved Governance and Risk Mitigation: This initiative significantly \nenhances information governance and reduces the risk of data leakage \nby ensuring sensitive information is handled appropriately according to its \nclassification.\nAgriculture Modernisation and \nInnovation Strategy\nWe are currently formulating a new, \nforward-looking strategic framework titled \nthe “Agriculture Modernisation and \nInnovation Strategy.”', chunk_type: 'technology_digital', index: 1}, {id: 'softlogic_capital_plc_technology_digital_2', content: '80          HNB ASSURANCE PLC - Integrated Annual Report 2024\nDIGITAL TRANSFORMATION  \nValue Creation highlights\n• Implemented a data lake to support data analytics\n• Implemented the Core Insurance System at HNBA\n• Automated over 175 workflows \n• Relaunched the Channel portal and online sales portal \n• Strengthened information security\nMaterial Topics Stakeholder Impact\n• Technological transformation \n• Product innovation \nSDG Impact\nDigital transformation is a strategic priority for the HNBA Group, enabling \nenhanced connectivity with stakeholders and facilitating a shared digital future. Our \ncommitment is evidenced by a substantial investment in information technology, \ntotalling Rs. 250 million in 2024 and projected at Rs. 234 million in 2025 across HNBA \nand HNBGI. The Group’s leadership oversees the implementation and ensures the \nachievement of strategic objectives.\nINFORMATION TECHNOLOGY (IT) STRATEGY \nThe HNBA Group IT strategy is based on five pillars as illustrated below', chunk_type: 'technology_digital', index: 2}, {id: 'softlogic_capital_plc_technology_digital_3', content: 'energy reduction, and machine productivity. Our digital initiatives are designed to achieve paperless plant operations, real-time \nsupply chain, and better customer experience. Virtual, Augmented, Mixed, and Extended Reality (XR) technology-based solutions \nsupport customer experience, enhance people capabilities, and reduce our carbon footprint.\nWe have migrated to a hybrid cloud and data infrastructure ahead of the industry. Our data infrastructure and data science \ncapabilities prioritize the adoption of Artificial Intelligence (AI) at scale. Our cloud-based data infrastructure, equipped with state-\nof-the-art data analytics engines, leverages various advanced data technology services. Continuous AI, Machine Learning (ML), \nand Deep Learning (DL) programs, supported by both external partners and internal teams, have created significant value, \nenhanced people capabilities, and developed our own methodologies contextualized to our business environment.', chunk_type: 'technology_digital', index: 3}, {id: 'softlogic_capital_plc_technology_digital_4', content: 'single, integrated platform\nDIGITALISATION OF \nOPERATIONS\nDigitalised material \nrequestions and \nimplementation of phase 01 \nberry project digitalisation\nDRIVING INNOVATION\nOur digital transformation continues to reshape operations at Elpitiya Plantations. We \nleverage digital data and insights to strategically evaluate our core business and unlock \nnew avenues for value addition. Critically, we are optimising workflows to overcome labour \nconstraints by transitioning towards increased mechanisation and drone technology. \nThese initiatives drive significant efficiency gains and modernise our operational footprint. \nReinforcing this strategy, we invested Rs. 16,940,915.00 in FY 2024/25 in essential \nsoftware and hardware infrastructure, demonstrating our commitment to technological \nadvancement, operational efficiency, and high security standards.\nThe following key implementations continued to drive efficiency and insight \nthrough strategic digital implementation.\nRelated Strategies', chunk_type: 'technology_digital', index: 4}, {id: 'softlogic_capital_plc_human_resources_0', content: '52  | ASIAN HOTELS AND PROPERTIES PLC\nRobust HR Policy guidelines\nThe Company’s HR practices are guided by a set of clearly articulated policies which enable consistent, transparent and \nunbiased treatment to all employees alike. The policies cover diverse aspects that affect an employee’s well-being.\n Policy on ombudsperson \n Policy on support network \n Recruitment and selection policy \n Performance management policy \n Reward and recognition policy \n Leave policy \n Flexi-hours policy \n Teleworking policy\n Compensation and benefits policy \n Code of conduct \n Policy against sexual harassment \n Diversity, Equity and Inclusion related policies \n Gender policy \n HIV AIDs workplace policy \n Policy on equal opportunity and non-discrimination \n Anti-fraud policy \n Grievance handling policy \n Disciplinary procedure \n Whistle blowing policy\n Part Time work policy\n Data Protection Policy\nTeam profile\nEmployees by contract and \ngender Male Female\nPermanent 451 44\nContract 268 54\nTot a l 719 98', chunk_type: 'human_resources', index: 0}, {id: 'softlogic_capital_plc_human_resources_1', content: '65\nEX-PACK CORRUGATED CARTONS PLC\nAnnual Report 2023 / 24\nManagement approach \nOur approach to managing our most \nvalued asset, our employees is guided \nby a comprehensive set of HR policies \nand procedures which are compliant \nwith the ISO 9001: 2015 standard \nand compares well with industry best \npractices. The policies and procedures \noperationalise the deep philosophy of \ntreating our employees with dignity \nand mutual respect whilst creating \ninclusive employment in a conducive \nenvironment which fosters employee \nwellbeing. All employees are required \nto adhere to the Company’s Code \nof Conduct which sets out the \nprofessional and ethical conduct \nexpected from our employees. \nHR policy framework  \n- Recruitment and selection policy \n- Performance management policy \n- Reward and recognition policy. \n- Leave policy \n- Compensation and benefits policy \n- Code of conduct \n- Policy against sexual harassment \n- Diversity, Equity and Inclusion \nrelated policies \n- Gender policy', chunk_type: 'human_resources', index: 1}, {id: 'softlogic_capital_plc_human_resources_2', content: 'and ethical \npractices \nSafety place to \nwork \nGrievance \nmechanisms\nIndustrial \nrelations Disciplinary\nThe Group’s policy framework includes \npolicies for the prevention of child labour \nand forced or compulsory labour. Haycarb \nestablished its own policies for grievance \nhandling and remuneration in 2023/24. \nHaycarb’s HR policies are given below. \nDeputy Managing Director\nDeputy General Manager - HR\nHR Manager and Executives \nat Head Office and all other locations\nHaycarb PLC Board of Directors\nRemuneration  \nCommittee\nNominations \n& Governance \nCommittee\nIntroduction | Understanding Value Creation and Impacts | Our Value Proposition on ESG \nNurturing Our Resources | Mindful Governance | Financial Statements | Supplementary', chunk_type: 'human_resources', index: 2}, {id: 'softlogic_capital_plc_human_resources_3', content: '112\nSarvodaya Development Finance PLC Annual Report 2024/25\nAbout Us Leadership Strategy Review Management Discussion\n& Analysis\nGovernance and Risk \nManagement Financial Reports Supplementary \nInformation\nThe policies encompass the entire employee lifecycle—ranging \nfrom recruitment and onboarding to compensation and \nbenefits, performance evaluation, training and development, \nand grievance handling. This structured approach ensures \nconsistency, fairness, and strategic alignment with the \ncompany’s overall objectives, while also fostering a productive \nand engaging work environment.\nAs an equal opportunity employer, SDF is firmly committed to \npromoting diversity and inclusion. The organization ensures \nthat all employment decisions are made without bias or \ndiscrimination, providing equal access to growth, learning, and \nadvancement opportunities for all employees, irrespective of \ngender, ethnicity, religion, or other personal attributes.\nEmployee Benefits', chunk_type: 'human_resources', index: 3}, {id: 'softlogic_capital_plc_human_resources_4', content: 'y Attendance and Leave Policy\n y Policy on Types of Employment\n y Training and Development Policy\n y Policy on Exit Procedure \n y Policy on Maintenance of HR Records\n y Performance Management Policy\n y Transfers, Secondment & Job Rotation \nPolicy\n y Policy on Superannuation\n y Whistleblowing Policy\n y Occupational Safety and Health Policy\n y Internal Code of Business Conduct \n y Policy on Anti Bribery & Corruption*\n* Newly i ntroduced policies', chunk_type: 'human_resources', index: 4}, {id: 'softlogic_capital_plc_audit_internal_controls_0', content: 'Our further audit procedures included:\nGeneral IT controls design, observation and operation\n X  Assessing the governance and high-level controls in place across the IT Environment, including \nthose regarding policy design, policy review and awareness, and IT Risk Management practices\n X  Obtaining an understanding and testing operating effectiveness of the sample of key controls \noperating over the information technology in relation to financial accounting and reporting \nsystems, including system access and system change management, monitor system integrity, \nprogram development and computer operations.\n X  Testing the data integrity of critical system reporting used by us in our audit to select samples \nand analyse data used by management to generate financial statements.\nApplication controls\n X  Testing design and operating effectiveness of key automated business process controls \nincluding those relating to enforcing segregation of duties to avoid conflicts from', chunk_type: 'audit_internal_controls', index: 0}, {id: 'softlogic_capital_plc_audit_internal_controls_1', content: 'Standards and the Guidance Note require that we comply with ethical requirements and plan and perform the audit to obtain \nreasonable assurance about whether adequate internal financial controls with reference to financial statements were \nestablished and maintained and if such controls operated effectively in all material respects.\n \nOur audit involves performing procedures to obtain audit evidence about the adequacy of the internal financial controls with \nreference to financial statements and their operating effectiveness. Our audit of internal financial controls with reference to \nfinancial statements included obtaining an understanding of internal financial controls with reference to financial statements, \nassessing the risk that a material weakness exists, and testing and evaluating the design and operating effectiveness of internal \ncontrol based on the assessed risk. The procedures selected depend on the auditor’s judgement, including the assessment of the', chunk_type: 'audit_internal_controls', index: 1}, {id: 'softlogic_capital_plc_audit_internal_controls_2', content: 'Our further audit procedures included:\n• Assessing the design, implementation, and operating effectiveness of key \ninternal controls over the information technology in relation to financial \naccounting and reporting systems, including system access and system \nchange management, monitor system integrity, program development and \ncomputer operations.\n• Examining the framework of governance over the Company’s IT organization \nand the controls over program development and changes, access to \nprograms and data and IT operations, including compensating controls when \nrequired.\n• Evaluating the design, implementation and operating effectiveness of \nthe significant accounts related to IT process controls by assessing the \noperating effectiveness of IT application controls by assessing the operating \neffectiveness of certain automated controls and system calculations which \nare relevant to the company’s compliance activities and assessing the', chunk_type: 'audit_internal_controls', index: 2}, {id: 'softlogic_capital_plc_audit_internal_controls_3', content: 'controls and procedures, or caused such \ncontrols and procedures to be designed \nunder our supervision, to ensure that \nmaterial information relating to the \ncompany is made known to us and for \nsafeguarding the company’s assets and \npreventing and detecting fraud and error. \nWe have evaluated the effectiveness \nof the company’s internal controls and \nprocedures and are satisfied that the \ncontrols and procedures were effective \nas of the end of the period covered by this \nannual report. We confirm, based on our \nevaluations that there were no significant \ndeficiencies and material weaknesses in \nthe design or operation of internal controls \nand any fraud that involves management \nor other employees. Our internal auditors \nalso conduct periodic reviews to ensure \nthat the internal controls and procedures \nare consistently followed. However, there \nare inherent limitations that should be \nrecognized in weighing the assurances \nprovided by any system of internal controls', chunk_type: 'audit_internal_controls', index: 3}, {id: 'softlogic_capital_plc_audit_internal_controls_4', content: 'Section 143(10) of the Act, to the extent applicable to an audit of internal financial controls with reference to financial statements. \nThose Standards and the Guidance Note require that we comply with ethical requirements and plan and perform the audit to \nobtain reasonable assurance about whether adequate internal financial controls with reference to financial statements were \nestablished and maintained and if such controls operated effectively in all material respects.\n \nOur audit involves performing procedures to obtain audit evidence about the adequacy of the internal financial controls with \nreference to financial statements and their operating effectiveness. Our audit of internal financial controls with reference to \nfinancial statements included obtaining an understanding of internal financial controls with reference to financial statements, \nassessing the risk that a material weakness exists, and testing and evaluating the design and operating effectiveness of internal', chunk_type: 'audit_internal_controls', index: 4}] AS chunk MERGE (ch:Chunk {id: chunk.id}) ON CREATE SET ch.content = chunk.content, ch.chunk_type = chunk.chunk_type, ch.index = chunk.index;
+MERGE (c:Company {name: 'Softlogic Asset Management (Private) Limited'}) ON CREATE SET c.id = 'softlogic_asset_management_private_limited';
 
 // Query 9
-MATCH (c:Company {name: 'Softlogic Capital PLC'}) WITH c UNWIND ['softlogic_capital_plc_directors_and_executives_0', 'softlogic_capital_plc_directors_and_executives_1', 'softlogic_capital_plc_directors_and_executives_2', 'softlogic_capital_plc_directors_and_executives_3', 'softlogic_capital_plc_directors_and_executives_4', 'softlogic_capital_plc_financial_performance_0', 'softlogic_capital_plc_financial_performance_1', 'softlogic_capital_plc_financial_performance_2', 'softlogic_capital_plc_financial_performance_3', 'softlogic_capital_plc_financial_performance_4', 'softlogic_capital_plc_risk_factors_0', 'softlogic_capital_plc_risk_factors_1', 'softlogic_capital_plc_risk_factors_2', 'softlogic_capital_plc_risk_factors_3', 'softlogic_capital_plc_risk_factors_4', 'softlogic_capital_plc_business_segments_0', 'softlogic_capital_plc_business_segments_1', 'softlogic_capital_plc_business_segments_2', 'softlogic_capital_plc_business_segments_3', 'softlogic_capital_plc_business_segments_4', 'softlogic_capital_plc_future_outlook_0', 'softlogic_capital_plc_future_outlook_1', 'softlogic_capital_plc_future_outlook_2', 'softlogic_capital_plc_future_outlook_3', 'softlogic_capital_plc_future_outlook_4', 'softlogic_capital_plc_governance_structure_0', 'softlogic_capital_plc_governance_structure_1', 'softlogic_capital_plc_governance_structure_2', 'softlogic_capital_plc_governance_structure_3', 'softlogic_capital_plc_governance_structure_4', 'softlogic_capital_plc_sustainability_initiatives_0', 'softlogic_capital_plc_sustainability_initiatives_1', 'softlogic_capital_plc_sustainability_initiatives_2', 'softlogic_capital_plc_sustainability_initiatives_3', 'softlogic_capital_plc_sustainability_initiatives_4', 'softlogic_capital_plc_market_position_0', 'softlogic_capital_plc_market_position_1', 'softlogic_capital_plc_market_position_2', 'softlogic_capital_plc_market_position_3', 'softlogic_capital_plc_market_position_4', 'softlogic_capital_plc_regulatory_compliance_0', 'softlogic_capital_plc_regulatory_compliance_1', 'softlogic_capital_plc_regulatory_compliance_2', 'softlogic_capital_plc_regulatory_compliance_3', 'softlogic_capital_plc_regulatory_compliance_4', 'softlogic_capital_plc_operational_highlights_0', 'softlogic_capital_plc_operational_highlights_1', 'softlogic_capital_plc_operational_highlights_2', 'softlogic_capital_plc_operational_highlights_3', 'softlogic_capital_plc_operational_highlights_4', 'softlogic_capital_plc_dividend_policy_0', 'softlogic_capital_plc_dividend_policy_1', 'softlogic_capital_plc_dividend_policy_2', 'softlogic_capital_plc_dividend_policy_3', 'softlogic_capital_plc_dividend_policy_4', 'softlogic_capital_plc_capital_structure_0', 'softlogic_capital_plc_capital_structure_1', 'softlogic_capital_plc_capital_structure_2', 'softlogic_capital_plc_capital_structure_3', 'softlogic_capital_plc_capital_structure_4', 'softlogic_capital_plc_technology_digital_0', 'softlogic_capital_plc_technology_digital_1', 'softlogic_capital_plc_technology_digital_2', 'softlogic_capital_plc_technology_digital_3', 'softlogic_capital_plc_technology_digital_4', 'softlogic_capital_plc_human_resources_0', 'softlogic_capital_plc_human_resources_1', 'softlogic_capital_plc_human_resources_2', 'softlogic_capital_plc_human_resources_3', 'softlogic_capital_plc_human_resources_4', 'softlogic_capital_plc_audit_internal_controls_0', 'softlogic_capital_plc_audit_internal_controls_1', 'softlogic_capital_plc_audit_internal_controls_2', 'softlogic_capital_plc_audit_internal_controls_3', 'softlogic_capital_plc_audit_internal_controls_4'] AS chunk_id MATCH (ch:Chunk {id: chunk_id}) MERGE (c)-[:HAS_CONTENT]->(ch);
+MERGE (c:Company {name: 'HNB'}) ON CREATE SET c.id = 'hnb';
 
-// Total queries: 9
-// Generated on: 2025-09-30T14:09:05.296514
+// Query 10
+MERGE (c:Company {name: 'NDB'}) ON CREATE SET c.id = 'ndb';
+
+// Query 11
+MERGE (p:Person {name: 'A. K. Pathirage'}) ON CREATE SET p.id = 'a_k_pathirage';
+
+// Query 12
+MERGE (p:Person {name: 'R. J. Perera'}) ON CREATE SET p.id = 'r_j_perera';
+
+// Query 13
+MERGE (p:Person {name: 'A. M. Pasqual'}) ON CREATE SET p.id = 'a_m_pasqual';
+
+// Query 14
+MERGE (p:Person {name: 'S. Somasunderam'}) ON CREATE SET p.id = 's_somasunderam';
+
+// Query 15
+MERGE (p:Person {name: 'H. Kaimal'}) ON CREATE SET p.id = 'h_kaimal';
+
+// Query 16
+MERGE (p:Person {name: 'N. C. A. Abeyesekera'}) ON CREATE SET p.id = 'n_c_a_abeyesekera';
+
+// Query 17
+MERGE (p:Person {name: 'W. L. P. Wijewardena'}) ON CREATE SET p.id = 'w_l_p_wijewardena';
+
+// Query 18
+MERGE (p:Person {name: 'T. M. I. Ahamed'}) ON CREATE SET p.id = 't_m_i_ahamed';
+
+// Query 19
+MERGE (p:Person {name: 'A. Russell-Davison'}) ON CREATE SET p.id = 'a_russell_davison';
+
+// Query 20
+MERGE (s:Sector {name: 'Diversified Financials'}) ON CREATE SET s.id = 'diversified_financials';
+
+// Query 21
+MERGE (s:Sector {name: 'Insurance'}) ON CREATE SET s.id = 'insurance';
+
+// Query 22
+MERGE (p:Product {name: 'specialized business loans'}) ON CREATE SET p.id = 'specialized_business_loans';
+
+// Query 23
+MERGE (p:Product {name: 'regular business loans'}) ON CREATE SET p.id = 'regular_business_loans';
+
+// Query 24
+MERGE (p:Product {name: 'vehicle and machinery loans'}) ON CREATE SET p.id = 'vehicle_and_machinery_loans';
+
+// Query 25
+MERGE (p:Product {name: 'personal financing'}) ON CREATE SET p.id = 'personal_financing';
+
+// Query 26
+MERGE (p:Product {name: 'leasing'}) ON CREATE SET p.id = 'leasing';
+
+// Query 27
+MERGE (p:Product {name: 'hire purchase'}) ON CREATE SET p.id = 'hire_purchase';
+
+// Query 28
+MERGE (p:Product {name: 'fund mobilization'}) ON CREATE SET p.id = 'fund_mobilization';
+
+// Query 29
+MERGE (p:Product {name: 'life insurance solutions'}) ON CREATE SET p.id = 'life_insurance_solutions';
+
+// Query 30
+MERGE (p:Product {name: 'investment management'}) ON CREATE SET p.id = 'investment_management';
+
+// Query 31
+MERGE (p:Product {name: 'consultancy services'}) ON CREATE SET p.id = 'consultancy_services';
+
+// Query 32
+MERGE (p:Product {name: 'advisory services'}) ON CREATE SET p.id = 'advisory_services';
+
+// Query 33
+MERGE (p:Product {name: 'stockbroking services'}) ON CREATE SET p.id = 'stockbroking_services';
+
+// Query 34
+MERGE (p:Product {name: 'Asset Management Services for Unit Trust Funds'}) ON CREATE SET p.id = 'asset_management_services_for_unit_trust_funds';
+
+// Query 35
+MERGE (p:Product {name: 'gold loans'}) ON CREATE SET p.id = 'gold_loans';
+
+// Query 36
+MERGE (m:Metric {name: 'Total Revenue'}) ON CREATE SET m.id = 'total_revenue', m.unit = 'Rs';
+
+// Query 37
+MERGE (m:Metric {name: 'Operating Profit'}) ON CREATE SET m.id = 'operating_profit', m.unit = 'Rs';
+
+// Query 38
+MERGE (m:Metric {name: 'Profit Before Interest And Tax'}) ON CREATE SET m.id = 'profit_before_interest_and_tax', m.unit = 'Rs';
+
+// Query 39
+MERGE (m:Metric {name: 'Profit Before Tax'}) ON CREATE SET m.id = 'profit_before_tax', m.unit = 'Rs';
+
+// Query 40
+MERGE (m:Metric {name: 'Income Tax Expense'}) ON CREATE SET m.id = 'income_tax_expense', m.unit = 'Rs';
+
+// Query 41
+MERGE (m:Metric {name: 'Profit After Tax'}) ON CREATE SET m.id = 'profit_after_tax', m.unit = 'Rs';
+
+// Query 42
+MERGE (m:Metric {name: 'Profit For The Year Attributable To Equity Holders'}) ON CREATE SET m.id = 'profit_for_the_year_attributable_to_equity_holders', m.unit = 'Rs';
+
+// Query 43
+MERGE (m:Metric {name: 'Operating Profit Margin'}) ON CREATE SET m.id = 'operating_profit_margin', m.unit = '%';
+
+// Query 44
+MERGE (m:Metric {name: 'Net Profit Margin'}) ON CREATE SET m.id = 'net_profit_margin', m.unit = '%';
+
+// Query 45
+MERGE (m:Metric {name: 'Earnings Per Share'}) ON CREATE SET m.id = 'earnings_per_share', m.unit = 'Rs';
+
+// Query 46
+MERGE (m:Metric {name: 'Return On Equity'}) ON CREATE SET m.id = 'return_on_equity', m.unit = '%';
+
+// Query 47
+MERGE (m:Metric {name: 'Return On Capital Employed'}) ON CREATE SET m.id = 'return_on_capital_employed', m.unit = '%';
+
+// Query 48
+MERGE (m:Metric {name: 'Total Assets'}) ON CREATE SET m.id = 'total_assets', m.unit = 'Rs';
+
+// Query 49
+MERGE (m:Metric {name: 'Total Equity'}) ON CREATE SET m.id = 'total_equity', m.unit = 'Rs';
+
+// Query 50
+MERGE (m:Metric {name: 'Shareholders Funds'}) ON CREATE SET m.id = 'shareholders_funds', m.unit = 'Rs';
+
+// Query 51
+MERGE (m:Metric {name: 'Total Interest Bearing Borrowings'}) ON CREATE SET m.id = 'total_interest_bearing_borrowings', m.unit = 'Rs';
+
+// Query 52
+MERGE (m:Metric {name: 'Public Deposits'}) ON CREATE SET m.id = 'public_deposits', m.unit = 'Rs';
+
+// Query 53
+MERGE (m:Metric {name: 'Total Gross Income'}) ON CREATE SET m.id = 'total_gross_income', m.unit = 'Rs';
+
+// Query 54
+MERGE (m:Metric {name: 'Loans And Advances Portfolio'}) ON CREATE SET m.id = 'loans_and_advances_portfolio', m.unit = 'Rs';
+
+// Query 55
+MERGE (m:Metric {name: 'Lease And Hire Purchase Portfolio'}) ON CREATE SET m.id = 'lease_and_hire_purchase_portfolio', m.unit = 'Rs';
+
+// Query 56
+MERGE (m:Metric {name: 'Customer Deposit Base'}) ON CREATE SET m.id = 'customer_deposit_base', m.unit = 'Rs';
+
+// Query 57
+MERGE (m:Metric {name: 'Interest Income'}) ON CREATE SET m.id = 'interest_income', m.unit = 'Rs';
+
+// Query 58
+MERGE (m:Metric {name: 'Fee And Trading Income'}) ON CREATE SET m.id = 'fee_and_trading_income', m.unit = 'Rs';
+
+// Query 59
+MERGE (m:Metric {name: 'Other Income And Gains'}) ON CREATE SET m.id = 'other_income_and_gains', m.unit = 'Rs';
+
+// Query 60
+MERGE (m:Metric {name: 'Dividend Income'}) ON CREATE SET m.id = 'dividend_income', m.unit = 'Rs';
+
+// Query 61
+MERGE (m:Metric {name: 'Interest Expenses'}) ON CREATE SET m.id = 'interest_expenses', m.unit = 'Rs';
+
+// Query 62
+MERGE (m:Metric {name: 'Other Direct Expenses'}) ON CREATE SET m.id = 'other_direct_expenses', m.unit = 'Rs';
+
+// Query 63
+MERGE (m:Metric {name: 'Net Earned Premium'}) ON CREATE SET m.id = 'net_earned_premium', m.unit = 'Rs';
+
+// Query 64
+MERGE (m:Metric {name: 'Net Realized Gains'}) ON CREATE SET m.id = 'net_realized_gains', m.unit = 'Rs';
+
+// Query 65
+MERGE (m:Metric {name: 'Net Fair Value Gains'}) ON CREATE SET m.id = 'net_fair_value_gains', m.unit = 'Rs';
+
+// Query 66
+MERGE (m:Metric {name: 'Stated Capital'}) ON CREATE SET m.id = 'stated_capital', m.unit = 'Rs';
+
+// Query 67
+MERGE (m:Metric {name: 'Reserve Fund'}) ON CREATE SET m.id = 'reserve_fund', m.unit = 'Rs';
+
+// Query 68
+MERGE (m:Metric {name: 'Fair Value Reserve'}) ON CREATE SET m.id = 'fair_value_reserve', m.unit = 'Rs';
+
+// Query 69
+MERGE (m:Metric {name: 'Other Fair Value Reserve'}) ON CREATE SET m.id = 'other_fair_value_reserve', m.unit = 'Rs';
+
+// Query 70
+MERGE (m:Metric {name: 'Revaluation Reserve'}) ON CREATE SET m.id = 'revaluation_reserve', m.unit = 'Rs';
+
+// Query 71
+MERGE (m:Metric {name: 'Restricted Regulatory Reserve'}) ON CREATE SET m.id = 'restricted_regulatory_reserve', m.unit = 'Rs';
+
+// Query 72
+MERGE (m:Metric {name: 'Non Distributable Regulatory Loss Allowance Reserve'}) ON CREATE SET m.id = 'non_distributable_regulatory_loss_allowance_reserve', m.unit = 'Rs';
+
+// Query 73
+MERGE (m:Metric {name: 'Retained Earnings'}) ON CREATE SET m.id = 'retained_earnings', m.unit = 'Rs';
+
+// Query 74
+MERGE (m:Metric {name: 'Non Controlling Interest'}) ON CREATE SET m.id = 'non_controlling_interest', m.unit = 'Rs';
+
+// Query 75
+MERGE (m:Metric {name: 'Bank Overdraft'}) ON CREATE SET m.id = 'bank_overdraft', m.unit = 'Rs';
+
+// Query 76
+MERGE (m:Metric {name: 'Trade And Other Payables'}) ON CREATE SET m.id = 'trade_and_other_payables', m.unit = 'Rs';
+
+// Query 77
+MERGE (m:Metric {name: 'Number Of Shares'}) ON CREATE SET m.id = 'number_of_shares', m.unit = 'Count';
+
+// Query 78
+MERGE (m:Metric {name: 'Basic Earnings Per Share'}) ON CREATE SET m.id = 'basic_earnings_per_share', m.unit = 'Rs';
+
+// Query 79
+MERGE (m:Metric {name: 'Net Assets Per Share'}) ON CREATE SET m.id = 'net_assets_per_share', m.unit = 'Rs';
+
+// Query 80
+MERGE (m:Metric {name: 'Dividend Per Share'}) ON CREATE SET m.id = 'dividend_per_share', m.unit = 'Rs';
+
+// Query 81
+MERGE (m:Metric {name: 'Dividend Payout Ratio'}) ON CREATE SET m.id = 'dividend_payout_ratio', m.unit = '%';
+
+// Query 82
+MERGE (m:Metric {name: 'Market Capitalization'}) ON CREATE SET m.id = 'market_capitalization', m.unit = 'Rs';
+
+// Query 83
+MERGE (m:Metric {name: 'Turnover'}) ON CREATE SET m.id = 'turnover', m.unit = 'Rs';
+
+// Query 84
+MERGE (m:Metric {name: 'Tax Paid'}) ON CREATE SET m.id = 'tax_paid', m.unit = 'Rs';
+
+// Query 85
+MERGE (m:Metric {name: 'Interest Paid'}) ON CREATE SET m.id = 'interest_paid', m.unit = 'Rs';
+
+// Query 86
+MERGE (m:Metric {name: 'Gratuity Paid'}) ON CREATE SET m.id = 'gratuity_paid', m.unit = 'Rs';
+
+// Query 87
+MERGE (m:Metric {name: 'Net Cash Used In Operations'}) ON CREATE SET m.id = 'net_cash_used_in_operations', m.unit = 'Rs';
+
+// Query 88
+MERGE (m:Metric {name: 'Investment In Subsidiaries'}) ON CREATE SET m.id = 'investment_in_subsidiaries', m.unit = 'Rs';
+
+// Query 89
+MERGE (m:Metric {name: 'Proceeds From Non Controlling Interest'}) ON CREATE SET m.id = 'proceeds_from_non_controlling_interest', m.unit = 'Rs';
+
+// Query 90
+MERGE (m:Metric {name: 'Proceeds On Disposal Of Property Plant And Equipment'}) ON CREATE SET m.id = 'proceeds_on_disposal_of_property_plant_and_equipment', m.unit = 'Rs';
+
+// Query 91
+MERGE (m:Metric {name: 'Purchase Of Property Plant And Equipment And Intangible Assets'}) ON CREATE SET m.id = 'purchase_of_property_plant_and_equipment_and_intangible_assets', m.unit = 'Rs';
+
+// Query 92
+MERGE (m:Metric {name: 'Total Securitization Borrowings'}) ON CREATE SET m.id = 'total_securitization_borrowings', m.unit = 'Rs';
+
+// Query 93
+MATCH (p:Person {name: 'A. K. Pathirage'}), (c:Company {name: 'Softlogic Capital PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2024-03-31');
+
+// Query 94
+MATCH (p:Person {name: 'R. J. Perera'}), (c:Company {name: 'Softlogic Capital PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-03-31');
+
+// Query 95
+MATCH (p:Person {name: 'A. M. Pasqual'}), (c:Company {name: 'Softlogic Capital PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-03-31');
+
+// Query 96
+MATCH (p:Person {name: 'S. Somasunderam'}), (c:Company {name: 'Softlogic Capital PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-03-31');
+
+// Query 97
+MATCH (p:Person {name: 'H. Kaimal'}), (c:Company {name: 'Softlogic Capital PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Non-Independent Non-Executive Director', r.as_of = date('2023-08-25');
+
+// Query 98
+MATCH (p:Person {name: 'N. C. A. Abeyesekera'}), (c:Company {name: 'Softlogic Capital PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2023-12-06');
+
+// Query 99
+MATCH (p:Person {name: 'W. L. P. Wijewardena'}), (c:Company {name: 'Softlogic Capital PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2023-12-31');
+
+// Query 100
+MATCH (p:Person {name: 'T. M. I. Ahamed'}), (c:Company {name: 'Softlogic Capital PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Managing Director', r.as_of = date('2024-01-31');
+
+// Query 101
+MATCH (p:Person {name: 'A. Russell-Davison'}), (c:Company {name: 'Softlogic Capital PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-05-01');
+
+// Query 102
+MATCH (p:Person {name: 'R. J. Perera'}), (c:Company {name: 'Softlogic Holdings PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-03-31');
+
+// Query 103
+MATCH (p:Person {name: 'H. Kaimal'}), (c:Company {name: 'Softlogic Holdings PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-03-31');
+
+// Query 104
+MATCH (parent:Company {name: 'Softlogic Holdings PLC'}), (child:Company {name: 'Softlogic Capital PLC'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 77.36, r.as_of = date('2024-03-31');
+
+// Query 105
+MATCH (parent:Company {name: 'Softlogic Capital PLC'}), (child:Company {name: 'Softlogic Life Insurance PLC'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 51.72;
+
+// Query 106
+MATCH (parent:Company {name: 'Softlogic Capital PLC'}), (child:Company {name: 'Softlogic Finance PLC'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 95.44;
+
+// Query 107
+MATCH (parent:Company {name: 'Softlogic Capital PLC'}), (child:Company {name: 'SCAP ONE (PVT) LTD'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 100.0;
+
+// Query 108
+MATCH (parent:Company {name: 'Softlogic Capital PLC'}), (child:Company {name: 'S R ONE (PVT) LTD'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 100.0;
+
+// Query 109
+MATCH (parent:Company {name: 'Softlogic Capital PLC'}), (child:Company {name: 'Softlogic Stockbrokers (Pvt) Ltd'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 80.1;
+
+// Query 110
+MATCH (parent:Company {name: 'Softlogic Capital PLC'}), (child:Company {name: 'Softlogic Asset Management (Private) Limited'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 100.0;
+
+// Query 111
+MATCH (p:Person {name: 'A. K. Pathirage'}), (c:Company {name: 'Softlogic Capital PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 2847872, r.as_of = date('2024-03-31');
+
+// Query 112
+MATCH (p:Person {name: 'A. M. Pasqual'}), (c:Company {name: 'Softlogic Capital PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 14200, r.as_of = date('2023-03-31');
+
+// Query 113
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (s:Sector {name: 'Diversified Financials'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 114
+MATCH (c:Company {name: 'Softlogic Finance PLC'}), (s:Sector {name: 'Diversified Financials'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 115
+MATCH (c:Company {name: 'Softlogic Life Insurance PLC'}), (s:Sector {name: 'Insurance'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 116
+MATCH (c:Company {name: 'Softlogic Stockbrokers (Pvt) Ltd'}), (s:Sector {name: 'Diversified Financials'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 117
+MATCH (c:Company {name: 'Softlogic Asset Management (Private) Limited'}), (s:Sector {name: 'Diversified Financials'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 118
+MATCH (c:Company {name: 'Softlogic Finance PLC'}), (p:Product {name: 'specialized business loans'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 119
+MATCH (c:Company {name: 'Softlogic Finance PLC'}), (p:Product {name: 'regular business loans'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 120
+MATCH (c:Company {name: 'Softlogic Finance PLC'}), (p:Product {name: 'vehicle and machinery loans'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 121
+MATCH (c:Company {name: 'Softlogic Finance PLC'}), (p:Product {name: 'personal financing'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 122
+MATCH (c:Company {name: 'Softlogic Finance PLC'}), (p:Product {name: 'leasing'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 123
+MATCH (c:Company {name: 'Softlogic Finance PLC'}), (p:Product {name: 'hire purchase'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 124
+MATCH (c:Company {name: 'Softlogic Finance PLC'}), (p:Product {name: 'fund mobilization'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 125
+MATCH (c:Company {name: 'Softlogic Finance PLC'}), (p:Product {name: 'gold loans'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 126
+MATCH (c:Company {name: 'Softlogic Life Insurance PLC'}), (p:Product {name: 'life insurance solutions'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 127
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (p:Product {name: 'investment management'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 128
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (p:Product {name: 'consultancy services'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 129
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (p:Product {name: 'advisory services'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 130
+MATCH (c:Company {name: 'Softlogic Stockbrokers (Pvt) Ltd'}), (p:Product {name: 'stockbroking services'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 131
+MATCH (c:Company {name: 'Softlogic Asset Management (Private) Limited'}), (p:Product {name: 'Asset Management Services for Unit Trust Funds'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 132
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 36730000000.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 133
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 32687000000.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 134
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 10830000000.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 135
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 8085000000.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 136
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Profit Before Interest And Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1864000000.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 137
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Profit Before Interest And Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 5639000000.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 138
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -3685000000.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 139
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -626000000.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 140
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Income Tax Expense'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -498000000.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 141
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Income Tax Expense'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1765000000.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 142
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -4183000000.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 143
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -2391000000.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 144
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Profit For The Year Attributable To Equity Holders'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -5565000000.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 145
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Profit For The Year Attributable To Equity Holders'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -3443000000.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 146
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Operating Profit Margin'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 29.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 147
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Operating Profit Margin'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 25.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 148
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Profit Margin'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -11.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 149
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Profit Margin'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -7.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 150
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Earnings Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -6.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 151
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Earnings Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -4.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 152
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Return On Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -111.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 153
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Return On Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -32.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 154
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Return On Capital Employed'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 6.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 155
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Return On Capital Employed'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 14.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 156
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 65782000000.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 157
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 74074000000.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 158
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3777000000.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 159
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 7539000000.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 160
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Shareholders Funds'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -2644000000.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 161
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Shareholders Funds'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2380000000.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 162
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Interest Bearing Borrowings'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 19636000000.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 163
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Interest Bearing Borrowings'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 21686000000.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 164
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Public Deposits'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 7482000000.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 165
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Public Deposits'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 12431000000.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 166
+MATCH (c:Company {name: 'Softlogic Finance PLC'}), (m:Metric {name: 'Total Gross Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2576000000.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 167
+MATCH (c:Company {name: 'Softlogic Finance PLC'}), (m:Metric {name: 'Total Gross Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3925000000.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 168
+MATCH (c:Company {name: 'Softlogic Finance PLC'}), (m:Metric {name: 'Loans And Advances Portfolio'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3840000000.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 169
+MATCH (c:Company {name: 'Softlogic Finance PLC'}), (m:Metric {name: 'Loans And Advances Portfolio'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 8843000000.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 170
+MATCH (c:Company {name: 'Softlogic Finance PLC'}), (m:Metric {name: 'Lease And Hire Purchase Portfolio'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3998000000.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 171
+MATCH (c:Company {name: 'Softlogic Finance PLC'}), (m:Metric {name: 'Lease And Hire Purchase Portfolio'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 7816000000.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 172
+MATCH (c:Company {name: 'Softlogic Finance PLC'}), (m:Metric {name: 'Customer Deposit Base'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 7482000000.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 173
+MATCH (c:Company {name: 'Softlogic Finance PLC'}), (m:Metric {name: 'Customer Deposit Base'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 12431000000.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 174
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Interest Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 10211400060.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 175
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Interest Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 10132540025.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 176
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Interest Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 5447003547.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 177
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Interest Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 4230637729.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 178
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Interest Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 4779671661.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 179
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Earned Premium'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 25032613563.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 180
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Earned Premium'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 20458557682.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 181
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Earned Premium'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 19165724038.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 182
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Earned Premium'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 15066693570.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 183
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Earned Premium'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 11919961361.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 184
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Fee And Trading Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 321899115.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 185
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Fee And Trading Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 325488669.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 186
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Fee And Trading Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 666703217.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 187
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Fee And Trading Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 491474441.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 188
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Fee And Trading Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 287755532.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 189
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Other Income And Gains'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 203009380.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 190
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Other Income And Gains'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1171485176.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 191
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Other Income And Gains'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1947325948.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 192
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Other Income And Gains'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 520415775.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 193
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Other Income And Gains'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 114522104.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 194
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Realized Gains'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 809052570.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 195
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Realized Gains'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 196743422.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 196
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Realized Gains'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 284364372.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 197
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Realized Gains'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 245427071.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 198
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Realized Gains'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 83133984.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 199
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Fair Value Gains'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 99237781.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 200
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Fair Value Gains'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 283819758.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 201
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Fair Value Gains'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -108283254.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 202
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Fair Value Gains'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 306540503.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 203
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Fair Value Gains'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 480253993.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 204
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Dividend Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 52469629.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 205
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Dividend Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 118597711.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 206
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Dividend Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 29893003.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 207
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Dividend Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 75952336.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 208
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Dividend Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 112105515.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 209
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 36729682098.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 210
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 32687232443.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 211
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 27432730871.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 212
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 20937141425.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 213
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 17777404150.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 214
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Interest Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -5549257907.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 215
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Interest Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -6264902431.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 216
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Interest Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -2487082301.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 217
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Interest Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -2529703867.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 218
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Interest Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -2874439021.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 219
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Interest Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1089165794.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 220
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Interest Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 763784349.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 221
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Interest Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 96964552.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 222
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Interest Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 51547762.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 223
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Interest Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 24676134.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 224
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Fee And Trading Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 201968176.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 225
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Fee And Trading Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 129485084.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 226
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Fee And Trading Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 126565163.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 227
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Fee And Trading Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 176210469.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 228
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Fee And Trading Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 153983871.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 229
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Other Income And Gains'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 23727820.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 230
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Other Income And Gains'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 10929981.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 231
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Other Income And Gains'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 166630030.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 232
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Other Income And Gains'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 14485272.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 233
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Other Income And Gains'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 10295208.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 234
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Dividend Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 618202110.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 235
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Dividend Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 584983902.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 236
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Dividend Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 593135579.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 237
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Dividend Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 586701808.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 238
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Dividend Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1818589.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 239
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1933063900.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 240
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1489183316.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 241
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 983295324.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 242
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 828945311.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 243
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 190773802.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 244
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Interest Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -2472514648.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 245
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Interest Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -2147379739.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 246
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Interest Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -587341744.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 247
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Interest Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -444070552.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 248
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Interest Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -269369077.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 249
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Other Direct Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -33882002.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 250
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Other Direct Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -18010466.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 251
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Other Direct Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -9753622.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 252
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Other Direct Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -25777217.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 253
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Other Direct Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -38038205.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 254
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -573332750.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 255
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -676206889.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 256
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 386199958.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 257
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 359097542.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 258
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -116633480.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 259
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Stated Capital'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3891595200.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 260
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Stated Capital'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3891595200.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 261
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Stated Capital'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3891595200.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 262
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Stated Capital'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3891595200.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 263
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Stated Capital'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3891595200.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 264
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Reserve Fund'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 260448732.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 265
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Reserve Fund'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 260448732.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 266
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Fair Value Reserve'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -1374558535.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 267
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Fair Value Reserve'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -1806203820.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 268
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Fair Value Reserve'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -40153489.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 269
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Fair Value Reserve'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -83067326.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 270
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Fair Value Reserve'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -70702177.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 271
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Fair Value Reserve'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -21442293.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 272
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Fair Value Reserve'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -18922229.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 273
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Other Fair Value Reserve'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 7284972867.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 274
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Other Fair Value Reserve'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 10162330805.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 275
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Other Fair Value Reserve'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 13656406108.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 276
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Revaluation Reserve'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 87989463.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 277
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Revaluation Reserve'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 216993842.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 278
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Restricted Regulatory Reserve'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 798004000.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 279
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Restricted Regulatory Reserve'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 798004000.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 280
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Non Distributable Regulatory Loss Allowance Reserve'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1736237951.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 281
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Non Distributable Regulatory Loss Allowance Reserve'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1748974244.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 282
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Retained Earnings'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -8044183367.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 283
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Retained Earnings'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -2729795739.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 284
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Retained Earnings'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -5558504031.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 285
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Retained Earnings'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -804064701.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 286
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Retained Earnings'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 314366509.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 287
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Retained Earnings'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 107400250.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 288
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Retained Earnings'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -286175935.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 289
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Shareholders Funds'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -2644466556.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 290
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Shareholders Funds'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2380016459.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 291
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Shareholders Funds'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 5577910547.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 292
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Shareholders Funds'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 13166793978.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 293
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Shareholders Funds'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 17791665640.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 294
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Shareholders Funds'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3977553157.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 295
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Shareholders Funds'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2574901836.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 296
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Non Controlling Interest'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 6421096628.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 297
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Non Controlling Interest'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 5158825112.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 298
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3776630072.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 299
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 7538841571.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 300
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 5577910547.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 301
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 13166793978.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 302
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 17791665640.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 303
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3977553157.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 304
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2574901836.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 305
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Bank Overdraft'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 328600752.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 306
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Bank Overdraft'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 322060550.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 307
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Bank Overdraft'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 90887124.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 308
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Bank Overdraft'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 405588.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 309
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Bank Overdraft'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 130125750.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 310
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Trade And Other Payables'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 20622331.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 311
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Trade And Other Payables'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 36603791.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 312
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Trade And Other Payables'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 38367426.0, r.year = 2022, r.as_of = date('2022-03-31');
+
+// Query 313
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Trade And Other Payables'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 34608722.0, r.year = 2021, r.as_of = date('2021-03-31');
+
+// Query 314
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Trade And Other Payables'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 46305004.0, r.year = 2020, r.as_of = date('2020-03-31');
+
+// Query 315
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Number Of Shares'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 977187200, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 316
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Number Of Shares'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 977187200, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 317
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Basic Earnings Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -5.7, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 318
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Basic Earnings Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -3.52, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 319
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Basic Earnings Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -4.85, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 320
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Basic Earnings Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -1.14, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 321
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Assets Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -2.71, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 322
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Assets Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2.44, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 323
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Assets Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 5.71, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 324
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Assets Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 13.47, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 325
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Market Capitalization'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1485129107.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 326
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Market Capitalization'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 10846777920.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 327
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Turnover'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 3885639098.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 328
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Turnover'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 13240339136.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 329
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Tax Paid'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -1258026525.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 330
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Tax Paid'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -338898498.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 331
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Interest Paid'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -4719435014.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 332
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Interest Paid'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -5072324669.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 333
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Interest Paid'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -1948803144.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 334
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Interest Paid'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -1443649557.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 335
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Gratuity Paid'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -53427562.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 336
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Gratuity Paid'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -21889428.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 337
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Cash Used In Operations'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 4005995336.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 338
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Cash Used In Operations'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -4881062715.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 339
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Cash Used In Operations'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -1533190702.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 340
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Net Cash Used In Operations'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -1960486411.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 341
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Investment In Subsidiaries'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -2370089155.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 342
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Investment In Subsidiaries'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -849123314.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 343
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Proceeds From Non Controlling Interest'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 350110320.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 344
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Proceeds From Non Controlling Interest'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2374003.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 345
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Proceeds On Disposal Of Property Plant And Equipment'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 355546753.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 346
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Proceeds On Disposal Of Property Plant And Equipment'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 160786471.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 347
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Purchase Of Property Plant And Equipment And Intangible Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -226746447.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 348
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Purchase Of Property Plant And Equipment And Intangible Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -164876889.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 349
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Purchase Of Property Plant And Equipment And Intangible Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -6872780.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 350
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Purchase Of Property Plant And Equipment And Intangible Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -4448983.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Query 351
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Securitization Borrowings'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1636665230.0, r.year = 2024, r.as_of = date('2024-03-31');
+
+// Query 352
+MATCH (c:Company {name: 'Softlogic Capital PLC'}), (m:Metric {name: 'Total Securitization Borrowings'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 2427017442.0, r.year = 2023, r.as_of = date('2023-03-31');
+
+// Total queries: 352
+// Generated on: 2025-10-02T19:31:06.986129

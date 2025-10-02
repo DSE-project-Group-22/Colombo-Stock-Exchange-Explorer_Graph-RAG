@@ -1,155 +1,431 @@
 // Query 1
-MERGE (c:Company {name: 'Windforce PLC'}) ON CREATE SET c.id = 'windforce_plc';
+MERGE (c:Company {name: 'WindForce PLC'}) ON CREATE SET c.id = 'windforce_plc', c.region = 'Sri Lanka';
 
 // Query 2
-MERGE (p:Person {name: 'S.D.R. Arudpragasam'}) ON CREATE SET p.id = 's_d_r_arudpragasam';
+MERGE (c:Company {name: 'Renewgen Private Limited'}) ON CREATE SET c.id = 'renewgen_private_limited';
 
 // Query 3
-MERGE (p:Person {name: 'R.C.A. Welikala'}) ON CREATE SET p.id = 'r_c_a_welikala';
+MERGE (c:Company {name: 'Daily Life Renewable Energy (Pvt) Limited'}) ON CREATE SET c.id = 'daily_life_renewable_energy_pvt_limited';
 
 // Query 4
-MERGE (p:Person {name: 'R.N. Bopearatchy'}) ON CREATE SET p.id = 'r_n_bopearatchy';
+MERGE (c:Company {name: 'Powergen Lanka (Pvt) Ltd'}) ON CREATE SET c.id = 'powergen_lanka_pvt_ltd';
 
 // Query 5
-MERGE (p:Person {name: 'E. T. De Zoysa'}) ON CREATE SET p.id = 'e_t_de_zoysa';
+MERGE (c:Company {name: 'Beta Power (Pvt) Limited'}) ON CREATE SET c.id = 'beta_power_pvt_limited';
 
 // Query 6
-MERGE (p:Person {name: 'R. S. A. Wickramasingha'}) ON CREATE SET p.id = 'r_s_a_wickramasingha';
+MERGE (c:Company {name: 'Joule Power (Pvt) Limited'}) ON CREATE SET c.id = 'joule_power_pvt_limited';
 
 // Query 7
-MERGE (p:Person {name: 'D. S. Wickramasingha'}) ON CREATE SET p.id = 'd_s_wickramasingha';
+MERGE (c:Company {name: 'Seguwantivu Wind Power Private Limited'}) ON CREATE SET c.id = 'seguwantivu_wind_power_private_limited';
 
 // Query 8
-MERGE (p:Person {name: 'N. K. Wickramasingha'}) ON CREATE SET p.id = 'n_k_wickramasingha';
+MERGE (c:Company {name: 'Vidatamunai Wind Power Private Limited'}) ON CREATE SET c.id = 'vidatamunai_wind_power_private_limited';
 
 // Query 9
-MERGE (p:Person {name: 'L. J. M. De Silva'}) ON CREATE SET p.id = 'l_j_m_de_silva';
+MERGE (c:Company {name: 'Hiruras Power (Pvt) Ltd'}) ON CREATE SET c.id = 'hiruras_power_pvt_ltd';
 
 // Query 10
-MERGE (p:Person {name: 'M. U. S. G. Thilakawardana'}) ON CREATE SET p.id = 'm_u_s_g_thilakawardana';
+MERGE (c:Company {name: 'Vydexa (Lanka) Power Corporation (Pvt) Ltd'}) ON CREATE SET c.id = 'vydexa_lanka_power_corporation_pvt_ltd';
 
 // Query 11
-MERGE (p:Person {name: 'D. M. A. Kulasooriya'}) ON CREATE SET p.id = 'd_m_a_kulasooriya';
+MERGE (c:Company {name: 'Sunny Clime Lanka (Pvt) Ltd'}) ON CREATE SET c.id = 'sunny_clime_lanka_pvt_ltd';
 
 // Query 12
-MERGE (p:Person {name: 'M. S. Nanayakkara'}) ON CREATE SET p.id = 'm_s_nanayakkara';
+MERGE (c:Company {name: 'Seruwawila Photovoltaic (Pvt) Ltd'}) ON CREATE SET c.id = 'seruwawila_photovoltaic_pvt_ltd';
 
 // Query 13
-MERGE (m:Metric {name: 'Revenue'}) ON CREATE SET m.id = 'revenue', m.unit = 'Rs';
+MERGE (c:Company {name: 'Kebitigollewa Solar Power (Pvt) Ltd'}) ON CREATE SET c.id = 'kepitigollewa_solar_power_pvt_ltd';
 
 // Query 14
-MERGE (m:Metric {name: 'Cash Inflow From Operations'}) ON CREATE SET m.id = 'cash_inflow_from_operations', m.unit = 'Rs';
+MERGE (c:Company {name: 'Solar Universe (Pvt) Ltd'}) ON CREATE SET c.id = 'solar_universe_pvt_ltd';
 
 // Query 15
-MERGE (m:Metric {name: 'Net Profit Ratio'}) ON CREATE SET m.id = 'net_profit_ratio', m.unit = '%';
+MERGE (c:Company {name: 'Sooryashakthi (Pvt) Ltd'}) ON CREATE SET c.id = 'sooryashakthi_pvt_ltd';
 
 // Query 16
-MERGE (m:Metric {name: 'Taxes'}) ON CREATE SET m.id = 'taxes', m.unit = 'Rs';
+MERGE (c:Company {name: 'Tororo Pv Power Company Limited'}) ON CREATE SET c.id = 'tororo_pv_power_company_limited';
 
 // Query 17
-MERGE (m:Metric {name: 'Return on Equity'}) ON CREATE SET m.id = 'return_on_equity', m.unit = '%';
+MERGE (c:Company {name: 'Sky Solar (Pvt) Limited'}) ON CREATE SET c.id = 'sky_solar_pvt_limited';
 
 // Query 18
-MERGE (m:Metric {name: 'Asset Turnover Ratio'}) ON CREATE SET m.id = 'asset_turnover_ratio', m.unit = 'Times';
+MERGE (c:Company {name: 'Suryadhanavi (Pvt) Limited'}) ON CREATE SET c.id = 'suryadhanavi_pvt_limited';
 
 // Query 19
-MERGE (m:Metric {name: 'Dividend Per Share'}) ON CREATE SET m.id = 'dividend_per_share', m.unit = 'Rs';
+MERGE (c:Company {name: 'Hirujanani (Pvt) Limited'}) ON CREATE SET c.id = 'hirujanani_pvt_limited';
 
 // Query 20
-MERGE (m:Metric {name: 'Debt: Equity Ratio'}) ON CREATE SET m.id = 'debt_equity_ratio', m.unit = '%';
+MERGE (c:Company {name: 'Energy Reclamation Private Limited'}) ON CREATE SET c.id = 'energy_reclamation_private_limited';
 
 // Query 21
-MERGE (s:Sector {name: 'Energy'}) ON CREATE SET s.id = 'energy';
+MERGE (c:Company {name: 'Deloitte Advisory Services Pvt Ltd'}) ON CREATE SET c.id = 'deloitte_advisory_services_pvt_ltd';
 
 // Query 22
-MATCH (p:Person {name: 'S.D.R. Arudpragasam'}), (c:Company {name: 'Windforce PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2024-03-31');
+MERGE (s:Sector {name: 'Utilities'}) ON CREATE SET s.id = 'utilities';
 
 // Query 23
-MATCH (p:Person {name: 'R.C.A. Welikala'}), (c:Company {name: 'Windforce PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-03-31');
+MERGE (s:Sector {name: 'Automobiles and Components'}) ON CREATE SET s.id = 'automobiles_and_components';
 
 // Query 24
-MATCH (p:Person {name: 'R.N. Bopearatchy'}), (c:Company {name: 'Windforce PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-03-31');
+MERGE (p:Product {name: 'Solar Power Generation'}) ON CREATE SET p.id = 'solar_power_generation';
 
 // Query 25
-MATCH (p:Person {name: 'E. T. De Zoysa'}), (c:Company {name: 'Windforce PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Managing Director', r.as_of = date('2021-03-31');
+MERGE (p:Product {name: 'Wind Power Generation'}) ON CREATE SET p.id = 'wind_power_generation';
 
 // Query 26
-MATCH (p:Person {name: 'R. S. A. Wickramasingha'}), (c:Company {name: 'Windforce PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2021-03-31');
+MERGE (p:Product {name: 'Hydropower Generation'}) ON CREATE SET p.id = 'hydropower_generation';
 
 // Query 27
-MATCH (p:Person {name: 'D. S. Wickramasingha'}), (c:Company {name: 'Windforce PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MERGE (p:Product {name: 'EPC Services'}) ON CREATE SET p.id = 'epc_services';
 
 // Query 28
-MATCH (p:Person {name: 'N. K. Wickramasingha'}), (c:Company {name: 'Windforce PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MERGE (p:Product {name: 'O&M Services'}) ON CREATE SET p.id = 'o_m_services';
 
 // Query 29
-MATCH (p:Person {name: 'L. J. M. De Silva'}), (c:Company {name: 'Windforce PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MERGE (p:Product {name: 'Electric Vehicles'}) ON CREATE SET p.id = 'electric_vehicles';
 
 // Query 30
-MATCH (p:Person {name: 'M. U. S. G. Thilakawardana'}), (c:Company {name: 'Windforce PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MERGE (p:Product {name: 'Satva e-bikes'}) ON CREATE SET p.id = 'satva_e_bikes';
 
 // Query 31
-MATCH (p:Person {name: 'D. M. A. Kulasooriya'}), (c:Company {name: 'Windforce PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MERGE (p:Product {name: 'Battery Energy Storage Systems'}) ON CREATE SET p.id = 'battery_energy_storage_systems';
 
 // Query 32
-MATCH (p:Person {name: 'M. S. Nanayakkara'}), (c:Company {name: 'Windforce PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MERGE (m:Metric {name: 'Group Revenue'}) ON CREATE SET m.id = 'group_revenue', m.unit = 'Rs';
 
 // Query 33
-MATCH (c:Company {name: 'Windforce PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 7764000000, r.year = 2024;
+MERGE (m:Metric {name: 'Operating Profit'}) ON CREATE SET m.id = 'operating_profit', m.unit = 'Rs';
 
 // Query 34
-MATCH (c:Company {name: 'Windforce PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 8199000000, r.year = 2023;
+MERGE (m:Metric {name: 'Profit Before Taxation'}) ON CREATE SET m.id = 'profit_before_taxation', m.unit = 'Rs';
 
 // Query 35
-MATCH (c:Company {name: 'Windforce PLC'}), (m:Metric {name: 'Cash Inflow From Operations'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 2655000000, r.year = 2024;
+MERGE (m:Metric {name: 'Profit After Taxation'}) ON CREATE SET m.id = 'profit_after_taxation', m.unit = 'Rs';
 
 // Query 36
-MATCH (c:Company {name: 'Windforce PLC'}), (m:Metric {name: 'Cash Inflow From Operations'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 3553000000, r.year = 2023;
+MERGE (m:Metric {name: 'Profit Attributable to Parent'}) ON CREATE SET m.id = 'profit_attributable_to_parent', m.unit = 'Rs';
 
 // Query 37
-MATCH (c:Company {name: 'Windforce PLC'}), (m:Metric {name: 'Net Profit Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 21.17, r.year = 2024;
+MERGE (m:Metric {name: 'Gross Dividend Paid'}) ON CREATE SET m.id = 'gross_dividend_paid', m.unit = 'Rs';
 
 // Query 38
-MATCH (c:Company {name: 'Windforce PLC'}), (m:Metric {name: 'Net Profit Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 31.45, r.year = 2023;
+MERGE (m:Metric {name: 'Total Assets'}) ON CREATE SET m.id = 'total_assets', m.unit = 'Rs';
 
 // Query 39
-MATCH (c:Company {name: 'Windforce PLC'}), (m:Metric {name: 'Taxes'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 491000000, r.year = 2024;
+MERGE (m:Metric {name: 'Stated Capital'}) ON CREATE SET m.id = 'stated_capital', m.unit = 'Rs';
 
 // Query 40
-MATCH (c:Company {name: 'Windforce PLC'}), (m:Metric {name: 'Taxes'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 719000000, r.year = 2023;
+MERGE (m:Metric {name: 'Retained Earnings'}) ON CREATE SET m.id = 'retained_earnings', m.unit = 'Rs';
 
 // Query 41
-MATCH (c:Company {name: 'Windforce PLC'}), (m:Metric {name: 'Return on Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 25.80, r.year = 2024;
+MERGE (m:Metric {name: 'Equity Attributable to the Equity Holders of the Parent'}) ON CREATE SET m.id = 'equity_attributable_to_the_equity_holders_of_the_parent', m.unit = 'Rs';
 
 // Query 42
-MATCH (c:Company {name: 'Windforce PLC'}), (m:Metric {name: 'Return on Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 41.81, r.year = 2023;
+MERGE (m:Metric {name: 'Total Liabilities'}) ON CREATE SET m.id = 'total_liabilities', m.unit = 'Rs';
 
 // Query 43
-MATCH (c:Company {name: 'Windforce PLC'}), (m:Metric {name: 'Asset Turnover Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.79, r.year = 2024;
+MERGE (m:Metric {name: 'EBITDA'}) ON CREATE SET m.id = 'ebitda', m.unit = 'Rs';
 
 // Query 44
-MATCH (c:Company {name: 'Windforce PLC'}), (m:Metric {name: 'Asset Turnover Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.90, r.year = 2023;
+MERGE (m:Metric {name: 'Net Asset Value Per Share'}) ON CREATE SET m.id = 'net_asset_value_per_share', m.unit = 'Rs';
 
 // Query 45
-MATCH (c:Company {name: 'Windforce PLC'}), (m:Metric {name: 'Dividend Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 26.85, r.year = 2024;
+MERGE (m:Metric {name: 'Return on Capital Employed'}) ON CREATE SET m.id = 'return_on_capital_employed', m.unit = '%';
 
 // Query 46
-MATCH (c:Company {name: 'Windforce PLC'}), (m:Metric {name: 'Dividend Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 19.00, r.year = 2023;
+MERGE (m:Metric {name: 'Debt to Equity Ratio'}) ON CREATE SET m.id = 'debt_to_equity_ratio', m.unit = '%';
 
 // Query 47
-MATCH (c:Company {name: 'Windforce PLC'}), (m:Metric {name: 'Debt: Equity Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 7, r.year = 2024;
+MERGE (m:Metric {name: 'Interest Bearing Borrowing'}) ON CREATE SET m.id = 'interest_bearing_borrowing', m.unit = 'Rs';
 
 // Query 48
-MATCH (c:Company {name: 'Windforce PLC'}), (m:Metric {name: 'Debt: Equity Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 5, r.year = 2023;
+MERGE (m:Metric {name: 'Equity'}) ON CREATE SET m.id = 'equity', m.unit = 'Rs';
 
 // Query 49
-MATCH (c:Company {name: 'Windforce PLC'}), (s:Sector {name: 'Energy'}) MERGE (c)-[:IN_SECTOR]->(s);
+MERGE (m:Metric {name: 'Gearing Ratio'}) ON CREATE SET m.id = 'gearing_ratio', m.unit = '%';
 
 // Query 50
-UNWIND [{id: 'windforce_plc_directors_and_executives_0', content: '(Pvt) Ltd\na\nr\nThe DIRECTORS of the Company are also DIRECTORS of following companies with which the Company had transactions\nin the ordinary course of business during the year.\nKey management includes members of the Board of DIRECTORS of the Company. The compensation paid or payable\nto key management for employee services is shown below:\nMr. H.N.J \nChandrasekara\nMr. K.A.K \nJayatilake\nr\na', chunk_type: 'directors_and_executives', index: 0}, {id: 'windforce_plc_directors_and_executives_1', content: 'contracts in which they have an interest are disclosed in \nNote 34.1.1 to the financial statements on page 68.\nDIRECTORS’ Interest in Shares\nDIRECTORS of the Company who have an interest in the \nshares of the Company are required to disclose their \nshareholdings and any acquisitions/ disposals to the \nBoard in compliance with Section 200 of the Companies \nAct No. 07 of 2007. However, none of the DIRECTORS held \nany shares during the period under review nor in the \nprevious year.\nDIRECTORS’ Remuneration\nKey Management Personnel Compensation in respect of \nthe Company and the Group for the financial year 2021/ \n2022 is detailed in Note 34.1.2 to the Financial Statements \non page 68.\nDirectorate\nThe names of the DIRECTORS who held office during the \nfinancial year are given below and brief profiles of the \nDIRECTORS who are currently in office appear on pages 5 \nto 6.\nMr. S.D.R. Arudpragasam - Chairman\nMr. R.C.A. Welikala - Director\nMr. R.N. Bopearatchy - Director', chunk_type: 'directors_and_executives', index: 1}, {id: 'windforce_plc_directors_and_executives_2', content: 'shareholders of the Company is given on \npage 248 under Shareholders’ Information.\nPublic Holding \nInformation on public holding in terms of \nthe Listing Rules is given on page 244 under \nShareholders’ Information.\nInformation on the DIRECTORS of the \nCompany and DIRECTORS of Group \nCompanies as at 31st March 2024\nThe Board of DIRECTORS of the Company \nas at 31st March 2024 consisted of Seven \n(7) DIRECTORS, with a broad range of skills, \nexperience and attributes which include \nentrepreneurship, finance, audit, legal, \nmarketing and banking, as detailed in the \nbrief Profiles of the DIRECTORS on pages \n31-34.\nNames of the DIRECTORS who held office \nduring the year and as at 31st March 2024 \nas required by section 168 (1) (h) of the \nCompanies Act are given below : \nCHANGES IN THE DIRECTORATE DURING \nTHE YEAR\nThere were no changes in the directorate \nduring the period under review\nDIRECTORS of the subsidiaries and the \nassociate company as at 31st March 2024', chunk_type: 'directors_and_executives', index: 2}, {id: 'windforce_plc_directors_and_executives_3', content: 'Company in the preparation of the Financial \nStatements are given on pages 71 to 79, \nwhich are consistent with those of the \nprevious period.\nDIRECTORS’ responsibility for Financial \nReporting\nThe DIRECTORS are responsible for the \npreparation of the Financial Statements of \nthe Company and the Group to reflect a true \nand fair view of the state of its affairs.\nInformation on the DIRECTORS of the \nCompany and the Group \nDIRECTORS of the Company as at  \n31st March 2021\nThe names of the DIRECTORS who held office \nas at the end of the accounting period are \ngiven below and their brief profiles appear on \npages 18 and 19.\nExecutive DIRECTORS\nMr. E. T . De Zoysa - Managing Director\nNon-Executive DIRECTORS\nMr. R. S. A. Wickramasingha - Chairman\nMs. D. S. Wickramasingha - Director\nMs. N. K. Wickramasingha - Director \nMr. L. J. M. De Silva - Director \nMr. M. U. S. G. Thilakawardana - Director*\nDr. D. M. A. Kulasooriya - Director*\nMr. M. S. Nanayakkara - Director*', chunk_type: 'directors_and_executives', index: 3}, {id: 'windforce_plc_directors_and_executives_4', content: 'from pages 28 to 67 of the Annual Report. \nDIRECTORATE \nThe Board of DIRECTORS of the Company as at date is set out in \n“Corporate Information”. The DIRECTORS of the Company who held \noffice during the year under review and changes thereto are \nindicated below.', chunk_type: 'directors_and_executives', index: 4}, {id: 'windforce_plc_financial_performance_0', content: 'best practices, our aim is to optimise our financial resources, leveraging them to drive short-term \ngrowth whilst consolidating gains and investing in expansions, new products and markets for long-\nterm success. This section will outline our approach to strengthen our financial capital base and \nprovide a detailed overview of the results achieved for the financial year (FY) ended 31st March, \n2024.\nFINANCIAL \nCAPITAL\nRs. 7,764 Mn\nRevenue\nFY 2022/23: 8,199mn\nRs. 2,655 Mn \nCash Inflow From \nOperations\nFY 2022/23: Rs. 3,553 Mn\n21.17%\nNet Profit Ratio\nFY 2022/23: 31.45% \nRs. 491 Mn \nTaxes\nFY 2022/23: 719 Mn\n25.80%\nReturn on Equity\nFY 2022/23:41.81%\n0.79 times \nAsset Turnover Ratio\nFY 2022/23: 0.90 \ntimes\nRs. 26.85\nDividend Per Share\nFY 2022/23: Rs 19.00\n7%\nDebt: Equity Ratio\nFY 2022/23: 5%\nSound Internal \nControls\nLiquidity & Fund \nManagement\nError free \nFinancial \nReporting\nSafeguard of \nAssetsProfitability\nOur Materiality Focus\nStakeholders Impacted', chunk_type: 'financial_performance', index: 0}] AS chunk MERGE (ch:Chunk {id: chunk.id}) ON CREATE SET ch.content = chunk.content, ch.chunk_type = chunk.chunk_type, ch.index = chunk.index;
+MERGE (m:Metric {name: 'Total Equity'}) ON CREATE SET m.id = 'total_equity', m.unit = 'Rs';
 
 // Query 51
-MATCH (c:Company {name: 'Windforce PLC'}) WITH c UNWIND ['windforce_plc_directors_and_executives_0', 'windforce_plc_directors_and_executives_1', 'windforce_plc_directors_and_executives_2', 'windforce_plc_directors_and_executives_3', 'windforce_plc_directors_and_executives_4', 'windforce_plc_financial_performance_0'] AS chunk_id MATCH (ch:Chunk {id: chunk_id}) MERGE (c)-[:HAS_CONTENT]->(ch);
+MERGE (m:Metric {name: 'Interest Bearing Loans and Borrowings'}) ON CREATE SET m.id = 'interest_bearing_loans_and_borrowings', m.unit = 'Rs';
 
-// Total queries: 51
-// Generated on: 2025-09-30T13:59:52.412890
+// Query 52
+MERGE (m:Metric {name: 'Lease Liabilities'}) ON CREATE SET m.id = 'lease_liabilities', m.unit = 'Rs';
+
+// Query 53
+MERGE (m:Metric {name: 'Shareholders Funds'}) ON CREATE SET m.id = 'shareholders_funds', m.unit = 'Rs';
+
+// Query 54
+MERGE (m:Metric {name: 'Non-Controlling Interest'}) ON CREATE SET m.id = 'non_controlling_interest', m.unit = 'Rs';
+
+// Query 55
+MERGE (m:Metric {name: 'Debt Capital'}) ON CREATE SET m.id = 'debt_capital', m.unit = 'Rs';
+
+// Query 56
+MERGE (m:Metric {name: 'Carbon Credit Sales'}) ON CREATE SET m.id = 'carbon_credit_sales', m.unit = 'Rs';
+
+// Query 57
+MATCH (c:Company {name: 'WindForce PLC'}), (s:Sector {name: 'Utilities'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 58
+MATCH (c:Company {name: 'WindForce PLC'}), (s:Sector {name: 'Automobiles and Components'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 59
+MATCH (c:Company {name: 'WindForce PLC'}), (p:Product {name: 'Solar Power Generation'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 60
+MATCH (c:Company {name: 'WindForce PLC'}), (p:Product {name: 'Wind Power Generation'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 61
+MATCH (c:Company {name: 'WindForce PLC'}), (p:Product {name: 'Hydropower Generation'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 62
+MATCH (c:Company {name: 'WindForce PLC'}), (p:Product {name: 'EPC Services'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 63
+MATCH (c:Company {name: 'WindForce PLC'}), (p:Product {name: 'O&M Services'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 64
+MATCH (c:Company {name: 'WindForce PLC'}), (p:Product {name: 'Electric Vehicles'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 65
+MATCH (c:Company {name: 'WindForce PLC'}), (p:Product {name: 'Satva e-bikes'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 66
+MATCH (c:Company {name: 'WindForce PLC'}), (p:Product {name: 'Battery Energy Storage Systems'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 67
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Group Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 6902690000, r.year = 2025;
+
+// Query 68
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Group Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 5851800000, r.year = 2024;
+
+// Query 69
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 3015244000, r.year = 2025;
+
+// Query 70
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 2855838000, r.year = 2024;
+
+// Query 71
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Profit Before Taxation'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 2949902000, r.year = 2025;
+
+// Query 72
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Profit Before Taxation'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 2555104000, r.year = 2024;
+
+// Query 73
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Profit After Taxation'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 2249690000, r.year = 2025;
+
+// Query 74
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Profit After Taxation'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1750594000, r.year = 2024;
+
+// Query 75
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Profit Attributable to Parent'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1787078000, r.year = 2025;
+
+// Query 76
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Profit Attributable to Parent'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1549546000, r.year = 2024;
+
+// Query 77
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Gross Dividend Paid'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1350769000, r.year = 2025;
+
+// Query 78
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Gross Dividend Paid'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1350769000, r.year = 2024;
+
+// Query 79
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 39424452000, r.year = 2025;
+
+// Query 80
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 38041861000, r.year = 2024;
+
+// Query 81
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Stated Capital'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 18226456000, r.year = 2025;
+
+// Query 82
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Stated Capital'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 18226456000, r.year = 2024;
+
+// Query 83
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Retained Earnings'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 4510596000, r.year = 2025;
+
+// Query 84
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Retained Earnings'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 4178500000, r.year = 2024;
+
+// Query 85
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Equity Attributable to the Equity Holders of the Parent'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 23266655000, r.year = 2025;
+
+// Query 86
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Equity Attributable to the Equity Holders of the Parent'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 22994184000, r.year = 2024;
+
+// Query 87
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Total Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 13025179000, r.year = 2025;
+
+// Query 88
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Total Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 12582327000, r.year = 2024;
+
+// Query 89
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'EBITDA'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 6100000000, r.year = 2025;
+
+// Query 90
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'EBITDA'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 5596330275.23, r.year = 2024;
+
+// Query 91
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Net Asset Value Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 17.22, r.year = 2025;
+
+// Query 92
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Net Asset Value Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 17.02, r.year = 2024;
+
+// Query 93
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Return on Capital Employed'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 9.65, r.year = 2025;
+
+// Query 94
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Return on Capital Employed'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 9.73, r.year = 2024;
+
+// Query 95
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Debt to Equity Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 45.0, r.year = 2025;
+
+// Query 96
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Debt to Equity Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 43.0, r.year = 2024;
+
+// Query 97
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Interest Bearing Borrowing'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 10427000000, r.year = 2025;
+
+// Query 98
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Interest Bearing Borrowing'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 9961000000, r.year = 2024;
+
+// Query 99
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 26399000000, r.year = 2025;
+
+// Query 100
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 25460000000, r.year = 2024;
+
+// Query 101
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Gearing Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 28.0, r.year = 2025;
+
+// Query 102
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Gearing Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 28.0, r.year = 2024;
+
+// Query 103
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Stated Capital'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 18226455904, r.year = 2025;
+
+// Query 104
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Stated Capital'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 18226455904, r.year = 2024;
+
+// Query 105
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Retained Earnings'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 4510595856, r.year = 2025;
+
+// Query 106
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Retained Earnings'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 4178500475, r.year = 2024;
+
+// Query 107
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Equity Attributable to the Equity Holders of the Company'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 23266654950, r.year = 2025;
+
+// Query 108
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Equity Attributable to the Equity Holders of the Company'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 22994183928, r.year = 2024;
+
+// Query 109
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 26399272168, r.year = 2025;
+
+// Query 110
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 25459533816, r.year = 2024;
+
+// Query 111
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 21442986932, r.year = 2025;
+
+// Query 112
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 20353270577, r.year = 2024;
+
+// Query 113
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Interest Bearing Loans and Borrowings'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 9049038574, r.year = 2025;
+
+// Query 114
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Interest Bearing Loans and Borrowings'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 7542629214, r.year = 2024;
+
+// Query 115
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Interest Bearing Loans and Borrowings'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 71889090, r.year = 2025;
+
+// Query 116
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Interest Bearing Loans and Borrowings'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 403844914, r.year = 2024;
+
+// Query 117
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Lease Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 127444250, r.year = 2025;
+
+// Query 118
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Lease Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 95766227, r.year = 2024;
+
+// Query 119
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Lease Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 3783575, r.year = 2025;
+
+// Query 120
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Shareholders Funds'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 23300000000, r.year = 2025;
+
+// Query 121
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Non-Controlling Interest'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 3100000000, r.year = 2025;
+
+// Query 122
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Debt Capital'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 10400000000, r.year = 2025;
+
+// Query 123
+MATCH (c:Company {name: 'WindForce PLC'}), (m:Metric {name: 'Carbon Credit Sales'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 280000000, r.year = 2025;
+
+// Query 124
+MATCH (p:Company {name: 'WindForce PLC'}), (c:Company {name: 'Renewgen Private Limited'}) MERGE (p)-[:OWNS]->(c);
+
+// Query 125
+MATCH (p:Company {name: 'WindForce PLC'}), (c:Company {name: 'Daily Life Renewable Energy (Pvt) Limited'}) MERGE (p)-[:OWNS]->(c);
+
+// Query 126
+MATCH (p:Company {name: 'WindForce PLC'}), (c:Company {name: 'Powergen Lanka (Pvt) Ltd'}) MERGE (p)-[:OWNS]->(c);
+
+// Query 127
+MATCH (p:Company {name: 'WindForce PLC'}), (c:Company {name: 'Beta Power (Pvt) Limited'}) MERGE (p)-[:OWNS]->(c);
+
+// Query 128
+MATCH (p:Company {name: 'WindForce PLC'}), (c:Company {name: 'Joule Power (Pvt) Limited'}) MERGE (p)-[:OWNS]->(c);
+
+// Query 129
+MATCH (p:Company {name: 'WindForce PLC'}), (c:Company {name: 'Seguwantivu Wind Power Private Limited'}) MERGE (p)-[:OWNS]->(c);
+
+// Query 130
+MATCH (p:Company {name: 'WindForce PLC'}), (c:Company {name: 'Vidatamunai Wind Power Private Limited'}) MERGE (p)-[:OWNS]->(c);
+
+// Query 131
+MATCH (p:Company {name: 'WindForce PLC'}), (c:Company {name: 'Hiruras Power (Pvt) Ltd'}) MERGE (p)-[:OWNS]->(c);
+
+// Query 132
+MATCH (p:Company {name: 'WindForce PLC'}), (c:Company {name: 'Vydexa (Lanka) Power Corporation (Pvt) Ltd'}) MERGE (p)-[:OWNS]->(c);
+
+// Query 133
+MATCH (p:Company {name: 'WindForce PLC'}), (c:Company {name: 'Sunny Clime Lanka (Pvt) Ltd'}) MERGE (p)-[:OWNS]->(c);
+
+// Query 134
+MATCH (p:Company {name: 'WindForce PLC'}), (c:Company {name: 'Seruwawila Photovoltaic (Pvt) Ltd'}) MERGE (p)-[:OWNS]->(c);
+
+// Query 135
+MATCH (p:Company {name: 'WindForce PLC'}), (c:Company {name: 'Kebitigollewa Solar Power (Pvt) Ltd'}) MERGE (p)-[:OWNS]->(c);
+
+// Query 136
+MATCH (p:Company {name: 'WindForce PLC'}), (c:Company {name: 'Solar Universe (Pvt) Ltd'}) MERGE (p)-[:OWNS]->(c);
+
+// Query 137
+MATCH (p:Company {name: 'WindForce PLC'}), (c:Company {name: 'Sooryashakthi (Pvt) Ltd'}) MERGE (p)-[:OWNS]->(c);
+
+// Query 138
+MATCH (p:Company {name: 'WindForce PLC'}), (c:Company {name: 'Tororo Pv Power Company Limited'}) MERGE (p)-[:OWNS]->(c);
+
+// Query 139
+MATCH (p:Company {name: 'WindForce PLC'}), (c:Company {name: 'Sky Solar (Pvt) Limited'}) MERGE (p)-[:OWNS]->(c);
+
+// Query 140
+MATCH (p:Company {name: 'WindForce PLC'}), (c:Company {name: 'Suryadhanavi (Pvt) Limited'}) MERGE (p)-[:OWNS]->(c);
+
+// Query 141
+MATCH (p:Company {name: 'WindForce PLC'}), (c:Company {name: 'Hirujanani (Pvt) Limited'}) MERGE (p)-[:OWNS]->(c);
+
+// Query 142
+MATCH (p:Company {name: 'WindForce PLC'}), (c:Company {name: 'Energy Reclamation Private Limited'}) MERGE (p)-[:OWNS]->(c);
+
+// Query 143
+MATCH (c:Company {name: 'WindForce PLC'}), (a:Company {name: 'Deloitte Advisory Services Pvt Ltd'}) MERGE (c)-[:AUDITED_BY {year: 2025}]->(a);
+
+// Total queries: 143
+// Generated on: 2025-10-02T19:22:45.112825

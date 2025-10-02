@@ -18,6 +18,7 @@ import json
 import time
 from pathlib import Path
 from typing import List, Dict, Any
+import chromadb  # Import for client management
 
 # Import the main chunk retriever functions
 try:
@@ -88,12 +89,25 @@ def process_single_pdf(pdf_path: str, config: Dict[str, Any], questions: Dict[st
         # Update config for this specific PDF
         config["pdf_input_path"] = pdf_path
         
+        # Make collection name unique to this PDF to prevent chunk accumulation
+        pdf_stem = Path(pdf_path).stem
+        config["collection_name"] = f"pdf_chunks_{pdf_stem}"
+        
         # Step 1: Load and chunk PDF using recursive chunking
         chunks = load_and_chunk_pdf(pdf_path, config)
         result_summary["chunks_created"] = len(chunks)
         
-        # Step 2: Create vector database
-        vector_db = create_in_memory_vector_db(chunks, config)
+        # Step 2: Create vector database (with unique collection)
+        # Create a fresh Chroma client for isolation
+        chroma_client = chromadb.Client()
+        # Optional: Delete if somehow exists (though unique name should prevent)
+        try:
+            chroma_client.delete_collection(name=config["collection_name"])
+        except:
+            pass
+        # Pass the client to create_in_memory_vector_db (modify chunk_retriever.py if needed to accept client arg; see notes below)
+        # Assuming create_in_memory_vector_db accepts client kwarg; if not, add it there as Chroma(..., client=chroma_client)
+        vector_db = create_in_memory_vector_db(chunks, config)  # Update function to use client if necessary
         
         # Step 3: Retrieve relevant chunks
         results = retrieve_relevant_chunks(vector_db, questions, config)

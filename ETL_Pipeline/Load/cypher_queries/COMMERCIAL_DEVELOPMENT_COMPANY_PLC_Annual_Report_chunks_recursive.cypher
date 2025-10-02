@@ -1,299 +1,323 @@
 // Query 1
-MERGE (c:Company {name: 'Commercial Development Company PLC'}) ON CREATE SET c.id = 'commercial_development_company_plc';
+MERGE (c:Company {name: 'Commercial Development Company PLC'}) ON CREATE SET c.id = 'commercial_development_company_plc', c.region = 'Sri Lanka', c.listed_on = 'Diri Savi Board of the CSE';
 
 // Query 2
-MERGE (p:Person {name: 'A.K. Pathirage'}) ON CREATE SET p.id = 'a_k_pathirage';
+MERGE (c:Company {name: 'Commercial Bank of Ceylon PLC'}) ON CREATE SET c.id = 'commercial_bank_of_ceylon_plc';
 
 // Query 3
-MERGE (p:Person {name: 'S. Selliah'}) ON CREATE SET p.id = 's_selliah';
+MERGE (c:Company {name: 'KPMG'}) ON CREATE SET c.id = 'kpmg';
 
 // Query 4
-MERGE (p:Person {name: 'K.M.P Karunaratne'}) ON CREATE SET p.id = 'k_m_p_karunaratne';
+MERGE (p:Person {name: 'A L Gooneratne'}) ON CREATE SET p.id = 'a_l_gooneratne';
 
 // Query 5
-MERGE (p:Person {name: 'G.L.H. Premaratne'}) ON CREATE SET p.id = 'g_l_h_premaratne';
+MERGE (p:Person {name: 'S C U Manatunge'}) ON CREATE SET p.id = 's_c_u_manatunge';
 
 // Query 6
-MERGE (p:Person {name: 'H K Kaimal'}) ON CREATE SET p.id = 'h_k_kaimal';
+MERGE (p:Person {name: 'U I S Tillakawardana'}) ON CREATE SET p.id = 'u_i_s_tillakawardana';
 
 // Query 7
-MERGE (p:Person {name: 'S.A.B Rajapaksa'}) ON CREATE SET p.id = 's_a_b_rajapaksa';
+MERGE (p:Person {name: 'Dr R A Attalage'}) ON CREATE SET p.id = 'dr_r_a_attalage';
 
 // Query 8
-MERGE (p:Person {name: 'V. Bali'}) ON CREATE SET p.id = 'v_bali';
+MERGE (p:Person {name: 'P L P Withana'}) ON CREATE SET p.id = 'p_l_p_withana';
 
 // Query 9
-MERGE (p:Person {name: 'A.N Thadani'}) ON CREATE SET p.id = 'a_n_thadani';
+MERGE (p:Person {name: 'N Abeysuriya'}) ON CREATE SET p.id = 'n_abeysuriya';
 
 // Query 10
-MERGE (p:Person {name: 'Amrit Rajaratnam'}) ON CREATE SET p.id = 'amrit_rajaratnam';
+MERGE (p:Person {name: 'L W P Indrajith'}) ON CREATE SET p.id = 'l_w_p_indrajith';
 
 // Query 11
-MERGE (p:Person {name: 'S. D. R. Arudpragasam'}) ON CREATE SET p.id = 's_d_r_arudpragasam';
-
-// Query 12
-MERGE (p:Person {name: 'C. P. R. Perera'}) ON CREATE SET p.id = 'c_p_r_perera';
-
-// Query 13
-MERGE (p:Person {name: 'S. Rajaratnam'}) ON CREATE SET p.id = 's_rajaratnam';
-
-// Query 14
-MERGE (p:Person {name: 'A. R. Rasiah'}) ON CREATE SET p.id = 'a_r_rasiah';
-
-// Query 15
-MERGE (p:Person {name: 'Anushman Rajaratnam'}) ON CREATE SET p.id = 'anushman_rajaratnam';
-
-// Query 16
-MERGE (p:Person {name: 'J. T. Sumathipala'}) ON CREATE SET p.id = 'j_t_sumathipala';
-
-// Query 17
-MERGE (p:Person {name: 'R. Radha'}) ON CREATE SET p.id = 'r_radha';
-
-// Query 18
-MERGE (p:Person {name: 'R.A.T.P Perera'}) ON CREATE SET p.id = 'r_a_t_p_perera';
-
-// Query 19
-MERGE (p:Person {name: 'D.A.S.D. A. Abeyesinhe'}) ON CREATE SET p.id = 'd_a_s_d_a_abeyesinhe';
-
-// Query 20
-MERGE (p:Person {name: 'A. D. Ross'}) ON CREATE SET p.id = 'a_d_ross';
-
-// Query 21
-MERGE (p:Person {name: 'V. Siva Jr.'}) ON CREATE SET p.id = 'v_siva_jr_';
-
-// Query 22
-MERGE (p:Person {name: 'S. S. Balasubramaniam'}) ON CREATE SET p.id = 's_s_balasubramaniam';
-
-// Query 23
-MERGE (p:Person {name: 'D. Swarnasinghe'}) ON CREATE SET p.id = 'd_swarnasinghe';
-
-// Query 24
-MERGE (m:Metric {name: 'Gross Income'}) ON CREATE SET m.id = 'gross_income', m.unit = 'Rs';
-
-// Query 25
-MERGE (m:Metric {name: 'Net Interest Income'}) ON CREATE SET m.id = 'net_interest_income', m.unit = 'Rs';
-
-// Query 26
-MERGE (m:Metric {name: 'Profit Before Taxation'}) ON CREATE SET m.id = 'profit_before_taxation', m.unit = 'Rs';
-
-// Query 27
-MERGE (m:Metric {name: 'Profit After Taxation'}) ON CREATE SET m.id = 'profit_after_taxation', m.unit = 'Rs';
-
-// Query 28
-MERGE (m:Metric {name: 'Total Assets'}) ON CREATE SET m.id = 'total_assets', m.unit = 'Rs';
-
-// Query 29
-MERGE (m:Metric {name: 'Shareholders Funds'}) ON CREATE SET m.id = 'shareholders_funds', m.unit = 'Rs';
-
-// Query 30
-MERGE (m:Metric {name: 'Earnings per Share'}) ON CREATE SET m.id = 'earnings_per_share', m.unit = 'Rs';
-
-// Query 31
-MERGE (m:Metric {name: 'Net Assets per Share'}) ON CREATE SET m.id = 'net_assets_per_share', m.unit = 'Rs';
-
-// Query 32
-MERGE (m:Metric {name: 'Return on Average Assets'}) ON CREATE SET m.id = 'return_on_average_assets', m.unit = '%';
-
-// Query 33
-MERGE (m:Metric {name: 'Equity to Assets Ratio'}) ON CREATE SET m.id = 'equity_to_assets_ratio', m.unit = '%';
-
-// Query 34
-MERGE (m:Metric {name: 'Gross Non Performing Accommodations'}) ON CREATE SET m.id = 'gross_non_performing_accommodations', m.unit = '%';
-
-// Query 35
-MERGE (m:Metric {name: 'Revenue'}) ON CREATE SET m.id = 'revenue', m.unit = 'Rs';
-
-// Query 36
-MERGE (m:Metric {name: 'Gross Profit'}) ON CREATE SET m.id = 'gross_profit', m.unit = 'Rs';
-
-// Query 37
-MERGE (m:Metric {name: 'Return on Total Assets'}) ON CREATE SET m.id = 'return_on_total_assets', m.unit = '%';
-
-// Query 38
-MERGE (m:Metric {name: 'Total operating income'}) ON CREATE SET m.id = 'total_operating_income', m.unit = 'Rs';
-
-// Query 39
-MERGE (m:Metric {name: 'Total equity'}) ON CREATE SET m.id = 'total_equity', m.unit = 'Rs';
-
-// Query 40
-MERGE (m:Metric {name: 'Return on Equity'}) ON CREATE SET m.id = 'return_on_equity', m.unit = '%';
-
-// Query 41
-MERGE (m:Metric {name: 'Dividend per share'}) ON CREATE SET m.id = 'dividend_per_share', m.unit = 'Rs';
-
-// Query 42
-MERGE (s:Sector {name: 'Diversified Financials'}) ON CREATE SET s.id = 'diversified_financials';
-
-// Query 43
-MERGE (s:Sector {name: 'Materials'}) ON CREATE SET s.id = 'materials';
-
-// Query 44
-MERGE (s:Sector {name: 'Food, Beverage, and Tobacco'}) ON CREATE SET s.id = 'food_beverage_and_tobacco';
-
-// Query 45
 MERGE (s:Sector {name: 'Real Estate'}) ON CREATE SET s.id = 'real_estate';
 
-// Query 46
-MERGE (s:Sector {name: 'Consumer Services'}) ON CREATE SET s.id = 'consumer_services';
-
-// Query 47
+// Query 12
 MERGE (s:Sector {name: 'Commercial and Professional Services'}) ON CREATE SET s.id = 'commercial_and_professional_services';
 
+// Query 13
+MERGE (s:Sector {name: 'Transportation'}) ON CREATE SET s.id = 'transportation';
+
+// Query 14
+MERGE (prod:Product {name: 'Rent Income on Premises'}) ON CREATE SET prod.id = 'rent_income_on_premises';
+
+// Query 15
+MERGE (prod:Product {name: 'Outsourcing Services'}) ON CREATE SET prod.id = 'outsourcing_services';
+
+// Query 16
+MERGE (prod:Product {name: 'Vehicle Hiring Income'}) ON CREATE SET prod.id = 'vehicle_hiring_income';
+
+// Query 17
+MERGE (prod:Product {name: 'Other Utility Services'}) ON CREATE SET prod.id = 'other_utility_services';
+
+// Query 18
+MERGE (m:Metric {name: 'Gross Revenue'}) ON CREATE SET m.id = 'gross_revenue', m.unit = 'Rs';
+
+// Query 19
+MERGE (m:Metric {name: 'Gross Profit'}) ON CREATE SET m.id = 'gross_profit', m.unit = 'Rs';
+
+// Query 20
+MERGE (m:Metric {name: 'Profit Before Tax'}) ON CREATE SET m.id = 'profit_before_tax', m.unit = 'Rs';
+
+// Query 21
+MERGE (m:Metric {name: 'Taxation'}) ON CREATE SET m.id = 'taxation', m.unit = 'Rs';
+
+// Query 22
+MERGE (m:Metric {name: 'Profit After Tax'}) ON CREATE SET m.id = 'profit_after_tax', m.unit = 'Rs';
+
+// Query 23
+MERGE (m:Metric {name: 'Gross Dividends'}) ON CREATE SET m.id = 'gross_dividends', m.unit = 'Rs';
+
+// Query 24
+MERGE (m:Metric {name: 'Investment Property'}) ON CREATE SET m.id = 'investment_property', m.unit = 'Rs';
+
+// Query 25
+MERGE (m:Metric {name: 'Current Assets'}) ON CREATE SET m.id = 'current_assets', m.unit = 'Rs';
+
+// Query 26
+MERGE (m:Metric {name: 'Current Liabilities'}) ON CREATE SET m.id = 'current_liabilities', m.unit = 'Rs';
+
+// Query 27
+MERGE (m:Metric {name: 'Total Assets'}) ON CREATE SET m.id = 'total_assets', m.unit = 'Rs';
+
+// Query 28
+MERGE (m:Metric {name: 'Shareholders\' Funds'}) ON CREATE SET m.id = 'shareholders_funds', m.unit = 'Rs';
+
+// Query 29
+MERGE (m:Metric {name: 'Net Assets Value Per Share'}) ON CREATE SET m.id = 'net_assets_value_per_share', m.unit = 'Rs';
+
+// Query 30
+MERGE (m:Metric {name: 'Earnings Per Share (Basic)'}) ON CREATE SET m.id = 'earnings_per_share_basic', m.unit = 'Rs';
+
+// Query 31
+MERGE (m:Metric {name: 'Dividends Per Share'}) ON CREATE SET m.id = 'dividends_per_share', m.unit = 'Rs';
+
+// Query 32
+MERGE (m:Metric {name: 'Market Value Per Share'}) ON CREATE SET m.id = 'market_value_per_share', m.unit = 'Rs';
+
+// Query 33
+MERGE (m:Metric {name: 'Return on Equity (ROE)'}) ON CREATE SET m.id = 'return_on_equity_roe', m.unit = '%';
+
+// Query 34
+MERGE (m:Metric {name: 'Return on Assets (ROA)'}) ON CREATE SET m.id = 'return_on_assets_roa', m.unit = '%';
+
+// Query 35
+MERGE (m:Metric {name: 'Non-current Assets'}) ON CREATE SET m.id = 'non_current_assets', m.unit = 'Rs';
+
+// Query 36
+MERGE (m:Metric {name: 'Interest Cover'}) ON CREATE SET m.id = 'interest_cover', m.unit = 'Times';
+
+// Query 37
+MERGE (m:Metric {name: 'Operating Profit'}) ON CREATE SET m.id = 'operating_profit', m.unit = 'Rs';
+
+// Query 38
+MERGE (m:Metric {name: 'Net Finance Income'}) ON CREATE SET m.id = 'net_finance_income', m.unit = 'Rs';
+
+// Query 39
+MERGE (m:Metric {name: 'Total Equity'}) ON CREATE SET m.id = 'total_equity', m.unit = 'Rs';
+
+// Query 40
+MERGE (m:Metric {name: 'Net Debt'}) ON CREATE SET m.id = 'net_debt', m.unit = 'Rs';
+
+// Query 41
+MERGE (m:Metric {name: 'Net Debt to Adjusted Equity Ratio'}) ON CREATE SET m.id = 'net_debt_to_adjusted_equity_ratio', m.unit = '%';
+
+// Query 42
+MATCH (p:Person {name: 'A L Gooneratne'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2024-12-31');
+
+// Query 43
+MATCH (p:Person {name: 'A L Gooneratne'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:DIRECTOR_OF]->(c) ON CREATE SET r.role = 'Non-Executive Non-Independent', r.as_of = date('2024-12-31');
+
+// Query 44
+MATCH (p:Person {name: 'S C U Manatunge'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:DIRECTOR_OF]->(c) ON CREATE SET r.role = 'Non-Executive Non-Independent', r.as_of = date('2024-12-31');
+
+// Query 45
+MATCH (p:Person {name: 'U I S Tillakawardana'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:DIRECTOR_OF]->(c) ON CREATE SET r.role = 'Non-Executive Non-Independent', r.as_of = date('2024-12-31');
+
+// Query 46
+MATCH (p:Person {name: 'Dr R A Attalage'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:DIRECTOR_OF]->(c) ON CREATE SET r.role = 'Non-Executive Independent', r.as_of = date('2024-12-31');
+
+// Query 47
+MATCH (p:Person {name: 'P L P Withana'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:DIRECTOR_OF]->(c) ON CREATE SET r.role = 'Non-Executive Independent', r.as_of = date('2024-12-31');
+
 // Query 48
-MERGE (s:Sector {name: 'Capital Goods'}) ON CREATE SET s.id = 'capital_goods';
+MATCH (p:Person {name: 'N Abeysuriya'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:DIRECTOR_OF]->(c) ON CREATE SET r.role = 'Non-Executive Independent', r.as_of = date('2024-12-31');
 
 // Query 49
-MATCH (p:Person {name: 'A.K. Pathirage'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2024-03-31');
+MATCH (p:Person {name: 'L W P Indrajith'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Company Secretary', r.as_of = date('2024-12-31');
 
 // Query 50
-MATCH (p:Person {name: 'A.K. Pathirage'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Managing Director', r.as_of = date('2024-03-31');
-
-// Query 51
-MATCH (p:Person {name: 'S. Selliah'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Deputy Chairman', r.as_of = date('2024-03-31');
-
-// Query 52
-MATCH (p:Person {name: 'K.M.P Karunaratne'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Group Chief Executive Officer', r.as_of = date('2024-03-31');
-
-// Query 53
-MATCH (p:Person {name: 'G.L.H. Premaratne'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non Executive Director', r.as_of = date('2024-03-31');
-
-// Query 54
-MATCH (p:Person {name: 'H K Kaimal'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Non-Executive Non Independent Director', r.as_of = date('2024-03-31');
-
-// Query 55
-MATCH (p:Person {name: 'S. D. R. Arudpragasam'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2024-03-31');
-
-// Query 56
-MATCH (p:Person {name: 'C. P. R. Perera'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Deputy Chairman', r.as_of = date('2024-03-31');
-
-// Query 57
-MATCH (p:Person {name: 'J. T. Sumathipala'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2024-03-31');
-
-// Query 58
-MATCH (p:Person {name: 'R. Radha'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Managing Director', r.as_of = date('2024-03-31');
-
-// Query 59
-MATCH (p:Person {name: 'R.A.T.P Perera'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Executive Director/CEO', r.as_of = date('2024-03-31');
-
-// Query 60
-MATCH (p:Person {name: 'D.A.S.D. A. Abeyesinhe'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Non-independent Non-Executive Director', r.as_of = date('2024-03-31');
-
-// Query 61
-MATCH (p:Person {name: 'A. D. Ross'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-03-31');
-
-// Query 62
-MATCH (p:Person {name: 'V. Siva Jr.'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-03-31');
-
-// Query 63
-MATCH (p:Person {name: 'S. S. Balasubramaniam'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Non-Executive Director', r.as_of = date('2024-03-31');
-
-// Query 64
-MATCH (p:Person {name: 'D. Swarnasinghe'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-03-31');
-
-// Query 65
-MATCH (p:Person {name: 'S. Selliah'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 17000, r.as_of = date('2024-03-31');
-
-// Query 66
-MATCH (p:Person {name: 'K.M.P Karunaratne'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 133, r.as_of = date('2024-03-31');
-
-// Query 67
-MATCH (p:Person {name: 'Amrit Rajaratnam'}), (c:Company {name: 'Commercial Development Company PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 300000, r.as_of = date('2024-03-31');
-
-// Query 68
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Gross Income'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 31055222000, r.year = 2024;
-
-// Query 69
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Net Interest Income'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 12808022000, r.year = 2024;
-
-// Query 70
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Profit Before Taxation'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 6594978000, r.year = 2024;
-
-// Query 71
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Profit After Taxation'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 4193917000, r.year = 2024;
-
-// Query 72
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 107987834000, r.year = 2024;
-
-// Query 73
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Shareholders Funds'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 24179669000, r.year = 2024;
-
-// Query 74
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Earnings per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 13.19, r.year = 2024;
-
-// Query 75
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Net Assets per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 76.02, r.year = 2024;
-
-// Query 76
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Return on Average Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 3.99, r.year = 2024;
-
-// Query 77
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Equity to Assets Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 22.39, r.year = 2024;
-
-// Query 78
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Gross Non Performing Accommodations'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 10.65, r.year = 2024;
-
-// Query 79
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 25447000000, r.year = 2024;
-
-// Query 80
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Gross Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 603000000, r.year = 2024;
-
-// Query 81
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Return on Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -6.0, r.year = 2024;
-
-// Query 82
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 25599000000, r.year = 2025;
-
-// Query 83
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Net Interest Income'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 11391000000, r.year = 2025;
-
-// Query 84
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Total operating income'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 14105000000, r.year = 2025;
-
-// Query 85
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Profit Before Taxation'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 7922000000, r.year = 2025;
-
-// Query 86
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Profit After Taxation'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 4005000000, r.year = 2025;
-
-// Query 87
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 156936000000, r.year = 2025;
-
-// Query 88
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Total equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 23936000000, r.year = 2025;
-
-// Query 89
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Return on Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 18.15, r.year = 2025;
-
-// Query 90
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Dividend per share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 15.00, r.year = 2025;
-
-// Query 91
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (s:Sector {name: 'Diversified Financials'}) MERGE (c)-[:IN_SECTOR]->(s);
-
-// Query 92
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (s:Sector {name: 'Materials'}) MERGE (c)-[:IN_SECTOR]->(s);
-
-// Query 93
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (s:Sector {name: 'Food, Beverage, and Tobacco'}) MERGE (c)-[:IN_SECTOR]->(s);
-
-// Query 94
 MATCH (c:Company {name: 'Commercial Development Company PLC'}), (s:Sector {name: 'Real Estate'}) MERGE (c)-[:IN_SECTOR]->(s);
 
-// Query 95
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (s:Sector {name: 'Consumer Services'}) MERGE (c)-[:IN_SECTOR]->(s);
-
-// Query 96
+// Query 51
 MATCH (c:Company {name: 'Commercial Development Company PLC'}), (s:Sector {name: 'Commercial and Professional Services'}) MERGE (c)-[:IN_SECTOR]->(s);
 
+// Query 52
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (s:Sector {name: 'Transportation'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 53
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (prod:Product {name: 'Rent Income on Premises'}) MERGE (c)-[:OFFERS]->(prod);
+
+// Query 54
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (prod:Product {name: 'Outsourcing Services'}) MERGE (c)-[:OFFERS]->(prod);
+
+// Query 55
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (prod:Product {name: 'Vehicle Hiring Income'}) MERGE (c)-[:OFFERS]->(prod);
+
+// Query 56
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (prod:Product {name: 'Other Utility Services'}) MERGE (c)-[:OFFERS]->(prod);
+
+// Query 57
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Gross Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 708260000, r.year = 2024;
+
+// Query 58
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Gross Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 687511000, r.year = 2023;
+
+// Query 59
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Gross Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 294261000, r.year = 2024;
+
+// Query 60
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Gross Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 266753000, r.year = 2023;
+
+// Query 61
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 829055000, r.year = 2024;
+
+// Query 62
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 461977000, r.year = 2023;
+
+// Query 63
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Taxation'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 246432000, r.year = 2024;
+
+// Query 64
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Taxation'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 167917000, r.year = 2023;
+
+// Query 65
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 582623000, r.year = 2024;
+
+// Query 66
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 294060000, r.year = 2023;
+
+// Query 67
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Gross Dividends'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 84000000, r.year = 2024;
+
+// Query 68
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Gross Dividends'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 84000000, r.year = 2023;
+
+// Query 69
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Investment Property'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 3608451000, r.year = 2024;
+
+// Query 70
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Investment Property'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 3129111000, r.year = 2023;
+
+// Query 71
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Current Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1247918000, r.year = 2024;
+
+// Query 72
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Current Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1096099000, r.year = 2023;
+
+// Query 73
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Current Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 80081000, r.year = 2024;
+
+// Query 74
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Current Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 116692000, r.year = 2023;
+
+// Query 75
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 4909396000, r.year = 2024;
+
+// Query 76
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 4326289000, r.year = 2023;
+
+// Query 77
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Shareholders\' Funds'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 4123018000, r.year = 2024;
+
+// Query 78
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Shareholders\' Funds'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 3621473000, r.year = 2023;
+
+// Query 79
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Net Assets Value Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 343.58, r.year = 2024;
+
+// Query 80
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Net Assets Value Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 301.79, r.year = 2023;
+
+// Query 81
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Earnings Per Share (Basic)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 48.55, r.year = 2024;
+
+// Query 82
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Earnings Per Share (Basic)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 24.51, r.year = 2023;
+
+// Query 83
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Dividends Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 7.00, r.year = 2024;
+
+// Query 84
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Dividends Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 7.00, r.year = 2023;
+
+// Query 85
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Market Value Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 141.00, r.year = 2024;
+
+// Query 86
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Market Value Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 111.75, r.year = 2023;
+
+// Query 87
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Return on Equity (ROE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 15.05, r.year = 2024;
+
+// Query 88
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Return on Equity (ROE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 8.36, r.year = 2023;
+
+// Query 89
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Return on Assets (ROA)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 12.62, r.year = 2024;
+
+// Query 90
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Return on Assets (ROA)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 7.02, r.year = 2023;
+
+// Query 91
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Non-current Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 3661000000, r.year = 2024;
+
+// Query 92
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Non-current Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 3230000000, r.year = 2023;
+
+// Query 93
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Interest Cover'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 47.58, r.year = 2024;
+
+// Query 94
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Interest Cover'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 17.56, r.year = 2023;
+
+// Query 95
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 724984000, r.year = 2024;
+
+// Query 96
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 337634000, r.year = 2023;
+
 // Query 97
-MATCH (c:Company {name: 'Commercial Development Company PLC'}), (s:Sector {name: 'Capital Goods'}) MERGE (c)-[:IN_SECTOR]->(s);
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Net Finance Income'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 104071000, r.year = 2024;
 
 // Query 98
-UNWIND [{id: 'commercial_development_company_plc_directors_and_executives_0', content: 'as at the end of the financial year under \nreview. The Company’s Board of DIRECTORS \nconsists of professionals in varied fields who \ncollectively possess a wealth of knowledge \nand experience are thus eminently suitable \nto provide the leadership and direction \nrequired.\nThe CEO has been given the responsibility \nof leading the organization as its chief \nexecutive by the Board. The Board has also \ndesignated additional Key Responsible \nPersons (KRPs) who direct activities, oversee \nbusiness operations, and have significant \ninfluence over policies.  The Board has \ncreated a comprehensive succession plan \nfor these critical roles in order to protect \noperational continuity and minimize \ninterruptions.\nThe Board has instituted an annual self-\nassessment program for each director \nto assess their own performance as well \nas the performance of the Board and its \ncommittees. The objective of this is to \nimprove the Board’s and its committees’ \neffectiveness. The senior director and', chunk_type: 'directors_and_executives', index: 0}, {id: 'commercial_development_company_plc_directors_and_executives_1', content: 'The following DIRECTORS held Office during the year under \nreview . The biographical details of  the Board members are set \nout on pages 24 to 25\nMr. A.K. Pathirage - (Chairman/ Managing Director) \nDr. S. Selliah – Deputy Chairman (Resigned w .e.f  29th July \n2024)\nDr. K.M.P Karunaratne – Group Chief  Executive Officer\nMr. G.L.H. Premaratne – Independent Non Executive \nDirector\nMr. H K Kaimal - Non-Executive Non Independent Director \n- (appointed w .e.f. 18th June 2024)\nFIT AND PROPER CRITERIA\nThe DIRECTORS hereby confirm that the DIRECTORS and CEO \nof  the company satisfy the fit and proper Assessment Criteria \nstipulated in section 9.7 of  the Listing Rules of  the Colombo \nStock Exchange for the year.\nDIRECTORS’ SHAREHOLDING \nName of Director No. of Shares \nas at 31/03/2024\nNo. of Shares \nas at 31/03/2023\nMr. A K Pathirage - -\nDr. S. Selliah 17,000 17,000\nDr. K.M.P Karunaratne 133 133\nMr. G.L.H Premaratne - -\nMr. S.A.B Rajapaksa - -\nMr. V .Bali - -\nMr. A.N Thadani - -', chunk_type: 'directors_and_executives', index: 1}, {id: 'commercial_development_company_plc_directors_and_executives_2', content: 'disclosed in Note 27 to the financial statements on page 60.\nDuring the financial year the Company has not entered in to any \ncontracts in which the DIRECTORS have had a material interest.\nNeither the DIRECTORS nor their close family members have had any \nmaterial business relationships with other DIRECTORS.\n              No. of shares\nName of Director As at    \n31.03.2024\nAs at    \n31.03.2023\nMr. Amrit Rajaratnam 300,000 300,000\nCorporate Donations  \nDetails pertaining to corporate donations made by the Company \nduring the financial year 2023/24 are given in note 6 to the financial \nstatements on page 41.\nDirectorate\nThe names of the DIRECTORS who held office during the financial \nyear are given below and the profiles of the DIRECTORS who are \ncurrently in office are given on pages 8 and 9.\nMr. S. D. R. Arudpragasam - Chairman \nMr. C. P. R. Perera - Deputy Chairman \nMr. S. Rajaratnam \nMr. Amrit Rajaratnam \nMr. A. R. Rasiah\nMr. Anushman Rajaratnam', chunk_type: 'directors_and_executives', index: 2}, {id: 'commercial_development_company_plc_directors_and_executives_3', content: 'foreseeable future. Accordingly, the Financial Statements are \nprepared based on the going concern concept.\nDIRECTORS who held office during the Year\nThe DIRECTORS of the Company during the year were as follows.\nDr. J. T. Sumathipala \nChairman (resigned with effect from 25th March 2024)\nMr. R. Radha \nManaging Director  \n(appointed with effect from 09th January 2024)\nMr. R.A.T.P Perera Executive Director/CEO  \n(resigned with effect from 31st January 2024)\nMr. D.A.S.D. A. Abeyesinhe \nNon-independent Non-Executive Director\nMr. A. D. Ross  \nIndependent Non-Executive Director\nMr. V. Siva Jr.  \nIndependent Non-Executive Director\nMr. S. S. Balasubramaniam    \nNon-Executive Director\nMr. D. Swarnasinghe \nIndependent Non-Executive Director', chunk_type: 'directors_and_executives', index: 3}, {id: 'commercial_development_company_plc_directors_and_executives_4', content: 'Company and the Group, all contributions, levies and taxes \npayable on behalf  of, and in respect of, the employees of  the \nCompany and the Group, and all other known statutory dues \nas were due and payable by the Company and the Group as \nat the date of  the Statement of  Financial Position have been \npaid or, where relevant provided for, except as specified in \nNote 29 to the Financial Statements, covering contingent \nliabilities. \nMATERIAL ISSUES PERTAINING TO THE \nEMPLOYEES AND INDUSTRIAL RELATIONS\nThere have been no material issues pertaining to the \nemployees and industrial relations of  the Company .\nRELATED PARTY TRANSACTIONS \nThe Company’s transactions with Related Parties, given in \nNote 31 to the Financial Statements.\nDIRECTORATE \nThe following DIRECTORS held Office during the year under \nreview . The biographical details of  the Board members are set \nout on pages 24 to 25\nMr. A.K. Pathirage - (Chairman/ Managing Director)', chunk_type: 'directors_and_executives', index: 4}, {id: 'commercial_development_company_plc_financial_performance_0', content: 'Commercial Credit and Finance PLC | Annual Report 2023/2024\n6\nFINANCIAL \nHIGHLIGHTS\n2023/24\nRs.‘000\'   \n2022/23\nRs.‘000\'    \n% \nChange\nFinancial Performance  \nGross Income  31,055,222  28,949,269 7 .3%\nNet Interest Income  12,808,022  11,106,651 15.3%\nProfit Before Taxation  6,594,978  3,859,879 70.9%\nProfit After Taxation  4,193,917  2,599,629 61.3%\nFinancial Position\nLeases, Hire Purchases, Loans and Advances  81,437 ,828  76,170,663 6.9%\nTotal Assets  107 ,987 ,834  102,154,440 5.7%\nTotal Deposit Base  62,121,240  59,243,651 4.9%\nBorrowings  13,902,823  17 ,555,544 -20.8%\nShareholders’ Funds  24,179,669  20,359,015 18.8%\nLiquid Assets  11,483,294  12,836,935 -10.5%\nKey Indicators per Ordinary Share\nEarnings per Share( Rs.)  13.19  8.17 \nNet Assets per Share ( Rs.)  76.02 64.01 \nYear end Market Price per Share (Rs.)  35.30  26.00 \nKey Performance Indicators\nReturn on Average Assets (%) 3.99 2.66\nEquity / Assets (%) 22.39 19.93\nGross Non Performing Accommodations (%) 10.65 11.07', chunk_type: 'financial_performance', index: 0}, {id: 'commercial_development_company_plc_financial_performance_1', content: 'effective cost management, and value creation for our stakeholders. This section provides a detailed overview of our \nfinancial performance, key metrics, and the strategies that have fortified our position as a leading player in the tea brokerage \nindustry, ensuring long-term sustainability and profitability.\nPROFIT AFTER TAX \nREVENUE\nREVENUE COMPOSITION\nBrokerage Fee 26%\nHandling Charges 6%\nLogistic & Transpotation Income 34%\nLot Fee 1%\nSundry Income 6%\nInterest Earned on Loans and Advances 27%', chunk_type: 'financial_performance', index: 1}, {id: 'commercial_development_company_plc_financial_performance_2', content: 'decisive impact on the Group’s financial status or overall profitability.\nGROUP FINANCIAL HIGHLIGHTS\nFor the Year (Rs. Mn) 2024 2023 Change %\nIncome Statement\nRevenue 25,447.0 36,167.6 (10,720.6) (30)\nGross Profit /(Loss) 603.0 (6,323.6) 6926.6 (110)\nProfit/(Loss) after Tax (2,743.0) (11,006.4) 8,263.4 (76)\nBalance Sheet\nTotal Assets 43,860.7 39,325.1 4,535.6 12\nTotal Liabilities 38,370.1 36,034.1 2,336.0 6\nShareholders’ Funds 5,311.3 3,086.1 2,225.2 72\nNet Cash & Cash Equivalent 5,262.2 2,619.0 2,643.2 101\nInterest bearing borrowings 28,667.9 23,850.9 4,817.0 20\nFinancial Ratios\nEarnings Per Share (Rs.) (38.1) (153.4) 115.3 (75)\nDividend Per Share (Rs.) 0.0 0.0 0.0 0.0\nNet Assets Per Share (Rs.) 74.0 42.0 33.0 76\nGearing Ratio (%) 58.0 49.0 (9) 18\nReturn on Total Assets (%) (6.0) (31.0) 25.0 (81)\nWorking Capital to Assets (%) (16.0) (17.0) 1.0 (6)\nFINANCIAL PERFORMANCE OF THE GROUP\nGroup Revenue\nIn the 2024 financial year, the Group recorded total revenue of Rs. 25,447.0', chunk_type: 'financial_performance', index: 2}, {id: 'commercial_development_company_plc_financial_performance_3', content: 'EBITDA 4,325,609,807 3,489,729,480 1,007,510,816 439,452,625 \nProfit / (loss) before taxes 3,064,604,666 1,431,828,783 272,628,768 (513,506,682)\nNet Profit / (loss) 2,547,480,785 841,049,839 271,144,953 (509,224,513)\nKEY RATIOS\nProfitability Ratios\nReturn on equity 27.15% 10.46% 6% -11%\nReturn on assets 11.78% 3.31% 3% -6%\nReturn on sales 15.01% 4.07% 151% -339%\nGross profit margin 29% 28% 100% 100%\nAsset turnover ratio 78% 81% 2% 2%\nEarnings Per Share (EPS) 1.61 0.17 0.27 (0.51)\nLeverage and Liquidity Ratios\nCurrent ratio 1.55 1.18 0.22 0.28 \nQuick or acid test ratio 1.42 0.95 0.22 0.28 \nLong-term debt ratio 0.12 0.27 0.25 0.06 \nDebt to equity ratio 1.31 2.16 0.83 0.99 \nNet Assets Value Per Share (NAV) 5.31 3.62 4.82 4.55 \nInterest coverage ratio 4.01 1.95 1.38 0.46 \nKey Ratios - Ratio Analysis\nPERFORMANCE HIGHLIGHTS', chunk_type: 'financial_performance', index: 3}, {id: 'commercial_development_company_plc_financial_performance_4', content: 'CITIZENS DEVELOPMENT BUSINESS FINANCE PLC\nANNUAL REPORT 2024/25\n182\nFINANCIAL HIGHLIGHTS\nKey Performance Indicator 2025 2024 %\nFinancial Performance (Rs Mn)\nRevenue  25,599  23,894 7\nNet interest income  11,391  9,093 25\nTotal operating income  14,105  10,767 31\nProfit before taxes  7,922  4,599 72\nProfit before income tax  5,751  3,706 55\nProfit after tax  4,005  2,516 59\nPosition as at the year end (Rs Mn)\nLoans and receivables to customers  110,867  85,964 29\nTotal assets  156,936  128,778 22\nTotal equity  23,936  20,208 18\nDeposits from customers  86,849  73,259 19\nFinancial Ratios (%)\nProfitability perspective\nOperating profit margin 30.95 19.25\nNet interest margin  7.97  7.77 \nCost to income ratio 48.40 50.40\nReturn on average assets (ROA) - After tax  2.80  2.15 \nInvestor Perspective\nEarnings per share (Rs) 56.53 35.95\nEarnings yield (%) 24.06 17.12\nReturn on Equity (ROE) % - After Tax  18.15  13.10 \nDividend per share (Rs)*  15.00  7.00', chunk_type: 'financial_performance', index: 4}, {id: 'commercial_development_company_plc_risk_factors_0', content: 'in internal controls. A shortage of skilled employees could also \nimpede our business growth and expansion. Furthermore, the \neffectiveness and performance of our senior executives are \ncrucial for maintaining our competitive edge and driving future \ngrowth. The departure of key executives could pose challenges \nto our business strategy execution and have other detrimental \neffects.', chunk_type: 'risk_factors', index: 0}, {id: 'commercial_development_company_plc_risk_factors_1', content: 'or regional instability, which can lead to losing market \nshare or reduced pricing power. To address this, we \nfocus on niche market segments, diversify across \nregions and customer segments, and pursue targeted \nexpansion strategies.\n y Financial Risks involve changes in interest rates, \ncurrency fluctuations, temporary cash flow issues, \nor customer defaults. These can affect profitability, \nraise financing costs, and disrupt revenue. Our risk \nmanagement includes negotiating favorable loan terms, \nusing financial instruments for hedging, matching \ntransactions in foreign currencies, closely monitoring \ncash flows, maintaining reserves and credit lines, \nand applying strict credit assessments and contract \nprotections.\n y Product and Technological Risks relate to meeting \nregulatory standards and keeping up with new \ntechnologies, which, if not managed, could lead to \nproduct rejection or harm our reputation. We mitigate \nthese risks by securing certifications from recognized', chunk_type: 'risk_factors', index: 1}, {id: 'commercial_development_company_plc_risk_factors_2', content: 'fluctuations. The Group monitors its interest rate exposure on a dynamic basis.\n6.   Exchange rate risk\n Exposure to Exchange Rate risk is minimal. Revenue streams are also largely independent of \nExchange Rate fluctuations except in the case of raw material imports.\n7.   Product safety\n The safety and quality of our products is of paramount importance to the Group as well as being \nessential for maintaining customer trust and confidence. A breach in confidence could adversely \naffect the size of our customer base and financial results. We have detailed and established \nprocedures for ensuring product integrity and quality at all times. We work in partnership with \nsuppliers to ensure mutual understanding of the standards required.  \n8.   Health and safety risks\n Provision of adequate safety to our staff and customers is of the utmost importance to us. Injury \nor loss of life cannot be measured in financial terms. We operate stringent health and safety', chunk_type: 'risk_factors', index: 2}, {id: 'commercial_development_company_plc_risk_factors_3', content: '- Annual Report 2023\n53\n- Annual Report 2024\nRisk \nInterest Rate Risk\nTechnology & IT \nRisk\nInventory cycle\nRisk of\nCompetition\nCompany\nReputation Risk\nThreat Probability\nModerate\nModerate\nModerate\nModerate\nModerate \nRisk Assessment \nFiscal and monitory policy changes \nhave a direct impact on liquidity\nand production costs.\nLack of accurate and\ntimely information due to\nineffective IT systems. Increase in \ndigitization of operations pose a \nthreat of loss of data and hacking.\n \nLiquidity is impacted as the industry \nis cyclical with long gestation periods.\nCompetition from other major low \ncost producers.\nThe reputation of the company could \nbe damaged by noncompliance, \nunethical behavior, and inconsistent \nproduct quality.\nMitigating Strategies \n•\t Close\tmonitoring\tof\tinterest\trate\t\ndevelopments and negotiating with \nfunding partners\n•\t Capital\tdevelopment\n•\t Maintenance\tof\tbiological\tassets\t\nin optimum condition to enhance \nproductivity, turnover and cash-\nflows.', chunk_type: 'risk_factors', index: 3}, {id: 'commercial_development_company_plc_risk_factors_4', content: '4–5\nCorporate  \nOverview\n6–25\nLeadership\n26–41\nManagement \nDiscussion and \nAnalysis\n42–44\nCorporate Social \nResponsibility\n45–50\nFinancial  \nReview\n51–85\nGovernance\n86–130\nFinancial  \nStatements\n131–140\nSupplementary \nInformation\nBusiness Risk\nLoss of Volumes/ \nMarket Share\nThe Company faces the risk of losing \nvolumes due to negative market growth, \nintense competition from existing players, \nnew entrants and unlicensed operators in \nthe market who sell adulterated products. \nA more effective regulatory mechanism is \nrequired to curb such illegal activities that \naffect the industry. The export volumes \nmay be affected by macro-economic \ndevelopments, political unrest, fiscal \npolicies of the respective geographies. \nRisk Response\nThe Company manages these risks through \ncustomer and channel partner education, \nmarketing communication on product \nvalue propositions, creating awareness \namong the relevant stakeholders and \nleveraging on the brand equity. We also', chunk_type: 'risk_factors', index: 4}, {id: 'commercial_development_company_plc_business_segments_0', content: 'from one another. Top management of the Company considers the operating results and condition of its business segments in their \ndecision making process and performance evaluation. Types of products and services from which each operating segment derives its \nrevenues are described as follows.\n \nAn operating segment is a component of the Company that engages in business activities from which it may earn revenues and incur \nexpenses, including revenues and expenses that relate to transactions with any of the Company’s other components. All operating \nsegments’ operating results are reviewed regularly by the Senior Management to make decisions about resources to be allocated to \nthe segment and to assess its performance, and for which discrete financial information is available.', chunk_type: 'business_segments', index: 0}, {id: 'commercial_development_company_plc_business_segments_1', content: 'of its business segments rather than their geographical location. Each segment is separately managed as it requires \ndifferent management strategies, as underscored by the Group’s organizational structure.\nThe Group’s business operations are classified into eight segments based on the products or services rendered, namely, \nInvestment Holdings, Portfolio and Asset Management, Oil palm plantations, Oils & fats, Beverages, Real Estate, Leisure, \nand Management Services. The following table describes the operations of each segment.  \nInter segmental sales are made at prices that approximate the market prices. Segment revenue, expenses, and results \ninclude transactions between segments. On consolidation, these transactions and any unrealised profits and losses \nare eliminated. Segmental expenses are directly attributed to a relevant segment or a portion of expenses that can be \nallocated reasonably as determined by the management.        \n  \n   \nNotes to the Financial Statements', chunk_type: 'business_segments', index: 1}, {id: 'commercial_development_company_plc_business_segments_2', content: 'its business segments rather than their geographical location. Each segment is separately managed as it requires different \nmanagement strategies, as underscored by the Group’s organizational structure.\nThe Group’s business operations are classified into eight segments based on the products or services rendered, namely, \nInvestment Holdings, Portfolio and Asset Management, Oil palm plantations, Oils & fats, Beverages, Real Estate, Leisure and \nManagement Services. The following table describes the operations of each segment.\nInter segmental sales are made at prices that approximate the market prices. Segment revenue, expenses, and results include \ntransactions between segments. On consolidation, these transactions and any unrealised profits and losses are eliminated. \nSegmental expenses are directly attributed to a relevant segment or a portion of expenses that can be allocated reasonably as \ndetermined by the management.', chunk_type: 'business_segments', index: 2}, {id: 'commercial_development_company_plc_business_segments_3', content: 'Engineering\nMaterial & \nother sales\n0\n3,000\n6,000\n9,000\n12,000\n15,000\n18,000\n2024 2023\nSegments Contributed to the \nGroup Revenue\nThe Group’s revenue is derived \nfrom its main operations, including \nship repairs, shipbuilding, heavy \nengineering, and material sales \nthrough its subsidiaries. In 2024, the \nship repair segment was the largest \ncontributor, generating 56% of the \ntotal revenue. This was followed by \nthe shipbuilding segment, which \naccounted for 35%. The heavy \nengineering and material sales \nsegments made smaller contributions \nof 7% and 2%, respectively.\nGroup Revenue Composition\n56%\n35%\n7% 2%\nShip Repair\nShip Builiding\nHeavy Engineering\nMaterial & other sales\nGroup Export Revenue\nThe group\'s export earnings are \nmainly driven by its shipbuilding \nand ship repair operations. In 2024, \nStrategic Report', chunk_type: 'business_segments', index: 3}, {id: 'commercial_development_company_plc_business_segments_4', content: 'NOTES TO THE FINANCIAL \nSTATEMENTS\nCommercial Credit and Finance PLC | Annual Report 2023/2024\n176\n45. OPERA TING SEGMENTS\n F\nor management purposes, the Company is organised into seven operating segments based on services offered to customers as follows. The following table presents income and profit and \ncertain asset and liability information regarding the Company’s operating segments.\n45.1 2024 Company\n Finance Lease  Hire Purchase \n Microfinance \nand SME Loans  Gold loan  Term Loan  Revolving Loans   Investments  Unallocated  Total\n LKR  LKR  LKR  LKR  LKR  LKR  LKR  LKR  LKR\nInterest income  5,841,060,743  11,606,601,418  1,759,477 ,681  4,202,434,164  772,931,955  117 ,182,083  2,273,082,505  666,428,222  27 ,239,198,771\nFee Based Income  527 ,995,454  1,049,164,365  159,045,806  379,873,833  69,868,227  10,592,529  205,472,479  60,240,954  2,462,253,647\nNet income from Real \nestate sales  -     -\nNet gain from trading  (3,084,237)  (3,084,237)', chunk_type: 'business_segments', index: 4}, {id: 'commercial_development_company_plc_future_outlook_0', content: 'are, however, acutely aware of the increasing influence of shifting consumer preferences, escalating competitive pressures, and \nevolving regulatory requirements on the long-term market dynamics. Consequently, we are adopting a forward-looking approach \nto our business, concentrating on adapting to the ever-changing environment. Our primary objective at Group level is to cultivate \na consumer-centric, dynamic, and sustainable business model that consistently generates value for all stakeholders. This strategic \nfocus will guide our trajectory as we progress into the future.\nNOTES TO THE FINANCIAL STATEMENTS', chunk_type: 'future_outlook', index: 0}, {id: 'commercial_development_company_plc_future_outlook_1', content: 'Consumer Products Limited).\n• Talent retention, training and development.\n• Expand our product range into adjacent \ncategories. \n• Proactively monitor shifts in consumer preferences \nand adapt our value propositions accordingly. \n• Expand revenue streams.\n• A purpose driven strategy to create long term \nvalue for all stakeholders. \n• Foster an inclusive culture and promote a gender \ndiverse work place. \nShort-term\nShort-term\nMedium-to-long term\nMedium-to-long term', chunk_type: 'future_outlook', index: 1}, {id: 'commercial_development_company_plc_future_outlook_2', content: 'consumer preferences, streamlining logistics and driving operational efficiency. Deep market insights derived through advanced analytics enable \ndata-driven decision making, strengthening the Sector’s competitive edge.\nOutlook \nWe will continue to utilise advanced data analytics and actively optimise supply chains to capitalise on opportunities that arise as consumer \nspending patterns gradually return to previous norms. We will continue to evolve our product offering to serve all income segments through \nstrategic interventions that ensure affordability and value. Our strategic focus will remain on expanding both our prepared food offering and \nprivate label range to fulfil changing consumer lifestyles and preferences. We will also strengthen our market reach through an omni channel \napproach leveraging both physical and digital touchpoints to enhance accessibility and convenience. Concurrently, we remain committed to', chunk_type: 'future_outlook', index: 2}, {id: 'commercial_development_company_plc_future_outlook_3', content: '01\nDRIVING PROGRESS  \nLEADING WITH PURPOSE\nOverview Executive  \nReview\nCrafting Our \nStrategy\nOur Business \nImperatives\nSustainability\nin Focus\nRisk Management  \n& Governance\nFinancial  \nStatements\nSupplementary \nInformation\nOur values show us the way to bring \nour purpose to life.\nThey are crafted in celebration of  \nwho we are today and in recognition  \nof who we will become.\nPioneers of change in a world that \nnever stands still.\nOur future is already in motion.\nOur values will guide us on our path \ntowards\nA BETTER TOMORROW TM', chunk_type: 'future_outlook', index: 3}, {id: 'commercial_development_company_plc_future_outlook_4', content: '54\nManagement Discussion and Analysis\nCapital Alliance PLC     Annual Report  2023 | 2024\nOur Strategy and Strategic Imperatives\nOUR STRATEGY\nTo build a strong and adaptable organization, we are actively translating our purpose into actions by integrating our values and culture into our \nstrategic framework. Grounded in a deep understanding of market dynamics, regulatory requirements, and client needs, CALT’s strategy outlines \nour approach to achieving CALT goals and maintaining a leading position in the market. Thereby, we detail our strategic imperatives that guide our \nactions and decisions in pursuit of excellence.\nShort Term Long Term\n• Improve operational efficiencies and \nimplement process automation to \nstreamline business processes \n• To grow our market share in our fee \nbased business verticals To build a \ndigital eco-system which will allow \nus to scale our fee based businesses\n• To hire, retain and develop a staff \ncadre with an innovative mindset', chunk_type: 'future_outlook', index: 4}, {id: 'commercial_development_company_plc_governance_structure_0', content: 'led by the CEO and includes Executive \nCommittee Members enabling strategic \ninput while maintaining execution agility. \nThis structure reflects a strong internal \ncommitment to ESG, embedded within \nthe highest tiers of management.\nOur Policies\n z Policy on the matters relating to \nthe Board of Directors\n z Policy on Board Committees\n z  Policy on Corporate Governance, \nNominations and Re-election\n z Policy on Remuneration\n z Policy on Internal Code of \nBusiness conduct and Ethics \nfor all Directors and employees, \nincluding policies on trading in \nthe Entity’s listed securities\n z Policy on Risk management and \ninternal controls\n z Policy on Relations with \nShareholders and Investors\n z Policy on Environmental, Social \nand Governance Sustainability\n z Policy on Control and \nManagement of Company Assets \nand Shareholder Investments\n z Policy on Corporate Disclosures\n z Policy on Whistleblowing\n z Policy on Anti-Bribery and \nCorruption\nThe Group has implemented a', chunk_type: 'governance_structure', index: 0}, {id: 'commercial_development_company_plc_governance_structure_1', content: 'decisions within clearly defined parameters.\nAccordingly, the Company policies, in pursuing its strategic \nobjectives, have in place comprehensive policies and processes \nthat are designed to ensure that the Company is well managed \nwith effective controls and oversights. Execution is carried out \nwithin a framework of whole commitment and fairness reflecting \nground realities, and emphasized by corporate values of \nhonesty, fairness, integrity and accountability. Such internal \ngovernance policies and procedures are subject to periodic \nreview to ensure that they remain relevant and reflect progress in \nofficial values, and shareholder and stakeholder expectations. \nThe Board has collective responsibility for the supervision, \ndirection, and performance of the Company and its subsidiaries, \nensuring due regard is paid, always, to the interests of its \nstakeholders. The detailed governance structure ensures \nthe Board has the right level of oversight for matters that are', chunk_type: 'governance_structure', index: 1}, {id: 'commercial_development_company_plc_governance_structure_2', content: 'the future. The below diagram depicts our latest corporate governance structure.\nCorporate Governance Structure\nEXTERNAL \nFRAMEWORKS\nASSURANCE FRAMEWORKS\nRegulatory Shareholders Board \nRemuneration \nCommittee\nArticles of Association of \nthe Company\nCode of ethics and conduct \nfor employees\nTerms of Reference of \nBoard Committees\nBoard approved Policies \nand Procedures\nBoard Audit \nCommittee\nBoard Nominations \nand Governance \nCommittee\nBoard Related Party \nTransactions Review \nCommittee\nExternal Auditors\nInternal Auditors\nBoard of Directors\n(Setting strategy and risk appetite with \noversight responsibility)\nChief Executive Officer and \nKey Employees\n(Strategy execution, driving performance and \nconducting operations)\nVoluntary\nINTERNAL \nFRAMEWORKS\nCORPORATE GOVERNANCE STRUCTURE\nResponsibility flow\nAppointment flow\nThe Board has established a governance framework and \nstructure appropriate to the Company’s size, nature, \ncomplexity, and risk profile. This framework is periodically', chunk_type: 'governance_structure', index: 2}, {id: 'commercial_development_company_plc_governance_structure_3', content: 'plan approved by it, monitors the implementation of it by the \nmanagement and reviews the Company’s strategic direction. \nThe company’s governance framework is based on regulatory, \nstatutory and structural directions. The governance framework \nis set up by the Board Charter, and the Board oversee the \nimplementation of the Company’s governance framework \nperiodically reviewing the adequacy and the integrity of the \nframework to ensure that it remains appropriate to the conditions \nand the complexities of the Company’s operations. Also, Board \nappoints the Chairperson and CEO with well-defined roles and \nresponsibilities as its agents. \nCorporate \nCulture and \nValues 1.3\nThe Board at the top, sets up a sound corporate culture and \nvalues which are then cascaded to all levels of the organisation \nthrough shared ownership and responsibility. The Company’s \nPolicy Framework operationalises these embedded values and \nculture. Key policies—including the Board Charter, Code of', chunk_type: 'governance_structure', index: 3}, {id: 'commercial_development_company_plc_governance_structure_4', content: 'a solid basis for our business, in \npromoting transparent and ethical \nbusiness conduct at all levels and \nadd value for our stakeholders. Thus, \nwe continue to be committed to \nthe highest standards of corporate \ngovernance across all dimensions of \nour operations and these standards \nare encapsulated in our governance \npolicies and documents.\nThe Board of Directors also wishes \nto confirm that, to the best of their \nknowledge and belief, the Company \nhas complied with all requirements \nunder the Companies Act No 07 of \n2007 and satisfied all its statutory \npayment obligations to the \nGovernment and other statutory/ \nregulatory bodies.\nGOVERNANCE \nSTRUCTURE\nThe Governance Structure of \nChrissworld PLC allows effective \nand efficient decision making \nwhile interconnecting elements in \ngovernance. It is enabled by having \nthe right balance of authority and \npower throughout the organization. \nIt comprises process and structures \nwhich affect the way an organization', chunk_type: 'governance_structure', index: 4}, {id: 'commercial_development_company_plc_sustainability_initiatives_0', content: '57\n \n   SUSTAINABILITY CONTEXT\nGrowing stakeholder \npressure to implement \nsustainable practices \nEnvironmental \nimplications of single-use \npolythene and plastic \nFocus on \ngender equality\nIncreasingly health-\nconscious consumers \n   SOCIAL \nEmpowering women in our communities \n• Established 4 women-led Material Recovery Facilities (MRF) \nunder the Elephant House Gunadamin Plastic Recycling \nInitiative.\n• The ‘Dinannee’ programme in Confectionery category to \npromote female entrepreneurship. \nResponding to consumer \nhealth preferences \n• Launched a vegan \nproduct range under \nConfectionery. \n• ‘Feelgood’ wellness \nrange under \nConfectionery offers \nlow calorie and \nno-added sugar ice \ncreams. \n• 99% of the CSD range \nis amber or green rated \nfor sugar content.\n• Responsible product \nlabelling and marketing.\nSupported the nutritional \nneeds of pre-school children\nPromoting a diverse and inclusive work environment \n• A policy framework that promotes an equitable and', chunk_type: 'sustainability_initiatives', index: 0}, {id: 'commercial_development_company_plc_sustainability_initiatives_1', content: 'engagement with external stakeholders, \nincluding awareness programmes, publicity \ncampaigns, and partnerships to promote broader \nadoption of sustainable practices\nGovernance\n ♦ Maintain ethical and sustainable vendor \nrelationships by ensuring that they align with \nour sustainability values and contribute to \nresponsible business practices.\nOur ESG Focus\nGRI 2-23, GRI 2-24\nWe support the UN Sustainable Development \nGoals and a green economy through a \ncomprehensive Environmental, Social, and \nGovernance (ESG) Policy. Developed in line \nwith the CBSL and IFC frameworks, the policy \nensures effective management of our ESG risks, \npromotes sustainable financing for environmentally \nresponsible businesses and establishes a \nclear framework for measuring our impact in \ncollaboration with all stakeholders.\nOur Vision\nTo become a responsible corporate citizen \nprotecting our planet with love and humanity for \nfuture generations!\nOur Mission', chunk_type: 'sustainability_initiatives', index: 1}, {id: 'commercial_development_company_plc_sustainability_initiatives_2', content: 'society, and economy with key initiatives aimed at reducing carbon \nfootprint, promoting resource efficiency and supporting community \ndevelopment. The Group also prioritises transparency and accountability \nin its sustainability efforts, regularly reporting on environmental, social \nand governance (ESG) performance. By championing sustainable \npractices, the CIC Group not only mitigates risks and enhances corporate \nreputation but also contributes to the broader goal of global sustainability\n-  Revenue Growth\n-  Cost Efficiency\n- Reduce Cost of Funding\n-  Liquidity Management\n-  Reduce Gearing Position\n-  Improving product island-wide \naccess\n-  Identify and service market gaps\n- Expanding the product range to \nreflect a wide range of price \npoints\n-  Emphasis on R & D and new \nproduct development\n-  Strengthen exports\n-  Build supply chain resilience\n-  Attract retain top talent\n-  Reinforce the performance-\ndriven culture\n-  Increase the investment in \ntraining', chunk_type: 'sustainability_initiatives', index: 2}, {id: 'commercial_development_company_plc_sustainability_initiatives_3', content: 'our overall emissions by a great \nnumber with the best practices such \nas  route optimization,return journey \narrangement and optimization \nof truck utilization. Every mile we \ntraveled equals additional greenhouse \ngas in the atmosphere. So we  have \ngreatly reduced the carbon footprint \nby implementing such sound best \npractices along with ecological \ninitiatives such as converting \nour diesel  forklift fleet to battery \noperated trucks. \nChrissworld PLC has aligned its CSR \nprojects engaging with customers, \nsuppliers, regulators and communities \nto promote sustainability awareness \nand collaboration, by way of engaging \nin regular training and collaborative \nfunctions with regulatory bodies \nsuch as local authorities (Grama \nNiladhari Division), PHIs (Physical \nHealth Inspectors) and initiating \ncommunity cleaning programs to keep \na healthy environment in and around \nChrissworld locations.  Chrissworld PLC \nhas its sustainability strategy aligned \nwith the corporate strategy and', chunk_type: 'sustainability_initiatives', index: 3}, {id: 'commercial_development_company_plc_sustainability_initiatives_4', content: 'programmes meanwhile address key \nareas such as Chronic Kidney Disease \n(CKD), poverty alleviation, agriculture \nand irrigation, and disaster relief. \nDuring the year, 4 Reverse Osmosis \n(RO) plants were established under \nthe ‘Suwajeewana’ Programme, to \ncombat the rising incidence of CKD \namong rural communities. We also \ncompleted 80 small-scale community \ninfrastructure initiatives under the \n‘Prajaloka’ Programme, while the \n‘Govisavi’ Programme facilitated 63 \nsmall-scale irrigation infrastructure \ninitiatives to support agricultural \ncommunities. 14,604 individuals \nmeanwhile received support through \nthe ‘Divisahana’ Programme, our \ndisaster relief programme.\nRESPONSIBLE OPERATION \nWe are deeply committed to ensuring \nresponsible business practices \nbased on ESG principles to foster \ninclusive growth within CTC and \nbeyond. Supporting this is our \nSustainability agenda which balances \norganizational growth, profitability, \nand corporate social responsibility. By', chunk_type: 'sustainability_initiatives', index: 4}, {id: 'commercial_development_company_plc_market_position_0', content: '4–5\nCorporate  \nOverview\n6–25\nLeadership\n26–41\nManagement \nDiscussion and \nAnalysis\n42–44\nCorporate Social \nResponsibility\n45–50\nFinancial  \nReview\n51–85\nGovernance\n86–130\nFinancial  \nStatements\n131–140\nSupplementary \nInformation\nThrough the release of these strategic \ninitiatives, CLLP not only cemented \ncustomer ties but also yielded tangible \noutcomes, ensuring greater value, higher \nconfidence in the brand, and a greater \ncompetitive edge within the market.\nDriving competitive \nperformance\nDespite an increase in competition, the \nCompany has remained committed \nto maintaining market leadership and \ndeveloping solid segment shares. Through \nan appreciation for shifting consumer \ntrends – such as growing demand for \ncost-effective solutions and extended \nservice drain intervals – the Company \nlaunched strategic marketing solutions to \ncater to evolving customer needs.\nThe most significant driver of CLLP\'s \ncompetitive performance has been its \ncommitment to deliver value to our', chunk_type: 'market_position', index: 0}, {id: 'commercial_development_company_plc_market_position_1', content: 'solidify our status as contemporary \nproperty in the area, ensuring that we \nstay competitive within our market \nsegment. With our strategies aligned \nwith the positive market trends, we \nexpect to experience continued growth \nand improve our position in the market \nin the years to come.\nIntroductory statements Business Review Governance & Risk Financial Information Other Information', chunk_type: 'market_position', index: 1}, {id: 'commercial_development_company_plc_market_position_2', content: 'Reputation\nOrganizational capabilities\nThe result of the analysis gives a clear picture of company’s competitive and economic\nimplications, answering the questions if the resources mentioned above are:\nValuable?\nRare?\nCostly to imitate?\nOrganized properly?\n+357 96 030922\ninfo@marketpublishers.com\nColombo Investment Trust PLC Fundamental Company Report Including Financial, SWOT, Competitors and Industry An...', chunk_type: 'market_position', index: 2}, {id: 'commercial_development_company_plc_market_position_3', content: 'company’s long-term solvency. This sort of company\'s information will\nassist and strengthen your company’s decision-making processes.\nIn the part that describes Colombo Investment Trust PLC competitors and the\nindustry in whole, the information about company\'s financial ratios is compared\nto those of its competitors and to the industry. The unique analysis of the market\nand company’s competitors along with detailed information about the internal\nand external factors affecting the relevant industry will help to manage your\nbusiness environment. Your company’s business and sales activities will be\nboosted by gaining an insight into your competitors’ businesses.\nAlso the report provides relevant news, an analysis of PR-activity, and stock\nprice movements. The latter are correlated with pertinent news and press\nreleases, and annual and quarterly forecasts are given by a variety of experts\nand market research firms. Such information creates your awareness about', chunk_type: 'market_position', index: 3}, {id: 'commercial_development_company_plc_market_position_4', content: 'Company has adopted \nstrategies to diversify \nits products portfolio \nand position itself in a \nniche market, based on \ncompetitive advantage. We \nare adopting new marketing \nstrategies focusing on new \ngeographical markets, new \nmarket segments and new \nchannels. Focused yard \nexpansion projects are \nin the pipeline, to attract \navailable opportunities \nas much as possible, \nconquering the space \nlimitations.\n1.2 Information Technological Risk & Management\n02. EXTERNAL RISK\n2.1 Market Risk Management\nRisk Management\nGovernance Reports', chunk_type: 'market_position', index: 4}, {id: 'commercial_development_company_plc_regulatory_compliance_0', content: 'Compliance and regulatory risk refer to the potential risk faced by \nthe Company due to non-compliance with applicable laws, rules, \nregulations, and codes of conduct that could lead to regulatory \nfines, financial losses, disruptions to business activities, and \nreputational damage. The Company has established the Compliance \nfunction to provide comfort that the regulatory compliance \nrequirements are continuously monitored and implemented as \nneeded. The compliance function is operated under the supervision \nof a dedicated officer of senior grade and supported by appropriate \nresources. \nA comprehensive Compliance Policy outlines how the Company \nidentifies, monitors, and manages compliance risks in a structured \nmanner. A series of measures have been implemented to reinforce \nregulatory compliance requirements and ensure effective \nmonitoring, testing and verification of compliance along with \nrisk mitigation activities across the Company and the Head of', chunk_type: 'regulatory_compliance', index: 0}, {id: 'commercial_development_company_plc_regulatory_compliance_1', content: 'the legal and regulatory provisions and financial requirements applicable \nunder these regulatory benchmarks. Non-compliance or violation of these \nrequirements leads to the risk of cancellation / suspension of some \nlicenses issued by SEC, in addition to facing actions being taken by the \nrespective regulatory authorities etc. The management together with the \nCarson Group\'s legal division pro-actively identify and set up appropriate \nsystems and processes for legal and regulatory compliance with respect to \nthe Company’s operations.\nŸ Periodic training programmes are conducted for staff to ensure they remain \ncognisant of any changes in applicable laws and regulations.\nŸ Guardian Value Fund LLC and Guardian Fund Management LLC which are \ndomiciled in Mauritius are subject to laws and regulations imposed by the \ncountry’s regulatory authorities. Changes in regulatory environment in the \ncontext of these funds are continuously monitored with the assistance of', chunk_type: 'regulatory_compliance', index: 1}, {id: 'commercial_development_company_plc_regulatory_compliance_2', content: 'by the respective regulatory authorities etc. The management together \nwith the Carson Group\'s legal division pro-actively identify and set up \nappropriate systems and processes for legal and regulatory compliance \nwith respect to the Company’s operations.\n • Periodic training programmes are conducted for staff to ensure they \nremain cognisant of any changes in applicable laws and regulations.\n • Guardian Value Fund LLC and Guardian Fund Management LLC \nwhich are domiciled in Mauritius are subject to laws and regulations \nimposed by the country’s regulatory authorities. Changes in regulatory \nenvironment in the context of these funds are continuously monitored \nwith the assistance of the Fund’s lawyers who have the necessary \nexpertise in this regard.\n • Reviews are conducted on a regular basis by the compliance team and \nthe certification of compliance with relevant laws and regulations is \nensured on a periodic basis.', chunk_type: 'regulatory_compliance', index: 2}, {id: 'commercial_development_company_plc_regulatory_compliance_3', content: 'encompasses the regulatory requirements\n(i) \n de\nvelop and implement policies and procedures \ndesigned to eliminate or minimize the risk of \nbreach of regulatory requirements;\nCompliance-related policies and procedures have been developed \nto minimize the risk of breaching regulatory requirements.\n(ii) \n ensur\ne compliance policies and procedures are \nclearly communicated to all levels of the FC to \nenhance the compliance culture;\nA Board-approved Compliance policies are in place and have been \ncommunicated to all KRPs. It is also available in the HRIS system \n(intranet system), accessible by all employees of the Company.\n(iii) \n ensur\ne reviews are undertaken at appropriate \nfrequencies to assess compliance with regulatory \nrules and internal compliance standards;\nPeriodic reviews are conducted to assess the level of compliance \nwith regulatory requirements.\n(iv) \n unders\ntand and apply new legal and regulatory \ndevelopments relevant to the business of FC;', chunk_type: 'regulatory_compliance', index: 3}, {id: 'commercial_development_company_plc_regulatory_compliance_4', content: 'Periodic reviews are conducted to assess the level of compliance \nwith regulatory requirements.\n(iv) \n unders\ntand and apply new legal and regulatory \ndevelopments relevant to the business of FC;\nThe Company implements all new legal and regulatory \ndevelopments that are applicable to its business.\nCORPORATE  \nGOVERNANCE', chunk_type: 'regulatory_compliance', index: 4}, {id: 'commercial_development_company_plc_operational_highlights_0', content: 'PLC demonstrated resilience and \nagility, leveraging our deep industry \nexpertise, strong stakeholder \nrelationships, and technological \ncapabilities to optimize operations and \ndrive growth.\nOur strategic initiatives focused on \nenhancing operational efficiencies, \nexpanding our service offerings, and \nstrengthening our market presence. \nThese efforts were underpinned by \nour dedicated team, whose expertise \nand passion for the tea industry have \nbeen instrumental in our success. \nBy fostering a culture of continuous \nimprovement, we have been able to \ndeliver exceptional value to our clients \nand stakeholders.\nIn this section, we delve into the \nkey aspects of our operational \nperformance. We believe that our \nsteadfast commitment to operational \nexcellence will continue to propel \nCeylon Tea Brokers PLC towards \nsustained growth and long-term \nsuccess.\nTea Broking Segment Client Financing Activities\nManufacturing Advisory Warehousing & Logistic Segment\nTea Broking Segment', chunk_type: 'operational_highlights', index: 0}, {id: 'commercial_development_company_plc_operational_highlights_1', content: 'extraordinary levels of customer satisfaction.\n Operational Excellence\nStriving for operational excellence remained a cornerstone of our strategy, aimed \nat optimizing costs and enhancing efficiencies. Despite business expansion, \nwe successfully contained operational costs through continuous process \nimprovements. Integration of our systems played a pivotal role in minimizing \npaperwork, eliminating delays, and mitigating errors. By streamlining our \nprocesses and adhering to industry best practices, we achieved a dual objective \nof cost reduction and heightened efficiency. These measures collectively \ncontributed to delivering superior service to our valued clients.\n Service Excellence\nGiven the service-centric nature of tea broking, our unwavering commitment \nto service excellence remained paramount for sustained growth. We prioritized \nthe continual enhancement of our services through investments in human', chunk_type: 'operational_highlights', index: 1}, {id: 'commercial_development_company_plc_operational_highlights_2', content: '82\n Ceylon Tea Brokers PLC  Annual Report  2023/24\nOverview  Leadership & Strategy  Management Discussion & Analysis  Governance Reports  Financial Reports  Supplementary Information\nOPERATIONAL PERFORMANCE REVIEW \nOverview\nIn the year under review, Ceylon Tea \nBrokers PLC continued to strengthen \nits position as a pivotal player in \nthe tea broking industry, navigating \nthrough a complex landscape marked \nby both challenges and opportunities. \nOur unwavering commitment to \nexcellence has enabled us to deliver \nrobust operational performance, \nreinforcing our status as a trusted \npartner in the industry.\nThe fiscal year was characterized \nby dynamic market conditions, \nfluctuating demand, and evolving \nregulatory frameworks. Despite \nthese hurdles, Ceylon Tea Brokers \nPLC demonstrated resilience and \nagility, leveraging our deep industry \nexpertise, strong stakeholder \nrelationships, and technological \ncapabilities to optimize operations and \ndrive growth.', chunk_type: 'operational_highlights', index: 2}, {id: 'commercial_development_company_plc_operational_highlights_3', content: 'Operational Highlights\nThroughout the year, we focused on enhancing the guest \nexperience and streamlining our operations. We invested in staff \ntraining programs to ensure high-quality service delivery and the \nfacilities at the property. Our efforts resulted in improved guest \nsatisfaction scores and increased operational productivity.\nMarket Trends and Outlook\nLooking ahead, we remain cautiously optimistic about the future \ndespite ongoing market volatility. We recognize the importance of \nstaying agile and adaptable in response to changing consumer \ndemands and market conditions. By closely monitoring industry \ntrends and consumer preferences, we aim to position ourselves \nfor continued success and sustainable growth.\nRisks and Challenges\nWhile we are confident in our ability to navigate challenges, we \nacknowledge the various risks that may impact our business. \nThese include fluctuations in demand, regulatory changes, \nand competitive pressures. To mitigate these risks, we have', chunk_type: 'operational_highlights', index: 3}, {id: 'commercial_development_company_plc_operational_highlights_4', content: 'capabilities played a key role in our success \nduring the year. Maintaining our capacity as \nthe Group’s investment holding company, \nwe closely monitored the performance of \nour main subsidiary, Ambeon Holdings PLC. \nAdditionally, we maintained an objective \nstance on the operational and strategic \ndecisions made by our sub-subsidiaries and \nremained confident in Ambeon Holding PLC’s \nrole as their immediate parent company. \nThe sectors under Ambeon Holdings proved \ntheir resilience on capitalising positive \nmacroeconomic changes while minimising \nexposures to headwinds; moreover, all \nsubsidiaries recorded healthy financial \noutcomes with commendable actions to \nenhance revenue through various business \nstrategies. Subsidiary performance will be \npresented under the Management Discussion \nand Analysis in this Annual Report.\nFinancial prudence has been exercised \nduring the year, as the Group witnessed debt \nreductions and a bottom line that soared', chunk_type: 'operational_highlights', index: 4}, {id: 'commercial_development_company_plc_dividend_policy_0', content: 'CITIZENS DEVELOPMENT BUSINESS FINANCE PLC\nANNUAL REPORT 2024/25\n305\nDividend per share & Dividend payout\n0\n3\n6\n9\n12\n15\nRs.\n2020/21 2021/22 2022/23 2023/24 2024/25\n5\n10\n15\n20\n25\n30\nDividend per share\nDividend payout ratio\nDIVIDEND POLICY\nIt is Company’s policy to pay around 30% of its earnings as dividends with the best interest of shareholders(Subject to CBSL Clearance and \nother conditions) . CDB has continuously maintained dividend pay-outs. The Board of Directors of CDB has given due consideration to the \nrequirements stipulated by CBSL and declared a First Interim cash dividend of Rs. 5.00 per share and the final Cash dividend of Rs.10 per share \nfor both voting and non-voting shares of Rs. 907,601,310 and Rs. 155,155,020 respectively, which aggregated to a sum of Rs. 1,062,756,330. \nFinal Cash dividend aggregated amount for both voting and Non-voting shares of Rs. 708,504,220 subject to shareholders’ approval at the \nAnnual General Meeting.\nCDB VOTING SHARE PERFORMANCE', chunk_type: 'dividend_policy', index: 0}, {id: 'commercial_development_company_plc_dividend_policy_1', content: '202\n Ceylon Tea Brokers PLC  Annual Report  2023/24\nOverview  Leadership & Strategy  Management Discussion & Analysis  Governance Reports  Financial Reports  Supplementary Information\nDividends\nDuring the year under review, the Company paid a dividend to its shareholders. A \ndividend of Rs. 0.44 per share was paid out of the profits from the year ended 31st March \n2024. Details of the dividend paid by Company for each financial year is given below.\n 2024 2023 2022 2021 2020\nDividend per share \n(Paid for the year)\n 0.44 0.68 0.36 0.35 0.08\nDividend Pay-out Ratio (%)  56.55 51.75 59.80 59.40 67.70\nThe Company maintained its policy on distributing dividends of transferring 50% out \nof profits after tax as dividend. The Company directors distributed Rs. 80.25 million as \nDividends to shareholders, which is around 56.55 percent of 2023/24 annual profit \nafter tax.\nINVESTOR RELATIONS\nDividend Payout Ratio (%)\n0\n20\n30\n10\n50\n60\n70\n40\n80\n2020 2021 2022 2023 2024', chunk_type: 'dividend_policy', index: 1}, {id: 'commercial_development_company_plc_dividend_policy_2', content: 'compared to Rs. 15.01 in 2023. \n20\n16\n12\n8\n4\n0\n15\n12\n9\n6\n3\n0\n2020\n2021\n2022\n2023\n2024\n9.27 \n15.01\n15.28\n16.36\n16.06\nEarnings per share & \nprice earnings\nRs. Times\n11.65\n6.91\n6.32\n6.01\n9.96\n Earnings Per Share (Rs.)\n Price Earnings (Times)\nInvestor return\nDividend per share amounted to Rs. 15.00 \nwhich translates to a dividend yield of \n9.4% based on the share price recorded \nas at end December 2024 compared \nto 6.6% recorded in 2023, whilst capital \ngrowth increased via a rebound in market \nshare price by 77.2% in comparison to a \ndecrease reported in 2023 of 6.4%. \nTotal Shareholder Return also was 93.8% \nin 2024 in comparison to a decrease \nreported in 2023 of -0.21%. \nAnnual Report 2024 \nChevron Lubricants Lanka PLC\n49', chunk_type: 'dividend_policy', index: 2}, {id: 'commercial_development_company_plc_dividend_policy_3', content: 'CDPLC is committed to have a proper communication with its shareholders and other investors too. Thus, during the \nyear 2024 the Company continued to provide, timely, accurate disclosures like quarterly financial announcements, \npress releases and interviews with media, publication of the Annual Report etc. Encouraging the full participation of \nshareholders at the Annual General Meeting (AGM) adequate notice is given together with the Annual Report enabling \nthem to prepare in advance.\nFurther, the company is very much concerned about its statutory commitments to society.\nFINANCIAL PERFORMANCE\nDuring the year under review, the Company achieved total revenue of Rs. 23,695.5 Mn (2023 - Rs. 33,068.5 Mn) and \nnet loss of Rs. 2,757.4 Mn. (2023 – Net Loss Rs. 11,127.0Mn) leaving the shareholders’ value with Rs. 2,700.7 Mn \n(2023 - Rs. 473.4 Mn).\nDIVIDEND APPROVED\nNo dividend has been approved for the year end 2024.12.31 (2023 – Rs.0.00).\nDIVIDEND PAY OUT RATIO', chunk_type: 'dividend_policy', index: 3}, {id: 'commercial_development_company_plc_dividend_policy_4', content: 'opportunities for the investor community to connect with the business.\nEarnings Per Share\n0\n10\n20\n30\n40\n50\n60\n(Rs.)\n2020/21\n2021/22\n2022/23\n2023/24\n2024/25\n36.64\n51.75\n23.29\n35.95\n56.53\nNet Asset Value per Share\n0\n50\n100\n150\n200\n250\n300\n350\n(Rs.)\n2020/21\n2021/22\n2022/23\n2023/24\n2024/25\n201.34\n252.63\n260.40\n285.22\n337.84\nReturn on Equity\n0\n5\n10\n15\n20\n25\n(%)\n2020/21\n2021/22\n2022/23\n2023/24\n2024/25\n19.97\n22.79\n9.08\n13.1\n18.15\nEquity\n0\n5,000\n10,000\n15,000\n20,000\n25,000\n(Rs.Mn)\n2020/21\n2021/22\n2022/23\n2023/24\n2024/25\n14,052\n17,648\n18,190\n20,208\n23,936\nPrice Earnings\n0\n2\n4\n6\n8\n10\n(Times)\n2020/21\n2021/22\n2022/23\n2023/24\n2024/25\n3.00\n4.46\n9.78\n5.84\n4.16\nEarnings Per Share\nWe are committed to \nmeeting shareholder \nexpectations by \neffectively executing \nour strategies and \nserving our customers \nwith excellence.\nReturn on Equity\nCDB manages earnings \nprudently, balancing \nthe delivery of \nsustainable returns to \nshareholders with the \nflexibility to reinvest for \nlong-term growth.', chunk_type: 'dividend_policy', index: 4}, {id: 'commercial_development_company_plc_capital_structure_0', content: 'capital structure and makes adjustments to it in light of changes in economic conditions. To maintain or adjust the \ncapital structure, the Company may adjust the dividend payment to shareholders, return capital to shareholders \nor issue new shares.\nNo changes were made in the objectives, policies or processes for managing capital during the years ended 31 \nMarch 2024.\nThe Company’s capital structure comprise of Stated Capital and Borrowings which are disclosed in Note 11 \nrespectively.\nThe Company does not hold collateral as security. The Company evaluates the concentration of risk with respect to \ntrade receivables as low based on the terms with which the long standing business relationship with the customer base. \n \nTrade Receivable Credit risk exposure disclosed in Note 8.1\n Liquidity risk\nThe Company monitors its risk to a shortage of funds using a recurring liquidity planning tool. The Company’s', chunk_type: 'capital_structure', index: 0}, {id: 'commercial_development_company_plc_capital_structure_1', content: 'AMBEON CAPITAL PLC\n136\nANNUAL REPORT 2024\n35. FINANCIAL INSTRUMENTS AND RISK MANAGEMENT (Contd..)\nCapital management\nThe capital management strategy adopted by the Group is aimed at maintaining sufficient and adequate levels of working capital for day to \nday operations and long term capital for investment and growth. A suitability structured capital base is essential in order to maintain investor \nconfidence in the Group, and ensures that it achieves sustained long term growth while maintaining the capability to withstand fluctuating \neconomic fortunes. The capital of the Group consists of equity and debt. The components of the equity capital are the stated capital, retained \nearnings and reserves while the debt capital consist of short term debt sources.\n36. MATERIAL PARTLY-OWNED SUBSIDIARIES\nFinancial information of subsidiaries that have material non-controlling interests is provided below; \n36.1  Proportion of equity interest held by non-controlling interests:', chunk_type: 'capital_structure', index: 1}, {id: 'commercial_development_company_plc_capital_structure_2', content: 'Long-term borrowings \n32%\n8%\n60%\nFunding composition 2023/24\nShareholders\' funds \nShort-term borrowings \nLong-term borrowings \n37%\n8%\n55%\nAsset composition - 2023/24\nPPE\nOther \nnon-current assets \nTrade receivables \nRight of use assets\nInventories\nOther current assets\n14%17%\n17%\n10%\n5%\n38%', chunk_type: 'capital_structure', index: 2}, {id: 'commercial_development_company_plc_capital_structure_3', content: 'Efficiency ratios 2024 2023\nCurrent Ratio  0.45 0.41\n Quick Asset Ratios 0.38 0.31\nBalance Sheet funding\nBalance sheet funding 2024 2023 YoY change\nTotal equity 33,549 32,238 4%\nTotal liabilities 14,832 13,674 8%\nTotal non-current liabilities 10,029 9,584 5%\nTotal current liabilities 4,803 4,090 17%\nBalance sheet funding composition\n21%\n10%\n69%\nTotal equity\nTotal non current liabilities\nTotal current liabilities\nThe Group continues to be well capitalised with \n69% of the funding coming from equity capital. \nTotal equity reached Rs. 33,549 Mn by the end of \nthe year, with a 4% YoY growth. Total liabilities\nincreased by 8%, to Rs. 14,832 Mn.\nManagement \nDiscussion and \nAnalysis', chunk_type: 'capital_structure', index: 3}, {id: 'commercial_development_company_plc_capital_structure_4', content: 'going concern in order to provide returns for shareholders and benefits for other stakeholders and to \nmaintain an optimal capital structure to reduce the cost of the capital.\n The capital of the company consist of the following:  \n Equity capital\n  - Ordinary share capital\n Debt\n  - Long term bank borrowings \n  - Long term related party borrowings \n The group monitors capital on the basis of the debt equity ratio. This ratio is calculated based on the \nlong term interest bearing debt and divided by total equity capital. `  \n 1. Maintain sufficient capital to meet minimum regulatory requirements. (Companies Act).\n 2. Group\'s future developments, investments and business strategies.\n The Gearing ratio of the Group is 93% (2023 - 96%) and the Company is 0.62% (2023 - 0.52%). The \nGroup manages its capital structure, and makes adjustments to it, in the light of changes in economic \nconditions, and continues looking for ways of improving its capital structure in order to support the', chunk_type: 'capital_structure', index: 4}, {id: 'commercial_development_company_plc_technology_digital_0', content: 'CITIZENS DEVELOPMENT BUSINESS FINANCE PLC\nANNUAL REPORT 2024/25\n66\nIT STRATEGY \nBuilding on our commitment to innovation, we continue to evolve our ecosystem by integrating advanced solutions \nacross our digital platforms. This approach ensures a secure, seamless experience that not only meets but anticipates the \nevolving needs of our customers, and empowering our team members for digitally driven decisions laying the foundation \nfor the next phase of our IT strategy.\nOur IT Strategy, developed through a comprehensive roadmap, outlines a clear vision for innovation, risk mitigation, and \noperational agility. Built on the dual pillars of Tech-Disruption and Sustainability, it provides the strategic direction for \ndigital investments across the organisation. Recognising the fast-evolving nature of financial technologies, we ensure our \nIT strategy is regularly updated to keep CDB at the forefront of fintech transformation.\nENABLING CUSTOMER-CENTRICITY', chunk_type: 'technology_digital', index: 0}, {id: 'commercial_development_company_plc_technology_digital_1', content: 'Management Discussion And Analysis\nCargills Bank PLC Annual Report 2024\n64\nInvestments in technology in FY 2024\nThis year, our strategic investments in advanced \ntechnology have centered on enhancing operational \nefficiency, fortifying security, and driving digital \ninnovation. These initiatives align with our vision of \nshaping the future of banking, ensuring seamless \naccessibility, and meeting the evolving needs of our \ncustomers in a rapidly transforming digital landscape. \nAccordingly, our key technology investments for \n2024 were focused on the following areas:\n1. Card System - ITM Version Upgrade fortifying \nsecurity\n2. Mobile App\n3. QR App\n4. Perimeter Firewall Replacement\n5. NAS Storage replacement\n6. Carbonite Licenses\n7. HSM Embossing Machine Replacement\n8. Change Request for New functionalities of \nMobile and Internet Banking\nStrengthening cyber security\nWe enhanced our cybersecurity framework in \n2024, ensuring the protection of customer data', chunk_type: 'technology_digital', index: 1}, {id: 'commercial_development_company_plc_technology_digital_2', content: 'CITIZENS DEVELOPMENT BUSINESS FINANCE PLC\nANNUAL REPORT 2024/25\n64\nTECHNOLOGY\nCAPITAL\nTech disruption is a core pillar of our corporate strategy, fueling a comprehensive \ndigital transformation under our 2021–2030 Strategy. This transformation aims to \nenhance resilience, maintain competitiveness, and unlock long-term value in the rapidly \nevolving digital economy. We are evolving from a traditional, technology-enabled \nfinancial institution into a technology-driven fintech leader by investing in cutting-edge \ntechnologies, strengthening our digital infrastructure, and harnessing data analytics. \nAt the heart of this shift is our commitment to delivering personalised, secure, and \nseamless end-to-end customer experiences across all digital platforms.\nCDB driving innovation and building resilient financial infrastructure through its digital transformation. \nWith investments in AI-driven credit decisions, process automation, and the integrated digital banking', chunk_type: 'technology_digital', index: 2}, {id: 'commercial_development_company_plc_technology_digital_3', content: 'Cargills Bank PLC Annual Report 2024\n19\nInformation Technology\nTechnological innovation is a core driver of Cargills \nBank\'s strategy. To guide our IT investments, we \nestablished a Board IT Committee during the year. \nIn 2024, we invested Rs. 99.7 Mn in enhancing \nour digital capabilities, resulting in significant \nimprovements across the Bank. Key achievements \ninclude upgrading our website and mobile application \nfor a more user-friendly experience, automating key \nprocesses such as Fixed Deposit alerts and NIC \nverification, and streamlining transaction processing \nthrough system integrations. We also accelerated the \ndigital transformation of our loan origination system, \nfurther enhancing customer satisfaction.\nBusiness Revival Unit\nCargills Bank commends the Central Bank for initiating \nthe Business Revival Unit (BRU) to support businesses \nimpacted by recent economic challenges. We have \nfully embraced this initiative, assisting businesses', chunk_type: 'technology_digital', index: 3}, {id: 'commercial_development_company_plc_technology_digital_4', content: 'IT strategy is regularly updated to keep CDB at the forefront of fintech transformation.\nENABLING CUSTOMER-CENTRICITY \nCDB’s digital strategy continues to drive a next-level customer experience through innovation, convenience, and \npersonalisation. Key developments over the last financial year including enhancements to CDB Self, corporate web site, \nPatpat.lk, and the introduction of AI-driven credit decisioning have significantly improved efficiency, accessibility, and \nservice quality. \nOperational\nExcellence\n2\nEnsure operational \ntechnologies, talent, \nand processes that \nsupport CDB remain \neffective, efficient, \nand measurable.\nInformation \nSecurity\n3\nProtect the \nconfidentiality, integrity, \nand availability of data \nand systems to enable \nCDB to pursue its goals.\nIT Workforce \nDevelopment\n4\nEvolve the IT Division’s \nskill sets and capabilities \nto align with the CDB’s \nstrategic goals.\nThe IT strategy operates across four strategic dimensions\nTECHNOLOGY CAPITAL\nEmerging', chunk_type: 'technology_digital', index: 4}, {id: 'commercial_development_company_plc_human_resources_0', content: '52  | ASIAN HOTELS AND PROPERTIES PLC\nRobust HR Policy guidelines\nThe Company’s HR practices are guided by a set of clearly articulated policies which enable consistent, transparent and \nunbiased treatment to all employees alike. The policies cover diverse aspects that affect an employee’s well-being.\n Policy on ombudsperson \n Policy on support network \n Recruitment and selection policy \n Performance management policy \n Reward and recognition policy \n Leave policy \n Flexi-hours policy \n Teleworking policy\n Compensation and benefits policy \n Code of conduct \n Policy against sexual harassment \n Diversity, Equity and Inclusion related policies \n Gender policy \n HIV AIDs workplace policy \n Policy on equal opportunity and non-discrimination \n Anti-fraud policy \n Grievance handling policy \n Disciplinary procedure \n Whistle blowing policy\n Part Time work policy\n Data Protection Policy\nTeam profile\nEmployees by contract and \ngender Male Female\nPermanent 451 44\nContract 268 54\nTot a l 719 98', chunk_type: 'human_resources', index: 0}, {id: 'commercial_development_company_plc_human_resources_1', content: 'of Employment and Remuneration) Act, we benchmark best practices from the ILO convention \nand the United Nations Global Compact for Human Rights. We ensure equal opportunity for all, \nprohibiting discrimination based on age, marital status, religion, or any other legally protected \nstatus.\nOur Policy on Sexual Harassment, \nDiscrimination, Bullying, and Harassment \nunderscores our zero tolerance for such \nbehaviors. All claims are thoroughly \ninvestigated with confidentiality, ensuring \nno retaliation for speaking up. We conduct \nan annual diversity and inclusion refresher \nworkshop to reinforce these principles.\nHR POLICY FRAMEWORK\nA comprehensive structure of HR policies \nsafeguards employee interests, including:\n• Sexual Harassment, Discrimination, \nBullying, and Harassment Policy\n• Grievance Handling Policy\n• Holiday Leave and Sabbatical Policy\n• Paternity Leave Policy\n• Performance Management Policy\n• Membership Subscription Policy\nTALENT MANAGEMENT', chunk_type: 'human_resources', index: 1}, {id: 'commercial_development_company_plc_human_resources_2', content: 'enhancing the capabilities of these \ndepartments and refining best practices \nto create a harmonious and conducive \nenvironment for all stakeholders.\nBy prioritizing the cultivation of our unique \nculture and investing in the development \nof our human resources, Commercial \nCredit is well-positioned to maintain its \ndistinctiveness and achieve sustainable \nsuccess in today\'s dynamic business \nlandscape.\nMAINTAINING COMPLIANCE\nThe company has implemented a \ncomprehensive framework of policies and \nprocedures to govern various aspects of \nemployee rights, privileges, duties, and \nresponsibilities. These guidelines serve as \nessential tools for employees to navigate \ntheir daily interactions and address \nunforeseen situations effectively. Aligned \nwith the provisions of the Shop and Office \nEmployees Act No. 15 of 1954, the company \nmeticulously upholds these human \nresources practices.\nAdditionally, the company has formulated \nits own set of policies and operational', chunk_type: 'human_resources', index: 2}, {id: 'commercial_development_company_plc_human_resources_3', content: 'proposition which aligns both personal and organisational \ngoals in order to keep them motivated. \nHuman Capital \nHuman \nCapital\nMANAGING OUR HUMAN CAPITAL\nAligned with the Aitken Spence Group, our HR strategy, policies and procedures facilitate a conducive and inclusive work environment \nwhich promotes equal opportunity for all our employees. The policies and procedures comply with the relevant Sri Lankan labour laws \nand regulatory standards and are benchmarked to industry best practices. \nSalaries and Beneﬁts\n(Rs. Mn)\n2019/20\n2020/21\n2021/22\n2022/23\n2023/240\n50\n100\n150\n200\n250\nRECRUITMENT POLICY\nGives preference to candidates \nresiding within close proximity \nto our properties.\nGROUP CODE OF ETHICS\nProvides a blueprint for professional and ethical conduct expected from our \nemployees when engaging with external and internal stakeholders. \n• Principles of Conduct\n• Conflict of Interest\n• Healthy Work Environment\n• Entertainment & Corporate Gifts\n• Self-Dealing & Fair-Dealing', chunk_type: 'human_resources', index: 3}, {id: 'commercial_development_company_plc_human_resources_4', content: 'Employees Act No. 15 of 1954, the company \nmeticulously upholds these human \nresources practices.\nAdditionally, the company has formulated \nits own set of policies and operational \nprotocols, covering a wide spectrum of \ncrucial HR domains. These encompass \ngrievance handling, attendance and leave \nmanagement, disciplinary procedures, \nperformance evaluations, recruitment \nprocesses, orientation programs, resignation \nand termination protocols, retirement \npolicies, staff amenities, as well as \nprocedures for transfers and promotions.\nIn accordance with its forward-thinking \nethos, the company has also instituted \nseveral specialized policies including an \nAnti-Sexual Harassment Policy, a  \nWhistle-blower Policy, and an Ethical \nFramework. These initiatives aim to cultivate \na workplace culture that promotes respect \nand inclusivity, while instilling a sense of \nself-discipline among employees.\nMAINTAINING EFFECTIVE \nINFRASTRUCTURE FOR PEOPLE\nThe Company places a high value on', chunk_type: 'human_resources', index: 4}, {id: 'commercial_development_company_plc_audit_internal_controls_0', content: 'We worked with our internal IT specialists to perform audit procedures to test the \ntechnology control environment for key IT applications (systems) used in processing \nsignificant transactions and recording balances in the general ledger. We also tested \nautomated controls embedded within these systems which link the technology-enabled \nbusiness processes. \nOur further audit procedures included:\nGeneral IT controls design, observation and operation \n• Assessing the governance and higher-level controls in place across the IT \nEnvironment, including those regarding policy design, policy review and awareness, \nand IT Risk Management practices;', chunk_type: 'audit_internal_controls', index: 0}, {id: 'commercial_development_company_plc_audit_internal_controls_1', content: 'audit procedures, including the procedures performed to address the matters below, provide the basis for our audit opinion \non the accompanying financial statements.\n(Contd…2)', chunk_type: 'audit_internal_controls', index: 1}, {id: 'commercial_development_company_plc_audit_internal_controls_2', content: 'and procedures for safeguarding assets, \npreventing and detecting frauds and/\nor errors as well as other irregularities \nwhich are reviewed, evaluated and \nupdated on an ongoing basis. \nWe confirm, based on our evaluations, \nthat there were no significant \ndeficiencies and material weaknesses \nin the design or operation of internal \ncontrols of the detection of fraud \nthat involves management or other \nemployees. Our Internal Auditors \nhave conducted periodic audits to \nprovide reasonable assurance that the \nestablished policies and procedures \nwere consistently followed. However, \nthere are inherent limitations that \nshould be recognised in weighing the \nassurances provided by any system of \ninternal control and accounting. \nThe Annual Report of the Directors \non pages 4 to 6 briefly covers the \nCompany’s Internal Control Over \nFinancial Reporting. In addition, the \nDirectors’ Statement on Internal \nControl Over Financial Reporting is \nalso provided on pages 174 and 175.', chunk_type: 'audit_internal_controls', index: 2}, {id: 'commercial_development_company_plc_audit_internal_controls_3', content: 'statements of the current period. These matters were addressed in \nthe context of our audit of the financial statements as a whole, and \nin forming our opinion thereon, and we do not provide a separate \nopinion on these matters. For each matter below, our description of \nhow our audit addressed the matter is provided in that context.\nWe have fulfilled the responsibilities described in the Auditor’s \nresponsibilities for the audit of the financial statements section of \nour report, including in relation to these matters.  Accordingly, our \naudit included the performance of procedures designed to respond \nto our assessment of the risks of material misstatement of the \nfinancial statements. The results of our audit procedures, including \nthe procedures performed to address the matters below, provide the \nbasis for our audit opinion on the accompanying financial statements.', chunk_type: 'audit_internal_controls', index: 3}, {id: 'commercial_development_company_plc_audit_internal_controls_4', content: 'status of recovery actions of the collaterals, forward-looking \nmacroeconomic scenarios and their associated weightages. \n•\n Assessed the adequacy of the r\nelated financial statement \ndisclosures set out in notes 10 and 11.\nInformation Technology (IT) systems related internal controls over \nfinancial reporting \nCompany’s financial reporting process is significantly reliant on \nmultiple IT systems and related internal controls. Further, key \nfinancial statement disclosures are prepared using data and reports \ngenerated by IT systems, that are compiled and formulated with the \nuse of spreadsheets. \nAccordingly, IT systems related internal controls over financial \nreporting were considered a key audit matter.\nOur audit procedures included the following key procedures:\n•\n Ob\ntained an understanding of the internal control \nenvironment of the relevant significant processes and test \nchecked key controls relating to financial reporting and \nrelated disclosures.\n•\n Inv', chunk_type: 'audit_internal_controls', index: 4}] AS chunk MERGE (ch:Chunk {id: chunk.id}) ON CREATE SET ch.content = chunk.content, ch.chunk_type = chunk.chunk_type, ch.index = chunk.index;
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Net Finance Income'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 124343000, r.year = 2023;
 
 // Query 99
-MATCH (c:Company {name: 'Commercial Development Company PLC'}) WITH c UNWIND ['commercial_development_company_plc_directors_and_executives_0', 'commercial_development_company_plc_directors_and_executives_1', 'commercial_development_company_plc_directors_and_executives_2', 'commercial_development_company_plc_directors_and_executives_3', 'commercial_development_company_plc_directors_and_executives_4', 'commercial_development_company_plc_financial_performance_0', 'commercial_development_company_plc_financial_performance_1', 'commercial_development_company_plc_financial_performance_2', 'commercial_development_company_plc_financial_performance_3', 'commercial_development_company_plc_financial_performance_4', 'commercial_development_company_plc_risk_factors_0', 'commercial_development_company_plc_risk_factors_1', 'commercial_development_company_plc_risk_factors_2', 'commercial_development_company_plc_risk_factors_3', 'commercial_development_company_plc_risk_factors_4', 'commercial_development_company_plc_business_segments_0', 'commercial_development_company_plc_business_segments_1', 'commercial_development_company_plc_business_segments_2', 'commercial_development_company_plc_business_segments_3', 'commercial_development_company_plc_business_segments_4', 'commercial_development_company_plc_future_outlook_0', 'commercial_development_company_plc_future_outlook_1', 'commercial_development_company_plc_future_outlook_2', 'commercial_development_company_plc_future_outlook_3', 'commercial_development_company_plc_future_outlook_4', 'commercial_development_company_plc_governance_structure_0', 'commercial_development_company_plc_governance_structure_1', 'commercial_development_company_plc_governance_structure_2', 'commercial_development_company_plc_governance_structure_3', 'commercial_development_company_plc_governance_structure_4', 'commercial_development_company_plc_sustainability_initiatives_0', 'commercial_development_company_plc_sustainability_initiatives_1', 'commercial_development_company_plc_sustainability_initiatives_2', 'commercial_development_company_plc_sustainability_initiatives_3', 'commercial_development_company_plc_sustainability_initiatives_4', 'commercial_development_company_plc_market_position_0', 'commercial_development_company_plc_market_position_1', 'commercial_development_company_plc_market_position_2', 'commercial_development_company_plc_market_position_3', 'commercial_development_company_plc_market_position_4', 'commercial_development_company_plc_regulatory_compliance_0', 'commercial_development_company_plc_regulatory_compliance_1', 'commercial_development_company_plc_regulatory_compliance_2', 'commercial_development_company_plc_regulatory_compliance_3', 'commercial_development_company_plc_regulatory_compliance_4', 'commercial_development_company_plc_operational_highlights_0', 'commercial_development_company_plc_operational_highlights_1', 'commercial_development_company_plc_operational_highlights_2', 'commercial_development_company_plc_operational_highlights_3', 'commercial_development_company_plc_operational_highlights_4', 'commercial_development_company_plc_dividend_policy_0', 'commercial_development_company_plc_dividend_policy_1', 'commercial_development_company_plc_dividend_policy_2', 'commercial_development_company_plc_dividend_policy_3', 'commercial_development_company_plc_dividend_policy_4', 'commercial_development_company_plc_capital_structure_0', 'commercial_development_company_plc_capital_structure_1', 'commercial_development_company_plc_capital_structure_2', 'commercial_development_company_plc_capital_structure_3', 'commercial_development_company_plc_capital_structure_4', 'commercial_development_company_plc_technology_digital_0', 'commercial_development_company_plc_technology_digital_1', 'commercial_development_company_plc_technology_digital_2', 'commercial_development_company_plc_technology_digital_3', 'commercial_development_company_plc_technology_digital_4', 'commercial_development_company_plc_human_resources_0', 'commercial_development_company_plc_human_resources_1', 'commercial_development_company_plc_human_resources_2', 'commercial_development_company_plc_human_resources_3', 'commercial_development_company_plc_human_resources_4', 'commercial_development_company_plc_audit_internal_controls_0', 'commercial_development_company_plc_audit_internal_controls_1', 'commercial_development_company_plc_audit_internal_controls_2', 'commercial_development_company_plc_audit_internal_controls_3', 'commercial_development_company_plc_audit_internal_controls_4'] AS chunk_id MATCH (ch:Chunk {id: chunk_id}) MERGE (c)-[:HAS_CONTENT]->(ch);
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 4123018000, r.year = 2024;
 
-// Total queries: 99
-// Generated on: 2025-09-30T12:50:40.057898
+// Query 100
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 3621473000, r.year = 2023;
+
+// Query 101
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Net Debt'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 624126000, r.year = 2024;
+
+// Query 102
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Net Debt'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 562443000, r.year = 2023;
+
+// Query 103
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Net Debt to Adjusted Equity Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 15.0, r.year = 2024;
+
+// Query 104
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (m:Metric {name: 'Net Debt to Adjusted Equity Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 16.0, r.year = 2023;
+
+// Query 105
+MATCH (parent:Company {name: 'Commercial Bank of Ceylon PLC'}), (child:Company {name: 'Commercial Development Company PLC'}) MERGE (parent)-[:OWNS]->(child);
+
+// Query 106
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (auditor:Company {name: 'KPMG'}) MERGE (c)-[r:AUDITED_BY]->(auditor) ON CREATE SET r.year = 2024;
+
+// Query 107
+MATCH (c:Company {name: 'Commercial Development Company PLC'}), (auditor:Company {name: 'KPMG'}) MERGE (c)-[r:AUDITED_BY]->(auditor) ON CREATE SET r.year = 2023;
+
+// Total queries: 107
+// Generated on: 2025-10-02T18:01:31.056599

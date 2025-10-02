@@ -1,218 +1,542 @@
 // Query 1
-MERGE (c:Company {name: 'Dipped Products PLC'}) ON CREATE SET c.id = 'dipped_products_plc';
+MERGE (c:Company {name: 'NAMAL Acuity Value Fund'}) ON CREATE SET c.id = 'namal_acuity_value_fund', c.founded_on = date('2009-09-07'), c.listed_on = 'Colombo Stock Exchange', c.region = 'Sri Lanka';
 
 // Query 2
-MERGE (c:Company {name: 'Commercial Credit and Finance PLC'}) ON CREATE SET c.id = 'commercial_credit_and_finance_plc';
+MERGE (c:Company {name: 'National Asset Management Limited'}) ON CREATE SET c.id = 'national_asset_management_limited', c.region = 'Sri Lanka';
 
 // Query 3
-MERGE (c:Company {name: 'Lankem Ceylon PLC'}) ON CREATE SET c.id = 'lankem_ceylon_plc';
+MERGE (c:Company {name: 'Deutsche Bank AG'}) ON CREATE SET c.id = 'deutsche_bank_ag';
 
 // Query 4
-MERGE (c:Company {name: 'Citizens Development Business Finance PLC'}) ON CREATE SET c.id = 'citizens_development_business_finance_plc';
+MERGE (c:Company {name: 'Ernst and Young'}) ON CREATE SET c.id = 'ernst_and_young';
 
 // Query 5
-MERGE (c:Company {name: 'Ceylon Tea Brokers PLC'}) ON CREATE SET c.id = 'ceylon_tea_brokers_plc';
+MERGE (c:Company {name: 'Union Bank Of Colombo PLC'}) ON CREATE SET c.id = 'union_bank_of_colombo_plc';
 
 // Query 6
-MERGE (c:Company {name: 'Dialog Axiata PLC'}) ON CREATE SET c.id = 'dialog_axiata_plc';
+MERGE (c:Company {name: 'F J & G de Saram'}) ON CREATE SET c.id = 'f_j_g_de_saram';
 
 // Query 7
-MERGE (c:Company {name: 'Chevron Lubricants Lanka PLC'}) ON CREATE SET c.id = 'chevron_lubricants_lanka_plc';
+MERGE (c:Company {name: 'Just in Time Group'}) ON CREATE SET c.id = 'just_in_time_group';
 
 // Query 8
-MERGE (m:Metric {name: 'Revenue'}) ON CREATE SET m.id = 'revenue', m.unit = 'Rs';
+MERGE (c:Company {name: 'Union Resorts'}) ON CREATE SET c.id = 'union_resorts';
 
 // Query 9
-MERGE (m:Metric {name: 'Gross Profit'}) ON CREATE SET m.id = 'gross_profit', m.unit = 'Rs';
+MERGE (c:Company {name: 'The Blue Water, Wadduwa'}) ON CREATE SET c.id = 'the_blue_water_wadduwa';
 
 // Query 10
-MERGE (m:Metric {name: 'Gross Profit Margin'}) ON CREATE SET m.id = 'gross_profit_margin', m.unit = '%';
+MERGE (c:Company {name: 'NorthStar Holdings'}) ON CREATE SET c.id = 'northstar_holdings';
 
 // Query 11
-MERGE (m:Metric {name: 'Operating Profit'}) ON CREATE SET m.id = 'operating_profit', m.unit = 'Rs';
+MERGE (c:Company {name: 'Union Industrial Washing (Pvt) Limited'}) ON CREATE SET c.id = 'union_industrial_washing_pvt_limited';
 
 // Query 12
-MERGE (m:Metric {name: 'Operating Profit Margin'}) ON CREATE SET m.id = 'operating_profit_margin', m.unit = '%';
+MERGE (c:Company {name: 'Dillys Fashions (Pvt) Ltd'}) ON CREATE SET c.id = 'dillys_fashions_pvt_ltd';
 
 // Query 13
-MERGE (m:Metric {name: 'Profit Before Tax'}) ON CREATE SET m.id = 'profit_before_tax', m.unit = 'Rs';
+MERGE (c:Company {name: 'Sampath Bank'}) ON CREATE SET c.id = 'sampath_bank';
 
 // Query 14
-MERGE (m:Metric {name: 'Profit After Tax'}) ON CREATE SET m.id = 'profit_after_tax', m.unit = 'Rs';
+MERGE (c:Company {name: 'Mercantile Investments and Finance PLC'}) ON CREATE SET c.id = 'mercantile_investments_and_finance_plc';
 
 // Query 15
-MERGE (m:Metric {name: 'Return on Equity'}) ON CREATE SET m.id = 'return_on_equity', m.unit = '%';
+MERGE (c:Company {name: 'Peoples Leasing and Finance PLC'}) ON CREATE SET c.id = 'peoples_leasing_and_finance_plc';
 
 // Query 16
-MERGE (m:Metric {name: 'Return on Capital Employed'}) ON CREATE SET m.id = 'return_on_capital_employed', m.unit = '%';
+MERGE (c:Company {name: 'Softlogic Holdings PLC'}) ON CREATE SET c.id = 'softlogic_holdings_plc';
 
 // Query 17
-MERGE (m:Metric {name: 'Interest Cover Ratio'}) ON CREATE SET m.id = 'interest_cover_ratio', m.unit = 'Times';
+MERGE (c:Company {name: 'Softlogic Finance PLC'}) ON CREATE SET c.id = 'softlogic_finance_plc';
 
 // Query 18
-MERGE (m:Metric {name: 'Current Ratio'}) ON CREATE SET m.id = 'current_ratio', m.unit = 'Times';
+MERGE (c:Company {name: 'Asia Capital PLC'}) ON CREATE SET c.id = 'asia_capital_plc';
 
 // Query 19
-MERGE (m:Metric {name: 'Quick Asset Ratio'}) ON CREATE SET m.id = 'quick_asset_ratio', m.unit = 'Times';
+MERGE (c:Company {name: 'Dialog Axiata PLC'}) ON CREATE SET c.id = 'dialog_axiata_plc';
 
 // Query 20
-MERGE (m:Metric {name: 'Total Assets'}) ON CREATE SET m.id = 'total_assets', m.unit = 'Rs';
+MERGE (c:Company {name: 'Asiri Hospitals PLC'}) ON CREATE SET c.id = 'asiri_hospitals_plc';
 
 // Query 21
-MERGE (m:Metric {name: 'Return on Assets'}) ON CREATE SET m.id = 'return_on_assets', m.unit = '%';
+MERGE (c:Company {name: 'Distilleries Company of Sri Lanka PLC'}) ON CREATE SET c.id = 'distilleries_company_of_sri_lanka_plc';
 
 // Query 22
-MERGE (m:Metric {name: 'Gross Income'}) ON CREATE SET m.id = 'gross_income', m.unit = 'Rs';
+MERGE (c:Company {name: 'Commercial Bank of Ceylon PLC'}) ON CREATE SET c.id = 'commercial_bank_of_ceylon_plc';
 
 // Query 23
-MERGE (m:Metric {name: 'Net Interest Income'}) ON CREATE SET m.id = 'net_interest_income', m.unit = 'Rs';
+MERGE (c:Company {name: 'Lion Brewery Ceylon PLC'}) ON CREATE SET c.id = 'lion_brewery_ceylon_plc';
 
 // Query 24
-MERGE (m:Metric {name: 'Profit Before Taxation'}) ON CREATE SET m.id = 'profit_before_taxation', m.unit = 'Rs';
+MERGE (c:Company {name: 'CT Holdings PLC'}) ON CREATE SET c.id = 'ct_holdings_plc';
 
 // Query 25
-MERGE (m:Metric {name: 'Profit After Taxation'}) ON CREATE SET m.id = 'profit_after_taxation', m.unit = 'Rs';
+MERGE (c:Company {name: 'Ceylon Hospitals PLC'}) ON CREATE SET c.id = 'ceylon_hospitals_plc';
 
 // Query 26
-MERGE (m:Metric {name: 'Shareholders’ Funds'}) ON CREATE SET m.id = 'shareholders_funds', m.unit = 'Rs';
+MERGE (c:Company {name: 'Aitken Spence Hotel Holdings PLC'}) ON CREATE SET c.id = 'aitken_spence_hotel_holdings_plc';
 
 // Query 27
-MERGE (m:Metric {name: 'Earnings per Share'}) ON CREATE SET m.id = 'earnings_per_share', m.unit = 'Rs';
+MERGE (c:Company {name: 'Hotel Services (Ceylon) PLC'}) ON CREATE SET c.id = 'hotel_services_ceylon_plc';
 
 // Query 28
-MERGE (m:Metric {name: 'Net Assets per Share'}) ON CREATE SET m.id = 'net_assets_per_share', m.unit = 'Rs';
+MERGE (c:Company {name: 'ACL Cables PLC'}) ON CREATE SET c.id = 'acl_cables_plc';
 
 // Query 29
-MERGE (m:Metric {name: 'Return on Average Assets'}) ON CREATE SET m.id = 'return_on_average_assets', m.unit = '%';
+MERGE (c:Company {name: 'Hayleys PLC'}) ON CREATE SET c.id = 'hayleys_plc';
 
 // Query 30
-MERGE (m:Metric {name: 'Equity / Assets Ratio'}) ON CREATE SET m.id = 'equity_assets_ratio', m.unit = '%';
+MERGE (c:Company {name: 'John Keells Holdings PLC'}) ON CREATE SET c.id = 'john_keells_holdings_plc';
 
 // Query 31
-MERGE (m:Metric {name: 'Dividend per Share'}) ON CREATE SET m.id = 'dividend_per_share', m.unit = 'Rs';
+MERGE (c:Company {name: 'Aitken Spence PLC'}) ON CREATE SET c.id = 'aitken_spence_plc';
 
 // Query 32
-MERGE (m:Metric {name: 'Dividend Payout Ratio'}) ON CREATE SET m.id = 'dividend_payout_ratio', m.unit = '%';
+MERGE (c:Company {name: 'Free Lanka Capital Holdings PLC'}) ON CREATE SET c.id = 'free_lanka_capital_holdings_plc';
 
 // Query 33
-MERGE (m:Metric {name: 'Dividend Yield'}) ON CREATE SET m.id = 'dividend_yield', m.unit = '%';
+MERGE (c:Company {name: 'First Capital Treasuries Limited'}) ON CREATE SET c.id = 'first_capital_treasuries_limited';
 
 // Query 34
-MERGE (s:Sector {name: 'Consumer Services'}) ON CREATE SET s.id = 'consumer_services';
+MERGE (c:Company {name: 'Wealth Trust Securities Limited'}) ON CREATE SET c.id = 'wealth_trust_securities_limited';
 
 // Query 35
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 79289000000, r.year = 2025;
+MERGE (c:Company {name: 'Seylan Bank PLC'}) ON CREATE SET c.id = 'seylan_bank_plc';
 
 // Query 36
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 73942000000, r.year = 2024;
+MERGE (c:Company {name: 'DFCC Bank'}) ON CREATE SET c.id = 'dfcc_bank';
 
 // Query 37
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Gross Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 16564000000, r.year = 2025;
+MERGE (p:Person {name: 'Alexis Lovell'}) ON CREATE SET p.id = 'alexis_lovell';
 
 // Query 38
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Gross Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 17059000000, r.year = 2024;
+MERGE (p:Person {name: 'Ajith Wijesekera'}) ON CREATE SET p.id = 'ajith_wijesekera';
 
 // Query 39
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Gross Profit Margin'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 21, r.year = 2025;
+MERGE (p:Person {name: 'Anil Amarasuriya'}) ON CREATE SET p.id = 'anil_amarasuriya';
 
 // Query 40
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 7172000000, r.year = 2025;
+MERGE (p:Person {name: 'Jitendrakumar Warnakulasuriya'}) ON CREATE SET p.id = 'jitendrakumar_warnakulasuriya';
 
 // Query 41
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 6836000000, r.year = 2025;
+MERGE (p:Person {name: 'A N Fonseka'}) ON CREATE SET p.id = 'a_n_fonseka';
 
 // Query 42
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 5032000000, r.year = 2025;
+MERGE (p:Person {name: 'M. Gunawardhene'}) ON CREATE SET p.id = 'm_gunawardhene';
 
 // Query 43
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Return on Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 13, r.year = 2025;
+MERGE (p:Person {name: 'T W De Silva'}) ON CREATE SET p.id = 't_w_de_silva';
 
 // Query 44
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Return on Capital Employed'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 14, r.year = 2025;
+MERGE (p:Person {name: 'Avancka Herat'}) ON CREATE SET p.id = 'avancka_herat';
 
 // Query 45
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Interest Cover Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 9, r.year = 2025;
+MERGE (p:Person {name: 'Khoo Siew Bee'}) ON CREATE SET p.id = 'khoo_siew_bee';
 
 // Query 46
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Current Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1.7, r.year = 2025;
+MERGE (s:Sector {name: 'Telecommunication Services'}) ON CREATE SET s.id = 'telecommunication_services';
 
 // Query 47
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Quick Asset Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1.1, r.year = 2025;
+MERGE (s:Sector {name: 'Capital Goods'}) ON CREATE SET s.id = 'capital_goods';
 
 // Query 48
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 74616000000, r.year = 2025;
+MERGE (s:Sector {name: 'Materials'}) ON CREATE SET s.id = 'materials';
 
 // Query 49
-MATCH (c:Company {name: 'Dipped Products PLC'}), (m:Metric {name: 'Return on Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 7, r.year = 2025;
+MERGE (s:Sector {name: 'Pharmaceuticals, Biotechnology, and Life Sciences'}) ON CREATE SET s.id = 'pharmaceuticals_biotechnology_and_life_sciences';
 
 // Query 50
-MATCH (c:Company {name: 'Commercial Credit and Finance PLC'}), (m:Metric {name: 'Gross Income'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 31055222000, r.year = 2024;
+MERGE (s:Sector {name: 'Health Care Equipment and Services'}) ON CREATE SET s.id = 'health_care_equipment_and_services';
 
 // Query 51
-MATCH (c:Company {name: 'Commercial Credit and Finance PLC'}), (m:Metric {name: 'Net Interest Income'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 12808022000, r.year = 2024;
+MERGE (s:Sector {name: 'Consumer Services'}) ON CREATE SET s.id = 'consumer_services';
 
 // Query 52
-MATCH (c:Company {name: 'Commercial Credit and Finance PLC'}), (m:Metric {name: 'Profit Before Taxation'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 6594978000, r.year = 2024;
+MERGE (s:Sector {name: 'Retailing'}) ON CREATE SET s.id = 'retailing';
 
 // Query 53
-MATCH (c:Company {name: 'Commercial Credit and Finance PLC'}), (m:Metric {name: 'Profit After Taxation'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 4193917000, r.year = 2024;
+MERGE (s:Sector {name: 'Food, Beverage, and Tobacco'}) ON CREATE SET s.id = 'food_beverage_and_tobacco';
 
 // Query 54
-MATCH (c:Company {name: 'Commercial Credit and Finance PLC'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 107987834000, r.year = 2024;
+MERGE (s:Sector {name: 'Banks'}) ON CREATE SET s.id = 'banks';
 
 // Query 55
-MATCH (c:Company {name: 'Commercial Credit and Finance PLC'}), (m:Metric {name: 'Shareholders’ Funds'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 24179669000, r.year = 2024;
+MERGE (s:Sector {name: 'Energy'}) ON CREATE SET s.id = 'energy';
 
 // Query 56
-MATCH (c:Company {name: 'Commercial Credit and Finance PLC'}), (m:Metric {name: 'Earnings per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 13.19, r.year = 2024;
+MERGE (s:Sector {name: 'Diversified Financials'}) ON CREATE SET s.id = 'diversified_financials';
 
 // Query 57
-MATCH (c:Company {name: 'Commercial Credit and Finance PLC'}), (m:Metric {name: 'Net Assets per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 76.02, r.year = 2024;
+MERGE (s:Sector {name: 'Insurance'}) ON CREATE SET s.id = 'insurance';
 
 // Query 58
-MATCH (c:Company {name: 'Commercial Credit and Finance PLC'}), (m:Metric {name: 'Return on Average Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 3.99, r.year = 2024;
+MERGE (m:Metric {name: 'Total Investment Income'}) ON CREATE SET m.id = 'total_investment_income', m.unit = 'Rs';
 
 // Query 59
-MATCH (c:Company {name: 'Commercial Credit and Finance PLC'}), (m:Metric {name: 'Equity / Assets Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 22.39, r.year = 2024;
+MERGE (m:Metric {name: 'Net Realised Gains on Financial Assets Held for Trading'}) ON CREATE SET m.id = 'net_realised_gains_on_financial_assets_held_for_trading', m.unit = 'Rs';
 
 // Query 60
-MATCH (c:Company {name: 'Citizens Development Business Finance PLC'}), (m:Metric {name: 'Dividend per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 5.00, r.year = 2025;
+MERGE (m:Metric {name: 'Net Change in Unrealised Losses on Financial Assets Held for Trading'}) ON CREATE SET m.id = 'net_change_in_unrealised_losses_on_financial_assets_held_for_trading', m.unit = 'Rs';
 
 // Query 61
-MATCH (c:Company {name: 'Citizens Development Business Finance PLC'}), (m:Metric {name: 'Dividend per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 10.00, r.year = 2025;
+MERGE (m:Metric {name: 'Management Fees'}) ON CREATE SET m.id = 'management_fees', m.unit = 'Rs';
 
 // Query 62
-MATCH (c:Company {name: 'Ceylon Tea Brokers PLC'}), (m:Metric {name: 'Dividend per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.44, r.year = 2024;
+MERGE (m:Metric {name: 'Trustee Fees'}) ON CREATE SET m.id = 'trustee_fees', m.unit = 'Rs';
 
 // Query 63
-MATCH (c:Company {name: 'Ceylon Tea Brokers PLC'}), (m:Metric {name: 'Dividend Payout Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 56.55, r.year = 2024;
+MERGE (m:Metric {name: 'Custodian Fees'}) ON CREATE SET m.id = 'custodian_fees', m.unit = 'Rs';
 
 // Query 64
-MATCH (c:Company {name: 'Dialog Axiata PLC'}), (m:Metric {name: 'Dividend per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1.34, r.year = 2023;
+MERGE (m:Metric {name: 'Audit Fee and Expenses'}) ON CREATE SET m.id = 'audit_fee_and_expenses', m.unit = 'Rs';
 
 // Query 65
-MATCH (c:Company {name: 'Dialog Axiata PLC'}), (m:Metric {name: 'Dividend Payout Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 55, r.year = 2023;
+MERGE (m:Metric {name: 'Professional Charges'}) ON CREATE SET m.id = 'professional_charges', m.unit = 'Rs';
 
 // Query 66
-MATCH (c:Company {name: 'Dialog Axiata PLC'}), (m:Metric {name: 'Dividend Yield'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 14.9, r.year = 2023;
+MERGE (m:Metric {name: 'Other Expenses'}) ON CREATE SET m.id = 'other_expenses', m.unit = 'Rs';
 
 // Query 67
-MATCH (c:Company {name: 'Chevron Lubricants Lanka PLC'}), (m:Metric {name: 'Dividend per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 15.00, r.year = 2024;
+MERGE (m:Metric {name: 'Total Operating Expenses'}) ON CREATE SET m.id = 'total_operating_expenses', m.unit = 'Rs';
 
 // Query 68
-MATCH (c:Company {name: 'Chevron Lubricants Lanka PLC'}), (m:Metric {name: 'Dividend Yield'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 9.4, r.year = 2024;
+MERGE (m:Metric {name: 'Net Operating Profit'}) ON CREATE SET m.id = 'net_operating_profit', m.unit = 'Rs';
 
 // Query 69
-MATCH (c:Company {name: 'Chevron Lubricants Lanka PLC'}), (m:Metric {name: 'Earnings per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 16.06, r.year = 2024;
+MERGE (m:Metric {name: 'Interest Expense'}) ON CREATE SET m.id = 'interest_expense', m.unit = 'Rs';
 
 // Query 70
-MATCH (c:Company {name: 'Lankem Ceylon PLC'}), (s:Sector {name: 'Consumer Services'}) MERGE (c)-[:IN_SECTOR]->(s);
+MERGE (m:Metric {name: 'Distribution to Unit Holders'}) ON CREATE SET m.id = 'distribution_to_unit_holders', m.unit = 'Rs';
 
 // Query 71
-UNWIND [{id: 'dipped_products_plc_directors_and_executives_0', content: '(Pvt) Ltd\na\nr\nThe DIRECTORS of the Company are also DIRECTORS of following companies with which the Company had transactions\nin the ordinary course of business during the year.\nKey management includes members of the Board of DIRECTORS of the Company. The compensation paid or payable\nto key management for employee services is shown below:\nMr. H.N.J \nChandrasekara\nMr. K.A.K \nJayatilake\nr\na', chunk_type: 'directors_and_executives', index: 0}, {id: 'dipped_products_plc_directors_and_executives_1', content: 'contracts in which they have an interest are disclosed in \nNote 34.1.1 to the financial statements on page 68.\nDIRECTORS’ Interest in Shares\nDIRECTORS of the Company who have an interest in the \nshares of the Company are required to disclose their \nshareholdings and any acquisitions/ disposals to the \nBoard in compliance with Section 200 of the Companies \nAct No. 07 of 2007. However, none of the DIRECTORS held \nany shares during the period under review nor in the \nprevious year.\nDIRECTORS’ Remuneration\nKey Management Personnel Compensation in respect of \nthe Company and the Group for the financial year 2021/ \n2022 is detailed in Note 34.1.2 to the Financial Statements \non page 68.\nDirectorate\nThe names of the DIRECTORS who held office during the \nfinancial year are given below and brief profiles of the \nDIRECTORS who are currently in office appear on pages 5 \nto 6.\nMr. S.D.R. Arudpragasam - Chairman\nMr. R.C.A. Welikala - Director\nMr. R.N. Bopearatchy - Director', chunk_type: 'directors_and_executives', index: 1}, {id: 'dipped_products_plc_directors_and_executives_2', content: 'Company in the preparation of the Financial \nStatements are given on pages 71 to 79, \nwhich are consistent with those of the \nprevious period.\nDIRECTORS’ responsibility for Financial \nReporting\nThe DIRECTORS are responsible for the \npreparation of the Financial Statements of \nthe Company and the Group to reflect a true \nand fair view of the state of its affairs.\nInformation on the DIRECTORS of the \nCompany and the Group \nDIRECTORS of the Company as at  \n31st March 2021\nThe names of the DIRECTORS who held office \nas at the end of the accounting period are \ngiven below and their brief profiles appear on \npages 18 and 19.\nExecutive DIRECTORS\nMr. E. T . De Zoysa - Managing Director\nNon-Executive DIRECTORS\nMr. R. S. A. Wickramasingha - Chairman\nMs. D. S. Wickramasingha - Director\nMs. N. K. Wickramasingha - Director \nMr. L. J. M. De Silva - Director \nMr. M. U. S. G. Thilakawardana - Director*\nDr. D. M. A. Kulasooriya - Director*\nMr. M. S. Nanayakkara - Director*', chunk_type: 'directors_and_executives', index: 2}, {id: 'dipped_products_plc_directors_and_executives_3', content: 'from pages 28 to 67 of the Annual Report. \nDIRECTORATE \nThe Board of DIRECTORS of the Company as at date is set out in \n“Corporate Information”. The DIRECTORS of the Company who held \noffice during the year under review and changes thereto are \nindicated below.', chunk_type: 'directors_and_executives', index: 3}, {id: 'dipped_products_plc_directors_and_executives_4', content: 'in the Shareholders Information section on pages 166 to 167.\nThe Company endeavours at all times to ensure equitable treatment to all \nshareholders.\nSubstantial Shareholdings\nThere were 1738 registered shareholders, holding ordinary voting shares \nas at 31st March 2025 (1,582 registered shareholders as at 31st March \n2024).\nThe names of the twenty largest shareholders, the number of shares held, \nand the percentages held are given on page 167 of the Annual Report. \nThe distribution schedule of the shareholders and public holdings are \ndisclosed on page 166 of the Annual Report.\nDirectorate\nAs at 31st March 2025 the Board of DIRECTORS of the Company consisted \nof eight DIRECTORS with wide commercial, academic knowledge and \nexperience. The DIRECTORS profile is given on pages 56 to 57 of this Annual \nReport.\nThe Board of DIRECTORS of the Company and its subsidiaries as at 31st \nMarch 2025 are listed below.\nName of the Director\nJohn Keells PLC \nPLC\nJohn \nKeells PLC \nStockbrokers\nJohn Keells PLC', chunk_type: 'directors_and_executives', index: 4}] AS chunk MERGE (ch:Chunk {id: chunk.id}) ON CREATE SET ch.content = chunk.content, ch.chunk_type = chunk.chunk_type, ch.index = chunk.index;
+MERGE (m:Metric {name: 'Profit Before Tax'}) ON CREATE SET m.id = 'profit_before_tax', m.unit = 'Rs';
 
 // Query 72
-MATCH (c:Company {name: 'Dipped Products PLC'}) WITH c UNWIND ['dipped_products_plc_directors_and_executives_0', 'dipped_products_plc_directors_and_executives_1', 'dipped_products_plc_directors_and_executives_2', 'dipped_products_plc_directors_and_executives_3', 'dipped_products_plc_directors_and_executives_4'] AS chunk_id MATCH (ch:Chunk {id: chunk_id}) MERGE (c)-[:HAS_CONTENT]->(ch);
+MERGE (m:Metric {name: 'Income Tax Expense'}) ON CREATE SET m.id = 'income_tax_expense', m.unit = 'Rs';
 
-// Total queries: 72
-// Generated on: 2025-09-30T13:53:36.230006
+// Query 73
+MERGE (m:Metric {name: 'Profit After Tax'}) ON CREATE SET m.id = 'profit_after_tax', m.unit = 'Rs';
+
+// Query 74
+MERGE (m:Metric {name: 'Change in Net Assets Attributable to Unit Holders'}) ON CREATE SET m.id = 'change_in_net_assets_attributable_to_unit_holders', m.unit = 'Rs';
+
+// Query 75
+MERGE (m:Metric {name: 'Dividend Income'}) ON CREATE SET m.id = 'dividend_income', m.unit = 'Rs';
+
+// Query 76
+MERGE (m:Metric {name: 'Interest Income'}) ON CREATE SET m.id = 'interest_income', m.unit = 'Rs';
+
+// Query 77
+MERGE (m:Metric {name: 'Tax Expense for the Year'}) ON CREATE SET m.id = 'tax_expense_for_the_year', m.unit = 'Rs';
+
+// Query 78
+MERGE (m:Metric {name: 'Operating Profit Before Tax'}) ON CREATE SET m.id = 'operating_profit_before_tax', m.unit = 'Rs';
+
+// Query 79
+MERGE (m:Metric {name: 'Total Assets'}) ON CREATE SET m.id = 'total_assets', m.unit = 'Rs';
+
+// Query 80
+MERGE (m:Metric {name: 'Total Liabilities'}) ON CREATE SET m.id = 'total_liabilities', m.unit = 'Rs';
+
+// Query 81
+MERGE (m:Metric {name: 'Net Asset Value Per Unit'}) ON CREATE SET m.id = 'net_asset_value_per_unit', m.unit = 'Rs';
+
+// Query 82
+MERGE (m:Metric {name: 'Unit Capital'}) ON CREATE SET m.id = 'unit_capital', m.unit = 'Rs';
+
+// Query 83
+MATCH (p:Person {name: 'Alexis Lovell'}), (c:Company {name: 'National Asset Management Limited'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2013-03-31');
+
+// Query 84
+MATCH (p:Person {name: 'Ajith Wijesekera'}), (c:Company {name: 'National Asset Management Limited'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Deputy Chairman', r.as_of = date('2013-03-31');
+
+// Query 85
+MATCH (p:Person {name: 'Anil Amarasuriya'}), (c:Company {name: 'National Asset Management Limited'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2013-03-31');
+
+// Query 86
+MATCH (p:Person {name: 'Jitendrakumar Warnakulasuriya'}), (c:Company {name: 'National Asset Management Limited'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2013-03-31');
+
+// Query 87
+MATCH (p:Person {name: 'A N Fonseka'}), (c:Company {name: 'National Asset Management Limited'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2013-03-31');
+
+// Query 88
+MATCH (p:Person {name: 'M. Gunawardhene'}), (c:Company {name: 'National Asset Management Limited'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Alternate Director', r.as_of = date('2013-03-31');
+
+// Query 89
+MATCH (p:Person {name: 'T W De Silva'}), (c:Company {name: 'National Asset Management Limited'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2013-03-31');
+
+// Query 90
+MATCH (p:Person {name: 'Avancka Herat'}), (c:Company {name: 'National Asset Management Limited'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2013-03-31');
+
+// Query 91
+MATCH (p:Person {name: 'Khoo Siew Bee'}), (c:Company {name: 'National Asset Management Limited'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2013-03-31');
+
+// Query 92
+MATCH (p:Person {name: 'Anil Amarasuriya'}), (c:Company {name: 'Union Bank Of Colombo PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director / Chief Executive Officer', r.as_of = date('2013-03-31');
+
+// Query 93
+MATCH (p:Person {name: 'Anil Amarasuriya'}), (c:Company {name: 'Union Resorts'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Founder Chairman/Managing Director', r.as_of = date('2013-03-31');
+
+// Query 94
+MATCH (p:Person {name: 'Jitendrakumar Warnakulasuriya'}), (c:Company {name: 'Just in Time Group'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2013-03-31');
+
+// Query 95
+MATCH (manager:Company {name: 'National Asset Management Limited'}), (fund:Company {name: 'NAMAL Acuity Value Fund'}) MERGE (manager)-[:MANAGES]->(fund);
+
+// Query 96
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (auditor:Company {name: 'Ernst and Young'}) MERGE (c)-[r:AUDITED_BY]->(auditor) ON CREATE SET r.year = 2013;
+
+// Query 97
+MATCH (c:Company {name: 'National Asset Management Limited'}), (auditor:Company {name: 'Ernst and Young'}) MERGE (c)-[r:AUDITED_BY]->(auditor) ON CREATE SET r.year = 2013;
+
+// Query 98
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (s:Sector {name: 'Banks'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 99
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (s:Sector {name: 'Diversified Financials'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 100
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (s:Sector {name: 'Insurance'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 101
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (s:Sector {name: 'Food, Beverage, and Tobacco'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 102
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (s:Sector {name: 'Health Care Equipment and Services'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 103
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (s:Sector {name: 'Retailing'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 104
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (s:Sector {name: 'Energy'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 105
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (s:Sector {name: 'Capital Goods'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 106
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Total Investment Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 106894676.0, r.year = 2013, r.as_of = date('2013-03-31');
+
+// Query 107
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Total Investment Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -215575887.0, r.year = 2012, r.as_of = date('2012-03-31');
+
+// Query 108
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Net Realised Gains on Financial Assets Held for Trading'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 52141890.0, r.year = 2013, r.as_of = date('2013-03-31');
+
+// Query 109
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Net Realised Gains on Financial Assets Held for Trading'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 200015383.0, r.year = 2012, r.as_of = date('2012-03-31');
+
+// Query 110
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Net Change in Unrealised Losses on Financial Assets Held for Trading'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -4938685.0, r.year = 2013, r.as_of = date('2013-03-31');
+
+// Query 111
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Net Change in Unrealised Losses on Financial Assets Held for Trading'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -447294322.0, r.year = 2012, r.as_of = date('2012-03-31');
+
+// Query 112
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Management Fees'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -9835724.0, r.year = 2013, r.as_of = date('2013-03-31');
+
+// Query 113
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Management Fees'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -10402715.0, r.year = 2012, r.as_of = date('2012-03-31');
+
+// Query 114
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Trustee Fees'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -2024123.0, r.year = 2013, r.as_of = date('2013-03-31');
+
+// Query 115
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Trustee Fees'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -2223532.0, r.year = 2012, r.as_of = date('2012-03-31');
+
+// Query 116
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Custodian Fees'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -268800.0, r.year = 2013, r.as_of = date('2013-03-31');
+
+// Query 117
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Custodian Fees'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -264723.0, r.year = 2012, r.as_of = date('2012-03-31');
+
+// Query 118
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Audit Fee and Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -149050.0, r.year = 2013, r.as_of = date('2013-03-31');
+
+// Query 119
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Audit Fee and Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -136831.0, r.year = 2012, r.as_of = date('2012-03-31');
+
+// Query 120
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Professional Charges'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -6160.0, r.year = 2013, r.as_of = date('2013-03-31');
+
+// Query 121
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Professional Charges'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.0, r.year = 2012, r.as_of = date('2012-03-31');
+
+// Query 122
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Other Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -740875.0, r.year = 2013, r.as_of = date('2013-03-31');
+
+// Query 123
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Other Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -608579.0, r.year = 2012, r.as_of = date('2012-03-31');
+
+// Query 124
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Total Operating Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -13024732.0, r.year = 2013, r.as_of = date('2013-03-31');
+
+// Query 125
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Total Operating Expenses'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -13636380.0, r.year = 2012, r.as_of = date('2012-03-31');
+
+// Query 126
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Net Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 93869944.0, r.year = 2013, r.as_of = date('2013-03-31');
+
+// Query 127
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Net Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -229212267.0, r.year = 2012, r.as_of = date('2012-03-31');
+
+// Query 128
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Interest Expense'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -62826.0, r.year = 2013, r.as_of = date('2013-03-31');
+
+// Query 129
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Interest Expense'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 0.0, r.year = 2012, r.as_of = date('2012-03-31');
+
+// Query 130
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Distribution to Unit Holders'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -10751200.0, r.year = 2013, r.as_of = date('2013-03-31');
+
+// Query 131
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Distribution to Unit Holders'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -26878000.0, r.year = 2012, r.as_of = date('2012-03-31');
+
+// Query 132
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 83055918.0, r.year = 2013, r.as_of = date('2013-03-31');
+
+// Query 133
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -256090267.0, r.year = 2012, r.as_of = date('2012-03-31');
+
+// Query 134
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Income Tax Expense'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -1475801.0, r.year = 2013, r.as_of = date('2013-03-31');
+
+// Query 135
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Income Tax Expense'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -129534.0, r.year = 2012, r.as_of = date('2012-03-31');
+
+// Query 136
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 81580117.0, r.year = 2013, r.as_of = date('2013-03-31');
+
+// Query 137
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -256219801.0, r.year = 2012, r.as_of = date('2012-03-31');
+
+// Query 138
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Change in Net Assets Attributable to Unit Holders'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 81580117.0, r.year = 2013, r.as_of = date('2013-03-31');
+
+// Query 139
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Change in Net Assets Attributable to Unit Holders'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -256219801.0, r.year = 2012, r.as_of = date('2012-03-31');
+
+// Query 140
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Dividend Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 25669988.0, r.year = 2013, r.as_of = date('2013-03-31');
+
+// Query 141
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Dividend Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 16076610.0, r.year = 2012, r.as_of = date('2012-03-31');
+
+// Query 142
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Interest Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 34021483.0, r.year = 2013, r.as_of = date('2013-03-31');
+
+// Query 143
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Interest Income'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 15626442.0, r.year = 2012, r.as_of = date('2012-03-31');
+
+// Query 144
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Tax Expense for the Year'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1475801.0, r.year = 2013, r.as_of = date('2013-03-31');
+
+// Query 145
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Tax Expense for the Year'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 129534.0, r.year = 2012, r.as_of = date('2012-03-31');
+
+// Query 146
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Operating Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 93869944.0, r.year = 2013, r.as_of = date('2013-03-31');
+
+// Query 147
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Operating Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = -229212267.0, r.year = 2012, r.as_of = date('2012-03-31');
+
+// Query 148
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 984952393.0, r.year = 2013, r.as_of = date('2013-03-31');
+
+// Query 149
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 880801487.0, r.year = 2012, r.as_of = date('2012-03-31');
+
+// Query 150
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1137166534.0, r.year = 2011, r.as_of = date('2011-03-31');
+
+// Query 151
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Total Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 23693646.0, r.year = 2013, r.as_of = date('2013-03-31');
+
+// Query 152
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Total Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1122857.0, r.year = 2012, r.as_of = date('2012-03-31');
+
+// Query 153
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Total Liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1268103.0, r.year = 2011, r.as_of = date('2011-03-31');
+
+// Query 154
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Net Asset Value Per Unit'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 89.16, r.as_of = date('2013-03-31');
+
+// Query 155
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Unit Capital'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 1135898431.0, r.year = 2013, r.as_of = date('2013-03-31');
+
+// Query 156
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Unit Capital'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 524121000.0, r.year = 2012, r.as_of = date('2012-03-31');
+
+// Query 157
+MATCH (c:Company {name: 'NAMAL Acuity Value Fund'}), (m:Metric {name: 'Unit Capital'}) MERGE (c)-[r:HAS_METRIC]->(m) ON CREATE SET r.value = 611777431.0, r.year = 2011, r.as_of = date('2011-03-31');
+
+// Query 158
+MATCH (parent:Company {name: 'NAMAL Acuity Value Fund'}), (child:Company {name: 'Dialog Axiata PLC'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 2.0, r.as_of = date('2013-03-31');
+
+// Query 159
+MATCH (parent:Company {name: 'NAMAL Acuity Value Fund'}), (child:Company {name: 'Asiri Hospitals PLC'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 13.0, r.as_of = date('2013-03-31');
+
+// Query 160
+MATCH (parent:Company {name: 'NAMAL Acuity Value Fund'}), (child:Company {name: 'Distilleries Company of Sri Lanka PLC'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 11.0, r.as_of = date('2013-03-31');
+
+// Query 161
+MATCH (parent:Company {name: 'NAMAL Acuity Value Fund'}), (child:Company {name: 'Commercial Bank of Ceylon PLC'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 8.0, r.as_of = date('2013-03-31');
+
+// Query 162
+MATCH (parent:Company {name: 'NAMAL Acuity Value Fund'}), (child:Company {name: 'Lion Brewery Ceylon PLC'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 7.0, r.as_of = date('2013-03-31');
+
+// Query 163
+MATCH (parent:Company {name: 'NAMAL Acuity Value Fund'}), (child:Company {name: 'CT Holdings PLC'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 6.0, r.as_of = date('2013-03-31');
+
+// Query 164
+MATCH (parent:Company {name: 'NAMAL Acuity Value Fund'}), (child:Company {name: 'Ceylon Hospitals PLC'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 6.0, r.as_of = date('2013-03-31');
+
+// Query 165
+MATCH (parent:Company {name: 'NAMAL Acuity Value Fund'}), (child:Company {name: 'Hotel Services (Ceylon) PLC'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 2.0, r.as_of = date('2013-03-31');
+
+// Query 166
+MATCH (parent:Company {name: 'NAMAL Acuity Value Fund'}), (child:Company {name: 'ACL Cables PLC'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 3.0, r.as_of = date('2013-03-31');
+
+// Query 167
+MATCH (parent:Company {name: 'NAMAL Acuity Value Fund'}), (child:Company {name: 'Hayleys PLC'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 4.0, r.as_of = date('2013-03-31');
+
+// Query 168
+MATCH (parent:Company {name: 'NAMAL Acuity Value Fund'}), (child:Company {name: 'Mercantile Investments and Finance PLC'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 5.0, r.as_of = date('2012-03-31');
+
+// Query 169
+MATCH (parent:Company {name: 'NAMAL Acuity Value Fund'}), (child:Company {name: 'Peoples Leasing and Finance PLC'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 4.0, r.as_of = date('2012-03-31');
+
+// Query 170
+MATCH (parent:Company {name: 'NAMAL Acuity Value Fund'}), (child:Company {name: 'Softlogic Finance PLC'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 1.0, r.as_of = date('2012-03-31');
+
+// Query 171
+MATCH (parent:Company {name: 'NAMAL Acuity Value Fund'}), (child:Company {name: 'Asia Capital PLC'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 3.0, r.as_of = date('2012-03-31');
+
+// Query 172
+MATCH (parent:Company {name: 'NAMAL Acuity Value Fund'}), (child:Company {name: 'Softlogic Holdings PLC'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 3.0, r.as_of = date('2013-03-31');
+
+// Query 173
+MATCH (parent:Company {name: 'NAMAL Acuity Value Fund'}), (child:Company {name: 'First Capital Treasuries Limited'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 1.0, r.as_of = date('2013-03-31');
+
+// Query 174
+MATCH (parent:Company {name: 'NAMAL Acuity Value Fund'}), (child:Company {name: 'Wealth Trust Securities Limited'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 3.0, r.as_of = date('2013-03-31');
+
+// Query 175
+MATCH (parent:Company {name: 'NAMAL Acuity Value Fund'}), (child:Company {name: 'Union Bank Of Colombo PLC'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 2.0, r.as_of = date('2013-03-31');
+
+// Query 176
+MATCH (parent:Company {name: 'NAMAL Acuity Value Fund'}), (child:Company {name: 'DFCC Bank'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 5.0, r.as_of = date('2012-03-31');
+
+// Query 177
+MATCH (parent:Company {name: 'NAMAL Acuity Value Fund'}), (child:Company {name: 'John Keells Holdings PLC'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 7.0, r.as_of = date('2011-03-31');
+
+// Query 178
+MATCH (parent:Company {name: 'NAMAL Acuity Value Fund'}), (child:Company {name: 'Aitken Spence PLC'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 7.0, r.as_of = date('2011-03-31');
+
+// Query 179
+MATCH (parent:Company {name: 'NAMAL Acuity Value Fund'}), (child:Company {name: 'Free Lanka Capital Holdings PLC'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 0.0, r.as_of = date('2012-03-31');
+
+// Query 180
+MATCH (parent:Company {name: 'NAMAL Acuity Value Fund'}), (child:Company {name: 'Aitken Spence Hotel Holdings PLC'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 12.0, r.as_of = date('2011-03-31');
+
+// Total queries: 180
+// Generated on: 2025-10-02T19:17:22.040766

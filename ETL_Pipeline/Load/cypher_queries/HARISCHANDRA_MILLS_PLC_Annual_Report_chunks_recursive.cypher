@@ -1,113 +1,518 @@
 // Query 1
-MERGE (c:Company {name: 'Harischandra Mills PLC'}) ON CREATE SET c.id = 'harischandra_mills_plc';
+MERGE (c:Company {name: 'Harischandra Mills PLC'}) ON CREATE SET c.id = 'harischandra_mills_plc', c.region = 'Sri Lanka';
 
 // Query 2
-MERGE (p:Person {name: 'E. T. De Zoysa'}) ON CREATE SET p.id = 'e_t_de_zoysa';
+MERGE (c:Company {name: 'Harischandra Mills (Distributors) Limited'}) ON CREATE SET c.id = 'harischandra_mills_distributors_limited', c.region = 'Sri Lanka';
 
 // Query 3
-MERGE (p:Person {name: 'R. S. A. Wickramasingha'}) ON CREATE SET p.id = 'r_s_a_wickramasingha';
+MERGE (c:Company {name: 'KPMG'}) ON CREATE SET c.id = 'kpmg';
 
 // Query 4
-MERGE (p:Person {name: 'D. S. Wickramasingha'}) ON CREATE SET p.id = 'd_s_wickramasingha';
+MERGE (p:Person {name: 'S.N. Samarasinghe'}) ON CREATE SET p.id = 's_n_samarasinghe';
 
 // Query 5
-MERGE (p:Person {name: 'N. K. Wickramasingha'}) ON CREATE SET p.id = 'n_k_wickramasingha';
+MERGE (p:Person {name: 'G.S.V. De Silva'}) ON CREATE SET p.id = 'g_s_v_de_silva';
 
 // Query 6
-MERGE (p:Person {name: 'L. J. M. De Silva'}) ON CREATE SET p.id = 'l_j_m_de_silva';
+MERGE (p:Person {name: 'M.P. De Silva'}) ON CREATE SET p.id = 'm_p_de_silva';
 
 // Query 7
-MERGE (p:Person {name: 'M. U. S. G. Thilakawardana'}) ON CREATE SET p.id = 'm_u_s_g_thilakawardana';
+MERGE (p:Person {name: 'R.K. Samarasinghe'}) ON CREATE SET p.id = 'r_k_samarasinghe';
 
 // Query 8
-MERGE (p:Person {name: 'D. M. A. Kulasooriya'}) ON CREATE SET p.id = 'd_m_a_kulasooriya';
+MERGE (p:Person {name: 'T.K. Bandaranaike'}) ON CREATE SET p.id = 't_k_bandaranaike';
 
 // Query 9
-MERGE (p:Person {name: 'M. S. Nanayakkara'}) ON CREATE SET p.id = 'm_s_nanayakkara';
+MERGE (p:Person {name: 'R. Kobbakaduwa'}) ON CREATE SET p.id = 'r_kobbakaduwa';
 
 // Query 10
-MERGE (s:Sector {name: 'Diversified Financials'}) ON CREATE SET s.id = 'diversified_financials';
+MERGE (p:Person {name: 'S.A.S. Jayasundara'}) ON CREATE SET p.id = 's_a_s_jayasundara';
 
 // Query 11
-MERGE (s:Sector {name: 'Food, Beverage, and Tobacco'}) ON CREATE SET s.id = 'food_beverage_and_tobacco';
+MERGE (p:Person {name: 'C.T. Gajanayake'}) ON CREATE SET p.id = 'c_t_gajanayake';
 
 // Query 12
-MERGE (s:Sector {name: 'Real Estate'}) ON CREATE SET s.id = 'real_estate';
+MERGE (p:Person {name: 'S.N.K. Nanayakkara'}) ON CREATE SET p.id = 's_n_k_nanayakkara';
 
 // Query 13
-MERGE (s:Sector {name: 'Consumer Services'}) ON CREATE SET s.id = 'consumer_services';
+MERGE (p:Person {name: 'D.S. Gamini Lokuralage'}) ON CREATE SET p.id = 'd_s_gamini_lokuralage';
 
 // Query 14
-MERGE (s:Sector {name: 'Commercial and Professional Services'}) ON CREATE SET s.id = 'commercial_and_professional_services';
+MERGE (p:Person {name: 'A.P.R. Kodithuwakku'}) ON CREATE SET p.id = 'a_p_r_kodithuwakku';
 
 // Query 15
-MATCH (p:Person {name: 'E. T. De Zoysa'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Managing Director', r.as_of = date('2021-03-31');
+MERGE (p:Person {name: 'N.P. Ranasinghe'}) ON CREATE SET p.id = 'n_p_ranasinghe';
 
 // Query 16
-MATCH (p:Person {name: 'E. T. De Zoysa'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[r:DIRECTOR_OF]->(c) ON CREATE SET r.role = 'Executive', r.as_of = date('2021-03-31');
+MERGE (p:Person {name: 'H.M.R.S. Sanjeewa'}) ON CREATE SET p.id = 'h_m_r_s_sanjeewa';
 
 // Query 17
-MATCH (p:Person {name: 'R. S. A. Wickramasingha'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2021-03-31');
+MERGE (p:Person {name: 'N. Jayawardane'}) ON CREATE SET p.id = 'n_jayawardane';
 
 // Query 18
-MATCH (p:Person {name: 'R. S. A. Wickramasingha'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[r:DIRECTOR_OF]->(c) ON CREATE SET r.role = 'Non-Executive', r.as_of = date('2021-03-31');
+MERGE (p:Person {name: 'R.G.P.P. Samarawickrama'}) ON CREATE SET p.id = 'r_g_p_p_samarawickrama';
 
 // Query 19
-MATCH (p:Person {name: 'D. S. Wickramasingha'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MERGE (s:Sector {name: 'Food, Beverage, and Tobacco'}) ON CREATE SET s.id = 'food_beverage_and_tobacco';
 
 // Query 20
-MATCH (p:Person {name: 'D. S. Wickramasingha'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[r:DIRECTOR_OF]->(c) ON CREATE SET r.role = 'Non-Executive', r.as_of = date('2021-03-31');
+MERGE (s:Sector {name: 'Household and Personal Products'}) ON CREATE SET s.id = 'household_and_personal_products';
 
 // Query 21
-MATCH (p:Person {name: 'N. K. Wickramasingha'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MERGE (s:Sector {name: 'Energy'}) ON CREATE SET s.id = 'energy';
 
 // Query 22
-MATCH (p:Person {name: 'N. K. Wickramasingha'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[r:DIRECTOR_OF]->(c) ON CREATE SET r.role = 'Non-Executive', r.as_of = date('2021-03-31');
+MERGE (p:Product {name: 'Coffee'}) ON CREATE SET p.id = 'coffee';
 
 // Query 23
-MATCH (p:Person {name: 'L. J. M. De Silva'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MERGE (p:Product {name: 'Noodles'}) ON CREATE SET p.id = 'noodles';
 
 // Query 24
-MATCH (p:Person {name: 'L. J. M. De Silva'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[r:DIRECTOR_OF]->(c) ON CREATE SET r.role = 'Non-Executive', r.as_of = date('2021-03-31');
+MERGE (p:Product {name: 'Papadam'}) ON CREATE SET p.id = 'papadam';
 
 // Query 25
-MATCH (p:Person {name: 'M. U. S. G. Thilakawardana'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MERGE (p:Product {name: 'Flour-based Products'}) ON CREATE SET p.id = 'flour_based_products';
 
 // Query 26
-MATCH (p:Person {name: 'M. U. S. G. Thilakawardana'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[r:DIRECTOR_OF]->(c) ON CREATE SET r.role = 'Non-Executive', r.as_of = date('2021-03-31');
+MERGE (p:Product {name: 'Laundry Soap'}) ON CREATE SET p.id = 'laundry_soap';
 
 // Query 27
-MATCH (p:Person {name: 'D. M. A. Kulasooriya'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MERGE (p:Product {name: 'Toilet Soap'}) ON CREATE SET p.id = 'toilet_soap';
 
 // Query 28
-MATCH (p:Person {name: 'D. M. A. Kulasooriya'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[r:DIRECTOR_OF]->(c) ON CREATE SET r.role = 'Non-Executive', r.as_of = date('2021-03-31');
+MERGE (p:Product {name: 'Petrol'}) ON CREATE SET p.id = 'petrol';
 
 // Query 29
-MATCH (p:Person {name: 'M. S. Nanayakkara'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MERGE (p:Product {name: 'Diesel'}) ON CREATE SET p.id = 'diesel';
 
 // Query 30
-MATCH (p:Person {name: 'M. S. Nanayakkara'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[r:DIRECTOR_OF]->(c) ON CREATE SET r.role = 'Non-Executive', r.as_of = date('2021-03-31');
+MERGE (p:Product {name: 'Kerosene Oil'}) ON CREATE SET p.id = 'kerosene_oil';
 
 // Query 31
-MATCH (c:Company {name: 'Harischandra Mills PLC'}), (s:Sector {name: 'Diversified Financials'}) MERGE (c)-[:IN_SECTOR]->(s);
+MERGE (p:Product {name: 'Lubricants'}) ON CREATE SET p.id = 'lubricants';
 
 // Query 32
-MATCH (c:Company {name: 'Harischandra Mills PLC'}), (s:Sector {name: 'Food, Beverage, and Tobacco'}) MERGE (c)-[:IN_SECTOR]->(s);
+MERGE (m:Metric {name: 'Operating Profit'}) ON CREATE SET m.id = 'operating_profit', m.unit = 'Rs';
 
 // Query 33
-MATCH (c:Company {name: 'Harischandra Mills PLC'}), (s:Sector {name: 'Real Estate'}) MERGE (c)-[:IN_SECTOR]->(s);
+MERGE (m:Metric {name: 'Finance Income'}) ON CREATE SET m.id = 'finance_income', m.unit = 'Rs';
 
 // Query 34
-MATCH (c:Company {name: 'Harischandra Mills PLC'}), (s:Sector {name: 'Consumer Services'}) MERGE (c)-[:IN_SECTOR]->(s);
+MERGE (m:Metric {name: 'Finance Expenses'}) ON CREATE SET m.id = 'finance_expenses', m.unit = 'Rs';
 
 // Query 35
-MATCH (c:Company {name: 'Harischandra Mills PLC'}), (s:Sector {name: 'Commercial and Professional Services'}) MERGE (c)-[:IN_SECTOR]->(s);
+MERGE (m:Metric {name: 'Profit Before Tax'}) ON CREATE SET m.id = 'profit_before_tax', m.unit = 'Rs';
 
 // Query 36
-UNWIND [{id: 'harischandra_mills_plc_directors_and_executives_0', content: '(Pvt) Ltd\na\nr\nThe DIRECTORS of the Company are also DIRECTORS of following companies with which the Company had transactions\nin the ordinary course of business during the year.\nKey management includes members of the Board of DIRECTORS of the Company. The compensation paid or payable\nto key management for employee services is shown below:\nMr. H.N.J \nChandrasekara\nMr. K.A.K \nJayatilake\nr\na', chunk_type: 'directors_and_executives', index: 0}, {id: 'harischandra_mills_plc_directors_and_executives_1', content: 'Company in the preparation of the Financial \nStatements are given on pages 71 to 79, \nwhich are consistent with those of the \nprevious period.\nDIRECTORS’ responsibility for Financial \nReporting\nThe DIRECTORS are responsible for the \npreparation of the Financial Statements of \nthe Company and the Group to reflect a true \nand fair view of the state of its affairs.\nInformation on the DIRECTORS of the \nCompany and the Group \nDIRECTORS of the Company as at  \n31st March 2021\nThe names of the DIRECTORS who held office \nas at the end of the accounting period are \ngiven below and their brief profiles appear on \npages 18 and 19.\nExecutive DIRECTORS\nMr. E. T . De Zoysa - Managing Director\nNon-Executive DIRECTORS\nMr. R. S. A. Wickramasingha - Chairman\nMs. D. S. Wickramasingha - Director\nMs. N. K. Wickramasingha - Director \nMr. L. J. M. De Silva - Director \nMr. M. U. S. G. Thilakawardana - Director*\nDr. D. M. A. Kulasooriya - Director*\nMr. M. S. Nanayakkara - Director*', chunk_type: 'directors_and_executives', index: 1}, {id: 'harischandra_mills_plc_directors_and_executives_2', content: 'from pages 28 to 67 of the Annual Report. \nDIRECTORATE \nThe Board of DIRECTORS of the Company as at date is set out in \n“Corporate Information”. The DIRECTORS of the Company who held \noffice during the year under review and changes thereto are \nindicated below.', chunk_type: 'directors_and_executives', index: 2}, {id: 'harischandra_mills_plc_directors_and_executives_3', content: 'as at the end of the financial year under \nreview. The Company’s Board of DIRECTORS \nconsists of professionals in varied fields who \ncollectively possess a wealth of knowledge \nand experience are thus eminently suitable \nto provide the leadership and direction \nrequired.\nThe CEO has been given the responsibility \nof leading the organization as its chief \nexecutive by the Board. The Board has also \ndesignated additional Key Responsible \nPersons (KRPs) who direct activities, oversee \nbusiness operations, and have significant \ninfluence over policies.  The Board has \ncreated a comprehensive succession plan \nfor these critical roles in order to protect \noperational continuity and minimize \ninterruptions.\nThe Board has instituted an annual self-\nassessment program for each director \nto assess their own performance as well \nas the performance of the Board and its \ncommittees. The objective of this is to \nimprove the Board’s and its committees’ \neffectiveness. The senior director and', chunk_type: 'directors_and_executives', index: 3}, {id: 'harischandra_mills_plc_directors_and_executives_4', content: 'DIRECTORATE \nThe following were the DIRECTORS of the Company as at 31 \nMarch 2025. \n1. Ms. Manjula Mathews \n2. Mr. Sachith Perera \n3. Mr. Dilshan Wirasekara \n4. Mr. Ramesh Schaffter - - \n5. Ms. Minette Perera - - \n6. Dr. Nishan de Mel \n7. Ms. Cilani Wijesinghe \n8. Mr. Chandana de Silva \n \nMr. Chandana de Silva stepped down from the Board with \neffect from 28 June 2024. \n \nMs. Cilani Wijesinghe was appointed to the Borad with \neffect from 20 August 2024. \n \nMr. Sachith Perera and Mr. Chandana de Silva were \nappointed to the Board with effect from 1 January 2025. \n \nThe profiles of the DIRECTORS are given on pages 21 to 25 \nof the Annual Report. \n \nINTEREST IN SHARES / DIRECTORS DEALINGS IN \nSHARES \nDIRECTORS/Chief Executive Officer and their shareholdings \nas at 31 March 2025 were as follows: \n \n No. of \nShares \n31.03.2025 \nNo. of \nShares \n31.03.2024 \nMs. Manjula Mathews - - \nMr. Sachith Perera - - \nMr. Dilshan Wirasekara - - \nMr. Ramesh Schaffter - - - - \nMs. Minette Perera - - - -', chunk_type: 'directors_and_executives', index: 4}, {id: 'harischandra_mills_plc_financial_performance_0', content: '22 DIPPED PRODUCTS PLC  | Annual Report 2024/25\nPerformance Highlights\nMetric 2024/25 2023/24 % Y-o-Y\nSTRATEGIC PRIORITY- FINANCIAL PERFORMANCES   \nEarnings Highlights\nRevenue Rs. million 79,289 73,942  7 \nGross Profit Rs. million 16,564  17,059  (3)\nGross Profit Margin %  21  23  (2)\nOperating Profit Rs. million 7,172  7,729  (7)\nOperating Profit Margin %  9  10  (1)\nProfit Before Tax Rs. million 6,836  7,567  (10)\nProfit Before Tax Margin %  9  10  (1)\nProfit After Tax Rs. million 5,032  5,779  (13)\nReturn on Equity %  13  16  (3)\nReturn on Capital Employed % 14 17  (3)\nInterest Cover Ratio Times  9 10  (11)\nWorking Capital Ratios\nInventory Days Days  75  78  (3)\nDebtor Days Days  59 60  (1)\nCreditor Days Days  70 64  6 \nCash Conversion Cycle Days  64  74  (10)\nLiquidity Ratios\nCurrent Ratio Times  1.7  2.2  (24)\nQuick Asset Ratio Times  1.1  1.4  (22)\nFinancial Stability\nTotal Assets Rs. million  74,616  63,913  17 \nReturn on Assets %  7  9  (2)', chunk_type: 'financial_performance', index: 0}, {id: 'harischandra_mills_plc_financial_performance_1', content: 'Commercial Credit and Finance PLC | Annual Report 2023/2024\n6\nFINANCIAL \nHIGHLIGHTS\n2023/24\nRs.‘000\'   \n2022/23\nRs.‘000\'    \n% \nChange\nFinancial Performance  \nGross Income  31,055,222  28,949,269 7 .3%\nNet Interest Income  12,808,022  11,106,651 15.3%\nProfit Before Taxation  6,594,978  3,859,879 70.9%\nProfit After Taxation  4,193,917  2,599,629 61.3%\nFinancial Position\nLeases, Hire Purchases, Loans and Advances  81,437 ,828  76,170,663 6.9%\nTotal Assets  107 ,987 ,834  102,154,440 5.7%\nTotal Deposit Base  62,121,240  59,243,651 4.9%\nBorrowings  13,902,823  17 ,555,544 -20.8%\nShareholders’ Funds  24,179,669  20,359,015 18.8%\nLiquid Assets  11,483,294  12,836,935 -10.5%\nKey Indicators per Ordinary Share\nEarnings per Share( Rs.)  13.19  8.17 \nNet Assets per Share ( Rs.)  76.02 64.01 \nYear end Market Price per Share (Rs.)  35.30  26.00 \nKey Performance Indicators\nReturn on Average Assets (%) 3.99 2.66\nEquity / Assets (%) 22.39 19.93\nGross Non Performing Accommodations (%) 10.65 11.07', chunk_type: 'financial_performance', index: 1}, {id: 'harischandra_mills_plc_financial_performance_2', content: 'reinforcing stakeholder trust and \nsupporting our vision for sustainable \ngrowth. By aligning financial strategy with \nour broader purpose, we continue to \ncreate enduring value for shareholders, \npartners, and the communities we serve.\nANALYSIS OF THE FINANCIAL \nPERFORMANCE \neChannelling PLC remained focused on \ndriving profitability through stringent cost \nmanagement and operational efficiency. \nProactive cost optimisation strategies \nenabled the Company to mitigate \nrevenue pressures and sustain operating \nprofit growth. This disciplined approach \nreflects our financial agility and resilience, \nreinforcing our commitment to delivering \nvalue even in a challenging economic \nlandscape. The strategy of broadening \nrevenue streams through non-healthcare \nsegments continued to contribute \npositively to top-line\nREVENUE \nDuring the FY 2024 eChannelling \nrecorded a moderate decline in revenue \nto Rs 256 Mn displaying a reduction of \nrevenue of 6% compared to Rs. 271', chunk_type: 'financial_performance', index: 2}, {id: 'harischandra_mills_plc_financial_performance_3', content: 'decisive impact on the Group’s financial status or overall profitability.\nGROUP FINANCIAL HIGHLIGHTS\nFor the Year (Rs. Mn) 2024 2023 Change %\nIncome Statement\nRevenue 25,447.0 36,167.6 (10,720.6) (30)\nGross Profit /(Loss) 603.0 (6,323.6) 6926.6 (110)\nProfit/(Loss) after Tax (2,743.0) (11,006.4) 8,263.4 (76)\nBalance Sheet\nTotal Assets 43,860.7 39,325.1 4,535.6 12\nTotal Liabilities 38,370.1 36,034.1 2,336.0 6\nShareholders’ Funds 5,311.3 3,086.1 2,225.2 72\nNet Cash & Cash Equivalent 5,262.2 2,619.0 2,643.2 101\nInterest bearing borrowings 28,667.9 23,850.9 4,817.0 20\nFinancial Ratios\nEarnings Per Share (Rs.) (38.1) (153.4) 115.3 (75)\nDividend Per Share (Rs.) 0.0 0.0 0.0 0.0\nNet Assets Per Share (Rs.) 74.0 42.0 33.0 76\nGearing Ratio (%) 58.0 49.0 (9) 18\nReturn on Total Assets (%) (6.0) (31.0) 25.0 (81)\nWorking Capital to Assets (%) (16.0) (17.0) 1.0 (6)\nFINANCIAL PERFORMANCE OF THE GROUP\nGroup Revenue\nIn the 2024 financial year, the Group recorded total revenue of Rs. 25,447.0', chunk_type: 'financial_performance', index: 3}, {id: 'harischandra_mills_plc_financial_performance_4', content: 'EBITDA 4,325,609,807 3,489,729,480 1,007,510,816 439,452,625 \nProfit / (loss) before taxes 3,064,604,666 1,431,828,783 272,628,768 (513,506,682)\nNet Profit / (loss) 2,547,480,785 841,049,839 271,144,953 (509,224,513)\nKEY RATIOS\nProfitability Ratios\nReturn on equity 27.15% 10.46% 6% -11%\nReturn on assets 11.78% 3.31% 3% -6%\nReturn on sales 15.01% 4.07% 151% -339%\nGross profit margin 29% 28% 100% 100%\nAsset turnover ratio 78% 81% 2% 2%\nEarnings Per Share (EPS) 1.61 0.17 0.27 (0.51)\nLeverage and Liquidity Ratios\nCurrent ratio 1.55 1.18 0.22 0.28 \nQuick or acid test ratio 1.42 0.95 0.22 0.28 \nLong-term debt ratio 0.12 0.27 0.25 0.06 \nDebt to equity ratio 1.31 2.16 0.83 0.99 \nNet Assets Value Per Share (NAV) 5.31 3.62 4.82 4.55 \nInterest coverage ratio 4.01 1.95 1.38 0.46 \nKey Ratios - Ratio Analysis\nPERFORMANCE HIGHLIGHTS', chunk_type: 'financial_performance', index: 4}, {id: 'harischandra_mills_plc_risk_factors_0', content: 'in internal controls. A shortage of skilled employees could also \nimpede our business growth and expansion. Furthermore, the \neffectiveness and performance of our senior executives are \ncrucial for maintaining our competitive edge and driving future \ngrowth. The departure of key executives could pose challenges \nto our business strategy execution and have other detrimental \neffects.', chunk_type: 'risk_factors', index: 0}, {id: 'harischandra_mills_plc_risk_factors_1', content: 'uncertainty.\n• The physical and transitional risks associated with climate \nchange.\n• Potential challenges in securing and retaining sufficient labour \nresources.\n• Unpredictable fluctuations in agricultural output and essential \nraw material costs.\n• Exposure to adverse fluctuations in foreign exchange rates, \npotentially impacting revenue, and costs.\n• Reliance on a concentration of sales within key markets, \nposing a risk to overall revenue stability.\n• Exposure to volatility and unfavourable movements in the \nprices of key commodities essential to our operations.\nSWOT Analysis\nOpportunities\nStrengths Weaknesses\nThreats\nExternal Factors Internal Factors', chunk_type: 'risk_factors', index: 1}, {id: 'harischandra_mills_plc_risk_factors_2', content: 'or regional instability, which can lead to losing market \nshare or reduced pricing power. To address this, we \nfocus on niche market segments, diversify across \nregions and customer segments, and pursue targeted \nexpansion strategies.\n y Financial Risks involve changes in interest rates, \ncurrency fluctuations, temporary cash flow issues, \nor customer defaults. These can affect profitability, \nraise financing costs, and disrupt revenue. Our risk \nmanagement includes negotiating favorable loan terms, \nusing financial instruments for hedging, matching \ntransactions in foreign currencies, closely monitoring \ncash flows, maintaining reserves and credit lines, \nand applying strict credit assessments and contract \nprotections.\n y Product and Technological Risks relate to meeting \nregulatory standards and keeping up with new \ntechnologies, which, if not managed, could lead to \nproduct rejection or harm our reputation. We mitigate \nthese risks by securing certifications from recognized', chunk_type: 'risk_factors', index: 2}, {id: 'harischandra_mills_plc_risk_factors_3', content: 'eChannelling PLC | Annual Report 2024\n75\nrisk is evaluated by its root causes, \nsources, potential impacts, likelihood \nof occurrence, and level of materiality. \nWe also categorise risks by exposure - \nlow, medium, or high and assess how \nthey may affect the achievement of our \nstrategic objectives.\nIn addition, we consider the level of \noversight required from the Board, its \ncommittees, and senior management to \nensure risks are managed effectively.\nEconomic\nRisks\nCompetition\nRisk\nStrategic Risk Operational Risks Compliance Risks\nInnovation\nRisk\nReputational\nRisk\nOperational\nRisk\nCredit\nRisk\nLiquidity\nRisk\nHuman\nResource\nRisk\nLegal \nRisk\nRegulator y\nRisk\nRisk Management FrameworkRISK CATEGORISATION\nTOP RISKS FOR 2024\nECONOMIC RISKS\nRisk impact Risk mitigation Risk exposure Risk trend\nEconomic risk remains a \nconstant factor due to the \nnature of our business. The \nCompany’s performance is \nclosely tied to macroeconomic \nconditions and consumer \nspending patterns. Fluctuations', chunk_type: 'risk_factors', index: 3}, {id: 'harischandra_mills_plc_risk_factors_4', content: '99\nEX-PACK CORRUGATED CARTONS PLC\nAnnual Report 2023 / 24\nRisk register and risk rating \nThe Company faced noticeable changes in its risk landscape due to shifting challenges from both domestic and global \noperating environments. The table below summarises the significant risk exposures for the year under review, detailing \ntheir potential impacts on the Company and the strategies employed to manage these risks. This comprehensive overview \nhighlights the proactive measures the Company has taken to navigate a complex and evolving risk environment.\nRisk/ Risk rating Risk description Mitigation measures Connectivity to \nstrategy\nStakeholders \nimpacted\nEconomic challenges\nProbability of \noccurrence\n5\nSeverity of impact 5\nRisk  \nclassification \nVery \nhigh\nAdverse \nmovement of key \neconomic factors \nsuch as inflation, \ninterest rates \nand exchange \nrate can affect \nseveral aspects \nof the Company \nviz., procuring \nraw material at \ncompetitive prices, \ndemand for goods,', chunk_type: 'risk_factors', index: 4}, {id: 'harischandra_mills_plc_business_segments_0', content: 'from one another. Top management of the Company considers the operating results and condition of its business segments in their \ndecision making process and performance evaluation. Types of products and services from which each operating segment derives its \nrevenues are described as follows.\n \nAn operating segment is a component of the Company that engages in business activities from which it may earn revenues and incur \nexpenses, including revenues and expenses that relate to transactions with any of the Company’s other components. All operating \nsegments’ operating results are reviewed regularly by the Senior Management to make decisions about resources to be allocated to \nthe segment and to assess its performance, and for which discrete financial information is available.', chunk_type: 'business_segments', index: 0}, {id: 'harischandra_mills_plc_business_segments_1', content: 'resources and assessing performance of the operating \nsegments, has been identified as the Board of \nDirectors that makes strategic decisions. The revenue, \ncost, depreciation, amortisation, impairment, total \nassets, total liabilities and capital expenditure have \nbeen allocated to the respective segments based on \nthe internal reporting basis under the below stated \nsegments.\nThe reportable segments derive their revenue primarily \nfrom the provision of mobile services, data services, \ninternational direct dialling services, leasing of passive \ninfrastructure, provision of interconnect services, pay \ntelevision transmission services, provision of other data \nservices and digital services.\nAt 31 December 2023, the Group is organised into \nthree main business segments:\n Mobile operation\n Fixed telephony and broadband operation\n Television operations', chunk_type: 'business_segments', index: 1}, {id: 'harischandra_mills_plc_business_segments_2', content: 'of its business segments rather than their geographical location. Each segment is separately managed as it requires \ndifferent management strategies, as underscored by the Group’s organizational structure.\nThe Group’s business operations are classified into eight segments based on the products or services rendered, namely, \nInvestment Holdings, Portfolio and Asset Management, Oil palm plantations, Oils & fats, Beverages, Real Estate, Leisure, \nand Management Services. The following table describes the operations of each segment.  \nInter segmental sales are made at prices that approximate the market prices. Segment revenue, expenses, and results \ninclude transactions between segments. On consolidation, these transactions and any unrealised profits and losses \nare eliminated. Segmental expenses are directly attributed to a relevant segment or a portion of expenses that can be \nallocated reasonably as determined by the management.        \n  \n   \nNotes to the Financial Statements', chunk_type: 'business_segments', index: 2}, {id: 'harischandra_mills_plc_business_segments_3', content: '2.5. Operating Segments\nSegment information is presented in respect of the Group’s business segments. Business segments are based on the Group’s management and \ninternal reporting structure.\nInter-segment transactions are carried in the ordinary course of business. Segment results, assets and liabilities include items directly attributable \nto a segment as well as those that can be allocated on a reasonable basis.\nThe Group comprises the following main business segments.\nRental   -  Warehouses, Yard, Ground and Office Space Rental \nInfrastructure -  Infrastructure Rental \nTrading & Services  -  Selling & Distribution, Renting & Repairs of Transmission Equipment & Machinery   Parts\nUnallocated assets and liabilities comprise mainly of assets and liabilities that cannot be attributed to a particular segment.\nSales to any single customer does not represent more than 10% of the total sales and no segments are determined based on the geographical \narea.', chunk_type: 'business_segments', index: 3}, {id: 'harischandra_mills_plc_business_segments_4', content: 'the customer.\n » Providing motor vehicle repair and maintenance services including sale of spare parts and workshop related activities for value \naddition.\n » Investment and property holding where the entity engages in leasing out its investment properties and earning a rental income \namongst other investment activities.\nThe segment results for the year ended 31 March 2024 are as follows:\nMotor Repair & Investment Group\nvehicle maintenance & property \nsales services holding\nTotal segmental revenue - 222,688,903 82,996,899 305,685,802 \n- 222,688,903 82,996,899 305,685,802 \nOperating profit - (6,258,241) 328,220,941 321,962,700\nFinance income - - 60,174,145 60,174,145 \nFinance costs - (139,135,912) - (139,135,912)\nFinance (costs) / income - net - (139,135,912) 60,174,145 (78,961,767)\nProfit before income tax - (145,394,153) 388,395,086 243,000,933\nIncome tax expense - - (34,683,250) (34,683,250)\nNet profit - (145,394,153) 353,711,836 208,317,683', chunk_type: 'business_segments', index: 4}] AS chunk MERGE (ch:Chunk {id: chunk.id}) ON CREATE SET ch.content = chunk.content, ch.chunk_type = chunk.chunk_type, ch.index = chunk.index;
+MERGE (m:Metric {name: 'Income Tax Expense'}) ON CREATE SET m.id = 'income_tax_expense', m.unit = 'Rs';
 
 // Query 37
-MATCH (c:Company {name: 'Harischandra Mills PLC'}) WITH c UNWIND ['harischandra_mills_plc_directors_and_executives_0', 'harischandra_mills_plc_directors_and_executives_1', 'harischandra_mills_plc_directors_and_executives_2', 'harischandra_mills_plc_directors_and_executives_3', 'harischandra_mills_plc_directors_and_executives_4', 'harischandra_mills_plc_financial_performance_0', 'harischandra_mills_plc_financial_performance_1', 'harischandra_mills_plc_financial_performance_2', 'harischandra_mills_plc_financial_performance_3', 'harischandra_mills_plc_financial_performance_4', 'harischandra_mills_plc_risk_factors_0', 'harischandra_mills_plc_risk_factors_1', 'harischandra_mills_plc_risk_factors_2', 'harischandra_mills_plc_risk_factors_3', 'harischandra_mills_plc_risk_factors_4', 'harischandra_mills_plc_business_segments_0', 'harischandra_mills_plc_business_segments_1', 'harischandra_mills_plc_business_segments_2', 'harischandra_mills_plc_business_segments_3', 'harischandra_mills_plc_business_segments_4'] AS chunk_id MATCH (ch:Chunk {id: chunk_id}) MERGE (c)-[:HAS_CONTENT]->(ch);
+MERGE (m:Metric {name: 'Profit For The Year'}) ON CREATE SET m.id = 'profit_for_the_year', m.unit = 'Rs';
 
-// Total queries: 37
-// Generated on: 2025-09-30T12:52:44.603925
+// Query 38
+MERGE (m:Metric {name: 'Profit Attributable To Equity Holders'}) ON CREATE SET m.id = 'profit_attributable_to_equity_holders', m.unit = 'Rs';
+
+// Query 39
+MERGE (m:Metric {name: 'Earnings Per Share'}) ON CREATE SET m.id = 'earnings_per_share', m.unit = 'Rs';
+
+// Query 40
+MERGE (m:Metric {name: 'Revenue'}) ON CREATE SET m.id = 'revenue', m.unit = 'Rs';
+
+// Query 41
+MERGE (m:Metric {name: 'Gross Revenue'}) ON CREATE SET m.id = 'gross_revenue', m.unit = 'Rs';
+
+// Query 42
+MERGE (m:Metric {name: 'Total Assets'}) ON CREATE SET m.id = 'total_assets', m.unit = 'Rs';
+
+// Query 43
+MERGE (m:Metric {name: 'Total Liabilities'}) ON CREATE SET m.id = 'total_liabilities', m.unit = 'Rs';
+
+// Query 44
+MERGE (m:Metric {name: 'Shareholders Funds'}) ON CREATE SET m.id = 'shareholders_funds', m.unit = 'Rs';
+
+// Query 45
+MERGE (m:Metric {name: 'Dividend Paid Per Share'}) ON CREATE SET m.id = 'dividend_paid_per_share', m.unit = 'Rs';
+
+// Query 46
+MERGE (m:Metric {name: 'Dividend Payout'}) ON CREATE SET m.id = 'dividend_payout', m.unit = '%';
+
+// Query 47
+MERGE (m:Metric {name: 'Capital Employed'}) ON CREATE SET m.id = 'capital_employed', m.unit = 'Rs';
+
+// Query 48
+MERGE (m:Metric {name: 'Net Cash Inflow From Operating Activities'}) ON CREATE SET m.id = 'net_cash_inflow_from_operating_activities', m.unit = 'Rs';
+
+// Query 49
+MERGE (m:Metric {name: 'Net Cash Outflow From Investing Activities'}) ON CREATE SET m.id = 'net_cash_outflow_from_investing_activities', m.unit = 'Rs';
+
+// Query 50
+MERGE (m:Metric {name: 'Net Cash Outflow From Financing Activities'}) ON CREATE SET m.id = 'net_cash_outflow_from_financing_activities', m.unit = 'Rs';
+
+// Query 51
+MERGE (m:Metric {name: 'Increase In Cash And Cash Equivalents'}) ON CREATE SET m.id = 'increase_in_cash_and_cash_equivalents', m.unit = 'Rs';
+
+// Query 52
+MERGE (m:Metric {name: 'Stated Capital'}) ON CREATE SET m.id = 'stated_capital', m.unit = 'Rs';
+
+// Query 53
+MERGE (m:Metric {name: 'Other Capital Reserves'}) ON CREATE SET m.id = 'other_capital_reserves', m.unit = 'Rs';
+
+// Query 54
+MERGE (m:Metric {name: 'General Reserve'}) ON CREATE SET m.id = 'general_reserve', m.unit = 'Rs';
+
+// Query 55
+MERGE (m:Metric {name: 'Retained Earnings'}) ON CREATE SET m.id = 'retained_earnings', m.unit = 'Rs';
+
+// Query 56
+MERGE (m:Metric {name: 'Total Equity Attributable To Owners Of The Company'}) ON CREATE SET m.id = 'total_equity_attributable_to_owners_of_the_company', m.unit = 'Rs';
+
+// Query 57
+MERGE (m:Metric {name: 'Deferred Tax Liabilities'}) ON CREATE SET m.id = 'deferred_tax_liabilities', m.unit = 'Rs';
+
+// Query 58
+MERGE (m:Metric {name: 'Employee Benefit Obligation'}) ON CREATE SET m.id = 'employee_benefit_obligation', m.unit = 'Rs';
+
+// Query 59
+MERGE (m:Metric {name: 'Lease Creditor'}) ON CREATE SET m.id = 'lease_creditor', m.unit = 'Rs';
+
+// Query 60
+MERGE (m:Metric {name: 'Trade And Other Payables'}) ON CREATE SET m.id = 'trade_and_other_payables', m.unit = 'Rs';
+
+// Query 61
+MERGE (m:Metric {name: 'Net Asset Per Share'}) ON CREATE SET m.id = 'net_asset_per_share', m.unit = 'Rs';
+
+// Query 62
+MERGE (m:Metric {name: 'Current Asset Ratio'}) ON CREATE SET m.id = 'current_asset_ratio', m.unit = 'Ratio';
+
+// Query 63
+MERGE (m:Metric {name: 'Quick Asset Ratio'}) ON CREATE SET m.id = 'quick_asset_ratio', m.unit = 'Ratio';
+
+// Query 64
+MERGE (m:Metric {name: 'Equity To Total Asset Ratio'}) ON CREATE SET m.id = 'equity_to_total_asset_ratio', m.unit = '%';
+
+// Query 65
+MERGE (m:Metric {name: 'Interim Dividend'}) ON CREATE SET m.id = 'interim_dividend', m.unit = 'Rs';
+
+// Query 66
+MERGE (m:Metric {name: 'Final Dividend'}) ON CREATE SET m.id = 'final_dividend', m.unit = 'Rs';
+
+// Query 67
+MERGE (m:Metric {name: 'Total Dividend Paid'}) ON CREATE SET m.id = 'total_dividend_paid', m.unit = 'Rs';
+
+// Query 68
+MATCH (c1:Company {name: 'Harischandra Mills PLC'}), (c2:Company {name: 'Harischandra Mills (Distributors) Limited'}) MERGE (c1)-[r:OWNS]->(c2) ON CREATE SET r.pct = 100.0, r.as_of = date('2024-03-31');
+
+// Query 69
+MATCH (p:Person {name: 'S.N. Samarasinghe'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[:HOLDS_POSITION {title: 'Managing Director', as_of: date('2024-03-31')}]->(c);
+
+// Query 70
+MATCH (p:Person {name: 'S.N. Samarasinghe'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[:HOLDS_POSITION {title: 'Executive Director', as_of: date('2024-03-31')}]->(c);
+
+// Query 71
+MATCH (p:Person {name: 'S.N. Samarasinghe'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[:HOLDS_POSITION {title: 'CEO', as_of: date('2024-03-31')}]->(c);
+
+// Query 72
+MATCH (p:Person {name: 'G.S.V. De Silva'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[:HOLDS_POSITION {title: 'Executive Director', as_of: date('2024-03-31')}]->(c);
+
+// Query 73
+MATCH (p:Person {name: 'M.P. De Silva'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[:HOLDS_POSITION {title: 'Executive Director', as_of: date('2024-03-31')}]->(c);
+
+// Query 74
+MATCH (p:Person {name: 'R.K. Samarasinghe'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[:HOLDS_POSITION {title: 'Executive Director', as_of: date('2024-03-31')}]->(c);
+
+// Query 75
+MATCH (p:Person {name: 'T.K. Bandaranaike'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[:HOLDS_POSITION {title: 'Chairman', as_of: date('2024-03-31')}]->(c);
+
+// Query 76
+MATCH (p:Person {name: 'T.K. Bandaranaike'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[:DIRECTOR_OF {role: 'Non-Executive, Independent', as_of: date('2024-03-31')}]->(c);
+
+// Query 77
+MATCH (p:Person {name: 'R. Kobbakaduwa'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[:DIRECTOR_OF {role: 'Non-Executive, Independent', as_of: date('2024-03-31')}]->(c);
+
+// Query 78
+MATCH (p:Person {name: 'S.A.S. Jayasundara'}), (c:Company {name: 'Harischandra Mills PLC'}) MERGE (p)-[:DIRECTOR_OF {role: 'Non-Executive, Independent', as_of: date('2024-03-31')}]->(c);
+
+// Query 79
+MATCH (p:Person {name: 'C.T. Gajanayake'}), (c:Company {name: 'Harischandra Mills (Distributors) Limited'}) MERGE (p)-[:HOLDS_POSITION {title: 'Chief Financial Officer', as_of: date('2024-03-31')}]->(c);
+
+// Query 80
+MATCH (p:Person {name: 'S.N.K. Nanayakkara'}), (c:Company {name: 'Harischandra Mills (Distributors) Limited'}) MERGE (p)-[:HOLDS_POSITION {title: 'Sales Manager', as_of: date('2024-03-31')}]->(c);
+
+// Query 81
+MATCH (p:Person {name: 'D.S. Gamini Lokuralage'}), (c:Company {name: 'Harischandra Mills (Distributors) Limited'}) MERGE (p)-[:HOLDS_POSITION {title: 'Commercial Manager', as_of: date('2024-03-31')}]->(c);
+
+// Query 82
+MATCH (p:Person {name: 'A.P.R. Kodithuwakku'}), (c:Company {name: 'Harischandra Mills (Distributors) Limited'}) MERGE (p)-[:HOLDS_POSITION {title: 'Human Resources Manager', as_of: date('2024-03-31')}]->(c);
+
+// Query 83
+MATCH (p:Person {name: 'N.P. Ranasinghe'}), (c:Company {name: 'Harischandra Mills (Distributors) Limited'}) MERGE (p)-[:HOLDS_POSITION {title: 'Production Engineer', as_of: date('2024-03-31')}]->(c);
+
+// Query 84
+MATCH (p:Person {name: 'H.M.R.S. Sanjeewa'}), (c:Company {name: 'Harischandra Mills (Distributors) Limited'}) MERGE (p)-[:HOLDS_POSITION {title: 'Finance Manager', as_of: date('2024-03-31')}]->(c);
+
+// Query 85
+MATCH (p:Person {name: 'N. Jayawardane'}), (c:Company {name: 'Harischandra Mills (Distributors) Limited'}) MERGE (p)-[:HOLDS_POSITION {title: 'Quality Assurance Manager', as_of: date('2024-03-31')}]->(c);
+
+// Query 86
+MATCH (p:Person {name: 'R.G.P.P. Samarawickrama'}), (c:Company {name: 'Harischandra Mills (Distributors) Limited'}) MERGE (p)-[:HOLDS_POSITION {title: 'Management Accountant', as_of: date('2024-03-31')}]->(c);
+
+// Query 87
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (s:Sector {name: 'Food, Beverage, and Tobacco'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 88
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (s:Sector {name: 'Household and Personal Products'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 89
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (s:Sector {name: 'Energy'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 90
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (p:Product {name: 'Coffee'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 91
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (p:Product {name: 'Noodles'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 92
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (p:Product {name: 'Papadam'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 93
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (p:Product {name: 'Flour-based Products'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 94
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (p:Product {name: 'Laundry Soap'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 95
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (p:Product {name: 'Toilet Soap'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 96
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (p:Product {name: 'Petrol'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 97
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (p:Product {name: 'Diesel'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 98
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (p:Product {name: 'Kerosene Oil'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 99
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (p:Product {name: 'Lubricants'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 100
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[:HAS_METRIC {value: 309774720, year: 2024}]->(m);
+
+// Query 101
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[:HAS_METRIC {value: 118082746, year: 2023}]->(m);
+
+// Query 102
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Finance Income'}) MERGE (c)-[:HAS_METRIC {value: 60336819, year: 2024}]->(m);
+
+// Query 103
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Finance Income'}) MERGE (c)-[:HAS_METRIC {value: 32848083, year: 2023}]->(m);
+
+// Query 104
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Finance Expenses'}) MERGE (c)-[:HAS_METRIC {value: -4614401, year: 2024}]->(m);
+
+// Query 105
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Finance Expenses'}) MERGE (c)-[:HAS_METRIC {value: -15238827, year: 2023}]->(m);
+
+// Query 106
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[:HAS_METRIC {value: 365497138, year: 2024}]->(m);
+
+// Query 107
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[:HAS_METRIC {value: 135692002, year: 2023}]->(m);
+
+// Query 108
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Income Tax Expense'}) MERGE (c)-[:HAS_METRIC {value: -140831848, year: 2024}]->(m);
+
+// Query 109
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Income Tax Expense'}) MERGE (c)-[:HAS_METRIC {value: -45496876, year: 2023}]->(m);
+
+// Query 110
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Profit For The Year'}) MERGE (c)-[:HAS_METRIC {value: 224665290, year: 2024}]->(m);
+
+// Query 111
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Profit For The Year'}) MERGE (c)-[:HAS_METRIC {value: 90195126, year: 2023}]->(m);
+
+// Query 112
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Profit Attributable To Equity Holders'}) MERGE (c)-[:HAS_METRIC {value: 224665290, year: 2024}]->(m);
+
+// Query 113
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Profit Attributable To Equity Holders'}) MERGE (c)-[:HAS_METRIC {value: 90195126, year: 2023}]->(m);
+
+// Query 114
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Earnings Per Share'}) MERGE (c)-[:HAS_METRIC {value: 117.04, year: 2024}]->(m);
+
+// Query 115
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Earnings Per Share'}) MERGE (c)-[:HAS_METRIC {value: 46.99, year: 2023}]->(m);
+
+// Query 116
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[:HAS_METRIC {value: 6301494101, year: 2024}]->(m);
+
+// Query 117
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[:HAS_METRIC {value: 6464392609, year: 2023}]->(m);
+
+// Query 118
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Gross Revenue'}) MERGE (c)-[:HAS_METRIC {value: 6409778343, year: 2024}]->(m);
+
+// Query 119
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Gross Revenue'}) MERGE (c)-[:HAS_METRIC {value: 6523364482, year: 2023}]->(m);
+
+// Query 120
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[:HAS_METRIC {value: 2737343633, year: 2024}]->(m);
+
+// Query 121
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[:HAS_METRIC {value: 2244621790, year: 2023}]->(m);
+
+// Query 122
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Total Liabilities'}) MERGE (c)-[:HAS_METRIC {value: 833312706, year: 2024}]->(m);
+
+// Query 123
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Total Liabilities'}) MERGE (c)-[:HAS_METRIC {value: 597616014, year: 2023}]->(m);
+
+// Query 124
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Shareholders Funds'}) MERGE (c)-[:HAS_METRIC {value: 1739465163, year: 2024}]->(m);
+
+// Query 125
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Shareholders Funds'}) MERGE (c)-[:HAS_METRIC {value: 1591046795, year: 2023}]->(m);
+
+// Query 126
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Dividend Paid Per Share'}) MERGE (c)-[:HAS_METRIC {value: 40.0, year: 2024}]->(m);
+
+// Query 127
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Dividend Paid Per Share'}) MERGE (c)-[:HAS_METRIC {value: 55.0, year: 2023}]->(m);
+
+// Query 128
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Dividend Payout'}) MERGE (c)-[:HAS_METRIC {value: 85.12, year: 2024}]->(m);
+
+// Query 129
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Dividend Payout'}) MERGE (c)-[:HAS_METRIC {value: 50.42, year: 2023}]->(m);
+
+// Query 130
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Capital Employed'}) MERGE (c)-[:HAS_METRIC {value: 1739465000, year: 2024}]->(m);
+
+// Query 131
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Capital Employed'}) MERGE (c)-[:HAS_METRIC {value: 1591047000, year: 2023}]->(m);
+
+// Query 132
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Net Cash Inflow From Operating Activities'}) MERGE (c)-[:HAS_METRIC {value: 366269000, year: 2024}]->(m);
+
+// Query 133
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Net Cash Inflow From Operating Activities'}) MERGE (c)-[:HAS_METRIC {value: 91394000, year: 2023}]->(m);
+
+// Query 134
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Net Cash Outflow From Investing Activities'}) MERGE (c)-[:HAS_METRIC {value: -96527000, year: 2024}]->(m);
+
+// Query 135
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Net Cash Outflow From Investing Activities'}) MERGE (c)-[:HAS_METRIC {value: -27762000, year: 2023}]->(m);
+
+// Query 136
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Net Cash Outflow From Financing Activities'}) MERGE (c)-[:HAS_METRIC {value: -365737000, year: 2024}]->(m);
+
+// Query 137
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Net Cash Outflow From Financing Activities'}) MERGE (c)-[:HAS_METRIC {value: -99934000, year: 2023}]->(m);
+
+// Query 138
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Increase In Cash And Cash Equivalents'}) MERGE (c)-[:HAS_METRIC {value: -95995000, year: 2024}]->(m);
+
+// Query 139
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Increase In Cash And Cash Equivalents'}) MERGE (c)-[:HAS_METRIC {value: -36302000, year: 2023}]->(m);
+
+// Query 140
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Stated Capital'}) MERGE (c)-[:HAS_METRIC {value: 105578000, year: 2024}]->(m);
+
+// Query 141
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Stated Capital'}) MERGE (c)-[:HAS_METRIC {value: 105578000, year: 2023}]->(m);
+
+// Query 142
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Other Capital Reserves'}) MERGE (c)-[:HAS_METRIC {value: 11014, year: 2024}]->(m);
+
+// Query 143
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Other Capital Reserves'}) MERGE (c)-[:HAS_METRIC {value: 11014, year: 2023}]->(m);
+
+// Query 144
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'General Reserve'}) MERGE (c)-[:HAS_METRIC {value: 12841000, year: 2024}]->(m);
+
+// Query 145
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'General Reserve'}) MERGE (c)-[:HAS_METRIC {value: 12841000, year: 2023}]->(m);
+
+// Query 146
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Retained Earnings'}) MERGE (c)-[:HAS_METRIC {value: 1618723477, year: 2024}]->(m);
+
+// Query 147
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Retained Earnings'}) MERGE (c)-[:HAS_METRIC {value: 1470238509, year: 2023}]->(m);
+
+// Query 148
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Total Equity Attributable To Owners Of The Company'}) MERGE (c)-[:HAS_METRIC {value: 1737153491, year: 2024}]->(m);
+
+// Query 149
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Total Equity Attributable To Owners Of The Company'}) MERGE (c)-[:HAS_METRIC {value: 1588668523, year: 2023}]->(m);
+
+// Query 150
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Deferred Tax Liabilities'}) MERGE (c)-[:HAS_METRIC {value: 28706347, year: 2024}]->(m);
+
+// Query 151
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Deferred Tax Liabilities'}) MERGE (c)-[:HAS_METRIC {value: 13233277, year: 2023}]->(m);
+
+// Query 152
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Employee Benefit Obligation'}) MERGE (c)-[:HAS_METRIC {value: 167080828, year: 2024}]->(m);
+
+// Query 153
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Employee Benefit Obligation'}) MERGE (c)-[:HAS_METRIC {value: 141660658, year: 2023}]->(m);
+
+// Query 154
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Lease Creditor'}) MERGE (c)-[:HAS_METRIC {value: 25790380, year: 2024}]->(m);
+
+// Query 155
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Lease Creditor'}) MERGE (c)-[:HAS_METRIC {value: 41995837, year: 2023}]->(m);
+
+// Query 156
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Trade And Other Payables'}) MERGE (c)-[:HAS_METRIC {value: 611735151, year: 2024}]->(m);
+
+// Query 157
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Trade And Other Payables'}) MERGE (c)-[:HAS_METRIC {value: 400726242, year: 2023}]->(m);
+
+// Query 158
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Net Asset Per Share'}) MERGE (c)-[:HAS_METRIC {value: 906.16, year: 2024}]->(m);
+
+// Query 159
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Net Asset Per Share'}) MERGE (c)-[:HAS_METRIC {value: 828.84, year: 2023}]->(m);
+
+// Query 160
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Current Asset Ratio'}) MERGE (c)-[:HAS_METRIC {value: 2.32, year: 2024}]->(m);
+
+// Query 161
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Current Asset Ratio'}) MERGE (c)-[:HAS_METRIC {value: 2.97, year: 2023}]->(m);
+
+// Query 162
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Quick Asset Ratio'}) MERGE (c)-[:HAS_METRIC {value: 1.68, year: 2024}]->(m);
+
+// Query 163
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Quick Asset Ratio'}) MERGE (c)-[:HAS_METRIC {value: 2.05, year: 2023}]->(m);
+
+// Query 164
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Equity To Total Asset Ratio'}) MERGE (c)-[:HAS_METRIC {value: 63.55, year: 2024}]->(m);
+
+// Query 165
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Equity To Total Asset Ratio'}) MERGE (c)-[:HAS_METRIC {value: 70.88, year: 2023}]->(m);
+
+// Query 166
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Interim Dividend'}) MERGE (c)-[:HAS_METRIC {value: 38392000, year: 2024}]->(m);
+
+// Query 167
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Interim Dividend'}) MERGE (c)-[:HAS_METRIC {value: 47990000, year: 2023}]->(m);
+
+// Query 168
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Final Dividend'}) MERGE (c)-[:HAS_METRIC {value: 38392000, year: 2024}]->(m);
+
+// Query 169
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Final Dividend'}) MERGE (c)-[:HAS_METRIC {value: 57588000, year: 2023}]->(m);
+
+// Query 170
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Total Dividend Paid'}) MERGE (c)-[:HAS_METRIC {value: 76784000, year: 2024}]->(m);
+
+// Query 171
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (m:Metric {name: 'Total Dividend Paid'}) MERGE (c)-[:HAS_METRIC {value: 105578000, year: 2023}]->(m);
+
+// Query 172
+MATCH (c:Company {name: 'Harischandra Mills PLC'}), (auditor:Company {name: 'KPMG'}) MERGE (c)-[:AUDITED_BY {year: 2024}]->(auditor);
+
+// Total queries: 172
+// Generated on: 2025-10-02T18:04:40.588287

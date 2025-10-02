@@ -31,7 +31,7 @@ except ImportError:
 
 # Configuration - Base path approach
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-SOURCE_DIR = os.path.join(BASE_DIR, '..', 'Transform', 'cleaned_output')
+SOURCE_DIR = os.path.join(BASE_DIR, '..', 'Extract', 'batch_output')
 OUTPUT_DIR = os.path.join(BASE_DIR, 'cypher_queries')
 LOG_DIR = os.path.join(BASE_DIR, 'logs')
 
@@ -49,12 +49,12 @@ logging.basicConfig(
     ]
 )
 
-# The specialized prompt for Cypher query generation
+# The specialized prompt for Cypher query generation (Updated: Focus only on structured data, remove chunks, enhance metric consistency)
 BASE_PROMPT = """You are a specialized data engineering assistant, functioning as a high-precision text-to-graph model. You will be given the content of a JSON file that was extracted from a single company's annual report.
 
 Your task is to meticulously analyze the provided JSON content and generate a list of Cypher queries to create and connect nodes in a Neo4j knowledge graph. You must adhere strictly to the graph schema, rules, and output format defined below. Your output must be nothing but the specified JSON object.
 
-PRIORITY: Focus on extracting structured data (companies, people, metrics, sectors, relationships). Chunk storage is secondary and should not interfere with primary extraction.
+PRIORITY: Focus exclusively on extracting structured data (companies, people, metrics, sectors, relationships). Do not include any unstructured chunk storage or related queries.
 
 1. Graph Schema Definition
 You must model the data using only the following node labels, properties, and relationship types.
@@ -105,12 +105,6 @@ Metric:
 - name (string, unique): The name of the financial metric (e.g., 'Revenue', 'Profit After Tax', 'Net Interest Income').
 - unit (string): The standardized unit of the metric. Use ONLY: 'Rs', '%', 'Times', 'Count', or 'Ratio'.
 
-Chunk:
-- id (string, unique): Format as 'company_id_chunk_type_index' (e.g., 'asia_asset_finance_directors_0').
-- content (string): The full text content of the chunk.
-- chunk_type (string): One of: 'directors_and_executives', 'financial_performance', 'risk_factors', 'business_segments', 'future_outlook', 'governance_structure', 'sustainability_initiatives', 'market_position', 'regulatory_compliance', 'operational_highlights', 'dividend_policy', 'capital_structure', 'technology_digital', 'human_resources', 'audit_internal_controls'.
-- index (integer): The position of this chunk within its type.
-
 Relationship Types & Properties:
 
 Ownership & Shareholdings:
@@ -152,14 +146,10 @@ Auditing & Management Services:
 (manager:Company)-[:MANAGES]->(plantation:Company):
 - description (string, optional): Nature of management relationship.
 
-Unstructured Content (OPTIONAL - only at end):
-(company:Company)-[:HAS_CONTENT]->(chunk:Chunk):
-- (No properties)
-
 2. Query Generation Rules
 Follow these rules without deviation:
 
-STRUCTURE EXTRACTION (PRIMARY FOCUS):
+STRUCTURE EXTRACTION (EXCLUSIVE FOCUS):
 
 - Identify the Source Company: Identify the main company from metadata.source_pdf. Create the Company node first.
 
@@ -167,14 +157,22 @@ STRUCTURE EXTRACTION (PRIMARY FOCUS):
   * Always use MERGE on the node label and its unique name property. Use ON CREATE SET to add the id and other properties.
   * To prevent duplicate relationships, MATCH the start and end nodes, then MERGE the relationship.
 
-- Normalize Metric Values: 
-  * Extract ONLY the numerical value from metrics, removing ALL text: "million", "billion", "Mn", "Bn", "Rs.", "'000", commas, etc.
-  * Conversion rules:
-    - "6,604 Mn" → 6604000000 (multiply by 1,000,000)
-    - "31,055,222 '000" → 31055222000 (multiply by 1,000)
-    - "Rs. 10,772 Mn" → 10772000000
-    - "25,599" → 25599 (already in base unit)
-  * Store the standardized unit separately in the Metric node (just 'Rs', '%', 'Times', 'Count', or 'Ratio').
+- Normalize Metric Values (ENHANCED CONSISTENCY): 
+  * Extract ONLY the clean numerical value from metrics, removing ALL text, suffixes, prefixes, commas, parentheses, etc.
+  * Strict Conversion Rules (apply consistently):
+    - Assume base currency is Sri Lankan Rupees (Rs) unless specified otherwise.
+    - 'Mn' or 'million' means multiply by 1,000,000 (e.g., '6,604 Mn' → 6604000000, 'Rs. 10.5 million' → 10500000).
+    - "'000" or 'thousand' means multiply by 1,000 (e.g., '31,055,222 '000' → 31055222000).
+    - 'Bn' or 'billion' means multiply by 1,000,000,000 (e.g., '1.2 Bn' → 1200000000).
+    - Percentages: Keep as decimal if needed, but store as is (e.g., '5.5%' → 5.5 with unit '%').
+    - Ratios/Times: Keep as decimal/float (e.g., '2.5 Times' → 2.5 with unit 'Times').
+    - Counts: Integer values (e.g., '500 employees' → 500 with unit 'Count').
+    - Remove all non-numeric characters except decimal points and negative signs.
+    - If value is negative, preserve the sign (e.g., '(500) Mn' → -500000000).
+    - If no unit multiplier, assume base unit (e.g., '25,599' → 25599).
+    - For consistency, always convert to the smallest base unit (e.g., full Rs amount without scaling).
+    - If metric spans multiple years, create separate relationships for each year.
+    - Skip if value cannot be confidently parsed to a number.
 
 - Standardize Sectors:
   * Map any sector mentions to the EXACT CSE sector names listed above.
@@ -189,33 +187,13 @@ STRUCTURE EXTRACTION (PRIMARY FOCUS):
   * From financial_performance chunks, identify key metrics: Revenue, Gross Income, Net Interest Income, Profit Before Tax, Profit After Tax, Total Assets, Total Equity, etc.
   * Create Metric nodes with standardized units.
   * Create [:HAS_METRIC] relationships with normalized values and year.
+  * Ensure metric names are consistent across companies (e.g., always 'Profit After Tax' not 'PAT' or variations).
 
 - Extract Business Segments/Products: 
   * From business_segments chunks, identify sectors the company operates in.
   * Create [:IN_SECTOR] relationships only for sectors matching the CSE list.
 
 - No Inference: Do not invent or guess data. If information is not present, omit that property. If ambiguous, skip that query.
-
-CHUNK STORAGE (SECONDARY - APPEND AT END):
-
-- After all structured queries are complete, add chunk storage as a SINGLE batch operation:
-  * ONE UNWIND query to create all Chunk nodes with their content
-  * ONE query to link all chunks to the company
-
-- Format for chunk batch creation:
-UNWIND [
-  {id: 'company_id_type_0', content: '...', chunk_type: 'type', index: 0},
-  {id: 'company_id_type_1', content: '...', chunk_type: 'type', index: 1}
-] AS chunk
-MERGE (ch:Chunk {id: chunk.id})
-ON CREATE SET ch.content = chunk.content, ch.chunk_type = chunk.chunk_type, ch.index = chunk.index
-
-- Format for chunk linking:
-MATCH (c:Company {name: 'Company Name'})
-WITH c
-UNWIND ['chunk_id_1', 'chunk_id_2', 'chunk_id_3'] AS chunk_id
-MATCH (ch:Chunk {id: chunk_id})
-MERGE (c)-[:HAS_CONTENT]->(ch)
 
 3. Required Output Format
 Your entire response must be a single, raw JSON object. Do not include markdown formatting, explanations, or any text outside the JSON structure.
@@ -227,8 +205,6 @@ Query order:
 2. All Person nodes
 3. All Sector/Product/Metric nodes
 4. All relationships (HOLDS_POSITION, HAS_METRIC, IN_SECTOR, etc.)
-5. Chunk batch creation (single UNWIND query)
-6. Chunk linking (single query)
 
 Example Output Structure:
 {
@@ -241,17 +217,15 @@ Example Output Structure:
     "MERGE (s:Sector {name: 'Diversified Financials'}) ON CREATE SET s.id = 'diversified_financials'",
     "MATCH (p:Person {name: 'V. A. Prasanth'}), (c:Company {name: 'Asia Asset Finance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Board Member', r.as_of = date('2024-03-31')",
     "MATCH (c:Company {name: 'Asia Asset Finance PLC'}), (m:Metric {name: 'Gross Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 6604000000, r.year = 2024",
-    "MATCH (c:Company {name: 'Asia Asset Finance PLC'}), (s:Sector {name: 'Diversified Financials'}) MERGE (c)-[:IN_SECTOR]->(s)",
-    "UNWIND [{id: 'asia_asset_finance_directors_0', content: 'The DIRECTORS are subject to...', chunk_type: 'directors_and_executives', index: 0}, {id: 'asia_asset_finance_directors_1', content: 'Board details...', chunk_type: 'directors_and_executives', index: 1}] AS chunk MERGE (ch:Chunk {id: chunk.id}) ON CREATE SET ch.content = chunk.content, ch.chunk_type = chunk.chunk_type, ch.index = chunk.index",
-    "MATCH (c:Company {name: 'Asia Asset Finance PLC'}) WITH c UNWIND ['asia_asset_finance_directors_0', 'asia_asset_finance_directors_1'] AS chunk_id MATCH (ch:Chunk {id: chunk_id}) MERGE (c)-[:HAS_CONTENT]->(ch)"
+    "MATCH (c:Company {name: 'Asia Asset Finance PLC'}), (s:Sector {name: 'Diversified Financials'}) MERGE (c)-[:IN_SECTOR]->(s)"
   ]
 }
 
 CRITICAL REMINDERS:
-- PRIMARY GOAL: Extract structured data accurately
-- Metric values: Remove ALL formatting, convert to base units
+- EXCLUSIVE GOAL: Extract structured data accurately and consistently
+- Metric values: Remove ALL formatting, convert to base units strictly as per rules
+- Metric names: Standardize to common terms (e.g., 'Revenue' not 'Turnover', 'Profit After Tax' not 'PAT')
 - Sectors: Must match one of the 20 exact CSE sector names
-- Chunks: Batch at the end in just 2 queries total
 - Dates: Use YYYY-MM-DD format consistently
 - Don't add properties if data is uncertain
 
@@ -278,7 +252,7 @@ class CypherQueryGenerator:
         
         try:
             genai.configure(api_key=GEMINI_API_KEY)
-            self.model = genai.GenerativeModel('gemini-2.5-pro')
+            self.model = genai.GenerativeModel('gemini-2.5-flash')
             self.logger.info("Gemini API configured successfully")
         except Exception as e:
             self.logger.error(f"Failed to configure Gemini API: {e}")
