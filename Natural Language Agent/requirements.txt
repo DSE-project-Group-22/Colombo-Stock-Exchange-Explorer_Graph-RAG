@@ -16,6 +16,9 @@ langchain-core>=0.1.0
 # LangGraph for Agent Architecture
 langgraph>=0.2.74
 
+# MCP (Model Context Protocol) Support
+langchain-mcp-adapters>=0.1.0
+
 # LangGraph CLI for Studio debugging
 langgraph-cli[inmem]>=0.2.6
 
@@ -38,6 +41,9 @@ redis>=5.0.0
 
 # Kafka for message processing
 aiokafka>=0.10.0
+
+# Observability and Tracing
+langfuse>=3.0.0
 
 # Optional: For advanced text processing (commented out for faster install)
 # spacy>=3.7.2

@@ -2,364 +2,340 @@
 MERGE (c:Company {name: 'Capital Alliance PLC'}) ON CREATE SET c.id = 'capital_alliance_plc';
 
 // Query 2
-MERGE (p:Person {name: 'A.K. Pathirage'}) ON CREATE SET p.id = 'a_k_pathirage';
+MERGE (c:Company {name: 'ACL Cables PLC'}) ON CREATE SET c.id = 'acl_cables_plc';
 
 // Query 3
-MATCH (p:Person {name: 'A.K. Pathirage'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman/Managing Director', r.as_of = date('2024-01-01');
+MERGE (c:Company {name: 'KPMG'}) ON CREATE SET c.id = 'kpmg';
 
 // Query 4
-MERGE (p:Person {name: 'S. Selliah'}) ON CREATE SET p.id = 's_selliah';
+MERGE (p:Person {name: 'A.K. Pathirage'}) ON CREATE SET p.id = 'a_k_pathirage';
 
 // Query 5
-MATCH (p:Person {name: 'S. Selliah'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Deputy Chairman', r.as_of = date('2024-07-29');
+MERGE (p:Person {name: 'S. Selliah'}) ON CREATE SET p.id = 's_selliah';
 
 // Query 6
 MERGE (p:Person {name: 'K.M.P Karunaratne'}) ON CREATE SET p.id = 'k_m_p_karunaratne';
 
 // Query 7
-MATCH (p:Person {name: 'K.M.P Karunaratne'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Group Chief Executive Officer', r.as_of = date('2024-01-01');
-
-// Query 8
 MERGE (p:Person {name: 'G.L.H. Premaratne'}) ON CREATE SET p.id = 'g_l_h_premaratne';
 
-// Query 9
-MATCH (p:Person {name: 'G.L.H. Premaratne'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non Executive Director', r.as_of = date('2024-01-01');
-
-// Query 10
+// Query 8
 MERGE (p:Person {name: 'H K Kaimal'}) ON CREATE SET p.id = 'h_k_kaimal';
 
+// Query 9
+MERGE (p:Person {name: 'S.A.B Rajapaksa'}) ON CREATE SET p.id = 's_a_b_rajapaksa';
+
+// Query 10
+MERGE (p:Person {name: 'V. Bali'}) ON CREATE SET p.id = 'v_bali';
+
 // Query 11
-MATCH (p:Person {name: 'H K Kaimal'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Non-Executive Non Independent Director', r.as_of = date('2024-06-18');
+MERGE (p:Person {name: 'A.N Thadani'}) ON CREATE SET p.id = 'a_n_thadani';
 
 // Query 12
-MERGE (p:Person {name: 'S. D. R. Arudpragasam'}) ON CREATE SET p.id = 's_d_r_arudpragasam';
+MERGE (p:Person {name: 'Amrit Rajaratnam'}) ON CREATE SET p.id = 'amrit_rajaratnam';
 
 // Query 13
-MATCH (p:Person {name: 'S. D. R. Arudpragasam'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2024-01-01');
+MERGE (p:Person {name: 'S. D. R. Arudpragasam'}) ON CREATE SET p.id = 's_d_r_arudpragasam';
 
 // Query 14
 MERGE (p:Person {name: 'C. P. R. Perera'}) ON CREATE SET p.id = 'c_p_r_perera';
 
 // Query 15
-MATCH (p:Person {name: 'C. P. R. Perera'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Deputy Chairman', r.as_of = date('2024-01-01');
-
-// Query 16
 MERGE (p:Person {name: 'S. Rajaratnam'}) ON CREATE SET p.id = 's_rajaratnam';
 
-// Query 17
-MERGE (p:Person {name: 'Amrit Rajaratnam'}) ON CREATE SET p.id = 'amrit_rajaratnam';
-
-// Query 18
+// Query 16
 MERGE (p:Person {name: 'A. R. Rasiah'}) ON CREATE SET p.id = 'a_r_rasiah';
 
-// Query 19
+// Query 17
 MERGE (p:Person {name: 'Anushman Rajaratnam'}) ON CREATE SET p.id = 'anushman_rajaratnam';
 
-// Query 20
+// Query 18
 MERGE (p:Person {name: 'J. T. Sumathipala'}) ON CREATE SET p.id = 'j_t_sumathipala';
 
-// Query 21
-MATCH (p:Person {name: 'J. T. Sumathipala'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2024-03-25');
-
-// Query 22
+// Query 19
 MERGE (p:Person {name: 'R. Radha'}) ON CREATE SET p.id = 'r_radha';
 
-// Query 23
-MATCH (p:Person {name: 'R. Radha'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Managing Director', r.as_of = date('2024-01-09');
-
-// Query 24
+// Query 20
 MERGE (p:Person {name: 'R.A.T.P Perera'}) ON CREATE SET p.id = 'r_a_t_p_perera';
 
-// Query 25
-MATCH (p:Person {name: 'R.A.T.P Perera'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Executive Director/CEO', r.as_of = date('2024-01-31');
-
-// Query 26
+// Query 21
 MERGE (p:Person {name: 'D.A.S.D. A. Abeyesinhe'}) ON CREATE SET p.id = 'd_a_s_d_a_abeyesinhe';
 
-// Query 27
-MATCH (p:Person {name: 'D.A.S.D. A. Abeyesinhe'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Non-independent Non-Executive Director', r.as_of = date('2024-01-01');
-
-// Query 28
+// Query 22
 MERGE (p:Person {name: 'A. D. Ross'}) ON CREATE SET p.id = 'a_d_ross';
 
-// Query 29
-MATCH (p:Person {name: 'A. D. Ross'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-01-01');
-
-// Query 30
+// Query 23
 MERGE (p:Person {name: 'V. Siva Jr.'}) ON CREATE SET p.id = 'v_siva_jr';
 
-// Query 31
-MATCH (p:Person {name: 'V. Siva Jr.'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-01-01');
-
-// Query 32
+// Query 24
 MERGE (p:Person {name: 'S. S. Balasubramaniam'}) ON CREATE SET p.id = 's_s_balasubramaniam';
 
-// Query 33
-MATCH (p:Person {name: 'S. S. Balasubramaniam'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Non-Executive Director', r.as_of = date('2024-01-01');
-
-// Query 34
+// Query 25
 MERGE (p:Person {name: 'D. Swarnasinghe'}) ON CREATE SET p.id = 'd_swarnasinghe';
 
-// Query 35
-MATCH (p:Person {name: 'D. Swarnasinghe'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-01-01');
-
-// Query 36
+// Query 26
 MERGE (p:Person {name: 'D Hasitha S Jayawardena'}) ON CREATE SET p.id = 'd_hasitha_s_jayawardena';
 
-// Query 37
-MATCH (p:Person {name: 'D Hasitha S Jayawardena'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Executive Chairman', r.as_of = date('2024-01-01');
-
-// Query 38
+// Query 27
 MERGE (p:Person {name: 'C R Jansz'}) ON CREATE SET p.id = 'c_r_jansz';
 
-// Query 39
-MATCH (p:Person {name: 'C R Jansz'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Non-Independent Non-Executive Director', r.as_of = date('2024-01-01');
-
-// Query 40
+// Query 28
 MERGE (p:Person {name: 'M A N S Perera'}) ON CREATE SET p.id = 'm_a_n_s_perera';
 
-// Query 41
-MATCH (p:Person {name: 'M A N S Perera'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Executive Director', r.as_of = date('2024-01-01');
-
-// Query 42
+// Query 29
 MERGE (p:Person {name: 'K Dayaparan'}) ON CREATE SET p.id = 'k_dayaparan';
 
-// Query 43
-MATCH (p:Person {name: 'K Dayaparan'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Non-Independent Non-Executive Director', r.as_of = date('2024-01-01');
-
-// Query 44
+// Query 30
 MERGE (p:Person {name: 'A Shakthevale'}) ON CREATE SET p.id = 'a_shakthevale';
 
-// Query 45
-MATCH (p:Person {name: 'A Shakthevale'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-10-01');
-
-// Query 46
+// Query 31
 MERGE (p:Person {name: 'D S K Amarasekara'}) ON CREATE SET p.id = 'd_s_k_amarasekara';
 
-// Query 47
-MATCH (p:Person {name: 'D S K Amarasekara'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-10-01');
-
-// Query 48
+// Query 32
 MERGE (p:Person {name: 'M R Mihular'}) ON CREATE SET p.id = 'm_r_mihular';
 
+// Query 33
+MERGE (m:Metric {name: 'Revenue'}) ON CREATE SET m.id = 'revenue', m.unit = 'Rs';
+
+// Query 34
+MERGE (m:Metric {name: 'Results from operating activities'}) ON CREATE SET m.id = 'results_from_operating_activities', m.unit = 'Rs';
+
+// Query 35
+MERGE (m:Metric {name: 'Profit before tax'}) ON CREATE SET m.id = 'profit_before_tax', m.unit = 'Rs';
+
+// Query 36
+MERGE (m:Metric {name: 'Profit after tax'}) ON CREATE SET m.id = 'profit_after_tax', m.unit = 'Rs';
+
+// Query 37
+MERGE (m:Metric {name: 'Total assets'}) ON CREATE SET m.id = 'total_assets', m.unit = 'Rs';
+
+// Query 38
+MERGE (m:Metric {name: 'Total liabilities'}) ON CREATE SET m.id = 'total_liabilities', m.unit = 'Rs';
+
+// Query 39
+MERGE (m:Metric {name: 'Return on equity (ROE)'}) ON CREATE SET m.id = 'return_on_equity_(roe)', m.unit = '%';
+
+// Query 40
+MERGE (m:Metric {name: 'Pre-Tax return on capital employed (ROCE)'}) ON CREATE SET m.id = 'pre-tax_return_on_capital_employed_(roce)', m.unit = '%';
+
+// Query 41
+MERGE (m:Metric {name: 'Group revenue'}) ON CREATE SET m.id = 'group_revenue', m.unit = 'Rs';
+
+// Query 42
+MERGE (m:Metric {name: 'Profit from operations'}) ON CREATE SET m.id = 'profit_from_operations', m.unit = 'Rs';
+
+// Query 43
+MERGE (m:Metric {name: 'Profit after tax from continuing operations'}) ON CREATE SET m.id = 'profit_after_tax_from_continuing_operations', m.unit = 'Rs';
+
+// Query 44
+MERGE (m:Metric {name: 'EBITDA'}) ON CREATE SET m.id = 'ebitda', m.unit = 'Rs';
+
+// Query 45
+MERGE (m:Metric {name: 'Profit attributable to ordinary shareholders'}) ON CREATE SET m.id = 'profit_attributable_to_ordinary_shareholders', m.unit = 'Rs';
+
+// Query 46
+MERGE (m:Metric {name: 'Earnings per share'}) ON CREATE SET m.id = 'earnings_per_share', m.unit = 'Rs';
+
+// Query 47
+MERGE (m:Metric {name: 'Dividend per share'}) ON CREATE SET m.id = 'dividend_per_share', m.unit = 'Rs';
+
+// Query 48
+MERGE (m:Metric {name: 'Shareholders’ funds'}) ON CREATE SET m.id = 'shareholders_funds', m.unit = 'Rs';
+
 // Query 49
-MATCH (p:Person {name: 'M R Mihular'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Senior Independent Non-Executive Director', r.as_of = date('2024-10-01');
+MERGE (m:Metric {name: 'Net assets'}) ON CREATE SET m.id = 'net_assets', m.unit = 'Rs';
 
 // Query 50
-MERGE (m:Metric {name: 'Revenue'}) ON CREATE SET m.id = 'revenue', m.unit = 'Rs. Mn';
+MERGE (m:Metric {name: 'Net assets per ordinary share'}) ON CREATE SET m.id = 'net_assets_per_ordinary_share', m.unit = 'Rs';
 
 // Query 51
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 10772.0, r.year = 2024;
+MERGE (s:Sector {name: 'Diversified Financials'}) ON CREATE SET s.id = 'diversified_financials';
 
 // Query 52
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 8417.0, r.year = 2023;
+MERGE (s:Sector {name: 'Food, Beverage, and Tobacco'}) ON CREATE SET s.id = 'food_beverage_and_tobacco';
 
 // Query 53
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 4095.0, r.year = 2022;
-
-// Query 54
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1790.0, r.year = 2021;
-
-// Query 55
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 5560.0, r.year = 2020;
-
-// Query 56
-MERGE (m:Metric {name: 'Results from operating activities'}) ON CREATE SET m.id = 'results_from_operating_activities', m.unit = 'Rs. Mn';
-
-// Query 57
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Results from operating activities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 612.0, r.year = 2024;
-
-// Query 58
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Results from operating activities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 93.0, r.year = 2023;
-
-// Query 59
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Results from operating activities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -407.0, r.year = 2022;
-
-// Query 60
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Results from operating activities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -1913.0, r.year = 2021;
-
-// Query 61
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Results from operating activities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -28.0, r.year = 2020;
-
-// Query 62
-MERGE (m:Metric {name: 'Profit/(Loss) before tax'}) ON CREATE SET m.id = 'profit_loss_before_tax', m.unit = 'Rs. Mn';
-
-// Query 63
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Profit/(Loss) before tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 212.0, r.year = 2024;
-
-// Query 64
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Profit/(Loss) before tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -133.0, r.year = 2023;
-
-// Query 65
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Profit/(Loss) before tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -459.0, r.year = 2022;
-
-// Query 66
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Profit/(Loss) before tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -2370.0, r.year = 2021;
-
-// Query 67
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Profit/(Loss) before tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 199.0, r.year = 2020;
-
-// Query 68
-MERGE (m:Metric {name: 'Profit/(Loss) after tax'}) ON CREATE SET m.id = 'profit_loss_after_tax', m.unit = 'Rs. Mn';
-
-// Query 69
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Profit/(Loss) after tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 78.0, r.year = 2024;
-
-// Query 70
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Profit/(Loss) after tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -333.0, r.year = 2023;
-
-// Query 71
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Profit/(Loss) after tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -508.0, r.year = 2022;
-
-// Query 72
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Profit/(Loss) after tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -2244.0, r.year = 2021;
-
-// Query 73
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Profit/(Loss) after tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 106.0, r.year = 2020;
-
-// Query 74
-MERGE (m:Metric {name: 'Dividends paid'}) ON CREATE SET m.id = 'dividends_paid', m.unit = 'Rs. Mn';
-
-// Query 75
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Dividends paid'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 442.0, r.year = 2020;
-
-// Query 76
-MERGE (m:Metric {name: 'Return on equity (ROE)'}) ON CREATE SET m.id = 'return_on_equity_roe', m.unit = '%';
-
-// Query 77
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Return on equity (ROE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.07, r.year = 2024;
-
-// Query 78
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Return on equity (ROE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -0.92, r.year = 2023;
-
-// Query 79
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Return on equity (ROE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -1.62, r.year = 2022;
-
-// Query 80
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Return on equity (ROE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -5.54, r.year = 2021;
-
-// Query 81
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Return on equity (ROE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -0.15, r.year = 2020;
-
-// Query 82
-MERGE (m:Metric {name: 'Pre-Tax return on capital employed (ROCE)'}) ON CREATE SET m.id = 'pre_tax_return_on_capital_employed_roce', m.unit = '%';
-
-// Query 83
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Pre-Tax return on capital employed (ROCE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1.86, r.year = 2024;
-
-// Query 84
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Pre-Tax return on capital employed (ROCE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.86, r.year = 2023;
-
-// Query 85
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Pre-Tax return on capital employed (ROCE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -0.65, r.year = 2022;
-
-// Query 86
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Pre-Tax return on capital employed (ROCE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -6.43, r.year = 2021;
-
-// Query 87
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Pre-Tax return on capital employed (ROCE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.61, r.year = 2020;
-
-// Query 88
-MERGE (m:Metric {name: 'Total assets'}) ON CREATE SET m.id = 'total_assets', m.unit = 'Rs. Mn';
-
-// Query 89
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Total assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 48381.0, r.year = 2024;
-
-// Query 90
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Total assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 45912.0, r.year = 2023;
-
-// Query 91
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Total assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 42509.0, r.year = 2022;
-
-// Query 92
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Total assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 40869.0, r.year = 2021;
-
-// Query 93
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Total assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 42582.0, r.year = 2020;
-
-// Query 94
-MERGE (m:Metric {name: 'Total liabilities'}) ON CREATE SET m.id = 'total_liabilities', m.unit = 'Rs. Mn';
-
-// Query 95
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Total liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 14832.0, r.year = 2024;
-
-// Query 96
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Total liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 13674.0, r.year = 2023;
-
-// Query 97
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Total liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 7549.0, r.year = 2022;
-
-// Query 98
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Total liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 6256.0, r.year = 2021;
-
-// Query 99
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Total liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 5889.0, r.year = 2020;
-
-// Query 100
-MERGE (m:Metric {name: 'Net debt / (Cash)'}) ON CREATE SET m.id = 'net_debt_cash', m.unit = 'Rs. Mn';
-
-// Query 101
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Net debt / (Cash)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 2284.0, r.year = 2024;
-
-// Query 102
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Net debt / (Cash)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 2101.0, r.year = 2023;
-
-// Query 103
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Net debt / (Cash)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1645.0, r.year = 2022;
-
-// Query 104
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Net debt / (Cash)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 691.0, r.year = 2021;
-
-// Query 105
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Net debt / (Cash)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -587.0, r.year = 2020;
-
-// Query 106
-MERGE (s:Sector {name: 'Investment Holdings'}) ON CREATE SET s.id = 'investment_holdings';
-
-// Query 107
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (s:Sector {name: 'Investment Holdings'}) MERGE (c)-[:IN_SECTOR]->(s);
-
-// Query 108
-MERGE (s:Sector {name: 'Portfolio and Asset Management'}) ON CREATE SET s.id = 'portfolio_and_asset_management';
-
-// Query 109
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (s:Sector {name: 'Portfolio and Asset Management'}) MERGE (c)-[:IN_SECTOR]->(s);
-
-// Query 110
-MERGE (s:Sector {name: 'Oil palm plantations'}) ON CREATE SET s.id = 'oil_palm_plantations';
-
-// Query 111
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (s:Sector {name: 'Oil palm plantations'}) MERGE (c)-[:IN_SECTOR]->(s);
-
-// Query 112
-MERGE (s:Sector {name: 'Oils & fats'}) ON CREATE SET s.id = 'oils_and_fats';
-
-// Query 113
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (s:Sector {name: 'Oils & fats'}) MERGE (c)-[:IN_SECTOR]->(s);
-
-// Query 114
-MERGE (s:Sector {name: 'Beverages'}) ON CREATE SET s.id = 'beverages';
-
-// Query 115
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (s:Sector {name: 'Beverages'}) MERGE (c)-[:IN_SECTOR]->(s);
-
-// Query 116
 MERGE (s:Sector {name: 'Real Estate'}) ON CREATE SET s.id = 'real_estate';
 
-// Query 117
+// Query 54
+MERGE (s:Sector {name: 'Consumer Services'}) ON CREATE SET s.id = 'consumer_services';
+
+// Query 55
+MERGE (s:Sector {name: 'Commercial and Professional Services'}) ON CREATE SET s.id = 'commercial_and_professional_services';
+
+// Query 56
+MERGE (s:Sector {name: 'Retailing'}) ON CREATE SET s.id = 'retailing';
+
+// Query 57
+MERGE (s:Sector {name: 'Capital Goods'}) ON CREATE SET s.id = 'capital_goods';
+
+// Query 58
+MERGE (s:Sector {name: 'Health Care Equipment and Services'}) ON CREATE SET s.id = 'health_care_equipment_and_services';
+
+// Query 59
+MATCH (p:Person {name: 'A.K. Pathirage'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman/ Managing Director', r.as_of = date('2024-03-31');
+
+// Query 60
+MATCH (p:Person {name: 'S. Selliah'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Deputy Chairman', r.as_of = date('2024-03-31');
+
+// Query 61
+MATCH (p:Person {name: 'K.M.P Karunaratne'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Group Chief Executive Officer', r.as_of = date('2024-03-31');
+
+// Query 62
+MATCH (p:Person {name: 'G.L.H. Premaratne'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non Executive Director', r.as_of = date('2024-03-31');
+
+// Query 63
+MATCH (p:Person {name: 'H K Kaimal'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Non-Executive Non Independent Director', r.as_of = date('2024-06-18');
+
+// Query 64
+MATCH (p:Person {name: 'S. D. R. Arudpragasam'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2024-03-31');
+
+// Query 65
+MATCH (p:Person {name: 'C. P. R. Perera'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Deputy Chairman', r.as_of = date('2024-03-31');
+
+// Query 66
+MATCH (p:Person {name: 'J. T. Sumathipala'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2024-03-31');
+
+// Query 67
+MATCH (p:Person {name: 'R. Radha'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Managing Director', r.as_of = date('2024-01-09');
+
+// Query 68
+MATCH (p:Person {name: 'R.A.T.P Perera'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Executive Director/CEO', r.as_of = date('2024-03-31');
+
+// Query 69
+MATCH (p:Person {name: 'D.A.S.D. A. Abeyesinhe'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Non-independent Non-Executive Director', r.as_of = date('2024-03-31');
+
+// Query 70
+MATCH (p:Person {name: 'A. D. Ross'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-03-31');
+
+// Query 71
+MATCH (p:Person {name: 'V. Siva Jr.'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-03-31');
+
+// Query 72
+MATCH (p:Person {name: 'S. S. Balasubramaniam'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Non-Executive Director', r.as_of = date('2024-03-31');
+
+// Query 73
+MATCH (p:Person {name: 'D. Swarnasinghe'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-03-31');
+
+// Query 74
+MATCH (p:Person {name: 'D Hasitha S Jayawardena'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Executive Chairman', r.as_of = date('2024-03-31');
+
+// Query 75
+MATCH (p:Person {name: 'C R Jansz'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Non-Independent Non-Executive Director', r.as_of = date('2024-03-31');
+
+// Query 76
+MATCH (p:Person {name: 'M A N S Perera'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Executive Director', r.as_of = date('2024-03-31');
+
+// Query 77
+MATCH (p:Person {name: 'K Dayaparan'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Non-Independent Non-Executive Director', r.as_of = date('2024-03-31');
+
+// Query 78
+MATCH (p:Person {name: 'A Shakthevale'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-03-31');
+
+// Query 79
+MATCH (p:Person {name: 'D S K Amarasekara'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-03-31');
+
+// Query 80
+MATCH (p:Person {name: 'M R Mihular'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Senior Independent Non-Executive Director', r.as_of = date('2024-10-01');
+
+// Query 81
+MATCH (p:Person {name: 'S. Selliah'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 17000, r.as_of = date('2024-03-31');
+
+// Query 82
+MATCH (p:Person {name: 'K.M.P Karunaratne'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 133, r.as_of = date('2024-03-31');
+
+// Query 83
+MATCH (p:Person {name: 'Amrit Rajaratnam'}), (c:Company {name: 'Capital Alliance PLC'}) MERGE (p)-[r:OWNS_SHARES]->(c) ON CREATE SET r.count = 300000, r.as_of = date('2024-03-31');
+
+// Query 84
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 10772000000, r.year = 2024;
+
+// Query 85
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Results from operating activities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 612000000, r.year = 2024;
+
+// Query 86
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Profit before tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 212000000, r.year = 2024;
+
+// Query 87
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Profit after tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 78000000, r.year = 2024;
+
+// Query 88
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Total assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 48381000000, r.year = 2024;
+
+// Query 89
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Total liabilities'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 14832000000, r.year = 2024;
+
+// Query 90
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Return on equity (ROE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.07, r.year = 2024;
+
+// Query 91
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Pre-Tax return on capital employed (ROCE)'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1.86, r.year = 2024;
+
+// Query 92
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Group revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 277008844000, r.year = 2024;
+
+// Query 93
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Profit from operations'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 47399141000, r.year = 2024;
+
+// Query 94
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Profit after tax from continuing operations'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 22201573000, r.year = 2024;
+
+// Query 95
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'EBITDA'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 58335217000, r.year = 2024;
+
+// Query 96
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Profit attributable to ordinary shareholders'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 8412977000, r.year = 2024;
+
+// Query 97
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Earnings per share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 82.22, r.year = 2024;
+
+// Query 98
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Dividend per share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1.80, r.year = 2024;
+
+// Query 99
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Shareholders’ funds'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 54719964000, r.year = 2024;
+
+// Query 100
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Net assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 131685633000, r.year = 2024;
+
+// Query 101
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (m:Metric {name: 'Net assets per ordinary share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 536.07, r.year = 2024;
+
+// Query 102
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (s:Sector {name: 'Diversified Financials'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 103
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (s:Sector {name: 'Food, Beverage, and Tobacco'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 104
 MATCH (c:Company {name: 'Capital Alliance PLC'}), (s:Sector {name: 'Real Estate'}) MERGE (c)-[:IN_SECTOR]->(s);
 
-// Query 118
-MERGE (s:Sector {name: 'Leisure'}) ON CREATE SET s.id = 'leisure';
+// Query 105
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (s:Sector {name: 'Consumer Services'}) MERGE (c)-[:IN_SECTOR]->(s);
 
-// Query 119
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (s:Sector {name: 'Leisure'}) MERGE (c)-[:IN_SECTOR]->(s);
+// Query 106
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (s:Sector {name: 'Commercial and Professional Services'}) MERGE (c)-[:IN_SECTOR]->(s);
 
-// Query 120
-MERGE (s:Sector {name: 'Management Services'}) ON CREATE SET s.id = 'management_services';
+// Query 107
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (s:Sector {name: 'Retailing'}) MERGE (c)-[:IN_SECTOR]->(s);
 
-// Query 121
-MATCH (c:Company {name: 'Capital Alliance PLC'}), (s:Sector {name: 'Management Services'}) MERGE (c)-[:IN_SECTOR]->(s);
+// Query 108
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (s:Sector {name: 'Capital Goods'}) MERGE (c)-[:IN_SECTOR]->(s);
 
-// Total queries: 121
-// Generated on: 2025-09-03T13:32:25.228633
+// Query 109
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (s:Sector {name: 'Health Care Equipment and Services'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 110
+MATCH (parent:Company {name: 'ACL Cables PLC'}), (child:Company {name: 'Capital Alliance PLC'}) MERGE (parent)-[:OWNS]->(child);
+
+// Query 111
+MATCH (c:Company {name: 'Capital Alliance PLC'}), (auditor:Company {name: 'KPMG'}) MERGE (c)-[:AUDITED_BY]->(auditor) SET auditor.year = 2024;
+
+// Query 112
+UNWIND [{id: 'capital_alliance_plc_directors_and_executives_0', content: 'The following DIRECTORS held Office during the year under \nreview . The biographical details of  the Board members are set \nout on pages 24 to 25\nMr. A.K. Pathirage - (Chairman/ Managing Director) \nDr. S. Selliah – Deputy Chairman (Resigned w .e.f  29th July \n2024)\nDr. K.M.P Karunaratne – Group Chief  Executive Officer\nMr. G.L.H. Premaratne – Independent Non Executive \nDirector\nMr. H K Kaimal - Non-Executive Non Independent Director \n- (appointed w .e.f. 18th June 2024)\nFIT AND PROPER CRITERIA\nThe DIRECTORS hereby confirm that the DIRECTORS and CEO \nof  the company satisfy the fit and proper Assessment Criteria \nstipulated in section 9.7 of  the Listing Rules of  the Colombo \nStock Exchange for the year.\nDIRECTORS’ SHAREHOLDING \nName of Director No. of Shares \nas at 31/03/2024\nNo. of Shares \nas at 31/03/2023\nMr. A K Pathirage - -\nDr. S. Selliah 17,000 17,000\nDr. K.M.P Karunaratne 133 133\nMr. G.L.H Premaratne - -\nMr. S.A.B Rajapaksa - -\nMr. V .Bali - -\nMr. A.N Thadani - -', chunk_type: 'directors_and_executives', index: 0}, {id: 'capital_alliance_plc_directors_and_executives_1', content: 'disclosed in Note 27 to the financial statements on page 60.\nDuring the financial year the Company has not entered in to any \ncontracts in which the DIRECTORS have had a material interest.\nNeither the DIRECTORS nor their close family members have had any \nmaterial business relationships with other DIRECTORS.\n              No. of shares\nName of Director As at    \n31.03.2024\nAs at    \n31.03.2023\nMr. Amrit Rajaratnam 300,000 300,000\nCorporate Donations  \nDetails pertaining to corporate donations made by the Company \nduring the financial year 2023/24 are given in note 6 to the financial \nstatements on page 41.\nDirectorate\nThe names of the DIRECTORS who held office during the financial \nyear are given below and the profiles of the DIRECTORS who are \ncurrently in office are given on pages 8 and 9.\nMr. S. D. R. Arudpragasam - Chairman \nMr. C. P. R. Perera - Deputy Chairman \nMr. S. Rajaratnam \nMr. Amrit Rajaratnam \nMr. A. R. Rasiah\nMr. Anushman Rajaratnam', chunk_type: 'directors_and_executives', index: 1}, {id: 'capital_alliance_plc_directors_and_executives_2', content: 'foreseeable future. Accordingly, the Financial Statements are \nprepared based on the going concern concept.\nDIRECTORS who held office during the Year\nThe DIRECTORS of the Company during the year were as follows.\nDr. J. T. Sumathipala \nChairman (resigned with effect from 25th March 2024)\nMr. R. Radha \nManaging Director  \n(appointed with effect from 09th January 2024)\nMr. R.A.T.P Perera Executive Director/CEO  \n(resigned with effect from 31st January 2024)\nMr. D.A.S.D. A. Abeyesinhe \nNon-independent Non-Executive Director\nMr. A. D. Ross  \nIndependent Non-Executive Director\nMr. V. Siva Jr.  \nIndependent Non-Executive Director\nMr. S. S. Balasubramaniam    \nNon-Executive Director\nMr. D. Swarnasinghe \nIndependent Non-Executive Director', chunk_type: 'directors_and_executives', index: 2}, {id: 'capital_alliance_plc_directors_and_executives_3', content: 'Company and the Group, all contributions, levies and taxes \npayable on behalf  of, and in respect of, the employees of  the \nCompany and the Group, and all other known statutory dues \nas were due and payable by the Company and the Group as \nat the date of  the Statement of  Financial Position have been \npaid or, where relevant provided for, except as specified in \nNote 29 to the Financial Statements, covering contingent \nliabilities. \nMATERIAL ISSUES PERTAINING TO THE \nEMPLOYEES AND INDUSTRIAL RELATIONS\nThere have been no material issues pertaining to the \nemployees and industrial relations of  the Company .\nRELATED PARTY TRANSACTIONS \nThe Company’s transactions with Related Parties, given in \nNote 31 to the Financial Statements.\nDIRECTORATE \nThe following DIRECTORS held Office during the year under \nreview . The biographical details of  the Board members are set \nout on pages 24 to 25\nMr. A.K. Pathirage - (Chairman/ Managing Director)', chunk_type: 'directors_and_executives', index: 3}, {id: 'capital_alliance_plc_directors_and_executives_4', content: 'DIRECTORS, two Non-Executive DIRECTORS and an Independent Director.  The composition of the Company’s Board has been \nstructured in accordance with the principles of good governance and long-term strategy. Names of the members of the Board \nof DIRECTORS and their brief resumes are given on pages 5 to 7 and their roles are set out below.\nDIRECTORS Directorship Status Attendance\nMr D Hasitha S Jayawardena  Executive Chairman 2/2\nMr. D H S Jayawardena  Deceased on 03rd February 2025 2/2\nMr. C R Jansz  Non-Independent Non-Executive Director 2/2\nMr. M A N S Perera  Executive Director 2/2\nMr. K Dayaparan  Non-Independent Non-Executive Director 2/2\nDr. A Shakthevale - resigned w.e.f. 01.10.2024 Independent Non-Executive Director 1/2\nMr. D S K Amarasekara - resigned w.e.f. 01.10.2024 Independent Non-Executive Director 1/2\nMr M R Mihular - appointed w.e.f. 01.10.2024 Senior Independent Non-Executive Director 1/2', chunk_type: 'directors_and_executives', index: 4}, {id: 'capital_alliance_plc_financial_performance_0', content: 'Annual Report 2023/24 |  7\nOperating Context \nand Strategy\nFinancial  \nInformation\nLeadership Corporate \nGovernance and Risk \nManagement\nManagement \nDiscussion and \nAnalysis\nSupplementary \nInformation\nPerformance Highlights (Financial)\n2024 2023 2022 2021 2020\nGroup Operational Performance \nRevenue Rs. Mn  10,772  8,417  4,095  1,790  5,560 \nResults from operating activities Rs. Mn  612  93  (407)  (1,913)  (28)\nProfit/(Loss) before tax Rs. Mn  212  (133)  (459)  (2,370)  199 \nProfit/(Loss) after tax Rs. Mn  78  (333)  (508)  (2,244)  106 \nDividends paid Rs. Mn  -    -    -    -    442 \nReturn on equity (ROE) %  0.07)  (0.92)  (1.62)  (5.54)  (0.15)\nPre-Tax return on capital employed \n(ROCE)\n%  1.86  0.86  (0.65)  (6.43)  0.61 \nBalance Sheet Strength \nTotal assets Rs. Mn  48,381  45,912  42,509  40,869  42,582 \nTotal liabilities Rs. Mn  14,832  13,674  7,549  6,256  5,889 \nNet debt / (Cash) Rs. Mn  2,284  2,101  1,645  691  (587)', chunk_type: 'financial_performance', index: 0}, {id: 'capital_alliance_plc_financial_performance_1', content: 'ASIA ASSET FINANCE PLC        Annual Report  2023 | 2024\n44\nand the accumulation of retained earnings \nover the period under review.\nOPTIMISING PERFORMANCE\nGross Income\nGROSS INCOME\n0\n5\n4\n3\n2\n1\n6\n7\n(Rs.Mn )\n2020 2021 2022 20242023\n3.3\n2.9\n3.1\n6.0\n6.6\nThe gross income of the company \nrecorded a growth of 9.94% to reach \nRs. 6.604 Bn, compared to Rs. 6.006 Bn \nrecorded in the preceding period, while \nthe company’s profit after tax for the year \nreached Rs. 344.18 Mn, compared to the \nindicator’s performance of Rs.295.3 Mn in \nthe previous year. Other operating income \nrecorded a marginal increase to reach \nRs. 921.5 Mn compared to the previous \nyear’s Rs. 614.6 Mn.\nPROFIT BEFORE AND AFTER TAXES\nPROFIT AFTER TAX \n0\n100%\n300%\n200%\n400%\n(Rs.Mn )\n2020 2021 2022 20242023\n70.15\n284.31\n45.2\n118.2\n344.2\nReflecting the growth in profit after \ntax, the company recorded increases \nin total assets and equity during the \nyear. Consequently, Return on Assets \n(ROA) stood at 1.33% during the year,', chunk_type: 'financial_performance', index: 1}, {id: 'capital_alliance_plc_financial_performance_2', content: '10\nASIA ASSET FINANCE PLC        Annual Report  2023 | 2024\nFinancial Highlights\n2023/2024 2022/2023\nFINANCE PERFORMANCE( RS MN)\nGross Revenue 6,604 6,006\nNet Interest Income 1,432 1,741\nProfit Before Tax 373 360\nTaxation (29) (64)\nProfit After Tax 344 295\nPOSITION AS AT THE YEA END (RS.MN)\nCash and Cash Equivalents 3,888 2,063\nLoans and Recivables 19,058 19,478\nTotal assets 25,843 25,013\nFixed Depoit 14,485 13,275\nFINANCIAL RATIOS (%)\nProfitability Perspective\nProfit for the year(Mn) 344 295\nNet Interest Margin 5.94 8.94\nReturn on Assets (ROA) 1.33 1.18 \nEquity Holders\nEarnings per share( Rs) 2.77  2.38 \nNet Asset Value per share (Rs.) 27.10 24.24 \nReturn on equity (%) 10.82 9.81\nDEBT HOLDERS\nDebt to Equity ratio (Times) 6.43 7.15\nInterest Cover (Times) 1.12 1.10\nSTATUTORY RATIO \nTier 1 (Minimum requireemnt 8.5%) 21.22 27.43\nAvailable Liquid Assets to Required Liquid Assets (g) 213 243\nNon Performing Ratio 22.11 12.79\nQUALITY OF LOAN PORTFOLIO) (%)', chunk_type: 'financial_performance', index: 2}, {id: 'capital_alliance_plc_financial_performance_3', content: '44  | ASIAN HOTELS AND PROPERTIES PLC\nGross proﬁt, expenses and post tax proﬁtability YoY movement\nGross Proﬁt\n4,891\nOther \noperating\n income\n82\nDistribution \nexpenses\n-442\nAdministration\n expenses\n-2,787 -1,132 -336 26 -90 212 -135 78\nOther \noperating \nexpenses\nFinance\n cost\nFinance \nincome\nChange in \nFV of \ninvestment \nproperty\nPBT Income Tax PAT\nRs.Mn\nIncrease in Income/Proﬁt\nIncrease in Expense \nIncrease in Gross Proﬁt\n-3,000\n-2,000\n-1,000\n0\n1,000\n2,000\n3,000\n4,000\n5,000\nFinancial capital\nNet finance cost \nNet finance cost declined by a notable 18% to Rs. 310 Mn, driven by finance income of Rs. 26 Mn and finance expense of Rs. 336 Mn. \nFinance expense posted a notable decline of 15%, benefiting rom the decline in market-wide interest rates and also decline in \ninterest bearing borrowings under the non-current liabilities category. \nProfitability\nReversing the loss trend of the prior years, the Group posted a welcoming pre-tax profit of Rs. 212 Mn. With income taxes of Rs. 135', chunk_type: 'financial_performance', index: 3}, {id: 'capital_alliance_plc_financial_performance_4', content: '3\nFinancial Highlights\n(Amounts expressed in Sri Lankan Rs.’000 unless otherwise stated)\nFor the year ended / as at 31st March 2024 2023 % Change\nStatement of profit or loss\nGroup revenue  277,008,844  330,420,613  (16)\nProfit from operations  47,399,141  59,202,045  (20)\nProfit before tax  37,288,459  42,377,917  (12)\nProfit after tax from continuing operations  22,201,573  27,296,336  (19)\nEBITDA  58,335,217  71,191,094  (18)\nProfit attributable to ordinary shareholders  8,412,977  13,022,993  (35)\nOperating cash flow per share (Rs.)  327.92  514.31  (36)\nEarnings per share (Rs.) - Group  82.22  127.52  (36)\nDividend per share (Rs.) - Company  1.80  1.10  64 \nStatement of Cash flows\nOperating cash flows  33,447,574  52,459,122  (36)\nCapital expenditure  16,919,433  17,387,897  (3)\nStatement of Financial Position\nShareholders’ funds  54,719,964  54,043,639  1 \nNet assets  131,685,633  127,720,458  3 \nNet assets per ordinary share (Rs.)  536.07  529.44  1', chunk_type: 'financial_performance', index: 4}, {id: 'capital_alliance_plc_risk_factors_0', content: '- Annual Report 2023\n53\n- Annual Report 2024\nRisk \nInterest Rate Risk\nTechnology & IT \nRisk\nInventory cycle\nRisk of\nCompetition\nCompany\nReputation Risk\nThreat Probability\nModerate\nModerate\nModerate\nModerate\nModerate \nRisk Assessment \nFiscal and monitory policy changes \nhave a direct impact on liquidity\nand production costs.\nLack of accurate and\ntimely information due to\nineffective IT systems. Increase in \ndigitization of operations pose a \nthreat of loss of data and hacking.\n \nLiquidity is impacted as the industry \nis cyclical with long gestation periods.\nCompetition from other major low \ncost producers.\nThe reputation of the company could \nbe damaged by noncompliance, \nunethical behavior, and inconsistent \nproduct quality.\nMitigating Strategies \n•\t Close\tmonitoring\tof\tinterest\trate\t\ndevelopments and negotiating with \nfunding partners\n•\t Capital\tdevelopment\n•\t Maintenance\tof\tbiological\tassets\t\nin optimum condition to enhance \nproductivity, turnover and cash-\nflows.', chunk_type: 'risk_factors', index: 0}, {id: 'capital_alliance_plc_risk_factors_1', content: '- Annual Report 2023\n52\n- Annual Report 2024\nFollowing are the key risks that the company is exposed to while carrying out its business activities and mitigation measures \nimplemented.\nRisk \nEnvironmental\nRisk\nHuman Resource\nProduct Quality\nRisk\nPolitical Risk\nInflationary \npressures\nThreat Probability\nHigh\nModerate\nModerate\nHigh\nModerate\nRisk Assessment \nThe variability of weather conditions \ninfluences crop outcomes. Adverse \nweather, shifts in ambient \ntemperature, and natural calamities \ncan all disrupt crop growth and \ndevelopment. These factors impact the \nquantity, quality, market positioning, \nand financial performance of \nagricultural products.\nLow productivity, reduction in \nresident manpower, disruptions in \nachieving the targeted objectives.\nInconsistency in quality of end \nproducts and its negative impact on \nprices and market share.\nThe impact of political intervention, \nmajor industrial relations \nissues, regulatory changes, ad-\nhoc acquisitions of land etc. are', chunk_type: 'risk_factors', index: 1}, {id: 'capital_alliance_plc_risk_factors_2', content: 'short rearing time along with relatively low cost of \ninvestment, has contributed to a steady growth in \npoultry production and consumption.\n3.3 The Company’s \ncustomer base is \nconfined to a single \ngeographic market, \nwhich exposes the \nCompany extensively \nto vulnerabilities of the \nsingle market in which \nit operates.\nR  Vulnerability to fluctuations  \nin turnover. \nO  The Company has already \nembarked on exploring \noverseas markets.\nThe Company is presently exploring other export \nmarkets to achieve geographic diversification.\nThe Company’s sales and distribution network \ncovers the entire country and targets customers \nacross the value chain. This diversification of \ncustomer-base helps to mitigate the risk arising \nfrom geographic concentration in the country.\n04. Operational  \nrisk\n4.1 Breakdown of internal \ncontrols\nR  Potential for loss of smooth \noperational continuity due \nto failure and inadequacy of \ninternal controls and internal \nsystems to prevent failures or', chunk_type: 'risk_factors', index: 2}, {id: 'capital_alliance_plc_risk_factors_3', content: 'USD-linked CPO prices. We continue to monitor \nmarket volatilities, to anticipate and exploit \nfavourable movements.\nBusiness Environment \nRisks\nUnfavourable global and local weather patterns \nresulting in adverse weather conditions, natural \nand man-made disasters including fires and \nhaze from fires, droughts, floods, pestilence and \ncrop disease could reduce the amount or quality \nof FFB we can harvest in the palm oil plantation \nsector.\nMinimise fire risk through monitoring and \nmaintaining adequate fire response resources. \nInvest in agronomy and plantation management \npractices to minimise the impact by any sudden \nup-rise of pest and diseases.\nThe Group employs Business Continuity Planning \nas well as safeguards against perils through \nadequate insurance.\nLiquidity Risk The risk that business sectors may not easily \nbe able to meet its operational and financial \nobligations can result in an unavailability of \nsufficient funds, which may interrupt the smooth', chunk_type: 'risk_factors', index: 3}, {id: 'capital_alliance_plc_risk_factors_4', content: 'The overall decrease in demand in the luxury jewellery market posese a greater risk to the company’s business, as approaching \nrecessions in its export markets can impact it’s ongoing business. \nOperational Risk\nOperation risk can occur at every level in the company. Operational risks are categorized as those that may occur from routine \noperations. Such risks and their sources are related to physical resources in the internal environment and can be a result of a variety \nof factors such as human errors, machinery malfunctions, and software related disruptions.\nThe Company has been in operation since 1990 and has strict protocol regarding all areas of the manufacturing process, from \nprotective equipment, Responsibility hand-offs and safety training. This risk is not seen as significant to the company.', chunk_type: 'risk_factors', index: 4}, {id: 'capital_alliance_plc_business_segments_0', content: 'from one another. Top management of the Company considers the operating results and condition of its business segments in their \ndecision making process and performance evaluation. Types of products and services from which each operating segment derives its \nrevenues are described as follows.\n \nAn operating segment is a component of the Company that engages in business activities from which it may earn revenues and incur \nexpenses, including revenues and expenses that relate to transactions with any of the Company’s other components. All operating \nsegments’ operating results are reviewed regularly by the Senior Management to make decisions about resources to be allocated to \nthe segment and to assess its performance, and for which discrete financial information is available.', chunk_type: 'business_segments', index: 0}, {id: 'capital_alliance_plc_business_segments_1', content: 'its business segments rather than their geographical location. Each segment is separately managed as it requires different \nmanagement strategies, as underscored by the Group’s organizational structure.\nThe Group’s business operations are classified into eight segments based on the products or services rendered, namely, \nInvestment Holdings, Portfolio and Asset Management, Oil palm plantations, Oils & fats, Beverages, Real Estate, Leisure and \nManagement Services. The following table describes the operations of each segment.\nInter segmental sales are made at prices that approximate the market prices. Segment revenue, expenses, and results include \ntransactions between segments. On consolidation, these transactions and any unrealised profits and losses are eliminated. \nSegmental expenses are directly attributed to a relevant segment or a portion of expenses that can be allocated reasonably as \ndetermined by the management.', chunk_type: 'business_segments', index: 1}, {id: 'capital_alliance_plc_business_segments_2', content: 'Hospitality services  927,369  719,766  -    -   \n 22,193,987  37,218,507  260,513  179,424 \n 324,488,732  386,899,205  260,513  179,424 \nElimination of internal revenue  (47,479,888)  (56,478,592)\nTotal external revenue  277,008,844  330,420,613  260,513  179,424 \nDisaggregation of revenue from contract with customers.\nRevenue from contracts with customers (including revenue related to the discontinued operations) is disaggregated by primary \ngeographical market (Note 9) and major products and services.\n 9. SEGMENTAL INFORMATION\n(i) Operating Segments\nBasis of segmentation\nThe Group reports its segmental information primarily on its business segments and then on geographical segments as a \nsecondary basis. The risks and returns of the Group’s operations are primarily determined by the nature of the operations of \nits business segments rather than their geographical location. Each segment is separately managed as it requires different', chunk_type: 'business_segments', index: 2}, {id: 'capital_alliance_plc_business_segments_3', content: 'BROWN AND COMPANY PLC    Annual Report 2023/24\n178\n45  SEGMENTAL INFORMATION\n45.1  Primary Segments (Business Segments)\n45.1.1  Group\nTrading Manufacturing & Constructions Investments Plantation Leisure Real Estate Others Adjustments Group Total\n2024 2023 2024 2023 2024 2023 2024 2023 2024 2023 2024 2023 2024 2023 2024 2023 2024 2023\nRs.000 Rs.000 Rs.000 Rs.000 Rs.000 Rs.000 Rs.000 Rs.000 Rs.000 Rs.000 Rs.000 Rs.000 Rs.000 Rs.000 Rs.000 Rs.000 Rs.000 Rs.000\na) Segment Result\n Revenue  36,127,299  34,649,301  14,166,386  16,346,278  8,459  374,041  19,716,892  16,852,165  10,591,118  5,778,337  604,596  340,650  65,548  112,123  (671,011)  (1,801,053)  80,609,286  72,651,843 \n Cost of Sales  (29,588,698)  (24,044,691)  (12,148,683)  (13,355,292)  -  (377,958)  (15,152,116)  (12,538,325)  (4,428,246)  (2,910,165)  (134,052)  (30,512)  (946,410)  (58,946)  350,707  1,405,761  (62,047,498)  (51,910,127)', chunk_type: 'business_segments', index: 3}, {id: 'capital_alliance_plc_business_segments_4', content: 'Annual Report 2023/24 | 79\n3. REVENUE AND OTHER INCOME  \n3.1 Revenue \nGROUP COMPANY\n2024 2023 2024 2023\n Rs.  Rs.  Rs.  Rs. \nHealthcare Services  6,376,024,568  5,393,112,422  5,739,330,596  4,841,245,484 \nSales of  Goods  248,911,751  241,642,284  248,911,751  241,642,284 \nLoyalty points  (5,191,303)  (60,001)  (5,174,054)  (55,121)\n 6,619,745,016  5,634,694,705  5,983,068,293  5,082,832,647 \n3.2 Segment Information\nThe Senior Management Committee is the Chief  Operating Decision Maker (CODM) and monitors the operating results of  its \nbusiness units separately for the purpose of  making decisions about resource allocation and performance assessment. Segment \nperformance is evaluated based on revenue generated and is measured consistently with revenue in the financial statements. \nThe Company has identified the following segments based on the information provided to CODM for the purpose of  making \ndecisions about resource allocation and performance assessment.', chunk_type: 'business_segments', index: 4}, {id: 'capital_alliance_plc_future_outlook_0', content: 'are, however, acutely aware of the increasing influence of shifting consumer preferences, escalating competitive pressures, and \nevolving regulatory requirements on the long-term market dynamics. Consequently, we are adopting a forward-looking approach \nto our business, concentrating on adapting to the ever-changing environment. Our primary objective at Group level is to cultivate \na consumer-centric, dynamic, and sustainable business model that consistently generates value for all stakeholders. This strategic \nfocus will guide our trajectory as we progress into the future.\nNOTES TO THE FINANCIAL STATEMENTS', chunk_type: 'future_outlook', index: 0}, {id: 'capital_alliance_plc_future_outlook_1', content: '54\nManagement Discussion and Analysis\nCapital Alliance PLC     Annual Report  2023 | 2024\nOur Strategy and Strategic Imperatives\nOUR STRATEGY\nTo build a strong and adaptable organization, we are actively translating our purpose into actions by integrating our values and culture into our \nstrategic framework. Grounded in a deep understanding of market dynamics, regulatory requirements, and client needs, CALT’s strategy outlines \nour approach to achieving CALT goals and maintaining a leading position in the market. Thereby, we detail our strategic imperatives that guide our \nactions and decisions in pursuit of excellence.\nShort Term Long Term\n• Improve operational efficiencies and \nimplement process automation to \nstreamline business processes \n• To grow our market share in our fee \nbased business verticals To build a \ndigital eco-system which will allow \nus to scale our fee based businesses\n• To hire, retain and develop a staff \ncadre with an innovative mindset', chunk_type: 'future_outlook', index: 1}, {id: 'capital_alliance_plc_future_outlook_2', content: 'Company and the national economy from undesirable investments\nHuman Resource \nInformation System (HRIS)\nTo ensure better management of the human capital \nFUTURE FOCUS \nTo continue to be the agile finance solutions provider, we will focus on speed to \nthe market and easy reach of our customers to our services by investing in more \nautomation and IT solutions. Integrating AI technology will be a priority as we explore \nfurther avenues for operational efficiencies. Our IT infrastructure is slated to undergo \nconstant improvements in the future, driving the strategic decision-making process. \nLooking ahead, our priority will be swift response to market requirements, enhancing \nease of access to our product range to our customers. As such, state-of-the-art \ntechnology innovations will be enthusiastically pursued while digital processing \nwill take center stage in this endeavor. We will continue with our branch footprint', chunk_type: 'future_outlook', index: 2}, {id: 'capital_alliance_plc_future_outlook_3', content: 'take on a pragmatic and forward-thinking approach by charting \na path of sustainable growth. We are committed to strategic \ninvestments and expansion of our product portfolio as part of \nour growth strategy. \nBairaha has continuously embraced and promoted the concept \nof caring for the environment. At every stage of our business, \nwe are dedicated to reducing the environmental impact of our \nactivities. We place a high priority on maintaining the bonds we \nhave built with our esteemed clients, vendors and farmers, and \nfirmly believe that their welfare is essential to the Company’s \nlongevity.\nFinancial Position and Strength  \nof Our Brand \nAt Bairaha, we leverage investment opportunities that would \nresult in steady and sustained progress, while also maintaining \nan acceptable liquidity position. The Company’s ability to \nremain resilient is a result of timely decisions that were made \nin both forward and backward integration. Leveraging the', chunk_type: 'future_outlook', index: 3}, {id: 'capital_alliance_plc_future_outlook_4', content: 'opportunities, including ESG factors, for the \nfuture of the business. Details of the risks \nassessed are set out in the Management \nDiscussion & analysis on pages 5 to 22, together \nwith consideration of the sustainability of the \nGroup’s business model.\nAt each Board meeting, the Group CEO presents \na comprehensive update on performance, \nchallenges, the competitive market and possible \nbusiness opportunities. Quarterly reports to the \nBoard give an overview on the external market, \nhow components of the business perform. This \nensures the Board has oversight across the \nbusiness, allowing its governance processes \nto contribute strongly to the delivery of our \nstrategy.', chunk_type: 'future_outlook', index: 4}, {id: 'capital_alliance_plc_governance_structure_0', content: 'Annual Report 2023/24 |  93\nOverview Operating Context \nand Strategy\nFinancial  \nInformation\nLeadership Management \nDiscussion and \nAnalysis\nSupplementary \nInformation\nCorporate \nGovernance and \nRisk Management\nPolicy Framework\nThe Company and the subsidiary  policy framework is largely aligned to that of the Group and tailored to suit the specific \nrequirements of the industry wherever relevant. Policies are reviewed and updated regularly to ensure relevance to internal \ndynamics and the external landscape. Key policies include the following:\nKey internal policies:\n Code of Conduct, which also includes policies on gifts, entertainment, facilitation payments, proprietary and confidential information\n Policies at a Board level covering nominations, human resources and compensation, audit and internal controls\n Policies on anti-fraud, anti-corruption, anti-money laundering and countering the financing of terrorism and bidding for contracts, \nincluding on government contracts', chunk_type: 'governance_structure', index: 0}, {id: 'capital_alliance_plc_governance_structure_1', content: 'website, annual report is made available for reference in \naddition to offering up-to-date details on our business \nactivities. Our Board of Directors comprises of experienced \nmembers who provide strategic oversight and ensure that \nmanagement acts in the best interests of shareholders. We \nhave established key committees, for Internal Audit, Risk \nManagement, Related Party Transactions, Nominations and \nGovernance, and Remuneration Committees; to oversee \nspecific areas of work, governance and compliance.\nOur Code of Conduct outlines our commitment to ethical \nbehaviour, transparency, and compliance with laws and \nregulations. All employees and Directors are required to adhere \nto those principles. Our Risk Management Policy outlines our \napproach to managing financial, operational, and strategic \nrisks, and state further as how we respond effectively to \nunexpected events, and thereby ensuring business continuity \nand protecting shareholder value. We engage third-party', chunk_type: 'governance_structure', index: 1}, {id: 'capital_alliance_plc_governance_structure_2', content: 'through which the ethical values and corporate objectives are \nset and plans for achieving those objectives and monitoring \nperformances are determined. To serve the interests of  \nshareholders and other stakeholders, the Company’s Corporate \nGovernance system is subject to ongoing review , assessment and \nimprovement. The Board of  Directors proactively adopts good \ngovernance policies and practices designed to align the interests \nof  the Board and Management with those of  shareholders and \nother stakeholders and to promote the highest standards of  \nethical behaviour and risk management at every level of  the \norganization.\nBOARD OF DIRECTORS \nThe Board of  Directors is responsible for setting the strategic \ndirection, safeguarding assets, managing risks and setting the \ntone at the top. They have set in place governance frameworks \nto facilitate achievement of  strategic goals and compliance with \nregulatory frameworks while balancing stakeholder interests.', chunk_type: 'governance_structure', index: 2}, {id: 'capital_alliance_plc_governance_structure_3', content: 'Nominations and re-election \n ¾ Policy on Shareholder and Investor \nCommunications \n ¾ Policy on Remuneration \n ¾ Policy on Board Subcommittees\n ¾ Policy on Corporate Disclosures \n ¾ Policy on Anti-bribery and Corruption \n ¾ Policy on Internal Code of Conduct \n ¾ Policy on ESG \n ¾ Policy on control and management \nof company assets and shareholder \ninvestments \n ¾ Policy on whistle blowing \n ¾ Policy on risk management and internal \ncontrols\nComplied with effect \nfrom 01st Oct 2024\nCORPORA TE \nGOVERNANCE', chunk_type: 'governance_structure', index: 3}, {id: 'capital_alliance_plc_governance_structure_4', content: '102-11 Precautionary principle 60 - 62 Our Approach towards Sustainable Development\n102-12 External initiatives 78 - 79 Social and Relationship Capital\n102-13 Membership of associations 78 - 79 Social and Relationship Capital\nStrategy\n102-14 Statement from senior decision maker 14 - 17 Chairman’s Message and CEO’s Review\nEthics and Integrity\n102-16 Values, principles, norms and standards of behaviour 4 About us\nGovernance\n102-18 Governance Structure 7 Management Structure\n102-19 Delegating authority 7 Management Structure\n102-22 Composition of the highest governance body and its committees 81 - 99 Corporate Governance\n102-23 Chair of the highest governance body 81 - 99 Corporate Governance\n102-24 Nominating and selecting the highest governance body 81 - 99 Corporate Governance\n102-25 Conflicts of interest 81 - 99 Corporate Governance\n102-35 Remuneration policies 81 - 99 Corporate Governance\n102-36 Process for determining remuneration 81 - 99 Corporate Governance', chunk_type: 'governance_structure', index: 4}, {id: 'capital_alliance_plc_sustainability_initiatives_0', content: 'enhance employee engagement and align with \nsustainability goals.\n z Impact Society: Supports community \ndevelopment projects and other initiatives that \nbenefit the wider society.\n z Renewable Energy: Adopting energy-saving \nsolutions to reduce the carbon footprint and \npromote sustainability.\n z Equality, Diversity, and Inclusion (EDI): Committed \nto hiring practices that promote diversity and \ncreate an inclusive work environment.\n z Supporting Small Businesses: Engaging with \nlocal communities and traders to support small \nbusinesses and enrich operations with local \ninsights.\n z Transparency and Business Ethics: Prioritizing \ntransparency and ethical practices to build trust \nwith stakeholders.\nCSR Activities \nRecent CSR activities include donations to Public Health \nInspectors for printing Health Guidance booklets.\nBairaha sponsored an event on the World Children’s Day at \nEllalamulla Zahira Muslim College at which event a lunch was', chunk_type: 'sustainability_initiatives', index: 0}, {id: 'capital_alliance_plc_sustainability_initiatives_1', content: 'working to advance sustainable management practices, implementing strategic interventions to optimise resource utilisation \nand minimise our environmental footprint.\nWe are committed to environmental responsibility and adheres to the standards set by the Central Environmental Authority. \nRegular audits ensure full transparency, allowing us to monitor and mitigate our environmental impact. We have consistently \nworked to improve our processes and systems, reducing our environmental footprint, and contributing to climate change \nmitigation efforts. Our efforts include improving waste and energy management in our manufacturing processes, reducing our \ncarbon footprint through green initiatives, and decreasing our reliance on fossil fuels. We are also enhancing forest cover and \nfood security by planting hardwood and fruit trees.\nBiodiversity Conservation \nOperating across diverse industries and geographical regions, often in areas of significant biodiversity, we are committed to', chunk_type: 'sustainability_initiatives', index: 1}, {id: 'capital_alliance_plc_sustainability_initiatives_2', content: 'for Sustainability-Related Financial \nInformation and IFRS S2 for Climate-\nRelated Disclosures. Partnering with \nthe ISSB, the Institute of Chartered \nAccountants of Sri Lanka has released \nlocalised versions, SLFRS S1 and \nSLFRS S2, which will be effective from \nJanuary 1, 2025. By aligning our ESG \ndisclosures with these benchmarks, we \naim to strengthen our ESG reporting for \nour stakeholders, elevating our overall \nsustainability practices. \nENVIRONMENTAL \nAs a part of our long-term \nenvironmental agenda, we have \nlaunched impactful projects across \nthree key domains: \n1. Biodiversity and Landscape \nConservation\n2. Transitioning to a Low-Carbon \nEconomy\n3. Moving towards a Circular Economy\n4. Environmental Compliance\nThese initiatives are driving significant \nprogress in our sustainable \ncommitments.  \n1. BIODIVERSITY \nAND LANDSCAPE \nCONSERVATION PROJECTS \nThe Group is dedicated to implementing \nrobust practices aimed at protecting \nand restoring ecosystems across', chunk_type: 'sustainability_initiatives', index: 2}, {id: 'capital_alliance_plc_sustainability_initiatives_3', content: 'our group is pursuing an ambitious sustainability agenda, focusing on ESG goals that \nare most significant for our operations. \nWithin our environmental commitments, we place significant emphasis on \nbiodiversity and landscape conservation, climate action transition plans, and \ncontributions towards a circular economy through sustainable waste management \npractices. Additionally, we prioritise environmental compliance to ensure that \nour operations rigorously align with the regulations and standards. In the realm \nof social considerations, our focus extends to a diverse range of community \ndevelopment projects that support broader causes, including education, health \nand wellness programmes, and other efforts aimed at enhancing societal well-\nbeing. Most importantly, building sustainable businesses is about how we value and \nnurture our employees. To this end, we have dedicated substantial investments to \nenhancing the well-being and growth of our employees, placing a strong focus on', chunk_type: 'sustainability_initiatives', index: 3}, {id: 'capital_alliance_plc_sustainability_initiatives_4', content: 'The Group’s well-established sustainability integration \nprocesses and its sustainability management framework works \nalongside other key functions and management systems such \nas human resources, health and safety and product \nresponsibility processes, as well as risk management, internal \naudit, legal and statutory compliance and corporate social \nresponsibility initiatives. The Sustainability Management \nFramework is updated on a continuous basis to incorporate \nchanging requirements and updates to the global sustainability \nlandscape.\nEnvironmental issues such as, climate change, resource \nscarcity and environmental pollution, social issues such as, the \nGroup’s labour practices, talent management, product safety \nand data security, and Governance aspects such as, Board \ndiversity, executive pay and business ethics are given \nsignificant emphasis within the Group and are periodically \nreviewed at a GEC and Board level.\nGroup’s effort towards ESG initiatives during the year', chunk_type: 'sustainability_initiatives', index: 4}, {id: 'capital_alliance_plc_market_position_0', content: 'solidify our status as contemporary \nproperty in the area, ensuring that we \nstay competitive within our market \nsegment. With our strategies aligned \nwith the positive market trends, we \nexpect to experience continued growth \nand improve our position in the market \nin the years to come.\nIntroductory statements Business Review Governance & Risk Financial Information Other Information', chunk_type: 'market_position', index: 0}, {id: 'capital_alliance_plc_market_position_1', content: 'are, however, acutely aware of the increasing influence of shifting consumer preferences, escalating competitive pressures, and \nevolving regulatory requirements on the long-term market dynamics. Consequently, we are adopting a forward-looking approach \nto our business, concentrating on adapting to the ever-changing environment. Our primary objective at Group level is to cultivate \na consumer-centric, dynamic, and sustainable business model that consistently generates value for all stakeholders. This strategic \nfocus will guide our trajectory as we progress into the future.\nNOTES TO THE FINANCIAL STATEMENTS', chunk_type: 'market_position', index: 1}, {id: 'capital_alliance_plc_market_position_2', content: 'received by the Company by the issue of Shares in the Company. The total\nnumber of Shares issued in the Company are 456,000,000 Ordinary Voting\nShares.\nParent Company\nThe Company’s Immediate parent entity is ACL Cables PLC. \nPrincipal Activities & Nature of\nOperations \nThe company is engaged is manufacturing and exporting of cables and\nrelated products. There were no significant changes in the nature of the\nprincipal activities of the company during the financial year under review.\nThe principal activity of the subsidiary is manufacturing cable assemblies in\nIndia. \nOUR COMPANY\nO U R  C O M P A N Y', chunk_type: 'market_position', index: 2}, {id: 'capital_alliance_plc_market_position_3', content: 'opportunities, including ESG factors, for the \nfuture of the business. Details of the risks \nassessed are set out in the Management \nDiscussion & analysis on pages 5 to 22, together \nwith consideration of the sustainability of the \nGroup’s business model.\nAt each Board meeting, the Group CEO presents \na comprehensive update on performance, \nchallenges, the competitive market and possible \nbusiness opportunities. Quarterly reports to the \nBoard give an overview on the external market, \nhow components of the business perform. This \nensures the Board has oversight across the \nbusiness, allowing its governance processes \nto contribute strongly to the delivery of our \nstrategy.', chunk_type: 'market_position', index: 3}, {id: 'capital_alliance_plc_market_position_4', content: 'assessment of the Company’s position, \nperformance, business model and strategy. \nThis extends to interim and other price-\nsensitive public reports, reports to regulators, \nand information required to be presented \nby statutory regulations. In relation to \nthis, reference is made to the Statement \nof Directors’ Responsibility for preparing \nthe Financial Statements set out on page \n61 of this Annual Report and Accounts. \nA description of the Company’s business', chunk_type: 'market_position', index: 4}, {id: 'capital_alliance_plc_regulatory_compliance_0', content: 'while specific governance structures are in \nplace to provide the necessary oversight to \nensure that CALT remains fully compliant \nwith all laws and regulations at all times. The \nCompliance Report on pages 81 - 99 contains \ncomprehensive details regarding the CALT’s \ncompliance status.', chunk_type: 'regulatory_compliance', index: 0}, {id: 'capital_alliance_plc_regulatory_compliance_1', content: 'requirements, internal compliance and ethical standards; (vi) highlight serious or persistent compliance issues \nand where appropriate, work with the management to ensure that they are rectified within an acceptable time \n; and (vii) maintain regular contact and good working relationship with regulators based upon clear and timely \ncommunication and a mutual understanding of the regulators’ objectives with highest intergrity. \nComplied\nComplied\nNot applicable\nComplied\nCorporate Governance', chunk_type: 'regulatory_compliance', index: 1}, {id: 'capital_alliance_plc_regulatory_compliance_2', content: 'requirements, regulations, laws and internal controls and measures \ntaken to rectify any non-compliances.\n ■ A statement of the regulatory and supervisory concerns on lapses in the \nFC’s risk management, or non-compliance with the Act, and rules and \ndirections\nComplied\nx) Corporate Governance Report\n ■ Shall disclose the manner and extent to which the company has \ncomplied with Corporate Governance Direction and the external auditor’s \nassurance statement of the compliance with the Corporate Governance \nDirection.\nComplied\nN/A\nComplied\nCORPORATE GOVERNANCE', chunk_type: 'regulatory_compliance', index: 2}, {id: 'capital_alliance_plc_regulatory_compliance_3', content: 'Laws, regulations, directions, rules, regulatory guidelines and approved policies on the business operations.\nii. Check that For FCs with asset base of more than Rs.20 bn, a dedicated compliance officer considered to the \nsenior management with sufficient seniority, who is independent form day-to-day management shall carry out \nthe compliance function and report to the BIRMC directly. The compliance officer shall not have management \nor financial responsibility related to any operational business lines or income-generating functions, and there \nshall not be ‘dual hatting’,i.e. the chief operating officer, chief financial officer, chief internal auditor, chief risk \nofficer or any other senior management shall not serve as the compliance officer.\niii. Check that for FCs with assets base of less than Rs.20bn, an officer with adequate seniority considered to be \nsenior management shall be appointed as compliance officer avoiding any conflict of interest.', chunk_type: 'regulatory_compliance', index: 3}, {id: 'capital_alliance_plc_regulatory_compliance_4', content: 'the finance company’s compliance with laws, regulations, directions, \nrules, regulatory guidelines, internal controls and approved policies \non all areas of business operations. A dedicated compliance officer \nselected from key management personnel shall carry out the \ncompliance function and report to the committee periodically.\n11. Internal \nControls\n11.1) FCs shall adopt well-established internal control systems, which \ninclude the organizational structure, segregation of duties, clear \nmanagement reporting lines and adequate operating procedures in \norder to mitigate operational risks.\nComplied\nCORPORATE GOVERNANCE', chunk_type: 'regulatory_compliance', index: 4}, {id: 'capital_alliance_plc_operational_highlights_0', content: 'Operational Highlights\nThroughout the year, we focused on enhancing the guest \nexperience and streamlining our operations. We invested in staff \ntraining programs to ensure high-quality service delivery and the \nfacilities at the property. Our efforts resulted in improved guest \nsatisfaction scores and increased operational productivity.\nMarket Trends and Outlook\nLooking ahead, we remain cautiously optimistic about the future \ndespite ongoing market volatility. We recognize the importance of \nstaying agile and adaptable in response to changing consumer \ndemands and market conditions. By closely monitoring industry \ntrends and consumer preferences, we aim to position ourselves \nfor continued success and sustainable growth.\nRisks and Challenges\nWhile we are confident in our ability to navigate challenges, we \nacknowledge the various risks that may impact our business. \nThese include fluctuations in demand, regulatory changes, \nand competitive pressures. To mitigate these risks, we have', chunk_type: 'operational_highlights', index: 0}, {id: 'capital_alliance_plc_operational_highlights_1', content: 'nurture our employees. To this end, we have dedicated substantial investments to \nenhancing the well-being and growth of our employees, placing a strong focus on \ndeveloping our human capital. In recent years, our businesses have spearheaded \nnumerous impactful environmental and social projects. These endeavours will be \ncomprehensively detailed in the latter part of our review.\nOur governance framework ensures that our business operations adhere to the \nhighest standards of risk management, compliance and ethical practices. In line \nwith this approach, we have integrated comprehensive risk assessments, reporting \nstandards, robust compliance frameworks and transparent stakeholder engagement \nacross our business operations, as part of our good governance practices.\nThrough focused efforts, our group has achieved significant milestones in its \nsustainability journey over the recent years. A notable example is our Oil Palm', chunk_type: 'operational_highlights', index: 1}, {id: 'capital_alliance_plc_operational_highlights_2', content: 'changes, as an agile and swift finance \ninstitution providing value added services \nto the customer base. \nOPERATIONAL EFFICIENCY \nData-driven decisions remained a \npivoting point as the country’s economy \nregained stability and coherence. BI \nanalytics helped in many ways in this \narea of our operations, by systematically \ncollecting, processing, and analysing \ndata from various sources to offer \ninsights and guide decision making. \nSimilarly, BI helps in monitoring business \noperations and customer behaviour \neffectively bas analysed data generates \naccurate operational scenarios. Growth \nopportunities, cost saving measures and \nareas for improvements are also triggered \nthrough BI analysed data, and allowing \nour employees to engage in value-adding \nwork for the Company, without spending \ntime on manual data analysis. \nPaperless Operations\nWe continued our paperless \ncommunication system for customer \ninteractions, utilising SMS and OTP based \nmessages for customer interactions.', chunk_type: 'operational_highlights', index: 2}, {id: 'capital_alliance_plc_operational_highlights_3', content: 'Implemented further internal process automation through Robotic \nProcess Automation tools to boost productivity.\nStrengthen knowledge systems as a key business enabler\nKey Initiatives for FY 2023/24 Key Outputs for FY 2023/24\nThe social media presence of the CALT underwent a revitalization, \nfeaturing a greater emphasis on research-based content to enhance \ncustomer engagement.\nCAL Research was recognised as the ‘Best Research Team’ at the CFA \nCapital Market Awards for the Third time in a row.\nIntroduce AnalytiCAL, the research solution to CALT customers.Initiated the foundational steps for establishing a centralized research \ndatabase to create a unified research portal. This portal is intended to \nstreamline the sharing of research data across all Group businesses for \nimproved functional collaboration.\nSubstantial investments were allocated to training and development \nprograms aimed at enhancing the macro forecasting expertise of the', chunk_type: 'operational_highlights', index: 3}, {id: 'capital_alliance_plc_operational_highlights_4', content: 'period. \nIn cost performance, the Oil Palm \nPlantations realised significant \ncost savings by strategically timing \nthe purchase of required fertiliser \ncontracts, a testament to our steadfast \ncommitment to driving efficiencies. \nOne of our critical achievements during \nthe year was the successful launch of \nthe 1.7-megawatt biogas project in April \n2023. This initiative has significantly \ncontributed to our goal of sustainable \nenergy production. As a result, we have \nbeen able to reduce the operating costs \nof processing palm kernel at our main \nCrude Palm Kernel Oil (CPKO) plant in \nCentral Kalimantan. This has  improved \nour efficiency in processing both \ninternal and external palm kernels and \nhas also led to an increase in overall \nprofitability, whilst enabling lower \nenergy costs.\nKEY HIGHLIGHTS \nThe Federal Reserve’s policy rate \nhikes in the past period led to higher \nmarket interest costs across different \nregions. In light of this, a significant', chunk_type: 'operational_highlights', index: 4}, {id: 'capital_alliance_plc_dividend_policy_0', content: 'Performance Ratios      \n  Return on Investment (%) 25.75   11.31 \n  Return on Share Capital (%)  40.57   15.04 \nLeverage Ratios      \n  Debt/Equity Ratio (%) 0.12   0.43 \n  Interest Coverage (Times)  7.06   2.07 \nInvestor Ratios\n  Price Earnings Ratio (Times)  4.59   34.29 \n \nAppropriation and dividend\nThe directors have recommended a dividend payment of Rs. 1 per share for the year ended 31st December 2024 (2023:  Nil).\nCapital Expenditure\nThe Company incurred a capital expenditure of Rs. 112 Mn (2023: Rs 159 Mn) of which Rs. 55  Mn (2023: Rs. 100 Mn) has \nbeen invested on field development and Rs. 57 Mn (2023: Rs. 59 Mn) has been invested on upgrading factories, machinery, \nmotor vehicles, and other capital assets.\nReport of the Board of Directors on the Affairs of the Company (Continued)', chunk_type: 'dividend_policy', index: 0}, {id: 'capital_alliance_plc_dividend_policy_1', content: 'Personnel in line with the business goals of the \nCompany. \nThe Group’s Remuneration policy is designed \nto attract and retain talent which comprises \nof fixed income and a variable income which \nis linked to their performance. Non-Executive \nDirectors’ remuneration comprises only a \nfixed fee and does not have any variable \ncomponent. No Director is able to determine \nhis/her own remuneration as Directors’ \nRemuneration is a matter reserved for the Board \nas a whole with due consideration given to \nthe recommendations of the Remuneration \nCommittee of the Board. \nThe Report of Board Remuneration Committee \nis on page 54 provides further information. The \naggregate remuneration paid to the Directors \nis disclosed in the Notes to the Financial \nStatements on page 83 of this Report.\nSHAREHOLDER RELATIONS \nShareholder relations are managed through \na structured process with multiple platforms \nfacilitating shareholder engagement and \ntimely dissemination of information. The', chunk_type: 'dividend_policy', index: 1}, {id: 'capital_alliance_plc_dividend_policy_2', content: 'Annual Report 2023/24 |  193\nOverview Operating Context \nand Strategy\nFinancial  \nInformation\nLeadership Corporate \nGovernance and Risk \nManagement\nManagement \nDiscussion and \nAnalysis\nSupplementary \nInformation\n2024 2024 2023 2022 2021 2020\nAs at 31st March Plan no 11 \naward 2.1\nPlan no 11 \naward 2\nPlan no 10 \naward 1\nPlan no 10 \naward 3\nPlan no 10 \naward 2\nPlan no 10 \naward 1\nDividend yield (%) 2.07 2.54  2.90  3.28  3.87  3.62 \nExpected volatility (%) 25.05 24.99  24.15  22.37  21.35  17.47 \nRisk free interest rate (%) 14.49 26.92  23.10  8.87  6.44  9.83 \nExpected life of share options (Y ears) 5 5  5  5  5  5 \nW eighted average share price at the grant \ndate (LKR)\n158.36 137.83  119.85  132.63  134.74  138.70 \nW eighted average remaining contractual \nlife for the share options outstanding \n(Y ears)\n3  3  3  3  3  3 \nW eighted average fair value of options \ngranted during the year (LKR) \n52.79 45.94  39.95  44.21  44.91  46.23 \nExercise price for options outstanding at', chunk_type: 'dividend_policy', index: 2}, {id: 'capital_alliance_plc_dividend_policy_3', content: 'regulatory requirements.\nDividends\nThe Company distributed dividends totaling \nLKR 2,978 Mn for the year 2023/24.\nMaterial Accounting Policies\nThe accounting policies adopted in the \npreparation of the financial statements are \ngiven on Pages 125 to 164. There were no \nchanges in the accounting policies adopted by \nthe Company during the year under review.\nGoing Concern\nThe Board of Directors has reviewed the \nCompany’s business plans and is satisfied \nthat the Company has adequate resources \nto continue its operations in the foreseeable \nfuture. Accordingly, the financial statements \nare prepared on a going concern basis.\nCapital Expenditure\nDetails of equipment and their movements \nduring the year are given in Note 20 to the \nfinancial statements.\nReserves\nThe movements in reserves during the \nfinancial year 2023/24 have been presented in \nthe statement of Changes in Equity on Page \n123 of the Annual Report.\nIncome tax Expenses\nIncome tax expenses have been computed', chunk_type: 'dividend_policy', index: 3}, {id: 'capital_alliance_plc_dividend_policy_4', content: 'Dividend per share 11  -  -  -  - \nFigures in brackets indicate deductions.\nThe accounting policies and notes as set out in pages 168 to 212 form an integral part of these Financial Statements.\nSTATEMENT OF PROFIT OR LOSS', chunk_type: 'dividend_policy', index: 4}, {id: 'capital_alliance_plc_capital_structure_0', content: 'capital structure and makes adjustments to it in light of changes in economic conditions. To maintain or adjust the \ncapital structure, the Company may adjust the dividend payment to shareholders, return capital to shareholders \nor issue new shares.\nNo changes were made in the objectives, policies or processes for managing capital during the years ended 31 \nMarch 2024.\nThe Company’s capital structure comprise of Stated Capital and Borrowings which are disclosed in Note 11 \nrespectively.\nThe Company does not hold collateral as security. The Company evaluates the concentration of risk with respect to \ntrade receivables as low based on the terms with which the long standing business relationship with the customer base. \n \nTrade Receivable Credit risk exposure disclosed in Note 8.1\n Liquidity risk\nThe Company monitors its risk to a shortage of funds using a recurring liquidity planning tool. The Company’s', chunk_type: 'capital_structure', index: 0}, {id: 'capital_alliance_plc_capital_structure_1', content: 'Efficiency ratios 2024 2023\nCurrent Ratio  0.45 0.41\n Quick Asset Ratios 0.38 0.31\nBalance Sheet funding\nBalance sheet funding 2024 2023 YoY change\nTotal equity 33,549 32,238 4%\nTotal liabilities 14,832 13,674 8%\nTotal non-current liabilities 10,029 9,584 5%\nTotal current liabilities 4,803 4,090 17%\nBalance sheet funding composition\n21%\n10%\n69%\nTotal equity\nTotal non current liabilities\nTotal current liabilities\nThe Group continues to be well capitalised with \n69% of the funding coming from equity capital. \nTotal equity reached Rs. 33,549 Mn by the end of \nthe year, with a 4% YoY growth. Total liabilities\nincreased by 8%, to Rs. 14,832 Mn.\nManagement \nDiscussion and \nAnalysis', chunk_type: 'capital_structure', index: 1}, {id: 'capital_alliance_plc_capital_structure_2', content: 'environment and changes to base rates such as A WPLR and LIBOR. The Company has a fixed rate of interest as of the reporting \ndate. \n32.4 Capital management\nThe primary objective of the Group’s capital management is to ensure that it maintains a strong financial position and healthy \ncapital ratios in order to support its business and maximise shareholder value.\nThe Group manages its capital structure, and makes adjustments to it, in the light of changes in economic conditions. To maintain \nor adjust the capital structure, the Group may issue new shares, have a rights issue or buy back of shares.\nGROUP COMP ANY\nAs at 31st March 2024 2023 2024 2023\nIn Rs.’000s\nTotal liabilities  14,832,175  13,673,759 11,718,702  10,970,223 \nLess: cash in hand and at bank  174,028  190,642 127,765  120,553 \nAdjusted net debt  14,658,148  13,483,117 11,590,937 10,849,670 \nTotal equity  33,549,128  32,237,888 27,846,848  26,955,777 \nAdjusted net debt to adjusted equity ratio 43.70% 41.84% 41.82% 40.25%', chunk_type: 'capital_structure', index: 2}, {id: 'capital_alliance_plc_capital_structure_3', content: 'Total  17,113,216,749  411,294,039  3,653,300,685  21,177,808,473  13,614,135,161  360,794,173  1,747,169,460  15,722,098,794 \n Capital Management\n The primary objective of the Group’s capital management is to ensure  that it maintains a strong credit rating and healthy capital ratios in order. \nNo changes were made in the objectives, policies or processes for  managing capital during the year ended 31st March 2024. The Group monitors \ncapital using a gearing ratio for the company to support its business and maximise shareholder value.\n The Group manages its capital structure and makes adjustments to  it in light of changes in economic conditions. To maintain or adjust  the capital \nstructure, the Group may adjust the dividend payment to  shareholders, return capital to shareholders or issue new shares. and subsidiaries, net \ndebt divided by total capital plus net debt, which is monitored closely by senior management. Net debt of the Group  includes, interest bearing', chunk_type: 'capital_structure', index: 3}, {id: 'capital_alliance_plc_capital_structure_4', content: '6.11 Directors Interest in Assets ......................................................................................................... 57 \n6.12 Corporate Governance Practices ................................................................................................ 57 \n6.13 Director’s Interest in Contracts or Arrangements ...................................................................... 57 \n7.0 CAPITAL STRUCTURE ......................................................................................................................... 58 \n7.1 An Overview of the Capital Structure ........................................................................................... 58 \n7.2 The Movement in the Share Capital Structure ............................................................................. 58 \n7.3 Distribution and Composition of the Capital Structure as at 30 June 2012 ................................. 59', chunk_type: 'capital_structure', index: 4}, {id: 'capital_alliance_plc_technology_digital_0', content: 'governance (management) and assurance structures.\nThe Group engaged a leading international consultancy firm to \nconduct a comprehensive assessment of its cybersecurity \nresilience, leveraging industry-leading methodologies such as \nthe Microsoft Cybersecurity Reference Architecture (MCRA) \nand Microsoft Cloud Security Benchmarks (MCSB) to fortify \nits technological backbone for future growth and resilience. By \naligning with the best practice and recommended \ntechnological principles, the Group aims to enhance \nperformance, scalability, and reliability across its cloud \necosystem, positioning itself as a mobile-first, data-first, \ncloud-first, and AI-first organisation. Whilst proactively \nmitigating risk, this initiative was carried out to boost the \nefficiency, security and reliability of the Group’s cloud \necosystem, underscoring the Group’s commitment to \ndelivering value to its stakeholders by maintaining robust and \nsecure cloud infrastructure.', chunk_type: 'technology_digital', index: 0}, {id: 'capital_alliance_plc_technology_digital_1', content: 'platforms to meet requirements of day-to-day business, \naugured well for the Group, particularly given restrictions in \nmovement and social distancing measures in light of the \nCOVID-19 pandemic. The Group witnessed an acceleration of \ndigitisation and better user adoption. Despite this, adoption of \nsuch systems and features remain at a relatively early stage \nacross the Group and is a key focus area for the Group. Given \nthe emergence of regulations such as European Union General \nData Protection Regulation (GDPR) and the Data protection \nact of No. 09 of 2022 of Sri Lanka, data security, integrity and \ninformation management will be pivotal. In addition to this, \nthe Group’s initiatives on advanced data analytics also \nnecessitate an established governance framework to manage \nthe flow of data. \nTo this end, the Group will continue to strengthen its data \ngovernance structure to ensure ownership and accountability \nof clearly articulated data governance policies and processes', chunk_type: 'technology_digital', index: 1}, {id: 'capital_alliance_plc_technology_digital_2', content: 'Annual Report 2023/24 |  119\nOverview Operating Context \nand Strategy\nFinancial  \nInformation\nLeadership Management \nDiscussion and \nAnalysis\nSupplementary \nInformation\nThe digital system for quarterly financial and operational \ninformation management implemented, continues to perform \nas per expectations facilitating data capturing for compliance \nreporting, providing a sustainable and structured mechanism \nto enable top-down and bottom-up stakeholder engagement, \nand tracking the progression of how the compliance posture at \nan entity level has evolved, among others. The Forensic Data \nAnalytics platform feeds into ‘Internal Audit Scoping’ and \ncontinues to be used to identify areas for process optimisation, \nstrengthening controls and in feedback reporting to reinforce \ngovernance (management) and assurance structures.\nThe Group engaged a leading international consultancy firm to \nconduct a comprehensive assessment of its cybersecurity', chunk_type: 'technology_digital', index: 2}, {id: 'capital_alliance_plc_technology_digital_3', content: '47\nMANAGEMENT DISCUSSION AND ANALYSIS\nTRANSFORMATIVE TECHNOLOGY AND DIGITISATION \nWe invested Rs 94.4 Mn in upgrading our technologies and the digital platforms, \nproviding our customer easy reach to the Company. Investment in these areas was \nuseful in supporting our customers speedily on a twenty four our basis. The value of \nthese platforms to our customers is seen in the exponential increase of utilisation, \ngenerating business leads and facilitating new business. \nLuckewallet Mobile App enhancements\nEnhancements are on their way to provide an upgraded user experience with cross-\nfunctional capabilities, making it a stable, secure, and user-friendly payment gateway. \nThe features include: \n Attractive \nUI interface \nand \nLankaQR \nintegration\nSimplified \nuser \nonboarding \nand \nenhanced \nbill payment \noptions \nAcces to the \nGold Loan \nproduct  \nand  \npledge loan \ngranting \nPersonal QR \nfor internal \nQR based \ntransfer and \npayments \nPromotional \nand \nAdvertising \nspace to \nattract', chunk_type: 'technology_digital', index: 3}, {id: 'capital_alliance_plc_technology_digital_4', content: 'One of our primary objectives is to increase the use of digital technology throughout the employment lifecycle. By adopting advanced HR \nsoftware and tools, we aim to streamline recruitment, onboarding, performance management, and employee engagement processes. This digital \ntransformation will not only enhance efficiency but also provide data-driven insights to inform strategic HR decisions.\nDeveloping a strong talent pipeline through efficient succession planning is another key focus. We are committed to identifying and nurturing \nhigh-potential employees, ensuring they are prepared to step into leadership roles as the company grows. Our comprehensive talent development \nprograms will include targeted training, mentorship, and career development opportunities to build a resilient and capable leadership team.\nEnhancing our performance culture and overall employee well-being is central to our strategy. We will continue to invest in initiatives that promote', chunk_type: 'technology_digital', index: 4}, {id: 'capital_alliance_plc_human_resources_0', content: '52  | ASIAN HOTELS AND PROPERTIES PLC\nRobust HR Policy guidelines\nThe Company’s HR practices are guided by a set of clearly articulated policies which enable consistent, transparent and \nunbiased treatment to all employees alike. The policies cover diverse aspects that affect an employee’s well-being.\n Policy on ombudsperson \n Policy on support network \n Recruitment and selection policy \n Performance management policy \n Reward and recognition policy \n Leave policy \n Flexi-hours policy \n Teleworking policy\n Compensation and benefits policy \n Code of conduct \n Policy against sexual harassment \n Diversity, Equity and Inclusion related policies \n Gender policy \n HIV AIDs workplace policy \n Policy on equal opportunity and non-discrimination \n Anti-fraud policy \n Grievance handling policy \n Disciplinary procedure \n Whistle blowing policy\n Part Time work policy\n Data Protection Policy\nTeam profile\nEmployees by contract and \ngender Male Female\nPermanent 451 44\nContract 268 54\nTot a l 719 98', chunk_type: 'human_resources', index: 0}, {id: 'capital_alliance_plc_human_resources_1', content: 'of Employment and Remuneration) Act, we benchmark best practices from the ILO convention \nand the United Nations Global Compact for Human Rights. We ensure equal opportunity for all, \nprohibiting discrimination based on age, marital status, religion, or any other legally protected \nstatus.\nOur Policy on Sexual Harassment, \nDiscrimination, Bullying, and Harassment \nunderscores our zero tolerance for such \nbehaviors. All claims are thoroughly \ninvestigated with confidentiality, ensuring \nno retaliation for speaking up. We conduct \nan annual diversity and inclusion refresher \nworkshop to reinforce these principles.\nHR POLICY FRAMEWORK\nA comprehensive structure of HR policies \nsafeguards employee interests, including:\n• Sexual Harassment, Discrimination, \nBullying, and Harassment Policy\n• Grievance Handling Policy\n• Holiday Leave and Sabbatical Policy\n• Paternity Leave Policy\n• Performance Management Policy\n• Membership Subscription Policy\nTALENT MANAGEMENT', chunk_type: 'human_resources', index: 1}, {id: 'capital_alliance_plc_human_resources_2', content: 'proposition which aligns both personal and organisational \ngoals in order to keep them motivated. \nHuman Capital \nHuman \nCapital\nMANAGING OUR HUMAN CAPITAL\nAligned with the Aitken Spence Group, our HR strategy, policies and procedures facilitate a conducive and inclusive work environment \nwhich promotes equal opportunity for all our employees. The policies and procedures comply with the relevant Sri Lankan labour laws \nand regulatory standards and are benchmarked to industry best practices. \nSalaries and Beneﬁts\n(Rs. Mn)\n2019/20\n2020/21\n2021/22\n2022/23\n2023/240\n50\n100\n150\n200\n250\nRECRUITMENT POLICY\nGives preference to candidates \nresiding within close proximity \nto our properties.\nGROUP CODE OF ETHICS\nProvides a blueprint for professional and ethical conduct expected from our \nemployees when engaging with external and internal stakeholders. \n• Principles of Conduct\n• Conflict of Interest\n• Healthy Work Environment\n• Entertainment & Corporate Gifts\n• Self-Dealing & Fair-Dealing', chunk_type: 'human_resources', index: 2}, {id: 'capital_alliance_plc_human_resources_3', content: 'Whistle blowing policy\n Part Time work policy\n Data Protection Policy\nTeam profile\nEmployees by contract and \ngender Male Female\nPermanent 451 44\nContract 268 54\nTot a l 719 98\nEmployees by Age & Gender Male Female\n18-30 years 172 52\n31-55 years 526 46\n55 years above 21 0\nTot a l 719 98\nEmployees by Staff Category & Gender Male Female\nNumber % Number %\nSenior Management & above 29 4% 8 8%\nExecutive 101 14% 15 15%\nNon-executive 589 82% 75 77%\nTot a l 719 100% 98 100%\nHuman Capital', chunk_type: 'human_resources', index: 3}, {id: 'capital_alliance_plc_human_resources_4', content: 'Annual Report 2023/24 | 17\nAsiri Group - Main HR \nPolicies\nCode of  Ethics and Business \nconduct\nPolicy for Employment on Locum \nBasis\nPolicy for Medical Surveillance Policy for Workplace \nViolence                                                                             \nManpower Planning Policy Policy for Transfers Welfare Policy Policy for Second Victims               \nRecruitment and Selection \nPolicy\nPolicy for Management Trainees                                                                        Policy for Granting hostel facilities Policy on Sexual \nHarassment    \nPolicy for Post Recruitment Policy for Interns and Observers Policy for Granting day-care \nfacilities\nPolicy on Forced Labour                \nPolicy for Internal Job Posting Policy for Overtime and Rostering Uniform Policy Policy on Fatigue \nManagement     \nPolicy for Performance \nManagement\nPolicy for Leave Management Policy on Employee of  the month \nrecognition scheme', chunk_type: 'human_resources', index: 4}, {id: 'capital_alliance_plc_audit_internal_controls_0', content: 'audit procedures, including the procedures performed to address the matters below, provide the basis for our audit opinion \non the accompanying financial statements.\n(Contd…2)', chunk_type: 'audit_internal_controls', index: 0}, {id: 'capital_alliance_plc_audit_internal_controls_1', content: 'The Committee reviews and approves if \nany changes to the Audit Plan and receives \nregular updates on the outcome of the work \nperformed.\nManagement culture is considered through \nevaluation of the control environment as \npart of every audit undertaken. Several \nother assurance activities are conducted \nincluding continuous controls reviews, \npost-implementation audits, and other \nmanagement-requested assurance. The \nresults of these reviews are also presented \nand reviewed by the Committee. The \nCommittee approved the Audit Plan for the \nFY 2023/2024. The Committee satisfied itself \nwith the effectiveness of Internal Audit by \nconsidering the results of the assessments, as \nwell as through ongoing review and oversight \nof the assurance activities.\nINTERNAL CONTROLS \nManagement is responsible for identifying \nand managing risks, and for maintaining \na sound system of internal control. The \ninternal control framework is intended to \neffectively manage rather than eliminate', chunk_type: 'audit_internal_controls', index: 1}, {id: 'capital_alliance_plc_audit_internal_controls_2', content: 'accounting policies and estimates that involved a high degree of judgment and complexity were \ndiscussed with the Audit Committee and the external auditors.\nWe have also taken proper and sufficient care in installing systems of internal control and \naccounting records to safeguard assets and to prevent and detect fraud as well as other \nirregularities. These have been reviewed, evaluated and updated on an ongoing basis.\nReasonable assurances that the established policies and procedures of the Company have \nbeen consistently followed were provided by periodic audits conducted by the internal auditors. \nHowever, there are inherent limitations that should be recognised in weighing the assurances \nprovided by any system of internal controls and accounting.\nThe Financial Statements were audited by the independent external auditors, Messrs KPMG, the \nChartered Accountants.\nThe Audit Committee of the Company meets periodically with the internal auditors and the', chunk_type: 'audit_internal_controls', index: 2}, {id: 'capital_alliance_plc_audit_internal_controls_3', content: 'ASIA ASSET FINANCE PLC        Annual Report  2023 | 2024\n156\nmanagement’s responses to the issues \nraised and recommendations to overcome \nthe issues and the implementation plans.\nThe processes and the frequency of \naudits are dependent on the risk level, \nwith higher risk areas being audited \nmore frequently with greater focus. \nThe Committee also ensured that the \ninternal audit function is independent \nof the activities it audits and that the \nfunctions are performed with impartiality, \nproficiency, and due professional care\n \nINTERNAL CONTROLS\nThe audit committee through the internal \naudit function that reports directly to \nthe board audit committee, assessed \nthe effectiveness of the internal controls \nand procedures for controlling business \nrisk including the controls relating to \nthe use of information technology and \nis of the view that adequate controls \nand procedures are in place to provide \nreasonable assurance to the board \nthat the assets of the Company are', chunk_type: 'audit_internal_controls', index: 3}, {id: 'capital_alliance_plc_audit_internal_controls_4', content: 'below to be the key audit matters to be communicated in our report. \nThese matters were addressed in the context of  our audit of  the \nfinancial statements as a whole, and in forming our opinion thereon, \nand we do not provide a separate opinion on these matters. For each \nmatter below , our description of  how our audit addressed the matter is \nprovided in that context.\nWe have fulfilled the responsibilities described in the Auditor’s \nresponsibilities for the audit of  the financial statements section of  \nour report, including in relation to these matters. Accordingly , our \naudit included the performance of  procedures designed to respond to \nour assessment of  the risks of  material misstatement of  the financial \nstatements. The results of  our audit procedures, including the \nprocedures performed to address the matters below , provide the basis \nfor our audit opinion on the accompanying financial statements.\nKey audit matter How our audit addressed the key audit matter', chunk_type: 'audit_internal_controls', index: 4}] AS chunk MERGE (ch:Chunk {id: chunk.id}) ON CREATE SET ch.content = chunk.content, ch.chunk_type = chunk.chunk_type, ch.index = chunk.index;
+
+// Query 113
+MATCH (c:Company {name: 'Capital Alliance PLC'}) WITH c UNWIND ['capital_alliance_plc_directors_and_executives_0', 'capital_alliance_plc_directors_and_executives_1', 'capital_alliance_plc_directors_and_executives_2', 'capital_alliance_plc_directors_and_executives_3', 'capital_alliance_plc_directors_and_executives_4', 'capital_alliance_plc_financial_performance_0', 'capital_alliance_plc_financial_performance_1', 'capital_alliance_plc_financial_performance_2', 'capital_alliance_plc_financial_performance_3', 'capital_alliance_plc_financial_performance_4', 'capital_alliance_plc_risk_factors_0', 'capital_alliance_plc_risk_factors_1', 'capital_alliance_plc_risk_factors_2', 'capital_alliance_plc_risk_factors_3', 'capital_alliance_plc_risk_factors_4', 'capital_alliance_plc_business_segments_0', 'capital_alliance_plc_business_segments_1', 'capital_alliance_plc_business_segments_2', 'capital_alliance_plc_business_segments_3', 'capital_alliance_plc_business_segments_4', 'capital_alliance_plc_future_outlook_0', 'capital_alliance_plc_future_outlook_1', 'capital_alliance_plc_future_outlook_2', 'capital_alliance_plc_future_outlook_3', 'capital_alliance_plc_future_outlook_4', 'capital_alliance_plc_governance_structure_0', 'capital_alliance_plc_governance_structure_1', 'capital_alliance_plc_governance_structure_2', 'capital_alliance_plc_governance_structure_3', 'capital_alliance_plc_governance_structure_4', 'capital_alliance_plc_sustainability_initiatives_0', 'capital_alliance_plc_sustainability_initiatives_1', 'capital_alliance_plc_sustainability_initiatives_2', 'capital_alliance_plc_sustainability_initiatives_3', 'capital_alliance_plc_sustainability_initiatives_4', 'capital_alliance_plc_market_position_0', 'capital_alliance_plc_market_position_1', 'capital_alliance_plc_market_position_2', 'capital_alliance_plc_market_position_3', 'capital_alliance_plc_market_position_4', 'capital_alliance_plc_regulatory_compliance_0', 'capital_alliance_plc_regulatory_compliance_1', 'capital_alliance_plc_regulatory_compliance_2', 'capital_alliance_plc_regulatory_compliance_3', 'capital_alliance_plc_regulatory_compliance_4', 'capital_alliance_plc_operational_highlights_0', 'capital_alliance_plc_operational_highlights_1', 'capital_alliance_plc_operational_highlights_2', 'capital_alliance_plc_operational_highlights_3', 'capital_alliance_plc_operational_highlights_4', 'capital_alliance_plc_dividend_policy_0', 'capital_alliance_plc_dividend_policy_1', 'capital_alliance_plc_dividend_policy_2', 'capital_alliance_plc_dividend_policy_3', 'capital_alliance_plc_dividend_policy_4', 'capital_alliance_plc_capital_structure_0', 'capital_alliance_plc_capital_structure_1', 'capital_alliance_plc_capital_structure_2', 'capital_alliance_plc_capital_structure_3', 'capital_alliance_plc_capital_structure_4', 'capital_alliance_plc_technology_digital_0', 'capital_alliance_plc_technology_digital_1', 'capital_alliance_plc_technology_digital_2', 'capital_alliance_plc_technology_digital_3', 'capital_alliance_plc_technology_digital_4', 'capital_alliance_plc_human_resources_0', 'capital_alliance_plc_human_resources_1', 'capital_alliance_plc_human_resources_2', 'capital_alliance_plc_human_resources_3', 'capital_alliance_plc_human_resources_4', 'capital_alliance_plc_audit_internal_controls_0', 'capital_alliance_plc_audit_internal_controls_1', 'capital_alliance_plc_audit_internal_controls_2', 'capital_alliance_plc_audit_internal_controls_3', 'capital_alliance_plc_audit_internal_controls_4'] AS chunk_id MATCH (ch:Chunk {id: chunk_id}) MERGE (c)-[:HAS_CONTENT]->(ch);
+
+// Total queries: 113
+// Generated on: 2025-09-30T13:58:27.374788

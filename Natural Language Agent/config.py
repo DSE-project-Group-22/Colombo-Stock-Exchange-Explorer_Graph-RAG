@@ -38,11 +38,14 @@ class Settings(BaseSettings):
     
     # Agent Configuration
     agent_max_iterations: int = int(os.getenv("AGENT_MAX_ITERATIONS", "10"))
-    supervisor_max_iterations: int = int(os.getenv("SUPERVISOR_MAX_ITERATIONS", "20"))
+    supervisor_max_iterations: int = int(os.getenv("SUPERVISOR_MAX_ITERATIONS", "7"))  # Reduced: 2 entity resolution + 5 data queries
     agent_verbose: bool = os.getenv("AGENT_VERBOSE", "true").lower() == "true"
+    max_agent_iterations: int = int(os.getenv("MAX_AGENT_ITERATIONS", "10"))  # Max iterations for tool-calling loop
+    entity_resolution_max_attempts: int = int(os.getenv("ENTITY_RESOLUTION_MAX_ATTEMPTS", "2"))  # Max attempts to resolve an entity
     
     # GraphCypherQAChain Configuration
     cypher_qa_top_k: int = int(os.getenv("CYPHER_QA_TOP_K", "100"))  # Number of results to return from Cypher queries
+    cypher_verbose: bool = os.getenv("CYPHER_VERBOSE", os.getenv("AGENT_VERBOSE", "true")).lower() == "true"  # Log Cypher queries
     
     # Service Configuration
     host: str = os.getenv("HOST", "0.0.0.0")
@@ -50,6 +53,12 @@ class Settings(BaseSettings):
     
     # Environment
     environment: str = os.getenv("ENVIRONMENT", "development")
+    
+    # Langfuse Configuration
+    langfuse_public_key: Optional[str] = os.getenv("LANGFUSE_PUBLIC_KEY")
+    langfuse_secret_key: Optional[str] = os.getenv("LANGFUSE_SECRET_KEY")
+    langfuse_host: str = os.getenv("LANGFUSE_HOST", "https://cloud.langfuse.com")
+    langfuse_enabled: bool = os.getenv("LANGFUSE_ENABLED", "false").lower() == "true"
     
     @property
     def is_development(self) -> bool:

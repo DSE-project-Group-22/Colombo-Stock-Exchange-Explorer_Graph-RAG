@@ -7,7 +7,7 @@ from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 
 from app.config import settings
-from app.routers import auth, api
+from app.routers import auth, api, sse
 from app.database.connection import engine, Base
 from chat_handler import ChatHandler
 from response_subscriber import ResponseSubscriber
@@ -108,6 +108,7 @@ async def general_exception_handler(request: Request, exc: Exception):
 # Include routers
 app.include_router(auth.router)
 app.include_router(api.router)
+app.include_router(sse.router)
 
 
 # Add endpoint for response subscriber health
