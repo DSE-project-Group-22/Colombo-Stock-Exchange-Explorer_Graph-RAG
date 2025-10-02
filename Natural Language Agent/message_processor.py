@@ -140,7 +140,9 @@ class MessageProcessor:
                     response_text = await execute_simple_agent(
                         thread_id=thread_id,
                         user_message=user_message,
-                        redis_client=self.redis.get_client()  # Pass Redis client for history
+                        redis_client=self.redis.get_client(),  # Pass Redis client for history
+                        correlation_id=correlation_id,  # Pass for streaming steps
+                        user_id=user_id  # Pass for user-based channel publishing
                     )
                 
                 # Calculate processing time

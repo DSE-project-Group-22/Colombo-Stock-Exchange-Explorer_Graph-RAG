@@ -41,6 +41,12 @@ class SimpleAgentState(TypedDict):
     chat_history: str
     messages: List[BaseMessage]
     iteration: int
+    # Streaming context fields
+    correlation_id: Optional[str]
+    user_id: Optional[str]
+    thread_id: Optional[str]
+    redis_client: Optional[Any]
+    step_counter: int
 
 
 async def agent_node(state: SimpleAgentState) -> Dict[str, Any]:
@@ -51,8 +57,16 @@ async def agent_node(state: SimpleAgentState) -> Dict[str, Any]:
     3. Returns updated messages
     """
     from agent_tools import get_all_tools
+    from helpers.redis_helper import publish_intermediate_step
     
     llm = get_llm()
+    
+    # Get streaming context
+    correlation_id = state.get('correlation_id')
+    user_id = state.get('user_id')
+    thread_id = state.get('thread_id')
+    redis_client = state.get('redis_client')
+    step_counter = state.get('step_counter', 0)
     
     # Get all available tools (MCP + Neo4j)
     try:
@@ -84,6 +98,23 @@ async def agent_node(state: SimpleAgentState) -> Dict[str, Any]:
         messages = state['messages']
         logger.info(f"Iteration {state['iteration']}: Continuing with {len(messages)} messages")
     
+    # Publish thinking step if we have streaming context
+    if correlation_id and redis_client:
+        await publish_intermediate_step(
+            redis_client=redis_client,
+            correlation_id=correlation_id,
+            user_id=user_id,
+            thread_id=thread_id,
+            step_type="agent_thinking",
+            content={
+                "message": f"Processing query (iteration {state['iteration'] + 1})",
+                "iteration": state['iteration'] + 1
+            },
+            step_number=step_counter,
+            metadata={"agent_type": "simple_agent"}
+        )
+        step_counter += 1
+    
     # Get LLM response
     try:
         response = await llm_with_tools.ainvoke(messages)
@@ -96,27 +127,87 @@ async def agent_node(state: SimpleAgentState) -> Dict[str, Any]:
                 logger.info(f"  Tool: {tc.get('name', 'unknown')}")
         else:
             logger.info("LLM provided final answer without tool calls")
+            # Publish agent response step if no tools
+            if correlation_id and redis_client:
+                await publish_intermediate_step(
+                    redis_client=redis_client,
+                    correlation_id=correlation_id,
+                    user_id=user_id,
+                    thread_id=thread_id,
+                    step_type="agent_thinking",
+                    content={
+                        "message": response.content[:500] if response.content else "Agent formulating response...",
+                        "has_tool_calls": False
+                    },
+                    step_number=step_counter,
+                    metadata={"agent_type": "simple_agent", "iteration": state['iteration'] + 1}
+                )
+                step_counter += 1
             
     except Exception as e:
         logger.error(f"Error invoking LLM: {e}")
         error_msg = AIMessage(content=f"I encountered an error while processing: {str(e)}")
         messages.append(error_msg)
+        
+        # Publish error step
+        if correlation_id and redis_client:
+            await publish_intermediate_step(
+                redis_client=redis_client,
+                correlation_id=correlation_id,
+                user_id=user_id,
+                thread_id=thread_id,
+                step_type="error",
+                content={"error": str(e)},
+                step_number=step_counter,
+                metadata={"agent_type": "simple_agent"}
+            )
+            step_counter += 1
     
     return {
         "messages": messages,
-        "iteration": state['iteration'] + 1
+        "iteration": state['iteration'] + 1,
+        "step_counter": step_counter
     }
 
 
 async def tool_node(state: SimpleAgentState) -> Dict[str, Any]:
     """Execute tools if the last message has tool calls"""
     from agent_tools import get_all_tools
+    from helpers.redis_helper import publish_intermediate_step
     
     logger.info("Executing tool calls")
+    
+    # Get streaming context
+    correlation_id = state.get('correlation_id')
+    user_id = state.get('user_id')
+    thread_id = state.get('thread_id')
+    redis_client = state.get('redis_client')
+    step_counter = state.get('step_counter', 0)
     
     try:
         tools = await get_all_tools()
         tool_executor = ToolNode(tools)
+        
+        # Get tool calls from last message
+        last_message = state['messages'][-1]
+        if hasattr(last_message, 'tool_calls') and last_message.tool_calls:
+            # Publish tool call steps
+            for tool_call in last_message.tool_calls:
+                if correlation_id and redis_client:
+                    await publish_intermediate_step(
+                        redis_client=redis_client,
+                        correlation_id=correlation_id,
+                        user_id=user_id,
+                        thread_id=thread_id,
+                        step_type="tool_call",
+                        content={
+                            "tool_name": tool_call.get('name', 'unknown'),
+                            "tool_input": tool_call.get('args', {})
+                        },
+                        step_number=step_counter,
+                        metadata={"agent_type": "simple_agent"}
+                    )
+                    step_counter += 1
         
         # Execute tools and get results
         # Use ainvoke for async tools
@@ -126,21 +217,57 @@ async def tool_node(state: SimpleAgentState) -> Dict[str, Any]:
         tool_messages = result['messages']
         logger.info(f"Tool execution completed, got {len(tool_messages)} tool message(s)")
         
+        # Publish tool result steps
+        if correlation_id and redis_client and tool_messages:
+            for tool_msg in tool_messages:
+                # Tool messages contain the results
+                await publish_intermediate_step(
+                    redis_client=redis_client,
+                    correlation_id=correlation_id,
+                    user_id=user_id,
+                    thread_id=thread_id,
+                    step_type="tool_result",
+                    content={
+                        "message": str(tool_msg.content)[:1000] if hasattr(tool_msg, 'content') else "Tool completed",
+                        "tool_message_type": tool_msg.__class__.__name__
+                    },
+                    step_number=step_counter,
+                    metadata={"agent_type": "simple_agent"}
+                )
+                step_counter += 1
+        
         # Append tool messages to existing message history
         updated_messages = state['messages'] + tool_messages
         
         return {
             "messages": updated_messages,
-            "iteration": state['iteration']
+            "iteration": state['iteration'],
+            "step_counter": step_counter
         }
     except Exception as e:
         logger.error(f"Error executing tools: {e}")
+        
+        # Publish error step
+        if correlation_id and redis_client:
+            await publish_intermediate_step(
+                redis_client=redis_client,
+                correlation_id=correlation_id,
+                user_id=user_id,
+                thread_id=thread_id,
+                step_type="error",
+                content={"error": f"Tool execution failed: {str(e)}"},
+                step_number=step_counter,
+                metadata={"agent_type": "simple_agent"}
+            )
+            step_counter += 1
+        
         # Add error message to continue the conversation
         messages = state['messages'].copy()
         messages.append(AIMessage(content=f"Tool execution failed: {str(e)}. Let me try to answer based on what I know."))
         return {
             "messages": messages,
-            "iteration": state['iteration']
+            "iteration": state['iteration'],
+            "step_counter": step_counter
         }
 
 
@@ -215,7 +342,9 @@ def build_simple_graph(langfuse_handler=None):
 async def execute_simple_agent(
     thread_id: str, 
     user_message: str, 
-    redis_client: Optional[redis.Redis] = None
+    redis_client: Optional[redis.Redis] = None,
+    correlation_id: Optional[str] = None,
+    user_id: Optional[str] = None
 ) -> str:
     """
     Execute the agent with MCP tools and return the answer.
@@ -224,6 +353,8 @@ async def execute_simple_agent(
         thread_id: Conversation thread ID
         user_message: User's latest query
         redis_client: Redis connection for chat history
+        correlation_id: Request correlation ID for streaming
+        user_id: User ID for streaming
         
     Returns:
         Final answer string
@@ -263,11 +394,17 @@ async def execute_simple_agent(
             else:
                 chat_history = f"Human: {user_message}"
         
-        # Initial state
+        # Initial state with streaming context
         initial_state = {
             "chat_history": chat_history,
             "messages": [],
-            "iteration": 0
+            "iteration": 0,
+            # Streaming context
+            "correlation_id": correlation_id,
+            "user_id": user_id,
+            "thread_id": thread_id,
+            "redis_client": redis_client,
+            "step_counter": 0
         }
         
         logger.info(f"Starting simple agent for thread {thread_id}")
