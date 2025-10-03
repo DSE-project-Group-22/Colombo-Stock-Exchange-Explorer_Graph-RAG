@@ -1,0 +1,452 @@
+{
+  "company": {
+    "raw_name": "GALADARI Hotels (Lanka) PLC",
+    "normalized_name": "Galadari Hotels Lanka",
+    "ticker": null,
+    "founded_on": null,
+    "listed_on": null,
+    "industry": "Consumer Services"
+  },
+  "sectors": [
+    {
+      "normalized_name": "Consumer Services"
+    }
+  ],
+  "auditor": {
+    "normalized_name": "KPMG"
+  },
+  "directors": [
+    {
+      "raw_name": "Mr. M A I Galadari",
+      "normalized_name": "M. A. I. Galadari",
+      "raw_title": "Chairman Non-Executive",
+      "normalized_title": "Chairman",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-12-31",
+      "is_independent": false,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. S A I H Galadari",
+      "normalized_name": "S. A. I. H. Galadari",
+      "raw_title": "Non-Executive",
+      "normalized_title": "Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-12-31",
+      "is_independent": false,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. I A I Galadari",
+      "normalized_name": "I. A. I. Galadari",
+      "raw_title": "Non-Executive",
+      "normalized_title": "Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-12-31",
+      "is_independent": false,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. V Radhakrishnan",
+      "normalized_name": "V. Radhakrishnan",
+      "raw_title": "Non-Executive",
+      "normalized_title": "Non-Executive Director",
+      "appointed_date": "2024-09-30",
+      "resigned_date": null,
+      "as_of_date": "2024-12-31",
+      "is_independent": false,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. L R De Silva",
+      "normalized_name": "L. R. De Silva",
+      "raw_title": "Non-executive Independent",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": "2024-09-30",
+      "resigned_date": "2025-01-22",
+      "as_of_date": "2024-12-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Dr. J A S Felix PC",
+      "normalized_name": "J. A. S. Felix",
+      "raw_title": "Non-Executive Independent",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": "2025-01-22",
+      "as_of_date": "2024-12-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. Sujeewa Mudalige",
+      "normalized_name": "Sujeewa Mudalige",
+      "raw_title": "Independent Chairman",
+      "normalized_title": "Chairman",
+      "appointed_date": "2025-01-01",
+      "resigned_date": null,
+      "as_of_date": "2025-01-01",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. Rohan Dunuwille",
+      "normalized_name": "Rohan Dunuwille",
+      "raw_title": "Chairman Remuneration Committee",
+      "normalized_title": "Board Member",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2025-06-03",
+      "is_independent": null,
+      "is_executive": null
+    }
+  ],
+  "executives": [],
+  "shareholdings": {
+    "company_holdings": [
+      {
+        "holder": {
+          "raw_name": "GALADARI BROTHERS CO.(LLC)",
+          "normalized_name": "Galadari Brothers Co."
+        },
+        "ownership_percent": 63.57,
+        "share_count": 318395504,
+        "as_of_date": "2024-12-31"
+      },
+      {
+        "holder": {
+          "raw_name": "ICEBERG 2 LIMITED",
+          "normalized_name": "Iceberg 2"
+        },
+        "ownership_percent": 5.89,
+        "share_count": 29510817,
+        "as_of_date": "2024-12-31"
+      },
+      {
+        "holder": {
+          "raw_name": "ABDUL LATIF GALADARI HOLDING LIMITED",
+          "normalized_name": "Abdul Latif Galadari Holding"
+        },
+        "ownership_percent": 5.31,
+        "share_count": 26595192,
+        "as_of_date": "2024-12-31"
+      },
+      {
+        "holder": {
+          "raw_name": "EMPLOYEES PROVIDENT FUND",
+          "normalized_name": "Employees Provident Fund"
+        },
+        "ownership_percent": 4.73,
+        "share_count": 23712200,
+        "as_of_date": "2024-12-31"
+      },
+      {
+        "holder": {
+          "raw_name": "CALGARY HOLDINGS S.A.",
+          "normalized_name": "Calgary Holdings S.A."
+        },
+        "ownership_percent": 3.62,
+        "share_count": 18146303,
+        "as_of_date": "2024-12-31"
+      }
+    ],
+    "individual_holdings": [
+      {
+        "holder": {
+          "raw_name": "I.A.I. GALADARI",
+          "normalized_name": "I. A. I. Galadari"
+        },
+        "share_count": 9810017,
+        "ownership_percent": 1.96,
+        "as_of_date": "2024-12-31"
+      },
+      {
+        "holder": {
+          "raw_name": "M.A.I. GALADARI",
+          "normalized_name": "M. A. I. Galadari"
+        },
+        "share_count": 9810017,
+        "ownership_percent": 1.96,
+        "as_of_date": "2024-12-31"
+      },
+      {
+        "holder": {
+          "raw_name": "S. A. I. H. Galadari",
+          "normalized_name": "S. A. I. H. Galadari"
+        },
+        "share_count": 9810016,
+        "ownership_percent": null,
+        "as_of_date": "2024-12-31"
+      }
+    ]
+  },
+  "financial_metrics": [
+    {
+      "raw_name": "Revenue",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "1,060,709",
+      "normalized_value": 1060709000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-12-31",
+      "period_start": null,
+      "period_end": "2024-12-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "(Loss) / Profit before taxation",
+      "normalized_name": "Profit Before Tax",
+      "normalized_id": "profit_before_tax",
+      "raw_value": "(249,905)",
+      "normalized_value": -249905000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-12-31",
+      "period_start": null,
+      "period_end": "2024-12-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "(Loss) / Profit after taxation on ordinary activities",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "(126,759)",
+      "normalized_value": -126759000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-12-31",
+      "period_start": null,
+      "period_end": "2024-12-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "(Loss) / Earnings per share",
+      "normalized_name": "Earnings Per Share",
+      "normalized_id": "earnings_per_share",
+      "raw_value": "(0.25)",
+      "normalized_value": -0.25,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-12-31",
+      "period_start": null,
+      "period_end": "2024-12-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Net assets value per share",
+      "normalized_name": "Net Asset Value Per Share",
+      "normalized_id": "net_asset_value_per_share",
+      "raw_value": "14.47",
+      "normalized_value": 14.47,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-12-31",
+      "period_start": null,
+      "period_end": "2024-12-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Current ratio (times)",
+      "normalized_name": "Current Ratio",
+      "normalized_id": "current_ratio",
+      "raw_value": "1.25",
+      "normalized_value": 1.25,
+      "unit": "Times",
+      "currency": null,
+      "year": 2024,
+      "as_of_date": "2024-12-31",
+      "period_start": null,
+      "period_end": "2024-12-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Total equity",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "7,251,141,926",
+      "normalized_value": 7251141926.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-12-31",
+      "period_start": null,
+      "period_end": "2024-12-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Total liabilities",
+      "normalized_name": "Total Liabilities",
+      "normalized_id": "total_liabilities",
+      "raw_value": "7,144,914,810",
+      "normalized_value": 7144914810.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-12-31",
+      "period_start": null,
+      "period_end": "2024-12-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Adjusted net debt to equity ratio",
+      "normalized_name": "Debt to Equity Ratio",
+      "normalized_id": "debt_to_equity_ratio",
+      "raw_value": "55%",
+      "normalized_value": 55.0,
+      "unit": "%",
+      "currency": null,
+      "year": 2024,
+      "as_of_date": "2024-12-31",
+      "period_start": null,
+      "period_end": "2024-12-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Revenue",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "1,606,029",
+      "normalized_value": 1606029000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-12-31",
+      "period_start": null,
+      "period_end": "2023-12-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "(Loss) / Profit before taxation",
+      "normalized_name": "Profit Before Tax",
+      "normalized_id": "profit_before_tax",
+      "raw_value": "292,467",
+      "normalized_value": 292467000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-12-31",
+      "period_start": null,
+      "period_end": "2023-12-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "(Loss) / Profit after taxation on ordinary activities",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "153,688",
+      "normalized_value": 153688000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-12-31",
+      "period_start": null,
+      "period_end": "2023-12-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "(Loss) / Earnings per share",
+      "normalized_name": "Earnings Per Share",
+      "normalized_id": "earnings_per_share",
+      "raw_value": "0.31",
+      "normalized_value": 0.31,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-12-31",
+      "period_start": null,
+      "period_end": "2023-12-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Net assets value per share",
+      "normalized_name": "Net Asset Value Per Share",
+      "normalized_id": "net_asset_value_per_share",
+      "raw_value": "17.29",
+      "normalized_value": 17.29,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-12-31",
+      "period_start": null,
+      "period_end": "2023-12-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Current ratio (times)",
+      "normalized_name": "Current Ratio",
+      "normalized_id": "current_ratio",
+      "raw_value": "3.24",
+      "normalized_value": 3.24,
+      "unit": "Times",
+      "currency": null,
+      "year": 2023,
+      "as_of_date": "2023-12-31",
+      "period_start": null,
+      "period_end": "2023-12-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Total equity",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "8,661,143,219",
+      "normalized_value": 8661143219.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-12-31",
+      "period_start": null,
+      "period_end": "2023-12-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Total liabilities",
+      "normalized_name": "Total Liabilities",
+      "normalized_id": "total_liabilities",
+      "raw_value": "2,804,131,435",
+      "normalized_value": 2804131435.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-12-31",
+      "period_start": null,
+      "period_end": "2023-12-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Adjusted net debt to equity ratio",
+      "normalized_name": "Debt to Equity Ratio",
+      "normalized_id": "debt_to_equity_ratio",
+      "raw_value": "-3%",
+      "normalized_value": -3.0,
+      "unit": "%",
+      "currency": null,
+      "year": 2023,
+      "as_of_date": "2023-12-31",
+      "period_start": null,
+      "period_end": "2023-12-31",
+      "is_consolidated": null
+    }
+  ],
+  "products_services": [
+    {
+      "raw_name": "hoteliering",
+      "normalized_name": "Hoteliering",
+      "normalized_id": "hoteliering",
+      "category": "Service",
+      "description": null,
+      "launch_date": null
+    }
+  ],
+  "subsidiaries": []
+}

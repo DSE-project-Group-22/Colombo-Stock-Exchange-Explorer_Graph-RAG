@@ -1,0 +1,577 @@
+{
+  "company": {
+    "raw_name": "Jetwing Symphony PLC",
+    "normalized_name": "Jetwing Symphony",
+    "ticker": null,
+    "founded_on": null,
+    "listed_on": null,
+    "industry": "Consumer Services"
+  },
+  "sectors": [
+    {
+      "normalized_name": "Consumer Services"
+    }
+  ],
+  "auditor": {
+    "normalized_name": "Ernst & Young"
+  },
+  "directors": [
+    {
+      "raw_name": "N.J.H.M. Cooray",
+      "normalized_name": "N. J. H. M. Cooray",
+      "raw_title": "Chairman",
+      "normalized_title": "Chairman",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": false,
+      "is_executive": false
+    },
+    {
+      "raw_name": "N.T.M.S. Cooray",
+      "normalized_name": "N. T. M. S. Cooray",
+      "raw_title": "Non-Executive Director",
+      "normalized_title": "Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": false,
+      "is_executive": false
+    },
+    {
+      "raw_name": "N. Wadugodapitiya",
+      "normalized_name": "N. Wadugodapitiya",
+      "raw_title": "Non-Executive Independent Director",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Dr. V.J. Kannangara",
+      "normalized_name": "V. J. Kannangara",
+      "raw_title": "Non-Executive Independent Director",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "L.K. Porter",
+      "normalized_name": "L. K. Porter",
+      "raw_title": "Non-Executive Independent Director",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "K.K. Reddy",
+      "normalized_name": "K. K. Reddy",
+      "raw_title": "Non-Executive Independent Director",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "G. Rocchi",
+      "normalized_name": "G. Rocchi",
+      "raw_title": "Non-Executive Director",
+      "normalized_title": "Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": false,
+      "is_executive": false
+    },
+    {
+      "raw_name": "S.D. Amalean",
+      "normalized_name": "S. D. Amalean",
+      "raw_title": "Non-Executive Independent Director",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": true,
+      "is_executive": false
+    }
+  ],
+  "executives": [],
+  "shareholdings": {
+    "company_holdings": [],
+    "individual_holdings": [
+      {
+        "holder": {
+          "raw_name": "Mr. N.J.H.M. Cooray",
+          "normalized_name": "N. J. H. M. Cooray"
+        },
+        "share_count": 43113163,
+        "ownership_percent": null,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Ms. N.T.M.S. Cooray",
+          "normalized_name": "N. T. M. S. Cooray"
+        },
+        "share_count": 40779272,
+        "ownership_percent": null,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mr. N. Wadugodapitiya",
+          "normalized_name": "N. Wadugodapitiya"
+        },
+        "share_count": 29978,
+        "ownership_percent": null,
+        "as_of_date": "2024-03-31"
+      }
+    ]
+  },
+  "financial_metrics": [
+    {
+      "raw_name": "Revenue",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "3,613,708 LKR ‘000",
+      "normalized_value": 3613708000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Revenue",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "2,115,955 LKR ‘000",
+      "normalized_value": 2115955000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Profit/(Loss) before tax (PBT)",
+      "normalized_name": "Profit Before Tax",
+      "normalized_id": "profit_before_tax",
+      "raw_value": "9,336 LKR ‘000",
+      "normalized_value": 9336000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Profit/(Loss) before tax (PBT)",
+      "normalized_name": "Profit Before Tax",
+      "normalized_id": "profit_before_tax",
+      "raw_value": "(765,194) LKR ‘000",
+      "normalized_value": -765194000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Profit/(Loss) after tax (PAT)",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "92,536 LKR ‘000",
+      "normalized_value": 92536000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Profit/(Loss) after tax (PAT)",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "(632,195) LKR ‘000",
+      "normalized_value": -632195000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Earnings/(Loss) per share",
+      "normalized_name": "Earnings Per Share",
+      "normalized_id": "earnings_per_share",
+      "raw_value": "0.17 LKR",
+      "normalized_value": 0.17,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Earnings/(Loss) per share",
+      "normalized_name": "Earnings Per Share",
+      "normalized_id": "earnings_per_share",
+      "raw_value": "(1.10) LKR",
+      "normalized_value": -1.1,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Total Assets",
+      "normalized_name": "Total Assets",
+      "normalized_id": "total_assets",
+      "raw_value": "10,592,471 LKR ‘000",
+      "normalized_value": 10592471000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Total Assets",
+      "normalized_name": "Total Assets",
+      "normalized_id": "total_assets",
+      "raw_value": "10,422,321 LKR ‘000",
+      "normalized_value": 10422321000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Total Equity",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "3,412,135 LKR ‘000",
+      "normalized_value": 3412135000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Total Equity",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "3,321,931 LKR ‘000",
+      "normalized_value": 3321931000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Net Assets per Share",
+      "normalized_name": "Net Asset Value Per Share",
+      "normalized_id": "net_asset_value_per_share",
+      "raw_value": "5.72 LKR",
+      "normalized_value": 5.72,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Net Assets per Share",
+      "normalized_name": "Net Asset Value Per Share",
+      "normalized_id": "net_asset_value_per_share",
+      "raw_value": "5.55 LKR",
+      "normalized_value": 5.55,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Gearing Ratio",
+      "normalized_name": "Debt to Equity Ratio",
+      "normalized_id": "debt_to_equity_ratio",
+      "raw_value": "63 %",
+      "normalized_value": 63.0,
+      "unit": "%",
+      "currency": null,
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Gearing Ratio",
+      "normalized_name": "Debt to Equity Ratio",
+      "normalized_id": "debt_to_equity_ratio",
+      "raw_value": "64 %",
+      "normalized_value": 64.0,
+      "unit": "%",
+      "currency": null,
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Current Ratio",
+      "normalized_name": "Current Ratio",
+      "normalized_id": "current_ratio",
+      "raw_value": "0.28:1",
+      "normalized_value": 0.28,
+      "unit": "Ratio",
+      "currency": null,
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Current Ratio",
+      "normalized_name": "Current Ratio",
+      "normalized_id": "current_ratio",
+      "raw_value": "0.13:1",
+      "normalized_value": 0.13,
+      "unit": "Ratio",
+      "currency": null,
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Profit from operations before the following items",
+      "normalized_name": "Operating Profit",
+      "normalized_id": "operating_profit",
+      "raw_value": "1,144,785,440 LKR",
+      "normalized_value": 1144785440.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Profit from operations before the following items",
+      "normalized_name": "Operating Profit",
+      "normalized_id": "operating_profit",
+      "raw_value": "466,607,020 LKR",
+      "normalized_value": 466607020.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Cash at Bank and in Hand",
+      "normalized_name": "Cash and Cash Equivalents",
+      "normalized_id": "cash_and_cash_equivalents",
+      "raw_value": "63,284,164",
+      "normalized_value": 63284164.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": null
+    }
+  ],
+  "products_services": [
+    {
+      "raw_name": "Jetwing Kandy Gallery",
+      "normalized_name": "Jetwing Kandy Gallery",
+      "normalized_id": "jetwing_kandy_gallery",
+      "category": "Hotel",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Jetwing Kaduruketha",
+      "normalized_name": "Jetwing Kaduruketha",
+      "normalized_id": "jetwing_kaduruketha",
+      "category": "Hotel",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Jetwing Surf",
+      "normalized_name": "Jetwing Surf",
+      "normalized_id": "jetwing_surf",
+      "category": "Hotel",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Jetwing Yala",
+      "normalized_name": "Jetwing Yala",
+      "normalized_id": "jetwing_yala",
+      "category": "Hotel",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Jetwing Lake",
+      "normalized_name": "Jetwing Lake",
+      "normalized_id": "jetwing_lake",
+      "category": "Hotel",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Jetwing Colombo Seven",
+      "normalized_name": "Jetwing Colombo Seven",
+      "normalized_id": "jetwing_colombo_seven",
+      "category": "Hotel",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Jetwing Safari Camp",
+      "normalized_name": "Jetwing Safari Camp",
+      "normalized_id": "jetwing_safari_camp",
+      "category": "Hotel",
+      "description": null,
+      "launch_date": null
+    }
+  ],
+  "subsidiaries": [
+    {
+      "raw_name": "Uppuveli Beach (Pvt) Ltd",
+      "normalized_name": "Uppuveli Beach",
+      "normalized_id": "uppuveli_beach",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "Cultural Heritage (Pvt) Ltd",
+      "normalized_name": "Cultural Heritage",
+      "normalized_id": "cultural_heritage",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "Yala Safari Beach Hotel (Pvt) Ltd",
+      "normalized_name": "Yala Safari Beach Hotel",
+      "normalized_id": "yala_safari_beach_hotel",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "Jetwing City (Pvt) Ltd",
+      "normalized_name": "Jetwing City",
+      "normalized_id": "jetwing_city",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "Uppuveli Villas (Pvt) Ltd",
+      "normalized_name": "Uppuveli Villas",
+      "normalized_id": "uppuveli_villas",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "The Riverbank (Pvt) Ltd",
+      "normalized_name": "Riverbank",
+      "normalized_id": "riverbank",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "Pottuvil Point (Pvt) Ltd",
+      "normalized_name": "Pottuvil Point",
+      "normalized_id": "pottuvil_point",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "Jetwing Kaduruketha (Pvt) Ltd",
+      "normalized_name": "Jetwing Kaduruketha",
+      "normalized_id": "jetwing_kaduruketha",
+      "relationship_type": "subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 70.0
+    },
+    {
+      "raw_name": "Yala Properties (Pvt) Ltd",
+      "normalized_name": "Yala Properties",
+      "normalized_id": "yala_properties",
+      "relationship_type": "fully owned subsidiary",
+      "relationship_description": "fully owned subsidiary of Yala Safari Beach Hotel (Pvt) Ltd",
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "Kaduruketha Farmers (Pvt) Ltd",
+      "normalized_name": "Kaduruketha Farmers",
+      "normalized_id": "kaduruketha_farmers",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": "100% owned subsidiary of Jetwing Kaduruketha (Pvt) Ltd",
+      "ownership_percent": 100.0
+    }
+  ]
+}
