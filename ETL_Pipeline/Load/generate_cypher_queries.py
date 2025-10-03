@@ -62,11 +62,44 @@ You must model the data using only the following node labels, properties, and re
 Node Labels & Properties:
 
 Company:
-- id (string, unique): A lowercase, underscore-separated version of the name (e.g., 'dipped_products_plc').
-- name (string, unique): The official name of the company (e.g., 'Dipped Products PLC').
+- id (string, unique): A lowercase, underscore-separated version of the normalized name (e.g., 'dipped_products').
+- name (string, unique): The NORMALIZED name of the company WITHOUT legal suffixes (e.g., 'Dipped Products' NOT 'Dipped Products PLC').
 - founded_on (date, optional): Foundation date in YYYY-MM-DD format.
 - listed_on (string, optional): Stock exchange listing information.
 - region (string, optional): Geographical region of operation.
+
+CRITICAL - COMPANY NODE NORMALIZATION RULES:
+
+A. Name Standardization (MANDATORY):
+   * Remove ALL legal suffixes: 'PLC', 'Ltd', 'Limited', 'Private Limited', '(Pvt) Ltd', 'Pvt Ltd', 'Corporation', 'Corp', 'Inc'
+   * Remove 'Messrs.', 'Mr.', 'The' prefixes
+   * Remove extra spaces and normalize punctuation
+   * Use proper title case
+   * Keep trademark symbols (®, ™) only if part of official brand
+   * Examples:
+     - 'Dipped Products PLC' → 'Dipped Products'
+     - 'John Keells Holdings PLC' → 'John Keells Holdings'
+     - 'Commercial Bank of Ceylon PLC' → 'Commercial Bank of Ceylon'
+     - 'The Colombo Stock Exchange' → 'Colombo Stock Exchange'
+     - 'Lanka Hospitals PLC' → 'Lanka Hospitals'
+
+B. Company ID Generation Rules:
+   * Convert normalized name to lowercase
+   * Replace spaces with single underscores
+   * Remove all special characters except underscores
+   * Remove duplicate underscores
+   * Examples:
+     - 'Dipped Products' → 'dipped_products'
+     - 'John Keells Holdings' → 'john_keells_holdings'
+     - 'Ceylon Cold Stores' → 'ceylon_cold_stores'
+
+C. Duplicate Prevention:
+   * ALWAYS use MERGE on the normalized name (without PLC, Ltd, etc.)
+   * Before creating, check if similar names exist:
+     - With/without legal suffixes
+     - With '&' vs 'and' (normalize to '&')
+     - Abbreviated vs full names
+   * If uncertain about company identity, SKIP rather than create duplicate
 
 Person:
 - id (string, unique): A lowercase, underscore-separated version of the name.
@@ -102,15 +135,73 @@ Product:
 
 Metric:
 - id (string, unique): A lowercase, underscore-separated version of the name.
-- name (string, unique): The name of the financial metric (e.g., 'Revenue', 'Profit After Tax', 'Net Interest Income').
+- name (string, unique): The name of the financial metric. Use these STANDARDIZED names:
+  * 'Revenue' (NOT 'Turnover', 'Gross Revenue', 'Total Revenue')
+  * 'Profit After Tax' (NOT 'PAT', 'Net Profit', 'Bottom Line')
+  * 'Profit Before Tax' (NOT 'PBT')
+  * 'Total Assets'
+  * 'Total Equity'
+  * 'Net Interest Income'
+  * 'Gross Income'
+  * 'Operating Profit'
+  * 'Earnings Per Share' (NOT 'EPS')
+  * 'Return on Equity' (NOT 'ROE')
+  * 'Current Ratio'
+  * 'Debt to Equity Ratio'
 - unit (string): The standardized unit of the metric. Use ONLY: 'Rs', '%', 'Times', 'Count', or 'Ratio'.
+
+Auditor (specialized Company node):
+- id (string, unique): A lowercase, underscore-separated version of the name.
+- name (string, unique): MUST be one of the official Sri Lankan auditing firms listed below.
+- type (string): Always 'Auditing Firm'
+
+AUDITING FIRMS - HARDCODED LIST (Sri Lankan Firms ONLY):
+
+When identifying auditors, map to EXACTLY one of these official names:
+
+1. 'Ernst & Young'
+2. 'PricewaterhouseCoopers'
+3. 'KPMG'
+4. 'Deloitte'
+5. 'BDO Partners'
+6. 'Baker Tilly Edirisinghe'
+7. 'RSM Sri Lanka'
+8. 'PKF Consulting'
+9. 'SJMS Associates'
+10. 'Rafik Singhji'
+11. 'B.R. De Silva'
+12. 'Amarasuriya'
+13. 'Stax Inc'
+14. 'P.G.A. Wijesinghe'
+15. 'Swarnapali'
+
+Auditor Name Mapping Rules:
+- 'Messrs. Ernst & Young' → 'Ernst & Young'
+- 'Messrs Ernst & Young' → 'Ernst & Young'
+- 'Ernst and Young' → 'Ernst & Young'
+- 'EY' → 'Ernst & Young'
+- 'Messrs. PricewaterhouseCoopers' → 'PricewaterhouseCoopers'
+- 'PwC' → 'PricewaterhouseCoopers'
+- 'KPMG Ford, Rhodes, Thornton & Company' → 'KPMG'
+- 'Messrs. KPMG' → 'KPMG'
+- 'Messrs. Deloitte' → 'Deloitte'
+- 'Baker Tilly Edirisinghe & Company' → 'Baker Tilly Edirisinghe'
+- If auditor name doesn't match any pattern above, DO NOT create auditor relationship
 
 Relationship Types & Properties:
 
 Ownership & Shareholdings:
 (parent:Company)-[:OWNS]->(child:Company):
-- pct (float): Percentage ownership (0-100).
-- as_of (date): Date in YYYY-MM-DD format.
+- pct (float): Percentage ownership (0-100). REQUIRED.
+- as_of (date): Date in YYYY-MM-DD format. REQUIRED.
+
+CRITICAL - OWNS RELATIONSHIP VALIDATION:
+* Both parent and child companies MUST be explicitly mentioned in the document
+* Ownership percentage MUST be explicitly stated (not inferred or estimated)
+* Both companies must be created with normalized names
+* Use percentage value between 0 and 100 (e.g., 51.5 not 0.515)
+* If ownership is vague or implied only, SKIP this relationship
+* If only one company is in the document, SKIP this relationship
 
 (person:Person)-[:OWNS_SHARES]->(company:Company):
 - count (integer, optional): Number of shares.
@@ -118,13 +209,32 @@ Ownership & Shareholdings:
 - as_of (date): Date in YYYY-MM-DD format.
 
 Governance & Roles:
-(person:Person)-[:DIRECTOR_OF]->(company:Company):
-- role (string): Type of director (e.g., 'Independent Non-Executive', 'Executive').
+(person:Person)-[:HOLDS_POSITION]->(company:Company):
+- title (string): The role or title. MUST be one of these STANDARDIZED values:
+  * 'Chairman'
+  * 'Deputy Chairman'
+  * 'Managing Director'
+  * 'Chief Executive Officer'
+  * 'Chief Financial Officer'
+  * 'Chief Operating Officer'
+  * 'Executive Director'
+  * 'Independent Non-Executive Director'
+  * 'Non-Executive Director'
+  * 'Board Member'
+  * 'Company Secretary'
+  * 'General Manager'
+  * 'Senior Manager'
 - as_of (date): Date in YYYY-MM-DD format.
 
-(person:Person)-[:HOLDS_POSITION]->(company:Company):
-- title (string): The role or title (e.g., 'Chairman', 'Managing Director', 'CEO', 'Board Member').
-- as_of (date): Date in YYYY-MM-DD format.
+Title Mapping Rules:
+- 'Independent Director' → 'Independent Non-Executive Director'
+- 'Non Independent Director' → 'Non-Executive Director'
+- 'CEO' → 'Chief Executive Officer'
+- 'CFO' → 'Chief Financial Officer'
+- 'COO' → 'Chief Operating Officer'
+- 'MD' → 'Managing Director'
+- 'Director' (without specification) → 'Board Member'
+- 'Member of the Board' → 'Board Member'
 
 Business Classification:
 (company:Company)-[:IN_SECTOR]->(sector:Sector):
@@ -140,94 +250,229 @@ Financial Metrics:
 - as_of (date, optional): Specific date in YYYY-MM-DD format.
 
 Auditing & Management Services:
-(company:Company)-[:AUDITED_BY]->(auditor:Company):
-- year (integer): The audit year.
+(company:Company)-[:AUDITED_BY]->(auditor:Auditor):
+- year (integer): The audit year. REQUIRED.
+- period (string, optional): e.g., 'FY 2023/24'.
 
-(manager:Company)-[:MANAGES]->(plantation:Company):
+CRITICAL - AUDITED_BY VALIDATION:
+* Auditor name MUST match one of the 15 hardcoded firms exactly
+* If auditor is not in the list, DO NOT create this relationship
+* Year is mandatory
+* Use normalized company name for the company node
+
+(manager:Company)-[:MANAGES]->(managed:Company):
 - description (string, optional): Nature of management relationship.
+- as_of (date, optional): Date in YYYY-MM-DD format.
 
-2. Query Generation Rules
+CRITICAL - MANAGES VALIDATION:
+* Only for plantation, property, or fund management contexts
+* Both companies must be explicitly identified
+* Relationship must be clearly stated, not implied
+
+2. Query Generation Rules (STRICT ENFORCEMENT)
+
 Follow these rules without deviation:
 
-STRUCTURE EXTRACTION (EXCLUSIVE FOCUS):
+STRUCTURE EXTRACTION ORDER:
 
-- Identify the Source Company: Identify the main company from metadata.source_pdf. Create the Company node first.
+Step 1: Identify and Normalize Main Company
+- Extract company name from metadata.source_pdf or document header
+- Apply company name normalization rules (remove PLC, Ltd, etc.)
+- Generate normalized ID
+- Create Company node with NORMALIZED name
+- Example:
+  MERGE (c:Company {name: 'Dipped Products'}) ON CREATE SET c.id = 'dipped_products', c.region = 'Sri Lanka'
 
-- Use MERGE for Idempotency:
-  * Always use MERGE on the node label and its unique name property. Use ON CREATE SET to add the id and other properties.
-  * To prevent duplicate relationships, MATCH the start and end nodes, then MERGE the relationship.
+Step 2: Identify Auditor (if present)
+- Search for "Auditors", "External Auditors", or "Independent Auditors" section
+- Extract auditor firm name
+- Map to one of the 15 hardcoded auditor names ONLY
+- If no match found, SKIP auditor relationship entirely
+- Create Auditor node (with both Auditor and Company labels)
+- Create AUDITED_BY relationship with year
+- Example:
+  MERGE (a:Auditor:Company {name: 'Ernst & Young'}) ON CREATE SET a.id = 'ernst_and_young', a.type = 'Auditing Firm'
+  MATCH (c:Company {name: 'Dipped Products'}), (a:Auditor {name: 'Ernst & Young'}) MERGE (c)-[r:AUDITED_BY]->(a) ON CREATE SET r.year = 2024
 
-- Normalize Metric Values (ENHANCED CONSISTENCY): 
-  * Extract ONLY the clean numerical value from metrics, removing ALL text, suffixes, prefixes, commas, parentheses, etc.
-  * Strict Conversion Rules (apply consistently):
-    - Assume base currency is Sri Lankan Rupees (Rs) unless specified otherwise.
-    - 'Mn' or 'million' means multiply by 1,000,000 (e.g., '6,604 Mn' → 6604000000, 'Rs. 10.5 million' → 10500000).
-    - "'000" or 'thousand' means multiply by 1,000 (e.g., '31,055,222 '000' → 31055222000).
-    - 'Bn' or 'billion' means multiply by 1,000,000,000 (e.g., '1.2 Bn' → 1200000000).
-    - Percentages: Keep as decimal if needed, but store as is (e.g., '5.5%' → 5.5 with unit '%').
-    - Ratios/Times: Keep as decimal/float (e.g., '2.5 Times' → 2.5 with unit 'Times').
-    - Counts: Integer values (e.g., '500 employees' → 500 with unit 'Count').
-    - Remove all non-numeric characters except decimal points and negative signs.
-    - If value is negative, preserve the sign (e.g., '(500) Mn' → -500000000).
-    - If no unit multiplier, assume base unit (e.g., '25,599' → 25599).
-    - For consistency, always convert to the smallest base unit (e.g., full Rs amount without scaling).
-    - If metric spans multiple years, create separate relationships for each year.
-    - Skip if value cannot be confidently parsed to a number.
+Step 3: Extract People (Directors & Executives)
+- From directors_and_executives or board_of_directors chunks
+- Create Person nodes with normalized names (full name in title case)
+- Create HOLDS_POSITION relationships with STANDARDIZED titles from the approved list
+- Map all director/executive titles to the standardized values
+- Include as_of date (use report date if specific date not provided)
+- Example:
+  MERGE (p:Person {name: 'John Doe'}) ON CREATE SET p.id = 'john_doe'
+  MATCH (p:Person {name: 'John Doe'}), (c:Company {name: 'Dipped Products'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-03-31')
 
-- Standardize Sectors:
-  * Map any sector mentions to the EXACT CSE sector names listed above.
-  * Common mappings: "Finance" → "Diversified Financials", "Hotel" → "Consumer Services", "Banking" → "Banks"
-  * If unsure or if sector doesn't match the list exactly, SKIP the sector relationship.
+Step 4: Extract Financial Metrics
+- From financial_performance, financial_highlights, or income_statement chunks
+- Identify key metrics with their values
+- Apply STRICT value normalization rules (see below)
+- Use STANDARDIZED metric names from the approved list
+- Create Metric nodes with standardized units
+- Create HAS_METRIC relationships with normalized values and year
+- If metric spans multiple years, create separate relationships for each year
 
-- Extract Directors & Executives: 
-  * From directors_and_executives chunks, identify each unique person with their title.
-  * Create Person nodes and [:HOLDS_POSITION] relationships with title and date.
+Step 5: Extract Business Sectors
+- From business_segments, operations, or company_overview chunks
+- Map sector mentions to EXACT CSE sector names only
+- Create Sector nodes
+- Create IN_SECTOR relationships
+- If sector doesn't match the 20 CSE sectors exactly, SKIP
 
-- Extract Financial Metrics: 
-  * From financial_performance chunks, identify key metrics: Revenue, Gross Income, Net Interest Income, Profit Before Tax, Profit After Tax, Total Assets, Total Equity, etc.
-  * Create Metric nodes with standardized units.
-  * Create [:HAS_METRIC] relationships with normalized values and year.
-  * Ensure metric names are consistent across companies (e.g., always 'Profit After Tax' not 'PAT' or variations).
+Step 6: Extract Products/Services (if applicable)
+- From products_services or business_segments chunks
+- Create Product nodes
+- Create OFFERS relationships
 
-- Extract Business Segments/Products: 
-  * From business_segments chunks, identify sectors the company operates in.
-  * Create [:IN_SECTOR] relationships only for sectors matching the CSE list.
+Step 7: Extract Company-Company Relationships (VALIDATE STRICTLY)
+- OWNS relationships: Only if both companies explicitly mentioned AND percentage stated
+- AUDITED_BY relationships: Only if auditor is in hardcoded list
+- MANAGES relationships: Only for clear management contexts
+- SKIP any ambiguous relationships
 
-- No Inference: Do not invent or guess data. If information is not present, omit that property. If ambiguous, skip that query.
+METRIC VALUE NORMALIZATION (ENHANCED CONSISTENCY):
 
-3. Required Output Format
+Extract ONLY the clean numerical value from metrics, removing ALL text, suffixes, prefixes, commas, parentheses, etc.
+
+Strict Conversion Rules (apply consistently):
+- Assume base currency is Sri Lankan Rupees (Rs) unless specified otherwise
+- 'Mn' or 'million' or 'Million' means multiply by 1,000,000
+  Examples: '6,604 Mn' → 6604000000, 'Rs. 10.5 million' → 10500000
+- "'000" or 'thousand' means multiply by 1,000
+  Examples: '31,055,222 '000' → 31055222000, '500 thousand' → 500000
+- 'Bn' or 'billion' means multiply by 1,000,000,000
+  Examples: '1.2 Bn' → 1200000000
+- Percentages: Keep as decimal value (e.g., '5.5%' → 5.5 with unit '%')
+- Ratios/Times: Keep as decimal/float (e.g., '2.5 Times' → 2.5 with unit 'Times')
+- Counts: Integer values (e.g., '500 employees' → 500 with unit 'Count')
+- Remove all non-numeric characters except decimal points and negative signs
+- If value is negative (in parentheses or with minus), preserve the sign
+  Examples: '(500) Mn' → -500000000, '-1,250' → -1250
+- If no unit multiplier found, assume base unit (e.g., '25,599' → 25599)
+- For consistency, always convert to the smallest base unit (full Rs amount)
+- If metric value cannot be confidently parsed to a number, SKIP that metric
+
+SECTOR NORMALIZATION:
+
+Map sector mentions to EXACT CSE sector names:
+- 'Finance' → 'Diversified Financials'
+- 'Banking' → 'Banks'
+- 'Hotel' or 'Hotels' or 'Hospitality' → 'Consumer Services'
+- 'Manufacturing' → Check context: could be 'Materials', 'Capital Goods', or 'Consumer Durables and Apparel'
+- 'Plantation' → 'Food, Beverage, and Tobacco'
+- 'Property' or 'Real Estate Development' → 'Real Estate'
+- 'Telecom' or 'Telecommunications' → 'Telecommunication Services'
+- 'Power' or 'Electricity' → 'Utilities'
+- 'Pharmaceutical' or 'Pharma' → 'Pharmaceuticals, Biotechnology, and Life Sciences'
+- 'Healthcare' or 'Health' → 'Health Care Equipment and Services'
+- If mapping is uncertain, SKIP the sector relationship
+
+FORBIDDEN ACTIONS (WILL CAUSE DATA CORRUPTION):
+- Creating company nodes with 'PLC', 'Ltd', 'Limited' in the name property
+- Creating company nodes with inconsistent names (e.g., 'John Keells Holdings PLC' and 'John Keells Holdings')
+- Creating OWNS relationships without explicit percentage value
+- Creating OWNS relationships when only one company is mentioned in document
+- Creating AUDITED_BY relationships for auditors not in the hardcoded list
+- Using non-standardized titles in HOLDS_POSITION relationships
+- Using non-standardized metric names
+- Inferring company identities from abbreviations without confirmation
+- Creating duplicate Person nodes with slight name variations
+- Using wrong date formats (only YYYY-MM-DD allowed)
+
+Query Construction Pattern:
+1. Always use MERGE for node creation based on unique name property
+2. Always use ON CREATE SET to add id and other properties
+3. For relationships, MATCH both nodes first, then MERGE the relationship
+4. For relationship properties, use ON CREATE SET or SET as appropriate
+5. Include comments in output to mark each step
+
+3. Pre-Query Validation Checklist
+
+Before generating queries, validate each element:
+
+□ Company name is normalized (no 'PLC', 'Ltd', 'Limited' suffixes in name property)
+□ Company ID matches normalized name pattern (lowercase, underscores, no special chars)
+□ All HOLDS_POSITION titles match the standardized list exactly
+□ All Sector names match exact CSE sector list (one of 20 sectors)
+□ Auditor name matches hardcoded firm list (one of 15 firms) OR relationship skipped
+□ All OWNS relationships have BOTH companies identified AND percentage stated
+□ All metric values are clean numbers (no text, properly converted to base units)
+□ All metric names use standardized terminology
+□ All dates are in YYYY-MM-DD format
+□ No duplicate nodes with similar names
+
+If ANY validation fails, SKIP that specific query rather than create inconsistent data.
+
+4. Required Output Format
+
 Your entire response must be a single, raw JSON object. Do not include markdown formatting, explanations, or any text outside the JSON structure.
 
 The JSON object must have a single key, "cypher_queries", whose value is a list of strings. Each string must be a complete and valid Cypher query.
 
-Query order:
-1. Company node creation
-2. All Person nodes
-3. All Sector/Product/Metric nodes
-4. All relationships (HOLDS_POSITION, HAS_METRIC, IN_SECTOR, etc.)
+Query order and structure:
+1. Company node creation (main company)
+2. Auditor node creation (if applicable)
+3. AUDITED_BY relationship (if applicable)
+4. Person nodes creation
+5. HOLDS_POSITION relationships
+6. Metric nodes creation
+7. HAS_METRIC relationships
+8. Sector nodes creation
+9. IN_SECTOR relationships
+10. Product nodes creation (if applicable)
+11. OFFERS relationships (if applicable)
+12. Company-Company relationships (OWNS, MANAGES - if validated)
 
 Example Output Structure:
 {
   "cypher_queries": [
-    "MERGE (c:Company {name: 'Asia Asset Finance PLC'}) ON CREATE SET c.id = 'asia_asset_finance_plc', c.region = 'Sri Lanka'",
+    "// Step 1: Main Company",
+    "MERGE (c:Company {name: 'Asia Asset Finance'}) ON CREATE SET c.id = 'asia_asset_finance', c.region = 'Sri Lanka', c.listed_on = 'Colombo Stock Exchange'",
+    
+    "// Step 2: Auditor",
+    "MERGE (a:Auditor:Company {name: 'Ernst & Young'}) ON CREATE SET a.id = 'ernst_and_young', a.type = 'Auditing Firm'",
+    "MATCH (c:Company {name: 'Asia Asset Finance'}), (a:Auditor {name: 'Ernst & Young'}) MERGE (c)-[r:AUDITED_BY]->(a) ON CREATE SET r.year = 2024, r.period = 'FY 2023/24'",
+    
+    "// Step 3: People - Directors and Executives",
     "MERGE (p:Person {name: 'V. A. Prasanth'}) ON CREATE SET p.id = 'v_a_prasanth'",
     "MERGE (p:Person {name: 'R. J. A. Gunawardena'}) ON CREATE SET p.id = 'r_j_a_gunawardena'",
-    "MERGE (m:Metric {name: 'Gross Revenue'}) ON CREATE SET m.id = 'gross_revenue', m.unit = 'Rs'",
-    "MERGE (m:Metric {name: 'Net Interest Income'}) ON CREATE SET m.id = 'net_interest_income', m.unit = 'Rs'",
+    
+    "// Step 4: HOLDS_POSITION Relationships",
+    "MATCH (p:Person {name: 'V. A. Prasanth'}), (c:Company {name: 'Asia Asset Finance'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-03-31')",
+    "MATCH (p:Person {name: 'R. J. A. Gunawardena'}), (c:Company {name: 'Asia Asset Finance'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2024-03-31')",
+    
+    "// Step 5: Metrics",
+    "MERGE (m:Metric {name: 'Revenue'}) ON CREATE SET m.id = 'revenue', m.unit = 'Rs'",
+    "MERGE (m:Metric {name: 'Profit After Tax'}) ON CREATE SET m.id = 'profit_after_tax', m.unit = 'Rs'",
+    "MERGE (m:Metric {name: 'Total Assets'}) ON CREATE SET m.id = 'total_assets', m.unit = 'Rs'",
+    
+    "// Step 6: HAS_METRIC Relationships",
+    "MATCH (c:Company {name: 'Asia Asset Finance'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 6604000000, r.year = 2024",
+    "MATCH (c:Company {name: 'Asia Asset Finance'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 450000000, r.year = 2024",
+    "MATCH (c:Company {name: 'Asia Asset Finance'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 31055222000, r.year = 2024",
+    
+    "// Step 7: Sectors",
     "MERGE (s:Sector {name: 'Diversified Financials'}) ON CREATE SET s.id = 'diversified_financials'",
-    "MATCH (p:Person {name: 'V. A. Prasanth'}), (c:Company {name: 'Asia Asset Finance PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Board Member', r.as_of = date('2024-03-31')",
-    "MATCH (c:Company {name: 'Asia Asset Finance PLC'}), (m:Metric {name: 'Gross Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 6604000000, r.year = 2024",
-    "MATCH (c:Company {name: 'Asia Asset Finance PLC'}), (s:Sector {name: 'Diversified Financials'}) MERGE (c)-[:IN_SECTOR]->(s)"
+    
+    "// Step 8: IN_SECTOR Relationships",
+    "MATCH (c:Company {name: 'Asia Asset Finance'}), (s:Sector {name: 'Diversified Financials'}) MERGE (c)-[:IN_SECTOR]->(s)"
   ]
 }
 
 CRITICAL REMINDERS:
 - EXCLUSIVE GOAL: Extract structured data accurately and consistently
-- Metric values: Remove ALL formatting, convert to base units strictly as per rules
-- Metric names: Standardize to common terms (e.g., 'Revenue' not 'Turnover', 'Profit After Tax' not 'PAT')
-- Sectors: Must match one of the 20 exact CSE sector names
+- Company names: MUST be normalized (NO 'PLC', 'Ltd' suffixes in name property)
+- Company IDs: Must match normalized name (lowercase, underscores)
+- Auditors: MUST match one of 15 hardcoded firms OR skip relationship
+- Position titles: MUST use standardized values from approved list
+- Metric values: Remove ALL formatting, convert to base units strictly
+- Metric names: Use standardized names (e.g., 'Revenue' not 'Turnover', 'Profit After Tax' not 'PAT')
+- Sectors: Must match one of 20 exact CSE sector names OR skip
+- OWNS relationships: Only create if BOTH companies mentioned AND percentage stated
 - Dates: Use YYYY-MM-DD format consistently
 - Don't add properties if data is uncertain
+- Skip ambiguous data rather than create inconsistencies
 
 Now, analyze the following JSON data and generate the Cypher queries:
 """
