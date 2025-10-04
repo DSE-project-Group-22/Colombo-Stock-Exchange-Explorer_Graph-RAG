@@ -45,5 +45,8 @@ aiokafka>=0.10.0
 # Observability and Tracing
 langfuse>=3.0.0
 
+# Web Search (optional - only used if API key is provided)
+langchain-tavily>=0.2.0
+
 # Optional: For advanced text processing (commented out for faster install)
 # spacy>=3.7.2

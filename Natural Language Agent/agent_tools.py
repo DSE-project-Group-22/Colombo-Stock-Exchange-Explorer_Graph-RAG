@@ -13,6 +13,14 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# Check if Tavily is available
+try:
+    from langchain_tavily import TavilySearch
+    TAVILY_AVAILABLE = True
+except ImportError:
+    TAVILY_AVAILABLE = False
+    logger.info("Tavily not installed - web search will be unavailable")
+
 # Global cache for MCP client and tools
 _mcp_client = None
 _tools_cache = None
@@ -63,6 +71,57 @@ async def query_graph_database(query: str) -> str:
         return f"Error querying graph database: {str(e)}"
 
 
+def create_web_search_tool():
+    """Create web search tool only if Tavily API key is configured"""
+    from config import settings
+    
+    if not TAVILY_AVAILABLE:
+        return None
+    
+    if not settings.validate_tavily_key():
+        logger.info("Tavily API key not configured - web search tool will not be available")
+        return None
+    
+    @tool
+    async def search_web_for_realtime_info(query: str) -> str:
+        """Search the web for current information and news.
+        
+        Use this tool ONLY when absolutely necessary for:
+        - Current news about Sri Lankan economy
+        - Recent major events affecting the stock market
+        - Information not available in other tools
+        
+        Keep queries short and specific to minimize costs.
+        """
+        logger.info(f"Web search: {query[:50]}...")
+        
+        try:
+            # Initialize with minimal settings for cost optimization
+            tavily = TavilySearch(
+                api_key=settings.tavily_api_key,
+                max_results=settings.tavily_max_results,  # Only 3 results
+                search_depth=settings.tavily_search_depth,  # Basic search only
+                include_answer=settings.tavily_include_answer,  # No AI summary
+            )
+            
+            # Execute search
+            result = await tavily.ainvoke(query)
+            
+            # Truncate if too long to save on token costs
+            if len(result) > 2000:
+                result = result[:2000] + "... (truncated for brevity)"
+            
+            logger.info(f"Web search completed: {len(result)} chars")
+            return result
+            
+        except Exception as e:
+            logger.error(f"Web search error: {e}")
+            return f"Web search failed: {str(e)}"
+    
+    logger.info("Tavily API key found - web search tool created")
+    return search_web_for_realtime_info
+
+
 async def get_all_tools() -> List:
     """
     Get all available tools: MCP tools + graph database tool.
@@ -107,8 +166,18 @@ async def get_all_tools() -> List:
             logger.error(f"Failed to get MCP tools: {e}")
             mcp_tools = []
     
-    # Combine all tools - query_graph_database is already defined above
-    _tools_cache = mcp_tools + [query_graph_database]
+    # Build tools list - always include graph database
+    tools_list = mcp_tools + [query_graph_database]
+    
+    # Add web search tool only if configured
+    web_search_tool = create_web_search_tool()
+    if web_search_tool:
+        tools_list.append(web_search_tool)
+        logger.info("Web search tool added to available tools")
+    else:
+        logger.info("Web search tool not available (no API key or not installed)")
+    
+    _tools_cache = tools_list
     logger.info(f"Total tools available: {len(_tools_cache)}")
     
     return _tools_cache
