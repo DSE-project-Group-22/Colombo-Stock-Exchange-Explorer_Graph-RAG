@@ -60,6 +60,16 @@ class Settings(BaseSettings):
     langfuse_host: str = os.getenv("LANGFUSE_HOST", "https://cloud.langfuse.com")
     langfuse_enabled: bool = os.getenv("LANGFUSE_ENABLED", "false").lower() == "true"
     
+    # Tavily Web Search Configuration (Optional)
+    tavily_api_key: Optional[str] = os.getenv("TAVILY_API_KEY")
+    tavily_max_results: int = int(os.getenv("TAVILY_MAX_RESULTS", "3"))  # Minimal for cost
+    tavily_search_depth: str = os.getenv("TAVILY_SEARCH_DEPTH", "basic")  # Always basic for cost
+    tavily_include_answer: bool = os.getenv("TAVILY_INCLUDE_ANSWER", "false").lower() == "true"  # False by default
+    
+    def validate_tavily_key(self) -> bool:
+        """Validate that Tavily API key is present"""
+        return bool(self.tavily_api_key and len(self.tavily_api_key) > 10)
+    
     @property
     def is_development(self) -> bool:
         return self.environment.lower() == "development"
