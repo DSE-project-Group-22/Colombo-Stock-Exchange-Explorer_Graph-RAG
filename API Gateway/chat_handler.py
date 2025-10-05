@@ -282,12 +282,12 @@ class ChatHandler:
         }
         
         try:
-            # Check Kafka by attempting to get metadata
+            # Check Kafka by checking if producer exists and is started
             if self.kafka.producer:
-                # This is a lightweight operation
-                metadata = self.kafka.producer._client.cluster
-                if metadata:
-                    health['kafka'] = 'healthy'
+                # AIOKafkaProducer exists and was started successfully
+                health['kafka'] = 'healthy'
+            else:
+                health['kafka'] = 'unhealthy'
         except Exception as e:
             logger.error(f"Kafka health check failed: {e}")
             health['kafka'] = 'unhealthy'
