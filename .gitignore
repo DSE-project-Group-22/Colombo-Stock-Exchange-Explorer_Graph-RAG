@@ -195,6 +195,7 @@ data/
 datasets/
 raw_data/
 processed_data/
+Annual-Reports/
 
 # Exception for configuration files
 !config.json
@@ -410,6 +411,7 @@ miniforge/
 *.pdf
 graphs/
 visualizations/
+outputs/
 
 # Exception for documentation images
 !docs/**/*.png
