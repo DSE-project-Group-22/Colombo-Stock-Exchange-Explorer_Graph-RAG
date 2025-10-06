@@ -7,7 +7,7 @@ from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 
 from app.config import settings
-from app.routers import auth, api, sse
+from app.routers import auth, api, sse, visualization
 from app.database.connection import engine, Base
 from chat_handler import ChatHandler
 from response_subscriber import ResponseSubscriber
@@ -39,8 +39,9 @@ async def lifespan(app: FastAPI):
         await response_subscriber.start_subscribing()
         logger.info("Response subscriber initialized and started")
         
-        # Set chat handler in API router
+        # Set chat handler in API and visualization routers
         api.set_chat_handler(chat_handler)
+        visualization.set_chat_handler(chat_handler)
         
         logger.info("All services initialized successfully")
     except Exception as e:
@@ -109,6 +110,7 @@ async def general_exception_handler(request: Request, exc: Exception):
 app.include_router(auth.router)
 app.include_router(api.router)
 app.include_router(sse.router)
+app.include_router(visualization.router)
 
 
 # Add endpoint for response subscriber health

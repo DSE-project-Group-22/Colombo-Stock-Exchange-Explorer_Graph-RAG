@@ -128,6 +128,7 @@ services:
         sleep 30
         kafka-topics --create --topic chat.requests --bootstrap-server localhost:29092 --partitions 3 --replication-factor 1 --if-not-exists
         kafka-topics --create --topic chat.responses --bootstrap-server localhost:29092 --partitions 3 --replication-factor 1 --if-not-exists
+        kafka-topics --create --topic visualization.requests --bootstrap-server localhost:29092 --partitions 3 --replication-factor 1 --if-not-exists
         echo 'Kafka topics created successfully'
         wait
       "
