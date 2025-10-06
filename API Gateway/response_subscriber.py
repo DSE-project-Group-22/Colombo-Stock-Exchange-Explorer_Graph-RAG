@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 class ResponseSubscriber:
     """
     Background service that subscribes to Redis response channels and updates request status.
-    No longer caches responses as SSE handles real-time streaming directly.
+    Caches responses for polling endpoints while also supporting SSE real-time streaming.
     """
     
     def __init__(self):
@@ -120,7 +120,7 @@ class ResponseSubscriber:
     async def _process_response_message(self, message: Dict[str, Any]) -> None:
         """
         Process a response message from Redis pub/sub.
-        Only updates request status to completed - no caching.
+        Caches the response and updates request status to completed.
         
         Args:
             message: Redis pub/sub message
@@ -132,11 +132,27 @@ class ResponseSubscriber:
             
             logger.info(f"Processing response for correlation_id: {correlation_id}")
             
+            # Parse the response data from the message
+            response_data = json.loads(message['data'])
+            
+            # Cache the response for polling
+            response_key = f"response:{correlation_id}"
+            await self.redis.client.hset(response_key, mapping={
+                'correlation_id': response_data.get('correlation_id', correlation_id),
+                'thread_id': response_data.get('thread_id', ''),
+                'response': response_data.get('response', ''),
+                'timestamp': response_data.get('timestamp', ''),
+                'processing_time_ms': str(response_data.get('processing_time_ms', 0))
+            })
+            
+            # Set TTL to match request TTL (15 minutes)
+            await self.redis.client.expire(response_key, 900)
+            
             # Update request status to completed
             request_key = f"request:{correlation_id}"
             await self.redis.client.hset(request_key, 'status', 'completed')
             
-            logger.info(f"Marked request as completed for correlation_id: {correlation_id}")
+            logger.info(f"Cached response and marked request as completed for correlation_id: {correlation_id}")
             
         except Exception as e:
             logger.error(f"Error processing response message: {e}")
