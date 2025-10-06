@@ -1,0 +1,49 @@
+FROM neo4j:5.13-community
+
+# Set default authentication
+ENV NEO4J_AUTH=neo4j/password
+
+# Enable APOC and GDS plugins
+ENV NEO4J_PLUGINS='["apoc", "graph-data-science"]'
+ENV NEO4J_dbms_security_procedures_unrestricted=gds.*,apoc.*
+ENV NEO4J_dbms_security_procedures_allowlist=gds.*,apoc.*
+
+# Allow connections from any host
+ENV NEO4J_server_default_listen_address=0.0.0.0
+ENV NEO4J_server_bolt_listen_address=0.0.0.0:7687
+ENV NEO4J_server_http_listen_address=0.0.0.0:7474
+ENV NEO4J_server_config_strict_validation_enabled=false
+
+# Enable metrics and monitoring
+ENV NEO4J_server_metrics_enabled=true
+ENV NEO4J_server_metrics_csv_enabled=true
+ENV NEO4J_server_metrics_csv_interval=30s
+ENV NEO4J_server_metrics_prometheus_enabled=true
+ENV NEO4J_server_metrics_prometheus_endpoint=0.0.0.0:2004
+ENV NEO4J_server_metrics_jmx_enabled=true
+
+# Enable query logging for performance analysis
+ENV NEO4J_dbms_logs_query_enabled=INFO
+ENV NEO4J_dbms_logs_query_threshold=100ms
+ENV NEO4J_dbms_logs_query_parameter_logging_enabled=true
+
+# Memory and performance tuning
+ENV NEO4J_server_memory_heap_initial_size=1G
+ENV NEO4J_server_memory_heap_max_size=2G
+ENV NEO4J_server_memory_pagecache_size=1G
+
+# Copy custom entrypoint script if it exists
+COPY entrypoint.sh /startup/entrypoint.sh
+
+# Make the entrypoint script executable
+USER root
+RUN chmod +x /startup/entrypoint.sh || true
+
+# Switch back to neo4j user
+USER neo4j
+
+# Set custom entrypoint
+ENTRYPOINT ["/startup/entrypoint.sh"]
+
+# Expose Neo4j ports and metrics port
+EXPOSE 7474 7687 2004
