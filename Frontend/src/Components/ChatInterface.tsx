@@ -308,13 +308,13 @@ const ChatInterface = () => {
                     agentActivity !== "Idle" ? "bg-amber-400 animate-pulse" : "bg-green-500"
                   }`}
                 />
-                <span className="text-xs text-gray-300">{agentActivity}</span>
+                <span data-cy="agent-activity" className="text-xs text-gray-300">{agentActivity}</span>
               </div>
             </div>
           </div>
 
           {/* Messages Area */}
-          <div className="h-[500px] overflow-y-auto bg-gradient-to-br from-slate-50 to-gray-100 p-6">
+          <div data-cy="messages" className="h-[500px] overflow-y-auto bg-gradient-to-br from-slate-50 to-gray-100 p-6">
             <div className="space-y-6">
               {messages.map((msg, i) => (
                 <div key={i} className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}>
@@ -402,6 +402,7 @@ const ChatInterface = () => {
             <div className="flex space-x-3">
               <div className="flex-1 relative">
                 <textarea
+                  data-cy="nl-input"
                   className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent bg-white text-sm"
                   placeholder="Ask me about CSE stocks, market analysis, company insights..."
                   value={input}
@@ -416,6 +417,7 @@ const ChatInterface = () => {
                 />
               </div>
               <button
+                data-cy="send"
                 className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-slate-900 rounded-xl font-bold disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-105 disabled:transform-none shadow-lg flex items-center space-x-2"
                 onClick={handleSend}
                 disabled={!input.trim() || isTyping}
