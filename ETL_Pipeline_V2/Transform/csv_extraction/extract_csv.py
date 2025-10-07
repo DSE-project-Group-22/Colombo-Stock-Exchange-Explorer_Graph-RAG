@@ -8,11 +8,21 @@ output_csv = 'all_data.csv'
 
 data = []
 for filename in os.listdir(json_dir):
-    if filename.endswith('.json'):
-        with open(os.path.join(json_dir, filename), 'r') as f:
-            json_data = json.load(f)
-        
-        main_company = json_data['company']['normalized_name']
+    if filename.endswith('.json') and filename != 'normalization_summary.json':
+        file_path = os.path.join(json_dir, filename)
+        try:
+            with open(file_path, 'r') as f:
+                json_data = json.load(f)
+            
+            # Skip files that don't have the expected structure
+            if 'company' not in json_data:
+                print(f"Skipping {filename} - no company data found")
+                continue
+                
+            main_company = json_data['company']['normalized_name']
+        except (json.JSONDecodeError, KeyError) as e:
+            print(f"Error processing {filename}: {e}")
+            continue
         
         # Extract companies (main, subsidiaries, company_holdings)
         data.append({'source_file': filename, 'main_company_name': main_company, 'entity_type': 'company', 
@@ -22,7 +32,7 @@ for filename in os.listdir(json_dir):
             data.append({'source_file': filename, 'main_company_name': main_company, 'entity_type': 'company', 
                          'raw_name': sub['raw_name'], 'normalized_name': sub['normalized_name'], 
                          'id': sub['normalized_id'], 'additional_data': json.dumps(sub)})
-        for holding in json_data['shareholdings']['company_holdings']:
+        for holding in json_data.get('shareholdings', {}).get('company_holdings', []):
             holder = holding['holder']
             data.append({'source_file': filename, 'main_company_name': main_company, 'entity_type': 'company', 
                          'raw_name': holder['raw_name'], 'normalized_name': holder['normalized_name'], 
@@ -37,7 +47,7 @@ for filename in os.listdir(json_dir):
             data.append({'source_file': filename, 'main_company_name': main_company, 'entity_type': 'person', 
                          'raw_name': exec['raw_name'], 'normalized_name': exec['normalized_name'], 
                          'id': exec['normalized_id'], 'additional_data': json.dumps(exec)})
-        for ind_holding in json_data['shareholdings']['individual_holdings']:
+        for ind_holding in json_data.get('shareholdings', {}).get('individual_holdings', []):
             holder = ind_holding['holder']
             data.append({'source_file': filename, 'main_company_name': main_company, 'entity_type': 'person', 
                          'raw_name': holder['raw_name'], 'normalized_name': holder['normalized_name'], 

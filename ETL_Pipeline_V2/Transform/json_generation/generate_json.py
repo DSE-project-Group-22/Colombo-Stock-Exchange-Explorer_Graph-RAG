@@ -430,7 +430,6 @@ The JSON must conform to the structure defined below with all fields properly ty
     {
       "raw_name": "string",
       "normalized_name": "string",
-      "normalized_id": "string",
       "raw_title": "string",
       "normalized_title": "string",
       "department": "string | null",
@@ -468,7 +467,6 @@ The JSON must conform to the structure defined below with all fields properly ty
     {
       "raw_name": "string",
       "normalized_name": "string",
-      "normalized_id": "string",
       "raw_value": "string",
       "normalized_value": "float",
       "unit": "string",
@@ -485,7 +483,6 @@ The JSON must conform to the structure defined below with all fields properly ty
     {
       "raw_name": "string",
       "normalized_name": "string",
-      "normalized_id": "string",
       "category": "string | null",
       "description": "string | null",
       "launch_date": "YYYY-MM-DD | null"
@@ -496,7 +493,6 @@ The JSON must conform to the structure defined below with all fields properly ty
     {
       "raw_name": "string",
       "normalized_name": "string",
-      "normalized_id": "string",
       "relationship_type": "string",
       "relationship_description": "string | null",
       "ownership_percent": "float | null"
