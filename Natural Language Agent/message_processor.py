@@ -1,14 +1,11 @@
 """
 Message processor that consumes from Kafka and publishes responses to Redis.
-Integrates with existing agent.py for actual NL processing.
+Routes to appropriate agents based on topic.
 """
 import sys
-import os
 import json
 import logging
 from datetime import datetime, timezone
-from typing import Optional
-import redis.asyncio as async_redis
 
 # Add utils path for container environment
 sys.path.insert(0, '/utils')
@@ -18,13 +15,15 @@ from utils.redis_utils import SimpleRedisPubSub
 
 # Import existing agent functionality
 from simple_agent import execute_simple_agent
+# Import simplified visual agent for visualization requests
+from visual_cypher_agent import execute_visual_agent
 
 # Import shared models
 from models import ChatMessage, MessageRole, MessageMetadata
 
 # Import config and helpers
 from config import settings, get_redis_url
-from helpers.redis_helper import store_chat_message, publish_response, serialize_neo4j_dates
+from helpers.redis_helper import store_chat_message, publish_response
 
 logger = logging.getLogger(__name__)
 
@@ -40,12 +39,14 @@ class MessageProcessor:
         kafka_servers = settings.kafka_bootstrap_servers
         redis_url = get_redis_url()
         
-        # Initialize Kafka consumer for chat requests
+        # Initialize Kafka consumer for both chat and visualization requests
+        topics = [settings.kafka_request_topic, 'visualization.requests']
         self.kafka = SimpleKafkaConsumer(
-            topics=[settings.kafka_request_topic],
+            topics=topics,
             group_id=settings.kafka_group_id,
             bootstrap_servers=kafka_servers
         )
+        logger.info(f"Kafka consumer initialized for topics: {topics}")
         
         # Initialize Redis for publishing responses and accessing chat history
         self.redis = SimpleRedisPubSub(url=redis_url)
@@ -108,8 +109,9 @@ class MessageProcessor:
                 user_id = message.get('user_id')
                 user_message = message.get('message')
                 request_timestamp = message.get('timestamp')
+                topic = message.get('_topic', 'chat.requests')  # Get topic from message metadata
                 
-                logger.info(f"Processing message: thread={thread_id}, correlation={correlation_id}")
+                logger.info(f"Processing {topic} message: thread={thread_id}, correlation={correlation_id}")
                 
                 # Create and store user message in Redis (same as /chat endpoint)
                 user_msg = ChatMessage(
@@ -121,7 +123,7 @@ class MessageProcessor:
                 await self.store_message(user_msg)
                 
                 # Calculate processing start time
-                start_time = datetime.utcnow()
+                start_time = datetime.now(timezone.utc)
                 
                 # Check if OpenAI API key is available
                 has_openai_key = settings.validate_openai_key()
@@ -135,18 +137,30 @@ class MessageProcessor:
                         "the API key. Your message has been received: '{}'"
                     ).format(user_message[:100] + "..." if len(user_message) > 100 else user_message)
                 else:
-                    # Process with existing agent
-                    # The agent already handles Redis chat history internally
-                    response_text = await execute_simple_agent(
-                        thread_id=thread_id,
-                        user_message=user_message,
-                        redis_client=self.redis.get_client(),  # Pass Redis client for history
-                        correlation_id=correlation_id,  # Pass for streaming steps
-                        user_id=user_id  # Pass for user-based channel publishing
-                    )
+                    # Route to appropriate agent based on topic
+                    if topic == 'visualization.requests':
+                        # Process with simplified visual agent
+                        logger.info(f"Routing to visual agent for visualization request")
+                        response_data = await execute_visual_agent(
+                            user_message=user_message,
+                            thread_id=thread_id
+                        )
+                        
+                        # Simple JSON response
+                        response_text = json.dumps(response_data)
+                    else:
+                        # Process with existing chat agent
+                        logger.info(f"Routing to chat agent for chat request")
+                        response_text = await execute_simple_agent(
+                            thread_id=thread_id,
+                            user_message=user_message,
+                            redis_client=self.redis.get_client(),
+                            correlation_id=correlation_id,
+                            user_id=user_id
+                        )
                 
                 # Calculate processing time
-                end_time = datetime.utcnow()
+                end_time = datetime.now(timezone.utc)
                 processing_time_ms = int((end_time - start_time).total_seconds() * 1000)
                 
                 # Create and store agent message in Redis (same as /chat endpoint)

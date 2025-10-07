@@ -1,0 +1,1528 @@
+{
+  "company": {
+    "raw_name": "Carson Cumberbatch PLC",
+    "normalized_name": "Carson Cumberbatch",
+    "ticker": "CARS",
+    "founded_on": "1913-01-01",
+    "listed_on": null,
+    "industry": null
+  },
+  "sectors": [
+    {
+      "normalized_name": "Food, Beverage, and Tobacco"
+    },
+    {
+      "normalized_name": "Diversified Financials"
+    },
+    {
+      "normalized_name": "Real Estate"
+    },
+    {
+      "normalized_name": "Consumer Services"
+    }
+  ],
+  "auditor": {
+    "normalized_name": "KPMG"
+  },
+  "directors": [
+    {
+      "raw_name": "Mr. T. de Zoysa",
+      "normalized_name": "T. de Zoysa",
+      "raw_title": "Chairman",
+      "normalized_title": "Chairman",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. H. Selvanathan",
+      "normalized_name": "H. Selvanathan",
+      "raw_title": "Deputy Chairman",
+      "normalized_title": "Deputy Chairman",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": false,
+      "is_executive": true
+    },
+    {
+      "raw_name": "Mr. M. Selvanathan",
+      "normalized_name": "M. Selvanathan",
+      "raw_title": "Executive/Non-Executive w.e.f 06th November 2023",
+      "normalized_title": "Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": false,
+      "is_executive": true
+    },
+    {
+      "raw_name": "Mr. D. C. R. Gunawardena",
+      "normalized_name": "D. C. R. Gunawardena",
+      "raw_title": "Non-Executive",
+      "normalized_title": "Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": false,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. S. K. Shah",
+      "normalized_name": "S. K. Shah",
+      "raw_title": "Non-Executive",
+      "normalized_title": "Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": false,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. R. Theagarajah",
+      "normalized_name": "R. Theagarajah",
+      "raw_title": "Independent Non-Executive",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. W. M. R. S. Dias",
+      "normalized_name": "W. M. R. S. Dias",
+      "raw_title": "Independent Non-Executive",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. A. S. Amaratunga",
+      "normalized_name": "A. S. Amaratunga",
+      "raw_title": "Independent Non-Executive",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Ms. Sharada Selvanathan",
+      "normalized_name": "Sharada Selvanathan",
+      "raw_title": "Non-Executive",
+      "normalized_title": "Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": false,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. M. M. Murugappan",
+      "normalized_name": "M. M. Murugappan",
+      "raw_title": "Independent Non-Executive",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. Y. H. Ong",
+      "normalized_name": "Y. H. Ong",
+      "raw_title": "Independent Non-Executive",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "J. N. Gooneratne",
+      "normalized_name": "J. N. Gooneratne",
+      "raw_title": "Non-Executive Director",
+      "normalized_title": "Non-Executive Director",
+      "appointed_date": "2024-01-01",
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": false,
+      "is_executive": false
+    }
+  ],
+  "executives": [
+    {
+      "raw_name": "Hariharan Selvanathan",
+      "normalized_name": "Hariharan Selvanathan",
+      "normalized_id": "hariharan_selvanathan",
+      "raw_title": "Deputy Chairman/Group Chief Executive Officer",
+      "normalized_title": "Chief Executive Officer",
+      "department": null,
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Aneesh Dudeja",
+      "normalized_name": "Aneesh Dudeja",
+      "normalized_id": "aneesh_dudeja",
+      "raw_title": "President and Chief Financial Officer",
+      "normalized_title": "Chief Financial Officer",
+      "department": null,
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Satish Selvanathan",
+      "normalized_name": "Satish Selvanathan",
+      "normalized_id": "satish_selvanathan",
+      "raw_title": "Executive Director",
+      "normalized_title": "Executive Director",
+      "department": null,
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Ms. Sharada Selvanathan",
+      "normalized_name": "Sharada Selvanathan",
+      "normalized_id": "sharada_selvanathan",
+      "raw_title": "Director/Head of Corporate Planning",
+      "normalized_title": "Board Member",
+      "department": "Corporate Planning",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Sanjaya Upasena",
+      "normalized_name": "Sanjaya Upasena",
+      "normalized_id": "sanjaya_upasena",
+      "raw_title": "Director/Chief Operating Officer - Oil Palm Plantation",
+      "normalized_title": "Chief Operating Officer",
+      "department": "Oil Palm Plantation",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "K. Murali Tharan",
+      "normalized_name": "K. Murali Tharan",
+      "normalized_id": "k_murali_tharan",
+      "raw_title": "Regional Controller – Central Kalimantan",
+      "normalized_title": "Senior Manager",
+      "department": "Central Kalimantan",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Muthukumaran A/L Murugiah",
+      "normalized_name": "Muthukumaran A. Murugiah",
+      "normalized_id": "muthukumaran_a_murugiah",
+      "raw_title": "Director - Engineering",
+      "normalized_title": "Board Member",
+      "department": "Engineering",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Carl Dagenhart",
+      "normalized_name": "Carl Dagenhart",
+      "normalized_id": "carl_dagenhart",
+      "raw_title": "Head of Group Sustainability",
+      "normalized_title": "Senior Manager",
+      "department": "Group Sustainability",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Avneet Singh",
+      "normalized_name": "Avneet Singh",
+      "normalized_id": "avneet_singh",
+      "raw_title": "Chief Financial Officer - Downstream",
+      "normalized_title": "Chief Financial Officer",
+      "department": "Downstream",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Saliya Rodrigo",
+      "normalized_name": "Saliya Rodrigo",
+      "normalized_id": "saliya_rodrigo",
+      "raw_title": "Director/Head of Finance - Upstream",
+      "normalized_title": "Board Member",
+      "department": "Finance - Upstream",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Rushdi Azeez",
+      "normalized_name": "Rushdi Azeez",
+      "normalized_id": "rushdi_azeez",
+      "raw_title": "Director/Head of Group Finance",
+      "normalized_title": "Board Member",
+      "department": "Group Finance",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Amjad Ibrahim",
+      "normalized_name": "Amjad Ibrahim",
+      "normalized_id": "amjad_ibrahim",
+      "raw_title": "Director/Head of Business Services & Process Re-Engineering",
+      "normalized_title": "Board Member",
+      "department": "Business Services & Process Re-Engineering",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Ishan Danthanarayana",
+      "normalized_name": "Ishan Danthanarayana",
+      "normalized_id": "ishan_danthanarayana",
+      "raw_title": "Director HR - Group and Country Head Sri Lanka",
+      "normalized_title": "Board Member",
+      "department": "HR - Group and Country Head Sri Lanka",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Rajiv Meewakkala",
+      "normalized_name": "Rajiv Meewakkala",
+      "normalized_id": "rajiv_meewakkala",
+      "raw_title": "Director/CEO",
+      "normalized_title": "Chief Executive Officer",
+      "department": null,
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Madhushanka Ranatunga",
+      "normalized_name": "Madhushanka Ranatunga",
+      "normalized_id": "madhushanka_ranatunga",
+      "raw_title": "Chief Sales & Marketing Officer",
+      "normalized_title": "Senior Manager",
+      "department": "Sales & Marketing",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Niranjan Perera",
+      "normalized_name": "Niranjan Perera",
+      "normalized_id": "niranjan_perera",
+      "raw_title": "Chief People Officer",
+      "normalized_title": "Senior Manager",
+      "department": "People",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Sampath Perumbuli",
+      "normalized_name": "Sampath Perumbuli",
+      "normalized_id": "sampath_perumbuli",
+      "raw_title": "Chief Information Officer",
+      "normalized_title": "Senior Manager",
+      "department": "Information",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Thusith Gunawarnasuriya",
+      "normalized_name": "Thusith Gunawarnasuriya",
+      "normalized_id": "thusith_gunawarnasuriya",
+      "raw_title": "Chief Supply Chain Officer",
+      "normalized_title": "Senior Manager",
+      "department": "Supply Chain",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Krishna Selvanathan",
+      "normalized_name": "Krishna Selvanathan",
+      "normalized_id": "krishna_selvanathan",
+      "raw_title": "Director/CEO",
+      "normalized_title": "Chief Executive Officer",
+      "department": null,
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Sumith Perera",
+      "normalized_name": "Sumith Perera",
+      "normalized_id": "sumith_perera",
+      "raw_title": "Director/Head of Portfolio Management",
+      "normalized_title": "Board Member",
+      "department": "Portfolio Management",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Asanka Jayasekara",
+      "normalized_name": "Asanka Jayasekara",
+      "normalized_id": "asanka_jayasekara",
+      "raw_title": "Director/Head of Research",
+      "normalized_title": "Board Member",
+      "department": "Research",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Prabath Ekanayake",
+      "normalized_name": "Prabath Ekanayake",
+      "normalized_id": "prabath_ekanayake",
+      "raw_title": "Senior Vice President - Finance",
+      "normalized_title": "Senior Manager",
+      "department": "Finance",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Priyan De Mel",
+      "normalized_name": "Priyan De Mel",
+      "normalized_id": "priyan_de_mel",
+      "raw_title": "Senior Vice President - Operations",
+      "normalized_title": "Senior Manager",
+      "department": "Operations",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Chrishani Perera",
+      "normalized_name": "Chrishani Perera",
+      "normalized_id": "chrishani_perera",
+      "raw_title": "Senior Vice President - Research",
+      "normalized_title": "Senior Manager",
+      "department": "Research",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Harindi Hettigamage",
+      "normalized_name": "Harindi Hettigamage",
+      "normalized_id": "harindi_hettigamage",
+      "raw_title": "Senior Vice President - Research",
+      "normalized_title": "Senior Manager",
+      "department": "Research",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Shahan De Silva",
+      "normalized_name": "Shahan De Silva",
+      "normalized_id": "shahan_de_silva",
+      "raw_title": "Senior Vice President - Research",
+      "normalized_title": "Senior Manager",
+      "department": "Research",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Nalake Fernando",
+      "normalized_name": "Nalake Fernando",
+      "normalized_id": "nalake_fernando",
+      "raw_title": "Director - Property Management",
+      "normalized_title": "Board Member",
+      "department": "Property Management",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "S. Rajaram",
+      "normalized_name": "S. Rajaram",
+      "normalized_id": "s_rajaram",
+      "raw_title": "President - Engineering",
+      "normalized_title": "Senior Manager",
+      "department": "Engineering",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Chamara Prasanga",
+      "normalized_name": "Chamara Prasanga",
+      "normalized_id": "chamara_prasanga",
+      "raw_title": "Senior Vice President – Finance (CMSL)",
+      "normalized_title": "Senior Manager",
+      "department": "Finance (CMSL)",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Ms. Keshini De Silva",
+      "normalized_name": "Keshini De Silva",
+      "normalized_id": "keshini_de_silva",
+      "raw_title": "Director",
+      "normalized_title": "Board Member",
+      "department": null,
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Sudarshan Selvanathan",
+      "normalized_name": "Sudarshan Selvanathan",
+      "normalized_id": "sudarshan_selvanathan",
+      "raw_title": "Director",
+      "normalized_title": "Board Member",
+      "department": null,
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Vibath Wijesinghe",
+      "normalized_name": "Vibath Wijesinghe",
+      "normalized_id": "vibath_wijesinghe",
+      "raw_title": "Director - Finance",
+      "normalized_title": "Board Member",
+      "department": "Finance",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Ms. Amali Alawwa",
+      "normalized_name": "Amali Alawwa",
+      "normalized_id": "amali_alawwa",
+      "raw_title": "Director - Legal",
+      "normalized_title": "Board Member",
+      "department": "Legal",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Amal Badugoda Hewa",
+      "normalized_name": "Amal Badugoda Hewa",
+      "normalized_id": "amal_badugoda_hewa",
+      "raw_title": "Director - Tax",
+      "normalized_title": "Board Member",
+      "department": "Tax",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Chaminda Premarathne",
+      "normalized_name": "Chaminda Premarathne",
+      "normalized_id": "chaminda_premarathne",
+      "raw_title": "Director - Internal Audit",
+      "normalized_title": "Board Member",
+      "department": "Internal Audit",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Udayantha Dasanayake",
+      "normalized_name": "Udayantha Dasanayake",
+      "normalized_id": "udayantha_dasanayake",
+      "raw_title": "President – Group Information Technology",
+      "normalized_title": "Senior Manager",
+      "department": "Group Information Technology",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Adhil Jawsi",
+      "normalized_name": "Adhil Jawsi",
+      "normalized_id": "adhil_jawsi",
+      "raw_title": "President – Group Human Resources",
+      "normalized_title": "Senior Manager",
+      "department": "Group Human Resources",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Channa Senarathne",
+      "normalized_name": "Channa Senarathne",
+      "normalized_id": "channa_senarathne",
+      "raw_title": "Chief External Affairs Officer",
+      "normalized_title": "Senior Manager",
+      "department": "External Affairs",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Eshantha Salgado",
+      "normalized_name": "Eshantha Salgado",
+      "normalized_id": "eshantha_salgado",
+      "raw_title": "Chief Sustainability Officer",
+      "normalized_title": "Senior Manager",
+      "department": "Sustainability",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Nishantha Hulangamuwa",
+      "normalized_name": "Nishantha Hulangamuwa",
+      "normalized_id": "nishantha_hulangamuwa",
+      "raw_title": "Chief International business",
+      "normalized_title": "Senior Manager",
+      "department": "International Business",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Ruwandhi Thanthrige",
+      "normalized_name": "Ruwandhi Thanthrige",
+      "normalized_id": "ruwandhi_thanthrige",
+      "raw_title": "Senior Vice President - Legal",
+      "normalized_title": "Senior Manager",
+      "department": "Legal",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Jehan Goonaratne",
+      "normalized_name": "Jehan Goonaratne",
+      "normalized_id": "jehan_goonaratne",
+      "raw_title": "Chief Financial Officer",
+      "normalized_title": "Chief Financial Officer",
+      "department": null,
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Shiran Jansz",
+      "normalized_name": "Shiran Jansz",
+      "normalized_id": "shiran_jansz",
+      "raw_title": "Senior Vice President Strategic Procurement Initiatives",
+      "normalized_title": "Senior Manager",
+      "department": "Strategic Procurement Initiatives",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Chandana De Silva",
+      "normalized_name": "Chandana De Silva",
+      "normalized_id": "chandana_de_silva",
+      "raw_title": "Senior Vice President Quality Assurance",
+      "normalized_title": "Senior Manager",
+      "department": "Quality Assurance",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Widhura Nuwan",
+      "normalized_name": "Widhura Nuwan",
+      "normalized_id": "widhura_nuwan",
+      "raw_title": "Senior Vice President – Engineering",
+      "normalized_title": "Senior Manager",
+      "department": "Engineering",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Kaveen Gayathma",
+      "normalized_name": "Kaveen Gayathma",
+      "normalized_id": "kaveen_gayathma",
+      "raw_title": "Senior Vice President – Outbound Logistics",
+      "normalized_title": "Senior Manager",
+      "department": "Outbound Logistics",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Arno Matthee",
+      "normalized_name": "Arno Matthee",
+      "normalized_id": "arno_matthee",
+      "raw_title": "Senior Vice President - Brew Master",
+      "normalized_title": "Senior Manager",
+      "department": "Brew Master",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Anuruddha Jayathilake",
+      "normalized_name": "Anuruddha Jayathilake",
+      "normalized_id": "anuruddha_jayathilake",
+      "raw_title": "Senior Vice President – Packaging",
+      "normalized_title": "Senior Manager",
+      "department": "Packaging",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Suneth Warnakula",
+      "normalized_name": "Suneth Warnakula",
+      "normalized_id": "suneth_warnakula",
+      "raw_title": "Senior Vice President – ERP Systems Regular Category",
+      "normalized_title": "Senior Manager",
+      "department": "ERP Systems Regular Category",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Danushka Silva",
+      "normalized_name": "Danushka Silva",
+      "normalized_id": "danushka_silva",
+      "raw_title": "Senior Vice President – Marketing, Regular Category",
+      "normalized_title": "Senior Manager",
+      "department": "Marketing, Regular Category",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Chathura Karunaratne",
+      "normalized_name": "Chathura Karunaratne",
+      "normalized_id": "chathura_karunaratne",
+      "raw_title": "Senior Vice President – Procurement & Sourcing",
+      "normalized_title": "Senior Manager",
+      "department": "Procurement & Sourcing",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Chathura Amarapriya",
+      "normalized_name": "Chathura Amarapriya",
+      "normalized_id": "chathura_amarapriya",
+      "raw_title": "Senior Vice President – Brewing & Planning",
+      "normalized_title": "Senior Manager",
+      "department": "Brewing & Planning",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Shaminda Samaraweera",
+      "normalized_name": "Shaminda Samaraweera",
+      "normalized_id": "shaminda_samaraweera",
+      "raw_title": "Deputy Chief Finance Officer",
+      "normalized_title": "Senior Manager",
+      "department": "Finance",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Gayan Dodanwala",
+      "normalized_name": "Gayan Dodanwala",
+      "normalized_id": "gayan_dodanwala",
+      "raw_title": "Acting Senior Vice President – Sales & Trade Marketing",
+      "normalized_title": "Senior Manager",
+      "department": "Sales & Trade Marketing",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Steve Wijeyaratna",
+      "normalized_name": "Steve Wijeyaratna",
+      "normalized_id": "steve_wijeyaratna",
+      "raw_title": "Vice President Operations – Luxury Brands",
+      "normalized_title": "Senior Manager",
+      "department": "Operations – Luxury Brands",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Sashreeka Chandra Mohotti",
+      "normalized_name": "Sashreeka Chandra Mohotti",
+      "normalized_id": "sashreeka_chandra_mohotti",
+      "raw_title": "Vice President - Pubs ‘N Places",
+      "normalized_title": "Senior Manager",
+      "department": "Pubs ‘N Places",
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    }
+  ],
+  "shareholdings": {
+    "company_holdings": [
+      {
+        "holder": {
+          "raw_name": "Bukit Darah PLC A/C No 2",
+          "normalized_name": "Bukit Darah"
+        },
+        "ownership_percent": 45.68,
+        "share_count": 89706431,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Tower Investments (Pvt) Ltd",
+          "normalized_name": "Tower Investments"
+        },
+        "ownership_percent": 10.71,
+        "share_count": 21025903,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Fulcrum (Private) Limited",
+          "normalized_name": "Fulcrum"
+        },
+        "ownership_percent": 9.79,
+        "share_count": 19231059,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Newgreens Limited",
+          "normalized_name": "Newgreens"
+        },
+        "ownership_percent": 7.51,
+        "share_count": 14747670,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Portelet Limited",
+          "normalized_name": "Portelet"
+        },
+        "ownership_percent": 7.51,
+        "share_count": 14747670,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Goodhope Holdings(Pvt) Limited.",
+          "normalized_name": "Goodhope Holdings"
+        },
+        "ownership_percent": 1.15,
+        "share_count": 2265665,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "GF Capital Global Limited",
+          "normalized_name": "GF Capital Global"
+        },
+        "ownership_percent": 0.96,
+        "share_count": 1885341,
+        "as_of_date": "2024-03-31"
+      }
+    ],
+    "individual_holdings": [
+      {
+        "holder": {
+          "raw_name": "Mr. V. Nataraj",
+          "normalized_name": "V. Nataraj"
+        },
+        "share_count": 10749902,
+        "ownership_percent": 5.47,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mr. M. Selvanathan",
+          "normalized_name": "M. Selvanathan"
+        },
+        "share_count": 1805146,
+        "ownership_percent": 0.92,
+        "as_of_date": "2024-03-31"
+      }
+    ]
+  },
+  "financial_metrics": [
+    {
+      "raw_name": "Group revenue",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "277,076,515",
+      "normalized_value": 277076515.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Group revenue",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "330,458,690",
+      "normalized_value": 330458690.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit from operations",
+      "normalized_name": "Operating Profit",
+      "normalized_id": "operating_profit",
+      "raw_value": "47,489,136",
+      "normalized_value": 47489136.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit from operations",
+      "normalized_name": "Operating Profit",
+      "normalized_id": "operating_profit",
+      "raw_value": "59,257,650",
+      "normalized_value": 59257650.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit before tax",
+      "normalized_name": "Profit Before Tax",
+      "normalized_id": "profit_before_tax",
+      "raw_value": "37,378,454",
+      "normalized_value": 37378454.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit before tax",
+      "normalized_name": "Profit Before Tax",
+      "normalized_id": "profit_before_tax",
+      "raw_value": "42,433,522",
+      "normalized_value": 42433522.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit after tax from continuing operations",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "22,304,812",
+      "normalized_value": 22304812.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit after tax from continuing operations",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "27,357,875",
+      "normalized_value": 27357875.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Earnings per share (Rs.) - Group",
+      "normalized_name": "Earnings Per Share",
+      "normalized_id": "earnings_per_share",
+      "raw_value": "54.84",
+      "normalized_value": 54.84,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Earnings per share (Rs.) - Group",
+      "normalized_name": "Earnings Per Share",
+      "normalized_id": "earnings_per_share",
+      "raw_value": "69.91",
+      "normalized_value": 69.91,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Shareholders’ funds",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "71,830,528",
+      "normalized_value": 71830528.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Shareholders’ funds",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "68,547,883",
+      "normalized_value": 68547883.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net assets",
+      "normalized_name": "Total Assets",
+      "normalized_id": "total_assets",
+      "raw_value": "143,618,731",
+      "normalized_value": 143618731.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net assets",
+      "normalized_name": "Total Assets",
+      "normalized_id": "total_assets",
+      "raw_value": "140,236,892",
+      "normalized_value": 140236892.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net assets per ordinary share (Rs.)",
+      "normalized_name": "Net Asset Value Per Share",
+      "normalized_id": "net_asset_value_per_share",
+      "raw_value": "365.76",
+      "normalized_value": 365.76,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net assets per ordinary share (Rs.)",
+      "normalized_name": "Net Asset Value Per Share",
+      "normalized_id": "net_asset_value_per_share",
+      "raw_value": "349.05",
+      "normalized_value": 349.05,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Return on ordinary shareholders’ funds (%)",
+      "normalized_name": "Return on Equity",
+      "normalized_id": "return_on_equity",
+      "raw_value": "14.99",
+      "normalized_value": 14.99,
+      "unit": "%",
+      "currency": null,
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Return on ordinary shareholders’ funds (%)",
+      "normalized_name": "Return on Equity",
+      "normalized_id": "return_on_equity",
+      "raw_value": "20.03",
+      "normalized_value": 20.03,
+      "unit": "%",
+      "currency": null,
+      "year": 2023,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "No. of employees",
+      "normalized_name": "Employee Count",
+      "normalized_id": "employee_count",
+      "raw_value": "16,423",
+      "normalized_value": 16423.0,
+      "unit": "Count",
+      "currency": null,
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "No. of employees",
+      "normalized_name": "Employee Count",
+      "normalized_id": "employee_count",
+      "raw_value": "14,964",
+      "normalized_value": 14964.0,
+      "unit": "Count",
+      "currency": null,
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total equity",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "478,027,998",
+      "normalized_value": 478027998.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total equity",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "428,675,467",
+      "normalized_value": 428675467.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total assets",
+      "normalized_name": "Total Assets",
+      "normalized_id": "total_assets",
+      "raw_value": "957,892,521",
+      "normalized_value": 957892521.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total assets",
+      "normalized_name": "Total Assets",
+      "normalized_id": "total_assets",
+      "raw_value": "915,565,291",
+      "normalized_value": 915565291.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total non - current liabilities",
+      "normalized_name": "Total Liabilities",
+      "normalized_id": "total_liabilities",
+      "raw_value": "265,667,524",
+      "normalized_value": 291022159.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total non - current liabilities",
+      "normalized_name": "Total Liabilities",
+      "normalized_id": "total_liabilities",
+      "raw_value": "264,589,258",
+      "normalized_value": 282644678.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Cash and cash equivalents",
+      "normalized_name": "Cash and Cash Equivalents",
+      "normalized_id": "cash_and_cash_equivalents",
+      "raw_value": "138,114,416",
+      "normalized_value": 138114416.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Cash and cash equivalents",
+      "normalized_name": "Cash and Cash Equivalents",
+      "normalized_id": "cash_and_cash_equivalents",
+      "raw_value": "127,270,630",
+      "normalized_value": 127270630.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    }
+  ],
+  "products_services": [
+    {
+      "raw_name": "Oil Palm",
+      "normalized_name": "Oil Palm",
+      "normalized_id": "oil_palm",
+      "category": "Product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Palm kernel",
+      "normalized_name": "Palm Kernel",
+      "normalized_id": "palm_kernel",
+      "category": "Product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Fresh Fruit Bunches (FFB)",
+      "normalized_name": "Fresh Fruit Bunches",
+      "normalized_id": "fresh_fruit_bunches",
+      "category": "Product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Refined oils",
+      "normalized_name": "Refined Oils",
+      "normalized_id": "refined_oils",
+      "category": "Product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Specialty fats",
+      "normalized_name": "Specialty Fats",
+      "normalized_id": "specialty_fats",
+      "category": "Product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Beer",
+      "normalized_name": "Beer",
+      "normalized_id": "beer",
+      "category": "Product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "alcoholic beverages",
+      "normalized_name": "Alcoholic Beverages",
+      "normalized_id": "alcoholic_beverages",
+      "category": "Product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Carlsberg Smooth Draught",
+      "normalized_name": "Carlsberg Smooth Draught",
+      "normalized_id": "carlsberg_smooth_draught",
+      "category": "Brand",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Guinness",
+      "normalized_name": "Guinness",
+      "normalized_id": "guinness",
+      "category": "Brand",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Lion Ice",
+      "normalized_name": "Lion Ice",
+      "normalized_id": "lion_ice",
+      "category": "Brand",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Somersby",
+      "normalized_name": "Somersby",
+      "normalized_id": "somersby",
+      "category": "Brand",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Lion Master brand",
+      "normalized_name": "Lion Master",
+      "normalized_id": "lion_master",
+      "category": "Brand",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Investment holding",
+      "normalized_name": "Investment Holding",
+      "normalized_id": "investment_holding",
+      "category": "Service",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Portfolio and Asset Management",
+      "normalized_name": "Portfolio & Asset Management",
+      "normalized_id": "portfolio_asset_management",
+      "category": "Service",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Plantation management services",
+      "normalized_name": "Plantation Management Services",
+      "normalized_id": "plantation_management_services",
+      "category": "Service",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Management services",
+      "normalized_name": "Management Services",
+      "normalized_id": "management_services",
+      "category": "Service",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Hoteliering",
+      "normalized_name": "Hoteliering",
+      "normalized_id": "hoteliering",
+      "category": "Service",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Letting office and warehouse premises on rent for commercial purposes",
+      "normalized_name": "Commercial Property Leasing",
+      "normalized_id": "commercial_property_leasing",
+      "category": "Service",
+      "description": null,
+      "launch_date": null
+    }
+  ],
+  "subsidiaries": [
+    {
+      "raw_name": "PT Agro Surya Madiri",
+      "normalized_name": "Agro Surya Madiri",
+      "normalized_id": "agro_surya_madiri",
+      "relationship_type": "subsidiary",
+      "relationship_description": "Oil palm plantation",
+      "ownership_percent": 50.67
+    },
+    {
+      "raw_name": "PT Agro Asia Pacific",
+      "normalized_name": "Agro Asia Pacific",
+      "normalized_id": "agro_asia_pacific",
+      "relationship_type": "subsidiary",
+      "relationship_description": "Trading of palm oil products",
+      "ownership_percent": 53.33
+    },
+    {
+      "raw_name": "Agro Asia Pacific Limited",
+      "normalized_name": "Agro Asia Pacific",
+      "normalized_id": "agro_asia_pacific",
+      "relationship_type": "subsidiary",
+      "relationship_description": "Trading of palm oil products",
+      "ownership_percent": 53.33
+    },
+    {
+      "raw_name": "PT Agro Harapan Lestari",
+      "normalized_name": "Agro Harapan Lestari",
+      "normalized_id": "agro_harapan_lestari",
+      "relationship_type": "subsidiary",
+      "relationship_description": "Plantation management services",
+      "ownership_percent": 53.26
+    },
+    {
+      "raw_name": "Agro Harapan Lestari (Private) Limited",
+      "normalized_name": "Agro Harapan Lestari",
+      "normalized_id": "agro_harapan_lestari",
+      "relationship_type": "subsidiary",
+      "relationship_description": "Management services",
+      "ownership_percent": 53.33
+    },
+    {
+      "raw_name": "Equity Two PLC",
+      "normalized_name": "Equity Two",
+      "normalized_id": "equity_two",
+      "relationship_type": "subsidiary",
+      "relationship_description": "Real Estate",
+      "ownership_percent": 87.92
+    },
+    {
+      "raw_name": "Pegasus Hotels of Ceylon PLC",
+      "normalized_name": "Pegasus Hotels of Ceylon",
+      "normalized_id": "pegasus_hotels_of_ceylon",
+      "relationship_type": "subsidiary",
+      "relationship_description": "Leisure",
+      "ownership_percent": 89.98
+    },
+    {
+      "raw_name": "Selinsing PLC",
+      "normalized_name": "Selinsing",
+      "normalized_id": "selinsing",
+      "relationship_type": "subsidiary",
+      "relationship_description": "Investment holding",
+      "ownership_percent": 51.03
+    },
+    {
+      "raw_name": "Good Hope PLC",
+      "normalized_name": "Good Hope",
+      "normalized_id": "good_hope",
+      "relationship_type": "subsidiary",
+      "relationship_description": "Investment holding",
+      "ownership_percent": 48.5
+    },
+    {
+      "raw_name": "Indo - Malay PLC",
+      "normalized_name": "Indo - Malay",
+      "normalized_id": "indo_malay",
+      "relationship_type": "subsidiary",
+      "relationship_description": "Investment holding",
+      "ownership_percent": 46.48
+    },
+    {
+      "raw_name": "Shalimar (Malay) PLC",
+      "normalized_name": "Shalimar (Malay)",
+      "normalized_id": "shalimar_malay",
+      "relationship_type": "subsidiary",
+      "relationship_description": "Investment holding",
+      "ownership_percent": 52.39
+    },
+    {
+      "raw_name": "Ceylon Guardian Investment Trust PLC",
+      "normalized_name": "Ceylon Guardian Investment Trust",
+      "normalized_id": "ceylon_guardian_investment_trust",
+      "relationship_type": "subsidiary",
+      "relationship_description": "Portfolio and Asset Management",
+      "ownership_percent": 69.65
+    },
+    {
+      "raw_name": "Ceylon Investment PLC",
+      "normalized_name": "Ceylon Investment",
+      "normalized_id": "ceylon_investment",
+      "relationship_type": "subsidiary",
+      "relationship_description": "Portfolio and Asset Management",
+      "ownership_percent": 45.93
+    },
+    {
+      "raw_name": "Ceylon Beverage Holdings PLC",
+      "normalized_name": "Ceylon Beverage Holdings",
+      "normalized_id": "ceylon_beverage_holdings",
+      "relationship_type": "subsidiary",
+      "relationship_description": "Beverage",
+      "ownership_percent": 75.62
+    },
+    {
+      "raw_name": "Lion Brewery (Ceylon) PLC",
+      "normalized_name": "Lion Brewery (Ceylon)",
+      "normalized_id": "lion_brewery_ceylon",
+      "relationship_type": "subsidiary",
+      "relationship_description": "Beverage",
+      "ownership_percent": 47.84
+    },
+    {
+      "raw_name": "Guardian Fund Management LLC",
+      "normalized_name": "Guardian Fund Management",
+      "normalized_id": "guardian_fund_management",
+      "relationship_type": "subsidiary",
+      "relationship_description": "Portfolio and Asset Management",
+      "ownership_percent": 57.79
+    },
+    {
+      "raw_name": "Guardian Value Fund LLC",
+      "normalized_name": "Guardian Value Fund",
+      "normalized_id": "guardian_value_fund",
+      "relationship_type": "subsidiary",
+      "relationship_description": "Portfolio and Asset Management",
+      "ownership_percent": 57.79
+    },
+    {
+      "raw_name": "Leechman & Company (Private) Limited",
+      "normalized_name": "Leechman & Company",
+      "normalized_id": "leechman_company",
+      "relationship_type": "subsidiary",
+      "relationship_description": "Portfolio and Asset Management",
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "Rubber Investment Trust Limited",
+      "normalized_name": "Rubber Investment Trust",
+      "normalized_id": "rubber_investment_trust",
+      "relationship_type": "subsidiary",
+      "relationship_description": "Portfolio and Asset Management",
+      "ownership_percent": 57.8
+    },
+    {
+      "raw_name": "Guardian Fund Management Limited",
+      "normalized_name": "Guardian Fund Management",
+      "normalized_id": "guardian_fund_management",
+      "relationship_type": "subsidiary",
+      "relationship_description": "Portfolio and Asset Management",
+      "ownership_percent": 69.65
+    },
+    {
+      "raw_name": "Baillie Street Holdings Pte. Ltd",
+      "normalized_name": "Baillie Street Holdings",
+      "normalized_id": "baillie_street_holdings",
+      "relationship_type": "subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "Lion Beer (Ceylon) Pte. Ltd",
+      "normalized_name": "Lion Beer (Ceylon)",
+      "normalized_id": "lion_beer_ceylon",
+      "relationship_type": "subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    }
+  ]
+}

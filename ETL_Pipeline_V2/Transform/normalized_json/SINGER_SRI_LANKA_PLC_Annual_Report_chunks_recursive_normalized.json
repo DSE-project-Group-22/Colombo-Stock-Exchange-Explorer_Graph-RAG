@@ -1,0 +1,1490 @@
+{
+  "company": {
+    "raw_name": "Singer (Sri Lanka) PLC",
+    "normalized_name": "Singer (Sri Lanka)",
+    "ticker": null,
+    "founded_on": "1877-01-01",
+    "listed_on": null,
+    "industry": null
+  },
+  "sectors": [
+    {
+      "normalized_name": "Retailing"
+    },
+    {
+      "normalized_name": "Diversified Financials"
+    },
+    {
+      "normalized_name": "Consumer Durables and Apparel"
+    },
+    {
+      "normalized_name": "Capital Goods"
+    }
+  ],
+  "auditor": {
+    "normalized_name": "KPMG"
+  },
+  "directors": [
+    {
+      "raw_name": "Mohan Pandithage",
+      "normalized_name": "Mohan Pandithage",
+      "raw_title": "Chairman (Executive)",
+      "normalized_title": "Chairman",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": false,
+      "is_executive": true
+    },
+    {
+      "raw_name": "Mahesh Wijewardene",
+      "normalized_name": "Mahesh Wijewardene",
+      "raw_title": "Group Chief Executive Officer",
+      "normalized_title": "Chief Executive Officer",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": false,
+      "is_executive": true
+    },
+    {
+      "raw_name": "Deepal Sooriyaarachchi",
+      "normalized_name": "Deepal Sooriyaarachchi",
+      "raw_title": "Independent Non-Executive Director",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Hisham Jamaldeen",
+      "normalized_name": "Hisham Jamaldeen",
+      "raw_title": "Chairman - Independent Non-Executive Director",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Dumith Fernando",
+      "normalized_name": "Dumith Fernando",
+      "raw_title": "Independent Non-Executive Director",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Sarath Ganegoda",
+      "normalized_name": "Sarath Ganegoda",
+      "raw_title": "Non-Executive Director",
+      "normalized_title": "Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": false,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Dilip De S. Wijeyeratne",
+      "normalized_name": "Dilip De S. Wijeyeratne",
+      "raw_title": "Senior Independent Director",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Gayani de Alwis",
+      "normalized_name": "Gayani De Alwis",
+      "raw_title": "Independent Non-Executive Director",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Brindhiini Perera",
+      "normalized_name": "Brindhiini Perera",
+      "raw_title": "Non-Executive Director",
+      "normalized_title": "Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": false,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Sujeewa Perera",
+      "normalized_name": "Sujeewa Perera",
+      "raw_title": "Alternate Director to Mahesh Wijewardene - Ceased to be Alternate w.e.f 27th February 2024",
+      "normalized_title": "Board Member",
+      "appointed_date": null,
+      "resigned_date": "2024-02-27",
+      "as_of_date": "2024-03-31",
+      "is_independent": null,
+      "is_executive": true
+    },
+    {
+      "raw_name": "Kapila Perera",
+      "normalized_name": "Kapila Perera",
+      "raw_title": "Alternate Director to Hisham Jamaldeen - ceased to be Alternate with effect from 20.01.2024",
+      "normalized_title": "Board Member",
+      "appointed_date": null,
+      "resigned_date": "2024-01-20",
+      "as_of_date": "2024-03-31",
+      "is_independent": true,
+      "is_executive": false
+    }
+  ],
+  "executives": [
+    {
+      "raw_name": "Mahesh Wijewardene",
+      "normalized_name": "Mahesh Wijewardene",
+      "normalized_id": "mahesh_wijewardene",
+      "raw_title": "Group Chief Executive Officer",
+      "normalized_title": "Chief Executive Officer",
+      "department": null,
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    }
+  ],
+  "shareholdings": {
+    "company_holdings": [
+      {
+        "holder": {
+          "raw_name": "Hayleys PLC",
+          "normalized_name": "Hayleys"
+        },
+        "ownership_percent": 87.28,
+        "share_count": null,
+        "as_of_date": "2024-03-31"
+      }
+    ],
+    "individual_holdings": [
+      {
+        "holder": {
+          "raw_name": "Kapila Perera",
+          "normalized_name": "Kapila Perera"
+        },
+        "share_count": 3000,
+        "ownership_percent": null,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mr. Abeysiri Hemapala Munasinghe",
+          "normalized_name": "Abeysiri Hemapala Munasinghe"
+        },
+        "share_count": 860268,
+        "ownership_percent": 0.08,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mrs. Giyani Venya De Silva",
+          "normalized_name": "Giyani Venya De Silva"
+        },
+        "share_count": 662385,
+        "ownership_percent": 0.06,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Miss. Shayari Hiranya De Silva",
+          "normalized_name": "Shayari Hiranya De Silva"
+        },
+        "share_count": 662385,
+        "ownership_percent": 0.06,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mrs. Anoma Kamalika Amarasuriya",
+          "normalized_name": "Anoma Kamalika Amarasuriya"
+        },
+        "share_count": 1200000,
+        "ownership_percent": 0.1,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Miss. Nai Kaluge Ruvani Hemamala De Silva",
+          "normalized_name": "Nai Kaluge Ruvani Hemamala De Silva"
+        },
+        "share_count": 1192914,
+        "ownership_percent": 0.1,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mr. Abeysiri Hemapala Munasinghe & Mr. A.R.R. Munasinghe",
+          "normalized_name": "Abeysiri Hemapala Munasinghe & A.R.R. Munasinghe"
+        },
+        "share_count": 1153220,
+        "ownership_percent": 0.1,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mrs. Herath Mudiyanselage Anoma Ramani Kumari Kaluhendiwela",
+          "normalized_name": "Herath Mudiyanselage Anoma Ramani Kumari Kaluhendiwela"
+        },
+        "share_count": 1144663,
+        "ownership_percent": 0.1,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "L.P. Hapangama",
+          "normalized_name": "L. P. Hapangama"
+        },
+        "share_count": 4109350,
+        "ownership_percent": 0.35,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Dr.H.S.D.Soysa & Mrs.G.Soysa",
+          "normalized_name": "H. S. D. Soysa & G. Soysa"
+        },
+        "share_count": 1648389,
+        "ownership_percent": 0.14,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mr.D.M.P.Disanayake",
+          "normalized_name": "D. M. P. Disanayake"
+        },
+        "share_count": 1554045,
+        "ownership_percent": 0.13,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mohamed Mushtaq Fuad",
+          "normalized_name": "Mohamed Mushtaq Fuad"
+        },
+        "share_count": 1300596,
+        "ownership_percent": 0.11,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mr. R. Kannan",
+          "normalized_name": "R. Kannan"
+        },
+        "share_count": 718033,
+        "ownership_percent": 0.06,
+        "as_of_date": "2024-03-31"
+      }
+    ]
+  },
+  "financial_metrics": [
+    {
+      "raw_name": "Revenue – Net",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "69,973,442 '000",
+      "normalized_value": 69973442000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Revenue – Net",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "54,767,234 '000",
+      "normalized_value": 54767234000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Revenue – Net",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "63,333,445 '000",
+      "normalized_value": 63333445000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Revenue – Net",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "47,950,386 '000",
+      "normalized_value": 47950386000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Gross Profit",
+      "normalized_name": "Gross Profit",
+      "normalized_id": "gross_profit",
+      "raw_value": "17,898,934 '000",
+      "normalized_value": 17898934000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Gross Profit",
+      "normalized_name": "Gross Profit",
+      "normalized_id": "gross_profit",
+      "raw_value": "18,872,257 '000",
+      "normalized_value": 18872257000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Gross Profit",
+      "normalized_name": "Gross Profit",
+      "normalized_id": "gross_profit",
+      "raw_value": "16,054,917 '000",
+      "normalized_value": 16054917000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Gross Profit",
+      "normalized_name": "Gross Profit",
+      "normalized_id": "gross_profit",
+      "raw_value": "16,215,934 '000",
+      "normalized_value": 16215934000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Operating Profit",
+      "normalized_name": "Operating Profit",
+      "normalized_id": "operating_profit",
+      "raw_value": "3,137,410 '000",
+      "normalized_value": 3137410000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Operating Profit",
+      "normalized_name": "Operating Profit",
+      "normalized_id": "operating_profit",
+      "raw_value": "6,687,768 '000",
+      "normalized_value": 6687768000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Operating Profit",
+      "normalized_name": "Operating Profit",
+      "normalized_id": "operating_profit",
+      "raw_value": "3,579,901 '000",
+      "normalized_value": 3579901000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Operating Profit",
+      "normalized_name": "Operating Profit",
+      "normalized_id": "operating_profit",
+      "raw_value": "6,272,838 '000",
+      "normalized_value": 6272838000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Net Finance Cost",
+      "normalized_name": "Net Finance Cost",
+      "normalized_id": "net_finance_cost",
+      "raw_value": "2,401,901 '000",
+      "normalized_value": 2401901000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net Finance Cost",
+      "normalized_name": "Net Finance Cost",
+      "normalized_id": "net_finance_cost",
+      "raw_value": "6,118,864 '000",
+      "normalized_value": 6118864000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net Finance Cost",
+      "normalized_name": "Net Finance Cost",
+      "normalized_id": "net_finance_cost",
+      "raw_value": "3,621,385 '000",
+      "normalized_value": 3621385000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Net Finance Cost",
+      "normalized_name": "Net Finance Cost",
+      "normalized_id": "net_finance_cost",
+      "raw_value": "6,263,475 '000",
+      "normalized_value": 6263475000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Profit/(Loss) Before Tax",
+      "normalized_name": "Profit Before Tax",
+      "normalized_id": "profit_before_tax",
+      "raw_value": "338,653 '000",
+      "normalized_value": 338653000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit/(Loss) Before Tax",
+      "normalized_name": "Profit Before Tax",
+      "normalized_id": "profit_before_tax",
+      "raw_value": "174,192 '000",
+      "normalized_value": 174192000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit/(Loss) Before Tax",
+      "normalized_name": "Profit Before Tax",
+      "normalized_id": "profit_before_tax",
+      "raw_value": "(118,484) '000",
+      "normalized_value": -118484000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Profit/(Loss) Before Tax",
+      "normalized_name": "Profit Before Tax",
+      "normalized_id": "profit_before_tax",
+      "raw_value": "(68,636) '000",
+      "normalized_value": -68636000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Profit/(Loss) For the Year",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "(91,299) '000",
+      "normalized_value": -91299000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit/(Loss) For the Year",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "95,931 '000",
+      "normalized_value": 95931000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit/(Loss) For the Year",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "(297,701) '000",
+      "normalized_value": -297701000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Profit/(Loss) For the Year",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "220,599 '000",
+      "normalized_value": 220599000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Total Equity",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "12,443,745,005",
+      "normalized_value": 12443745005.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total Equity",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "12,089,983,562",
+      "normalized_value": 12089983562.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total Equity",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "8,324,543,215",
+      "normalized_value": 8324543215.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Total Equity",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "6,647,514,893",
+      "normalized_value": 6647514893.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Earning per Share - Rs",
+      "normalized_name": "Earnings Per Share",
+      "normalized_id": "earnings_per_share",
+      "raw_value": "(0.14)",
+      "normalized_value": -0.14,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Earning per Share - Rs",
+      "normalized_name": "Earnings Per Share",
+      "normalized_id": "earnings_per_share",
+      "raw_value": "0.01",
+      "normalized_value": 0.01,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Earning per Share - Rs",
+      "normalized_name": "Earnings Per Share",
+      "normalized_id": "earnings_per_share",
+      "raw_value": "3.51",
+      "normalized_value": 3.51,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2022,
+      "as_of_date": "2022-03-31",
+      "period_start": null,
+      "period_end": "2022-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Earning per Share - Rs",
+      "normalized_name": "Earnings Per Share",
+      "normalized_id": "earnings_per_share",
+      "raw_value": "2.18",
+      "normalized_value": 2.18,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2021,
+      "as_of_date": "2021-03-31",
+      "period_start": null,
+      "period_end": "2021-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Earning per Share - Rs",
+      "normalized_name": "Earnings Per Share",
+      "normalized_id": "earnings_per_share",
+      "raw_value": "0.25",
+      "normalized_value": 0.25,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2020,
+      "as_of_date": "2020-03-31",
+      "period_start": null,
+      "period_end": "2020-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Earning per Share - Rs",
+      "normalized_name": "Earnings Per Share",
+      "normalized_id": "earnings_per_share",
+      "raw_value": "0.22",
+      "normalized_value": 0.22,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2019,
+      "as_of_date": "2019-03-31",
+      "period_start": null,
+      "period_end": "2019-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Earning per Share - Rs",
+      "normalized_name": "Earnings Per Share",
+      "normalized_id": "earnings_per_share",
+      "raw_value": "0.93",
+      "normalized_value": 0.93,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2018,
+      "as_of_date": "2018-03-31",
+      "period_start": null,
+      "period_end": "2018-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Earning per Share - Rs",
+      "normalized_name": "Earnings Per Share",
+      "normalized_id": "earnings_per_share",
+      "raw_value": "1.88",
+      "normalized_value": 1.88,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2016,
+      "as_of_date": "2016-12-31",
+      "period_start": null,
+      "period_end": "2016-12-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Earning per Share - Rs",
+      "normalized_name": "Earnings Per Share",
+      "normalized_id": "earnings_per_share",
+      "raw_value": "1.02",
+      "normalized_value": 1.02,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2015,
+      "as_of_date": "2015-12-31",
+      "period_start": null,
+      "period_end": "2015-12-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Earning per Share - Rs",
+      "normalized_name": "Earnings Per Share",
+      "normalized_id": "earnings_per_share",
+      "raw_value": "0.63",
+      "normalized_value": 0.63,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2014,
+      "as_of_date": "2014-12-31",
+      "period_start": null,
+      "period_end": "2014-12-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net Assets per Share - Rs.",
+      "normalized_name": "Net Asset Value Per Share",
+      "normalized_id": "net_asset_value_per_share",
+      "raw_value": "9.76",
+      "normalized_value": 9.76,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net Assets per Share - Rs.",
+      "normalized_name": "Net Asset Value Per Share",
+      "normalized_id": "net_asset_value_per_share",
+      "raw_value": "9.00",
+      "normalized_value": 9.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net Assets per Share - Rs.",
+      "normalized_name": "Net Asset Value Per Share",
+      "normalized_id": "net_asset_value_per_share",
+      "raw_value": "10.27",
+      "normalized_value": 10.27,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2022,
+      "as_of_date": "2022-03-31",
+      "period_start": null,
+      "period_end": "2022-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net Assets per Share - Rs.",
+      "normalized_name": "Net Asset Value Per Share",
+      "normalized_id": "net_asset_value_per_share",
+      "raw_value": "7.53",
+      "normalized_value": 7.53,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2021,
+      "as_of_date": "2021-03-31",
+      "period_start": null,
+      "period_end": "2021-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net Assets per Share - Rs.",
+      "normalized_name": "Net Asset Value Per Share",
+      "normalized_id": "net_asset_value_per_share",
+      "raw_value": "5.83",
+      "normalized_value": 5.83,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2020,
+      "as_of_date": "2020-03-31",
+      "period_start": null,
+      "period_end": "2020-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net Assets per Share - Rs.",
+      "normalized_name": "Net Asset Value Per Share",
+      "normalized_id": "net_asset_value_per_share",
+      "raw_value": "6.16",
+      "normalized_value": 6.16,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2019,
+      "as_of_date": "2019-03-31",
+      "period_start": null,
+      "period_end": "2019-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net Assets per Share - Rs.",
+      "normalized_name": "Net Asset Value Per Share",
+      "normalized_id": "net_asset_value_per_share",
+      "raw_value": "6.07",
+      "normalized_value": 6.07,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2018,
+      "as_of_date": "2018-03-31",
+      "period_start": null,
+      "period_end": "2018-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net Assets per Share - Rs.",
+      "normalized_name": "Net Asset Value Per Share",
+      "normalized_id": "net_asset_value_per_share",
+      "raw_value": "7.24",
+      "normalized_value": 7.24,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2016,
+      "as_of_date": "2016-12-31",
+      "period_start": null,
+      "period_end": "2016-12-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net Assets per Share - Rs.",
+      "normalized_name": "Net Asset Value Per Share",
+      "normalized_id": "net_asset_value_per_share",
+      "raw_value": "5.58",
+      "normalized_value": 5.58,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2015,
+      "as_of_date": "2015-12-31",
+      "period_start": null,
+      "period_end": "2015-12-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net Assets per Share - Rs.",
+      "normalized_name": "Net Asset Value Per Share",
+      "normalized_id": "net_asset_value_per_share",
+      "raw_value": "4.86",
+      "normalized_value": 4.86,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2014,
+      "as_of_date": "2014-12-31",
+      "period_start": null,
+      "period_end": "2014-12-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Return on Average Net Assets - %",
+      "normalized_name": "Return on Equity",
+      "normalized_id": "return_on_equity",
+      "raw_value": "(0.74)",
+      "normalized_value": -0.74,
+      "unit": "%",
+      "currency": null,
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Return on Average Net Assets - %",
+      "normalized_name": "Return on Equity",
+      "normalized_id": "return_on_equity",
+      "raw_value": "0.75",
+      "normalized_value": 0.75,
+      "unit": "%",
+      "currency": null,
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Return on Average Net Assets - %",
+      "normalized_name": "Return on Equity",
+      "normalized_id": "return_on_equity",
+      "raw_value": "34.54",
+      "normalized_value": 34.54,
+      "unit": "%",
+      "currency": null,
+      "year": 2022,
+      "as_of_date": "2022-03-31",
+      "period_start": null,
+      "period_end": "2022-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Return on Average Net Assets - %",
+      "normalized_name": "Return on Equity",
+      "normalized_id": "return_on_equity",
+      "raw_value": "28.27",
+      "normalized_value": 28.27,
+      "unit": "%",
+      "currency": null,
+      "year": 2021,
+      "as_of_date": "2021-03-31",
+      "period_start": null,
+      "period_end": "2021-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Return on Average Net Assets - %",
+      "normalized_name": "Return on Equity",
+      "normalized_id": "return_on_equity",
+      "raw_value": "5.14",
+      "normalized_value": 5.14,
+      "unit": "%",
+      "currency": null,
+      "year": 2020,
+      "as_of_date": "2020-03-31",
+      "period_start": null,
+      "period_end": "2020-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Return on Average Net Assets - %",
+      "normalized_name": "Return on Equity",
+      "normalized_id": "return_on_equity",
+      "raw_value": "4.64",
+      "normalized_value": 4.64,
+      "unit": "%",
+      "currency": null,
+      "year": 2019,
+      "as_of_date": "2019-03-31",
+      "period_start": null,
+      "period_end": "2019-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Return on Average Net Assets - %",
+      "normalized_name": "Return on Equity",
+      "normalized_id": "return_on_equity",
+      "raw_value": "13.76",
+      "normalized_value": 13.76,
+      "unit": "%",
+      "currency": null,
+      "year": 2018,
+      "as_of_date": "2018-03-31",
+      "period_start": null,
+      "period_end": "2018-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Return on Average Net Assets - %",
+      "normalized_name": "Return on Equity",
+      "normalized_id": "return_on_equity",
+      "raw_value": "28.89",
+      "normalized_value": 28.89,
+      "unit": "%",
+      "currency": null,
+      "year": 2016,
+      "as_of_date": "2016-12-31",
+      "period_start": null,
+      "period_end": "2016-12-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Return on Average Net Assets - %",
+      "normalized_name": "Return on Equity",
+      "normalized_id": "return_on_equity",
+      "raw_value": "19.50",
+      "normalized_value": 19.5,
+      "unit": "%",
+      "currency": null,
+      "year": 2015,
+      "as_of_date": "2015-12-31",
+      "period_start": null,
+      "period_end": "2015-12-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Return on Average Net Assets - %",
+      "normalized_name": "Return on Equity",
+      "normalized_id": "return_on_equity",
+      "raw_value": "13.90",
+      "normalized_value": 13.9,
+      "unit": "%",
+      "currency": null,
+      "year": 2014,
+      "as_of_date": "2014-12-31",
+      "period_start": null,
+      "period_end": "2014-12-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Current Ratio",
+      "normalized_name": "Current Ratio",
+      "normalized_id": "current_ratio",
+      "raw_value": "1.11",
+      "normalized_value": 1.11,
+      "unit": "Ratio",
+      "currency": null,
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Current Ratio",
+      "normalized_name": "Current Ratio",
+      "normalized_id": "current_ratio",
+      "raw_value": "1.33",
+      "normalized_value": 1.33,
+      "unit": "Ratio",
+      "currency": null,
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Current Ratio",
+      "normalized_name": "Current Ratio",
+      "normalized_id": "current_ratio",
+      "raw_value": "1.18",
+      "normalized_value": 1.18,
+      "unit": "Ratio",
+      "currency": null,
+      "year": 2022,
+      "as_of_date": "2022-03-31",
+      "period_start": null,
+      "period_end": "2022-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Current Ratio",
+      "normalized_name": "Current Ratio",
+      "normalized_id": "current_ratio",
+      "raw_value": "1.06",
+      "normalized_value": 1.06,
+      "unit": "Ratio",
+      "currency": null,
+      "year": 2021,
+      "as_of_date": "2021-03-31",
+      "period_start": null,
+      "period_end": "2021-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Current Ratio",
+      "normalized_name": "Current Ratio",
+      "normalized_id": "current_ratio",
+      "raw_value": "1.05",
+      "normalized_value": 1.05,
+      "unit": "Ratio",
+      "currency": null,
+      "year": 2020,
+      "as_of_date": "2020-03-31",
+      "period_start": null,
+      "period_end": "2020-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Current Ratio",
+      "normalized_name": "Current Ratio",
+      "normalized_id": "current_ratio",
+      "raw_value": "1.12",
+      "normalized_value": 1.12,
+      "unit": "Ratio",
+      "currency": null,
+      "year": 2019,
+      "as_of_date": "2019-03-31",
+      "period_start": null,
+      "period_end": "2019-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Current Ratio",
+      "normalized_name": "Current Ratio",
+      "normalized_id": "current_ratio",
+      "raw_value": "1.00",
+      "normalized_value": 1.0,
+      "unit": "Ratio",
+      "currency": null,
+      "year": 2018,
+      "as_of_date": "2018-03-31",
+      "period_start": null,
+      "period_end": "2018-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Current Ratio",
+      "normalized_name": "Current Ratio",
+      "normalized_id": "current_ratio",
+      "raw_value": "1.27",
+      "normalized_value": 1.27,
+      "unit": "Ratio",
+      "currency": null,
+      "year": 2016,
+      "as_of_date": "2016-12-31",
+      "period_start": null,
+      "period_end": "2016-12-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Current Ratio",
+      "normalized_name": "Current Ratio",
+      "normalized_id": "current_ratio",
+      "raw_value": "1.40",
+      "normalized_value": 1.4,
+      "unit": "Ratio",
+      "currency": null,
+      "year": 2015,
+      "as_of_date": "2015-12-31",
+      "period_start": null,
+      "period_end": "2015-12-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Current Ratio",
+      "normalized_name": "Current Ratio",
+      "normalized_id": "current_ratio",
+      "raw_value": "1.20",
+      "normalized_value": 1.2,
+      "unit": "Ratio",
+      "currency": null,
+      "year": 2014,
+      "as_of_date": "2014-12-31",
+      "period_start": null,
+      "period_end": "2014-12-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Borrowings",
+      "normalized_name": "Total Liabilities",
+      "normalized_id": "total_liabilities",
+      "raw_value": "58,445 Mn",
+      "normalized_value": 58445000000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    }
+  ],
+  "products_services": [
+    {
+      "raw_name": "Consumer Electronics",
+      "normalized_name": "Consumer Electronics",
+      "normalized_id": "consumer_electronics",
+      "category": "Product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Home Appliances",
+      "normalized_name": "Home Appliances",
+      "normalized_id": "home_appliances",
+      "category": "Product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Mobile and Smartphones",
+      "normalized_name": "Mobile and Smartphones",
+      "normalized_id": "mobile_and_smartphones",
+      "category": "Product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Personal Computers",
+      "normalized_name": "Personal Computers",
+      "normalized_id": "personal_computers",
+      "category": "Product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Laptops",
+      "normalized_name": "Laptops",
+      "normalized_id": "laptops",
+      "category": "Product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Furniture",
+      "normalized_name": "Furniture",
+      "normalized_id": "furniture",
+      "category": "Product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Domestic Sewing Machines",
+      "normalized_name": "Domestic Sewing Machines",
+      "normalized_id": "domestic_sewing_machines",
+      "category": "Product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Industrial Sewing Machines",
+      "normalized_name": "Industrial Sewing Machines",
+      "normalized_id": "industrial_sewing_machines",
+      "category": "Product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Agriculture Equipment",
+      "normalized_name": "Agriculture Equipment",
+      "normalized_id": "agriculture_equipment",
+      "category": "Product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Water Pumps",
+      "normalized_name": "Water Pumps",
+      "normalized_id": "water_pumps",
+      "category": "Product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Motor Cycles",
+      "normalized_name": "Motor Cycles",
+      "normalized_id": "motor_cycles",
+      "category": "Product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Two Wheel Tractors",
+      "normalized_name": "Two Wheel Tractors",
+      "normalized_id": "two_wheel_tractors",
+      "category": "Product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Financing",
+      "normalized_name": "Financing",
+      "normalized_id": "financing",
+      "category": "Service",
+      "description": "Provides Financing through Hire Purchase.",
+      "launch_date": null
+    },
+    {
+      "raw_name": "Bill Collection Agent",
+      "normalized_name": "Bill Collection Agent",
+      "normalized_id": "bill_collection_agent",
+      "category": "Service",
+      "description": "Acts as a Bill Collection Agent for Banks, Mobile Service Providers, National Water Supply and Drainage Board, Ceylon Electricity Board.",
+      "launch_date": null
+    },
+    {
+      "raw_name": "Western Union",
+      "normalized_name": "Western Union",
+      "normalized_id": "western_union",
+      "category": "Brand",
+      "description": "Sub-agent for Western Union.",
+      "launch_date": null
+    },
+    {
+      "raw_name": "Acer",
+      "normalized_name": "Acer",
+      "normalized_id": "acer",
+      "category": "Brand",
+      "description": "Performance brand for computers.",
+      "launch_date": null
+    },
+    {
+      "raw_name": "Dell",
+      "normalized_name": "Dell",
+      "normalized_id": "dell",
+      "category": "Brand",
+      "description": "Performance brand for computers.",
+      "launch_date": null
+    },
+    {
+      "raw_name": "MSI",
+      "normalized_name": "MSI",
+      "normalized_id": "msi",
+      "category": "Brand",
+      "description": "Brand for high-performance computers.",
+      "launch_date": null
+    },
+    {
+      "raw_name": "Honor",
+      "normalized_name": "Honor",
+      "normalized_id": "honor",
+      "category": "Brand",
+      "description": "Key brand for mobile phones, occupying the mid-tier segment.",
+      "launch_date": null
+    },
+    {
+      "raw_name": "ZTE",
+      "normalized_name": "ZTE",
+      "normalized_id": "zte",
+      "category": "Brand",
+      "description": "Exclusive distributorship for mobile phones.",
+      "launch_date": null
+    },
+    {
+      "raw_name": "Samsung",
+      "normalized_name": "Samsung",
+      "normalized_id": "samsung",
+      "category": "Brand",
+      "description": "Dominant brand in high-end and mid-tier mobile phone markets.",
+      "launch_date": null
+    },
+    {
+      "raw_name": "Dahua",
+      "normalized_name": "Dahua",
+      "normalized_id": "dahua",
+      "category": "Brand",
+      "description": "Flagship brand for CCTV and security systems.",
+      "launch_date": null
+    },
+    {
+      "raw_name": "CCTV and security systems",
+      "normalized_name": "CCTV and Security Systems",
+      "normalized_id": "cctv_and_security_systems",
+      "category": "Product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Head phones",
+      "normalized_name": "Headphones",
+      "normalized_id": "headphones",
+      "category": "Product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Security surveillance",
+      "normalized_name": "Security Surveillance",
+      "normalized_id": "security_surveillance",
+      "category": "Service",
+      "description": null,
+      "launch_date": null
+    }
+  ],
+  "subsidiaries": [
+    {
+      "raw_name": "Singer Finance (Lanka) PLC",
+      "normalized_name": "Singer Finance (Lanka)",
+      "normalized_id": "singer_finance_lanka",
+      "relationship_type": "Subsidiary",
+      "relationship_description": null,
+      "ownership_percent": null
+    },
+    {
+      "raw_name": "Reality Lanka Limited",
+      "normalized_name": "Reality Lanka",
+      "normalized_id": "reality_lanka",
+      "relationship_type": "Subsidiary",
+      "relationship_description": "Investment on properties.",
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "Regnis Appliances (Private) Limited",
+      "normalized_name": "Regnis Appliances",
+      "normalized_id": "regnis_appliances",
+      "relationship_type": "Subsidiary",
+      "relationship_description": "Manufacturing washing machines.",
+      "ownership_percent": 100.0
+    }
+  ]
+}

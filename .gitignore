@@ -114,6 +114,7 @@ venv.bak/
 .spyderproject
 .spyproject
 
+
 # Rope project settings
 .ropeproject
 
@@ -207,6 +208,8 @@ processed_data/
 !Dockerfile
 !docker-compose.yml
 !README.md
+
+!ETL_Pipeline_V2/Transform/normalized_json/*.json
 
 # Database files
 *.db

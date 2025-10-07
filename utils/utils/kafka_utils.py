@@ -138,7 +138,7 @@ class SimpleKafkaConsumer:
         Consume messages from subscribed topics.
         
         Yields:
-            Deserialized message dictionaries
+            Deserialized message dictionaries with topic information
             
         Example:
             async for message in consumer.consume_messages():
@@ -154,7 +154,11 @@ class SimpleKafkaConsumer:
                     f"Message received from {msg.topic}:{msg.partition} "
                     f"at offset {msg.offset}"
                 )
-                yield msg.value
+                # Add topic information to the message
+                message = msg.value or {}
+                if isinstance(message, dict):
+                    message['_topic'] = msg.topic
+                yield message
             except Exception as e:
                 logger.error(f"Error processing message: {e}")
                 # Don't commit on error - message will be reprocessed

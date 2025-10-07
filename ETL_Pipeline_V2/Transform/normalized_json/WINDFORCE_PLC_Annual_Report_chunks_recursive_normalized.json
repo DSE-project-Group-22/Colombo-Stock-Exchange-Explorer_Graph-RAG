@@ -1,0 +1,1432 @@
+{
+  "company": {
+    "raw_name": "WindForce PLC",
+    "normalized_name": "WindForce",
+    "ticker": "WIND.N0000",
+    "founded_on": "2010-07-06",
+    "listed_on": "2021-04-22",
+    "industry": "Utilities"
+  },
+  "sectors": [
+    {
+      "normalized_name": "Energy"
+    },
+    {
+      "normalized_name": "Automobiles and Components"
+    }
+  ],
+  "auditor": {
+    "normalized_name": "Ernst & Young"
+  },
+  "directors": [
+    {
+      "raw_name": "Mr. R. P . Pathirana",
+      "normalized_name": "R. P. Pathirana",
+      "raw_title": "Chairman, Non-Executive, Non-Independent Director",
+      "normalized_title": "Chairman",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": false,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. A. A. Akbarally",
+      "normalized_name": "A. A. Akbarally",
+      "raw_title": "Deputy Chairman, Executive Non-Independent Director",
+      "normalized_title": "Deputy Chairman",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": false,
+      "is_executive": true
+    },
+    {
+      "raw_name": "Mr. K. B. M. I. Perera",
+      "normalized_name": "K. B. M. I. Perera",
+      "raw_title": "Managing Director, Executive Non-Independent Director",
+      "normalized_title": "Managing Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": false,
+      "is_executive": true
+    },
+    {
+      "raw_name": "Mr. Huzefa Akbarally",
+      "normalized_name": "Huzefa Akbarally",
+      "raw_title": "Non-Executive, Non-Independent Director",
+      "normalized_title": "Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": false,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. Hussain Akbarally",
+      "normalized_name": "Hussain Akbarally",
+      "raw_title": "Executive, Non-Independent Director",
+      "normalized_title": "Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": false,
+      "is_executive": true
+    },
+    {
+      "raw_name": "Mr. V. K. Hirdaramani",
+      "normalized_name": "V. K. Hirdaramani",
+      "raw_title": "Non-Executive Non-Independent Director",
+      "normalized_title": "Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": false,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. Dilshan Hettiaratchi",
+      "normalized_name": "Dilshan Hettiaratchi",
+      "raw_title": "Non-Executive Independent Director",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mrs. Saumya Amarasekera",
+      "normalized_name": "Saumya Amarasekera",
+      "raw_title": "Non-Executive Independent Director",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. Savantha De Saram",
+      "normalized_name": "Savantha De Saram",
+      "raw_title": "Non-Executive Independent Director",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": true,
+      "is_executive": false
+    }
+  ],
+  "executives": [
+    {
+      "raw_name": "Manjula Perera",
+      "normalized_name": "Manjula Perera",
+      "normalized_id": "manjula_perera",
+      "raw_title": "Managing Director",
+      "normalized_title": "Managing Director",
+      "department": null,
+      "appointed_date": null,
+      "as_of_date": "2025-03-31"
+    },
+    {
+      "raw_name": "Lasith Wimalasena",
+      "normalized_name": "Lasith Wimalasena",
+      "normalized_id": "lasith_wimalasena",
+      "raw_title": "Chief Executive Officer",
+      "normalized_title": "Chief Executive Officer",
+      "department": null,
+      "appointed_date": null,
+      "as_of_date": "2025-03-31"
+    },
+    {
+      "raw_name": "Rusiri Cooray",
+      "normalized_name": "Rusiri Cooray",
+      "normalized_id": "rusiri_cooray",
+      "raw_title": "Chief Financial Officer",
+      "normalized_title": "Chief Financial Officer",
+      "department": null,
+      "appointed_date": null,
+      "as_of_date": "2025-03-31"
+    },
+    {
+      "raw_name": "Ahadha Hassan",
+      "normalized_name": "Ahadha Hassan",
+      "normalized_id": "ahadha_hassan",
+      "raw_title": "Executive Secretary",
+      "normalized_title": "Senior Manager",
+      "department": null,
+      "appointed_date": null,
+      "as_of_date": "2025-03-31"
+    },
+    {
+      "raw_name": "Lalith Hewagama",
+      "normalized_name": "Lalith Hewagama",
+      "normalized_id": "lalith_hewagama",
+      "raw_title": "Deputy General Manager – Corporate Finance",
+      "normalized_title": "Senior Manager",
+      "department": "Corporate Finance",
+      "appointed_date": null,
+      "as_of_date": "2025-03-31"
+    },
+    {
+      "raw_name": "Aravinda Karunarathne",
+      "normalized_name": "Aravinda Karunarathne",
+      "normalized_id": "aravinda_karunarathne",
+      "raw_title": "Deputy General Manager - Research and Development",
+      "normalized_title": "Senior Manager",
+      "department": "Research and Development",
+      "appointed_date": null,
+      "as_of_date": "2025-03-31"
+    },
+    {
+      "raw_name": "Rajkumar Kanagaratnam",
+      "normalized_name": "Rajkumar Kanagaratnam",
+      "normalized_id": "rajkumar_kanagaratnam",
+      "raw_title": "Deputy General Manager - Wind",
+      "normalized_title": "Senior Manager",
+      "department": "Wind",
+      "appointed_date": null,
+      "as_of_date": "2025-03-31"
+    },
+    {
+      "raw_name": "Prasad Wijesinghe",
+      "normalized_name": "Prasad Wijesinghe",
+      "normalized_id": "prasad_wijesinghe",
+      "raw_title": "Manager - Operations and Maintenance",
+      "normalized_title": "Senior Manager",
+      "department": "Operations and Maintenance",
+      "appointed_date": null,
+      "as_of_date": "2025-03-31"
+    },
+    {
+      "raw_name": "Mervyn Francis",
+      "normalized_name": "Mervyn Francis",
+      "normalized_id": "mervyn_francis",
+      "raw_title": "Deputy General Manager - Finance and Compliance",
+      "normalized_title": "Senior Manager",
+      "department": "Finance and Compliance",
+      "appointed_date": null,
+      "as_of_date": "2025-03-31"
+    },
+    {
+      "raw_name": "Neena Silva",
+      "normalized_name": "Neena Silva",
+      "normalized_id": "neena_silva",
+      "raw_title": "Manager - Reporting and Investor Relations",
+      "normalized_title": "Senior Manager",
+      "department": "Reporting and Investor Relations",
+      "appointed_date": null,
+      "as_of_date": "2025-03-31"
+    },
+    {
+      "raw_name": "Chandika Rathnayaka",
+      "normalized_name": "Chandika Rathnayaka",
+      "normalized_id": "chandika_rathnayaka",
+      "raw_title": "Manager - Operations and Maintenance",
+      "normalized_title": "Senior Manager",
+      "department": "Operations and Maintenance",
+      "appointed_date": null,
+      "as_of_date": "2025-03-31"
+    },
+    {
+      "raw_name": "Shalini Sivakumar",
+      "normalized_name": "Shalini Sivakumar",
+      "normalized_id": "shalini_sivakumar",
+      "raw_title": "Senior HR Executive",
+      "normalized_title": "Senior Manager",
+      "department": "HR",
+      "appointed_date": null,
+      "as_of_date": "2025-03-31"
+    }
+  ],
+  "shareholdings": {
+    "company_holdings": [
+      {
+        "holder": {
+          "raw_name": "Akbar Brothers Pvt Limited",
+          "normalized_name": "Akbar Brothers"
+        },
+        "ownership_percent": 36.48,
+        "share_count": 492754404,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Hirdaramani Private Limited",
+          "normalized_name": "Hirdaramani"
+        },
+        "ownership_percent": 20.67,
+        "share_count": 279211864,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mona Exports (Pvt) Limited",
+          "normalized_name": "Mona Exports"
+        },
+        "ownership_percent": 9.33,
+        "share_count": 126005666,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "BBH-Tundra Sustainable Frontier Fund",
+          "normalized_name": "BBH-Tundra Sustainable Frontier Fund"
+        },
+        "ownership_percent": 5.22,
+        "share_count": 70500000,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Amaliya Private Limited",
+          "normalized_name": "Amaliya"
+        },
+        "ownership_percent": 3.31,
+        "share_count": 44676827,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "BBH - Tundra Shikari Global",
+          "normalized_name": "BBH - Tundra Shikari Global"
+        },
+        "ownership_percent": 3.04,
+        "share_count": 41019719,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Hirdaramani Power Private Limited",
+          "normalized_name": "Hirdaramani Power"
+        },
+        "ownership_percent": 2.36,
+        "share_count": 31827927,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Quick Tea Pvt Ltd",
+          "normalized_name": "Quick Tea"
+        },
+        "ownership_percent": 1.23,
+        "share_count": 16568003,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Tea House (Pvt) Ltd",
+          "normalized_name": "Tea House"
+        },
+        "ownership_percent": 0.97,
+        "share_count": 13092218,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "J.B. Cocoshell (Pvt) Ltd",
+          "normalized_name": "J.B. Cocoshell"
+        },
+        "ownership_percent": 0.95,
+        "share_count": 12861475,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Cocoshell Activated Carbon Company (Pvt) Ltd",
+          "normalized_name": "Cocoshell Activated Carbon Company"
+        },
+        "ownership_percent": 0.93,
+        "share_count": 12600000,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Saboor Chatoor (Pvt) Ltd",
+          "normalized_name": "Saboor Chatoor"
+        },
+        "ownership_percent": 0.61,
+        "share_count": 8300000,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mouldex (Pvt) Ltd",
+          "normalized_name": "Mouldex"
+        },
+        "ownership_percent": 0.55,
+        "share_count": 7401648,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Employees Trust Fund Board",
+          "normalized_name": "Employees Trust Fund Board"
+        },
+        "ownership_percent": 0.52,
+        "share_count": 6972822,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Marina Blue (Private) Limited",
+          "normalized_name": "Marina Blue"
+        },
+        "ownership_percent": 0.52,
+        "share_count": 6969184,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Odyssey Capital Partners (Private) Limited",
+          "normalized_name": "Odyssey Capital Partners"
+        },
+        "ownership_percent": 0.33,
+        "share_count": 4509703,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Falcon Trading (Pvt) Limited",
+          "normalized_name": "Falcon Trading"
+        },
+        "ownership_percent": null,
+        "share_count": 4325314,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Rosewood (Pvt) Limited",
+          "normalized_name": "Rosewood"
+        },
+        "ownership_percent": null,
+        "share_count": 1500000,
+        "as_of_date": "2025-03-31"
+      }
+    ],
+    "individual_holdings": [
+      {
+        "holder": {
+          "raw_name": "Mr. K.B.M.I. Perera",
+          "normalized_name": "K. B. M. I. Perera"
+        },
+        "share_count": 43125052,
+        "ownership_percent": 3.19,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mr. H.M. Udeshi",
+          "normalized_name": "H. M. Udeshi"
+        },
+        "share_count": 14550000,
+        "ownership_percent": 1.08,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mr. M.K.T. Darwazeh",
+          "normalized_name": "M. K. T. Darwazeh"
+        },
+        "share_count": 7413761,
+        "ownership_percent": 0.55,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mr. S.K.T. Darwazeh",
+          "normalized_name": "S. K. T. Darwazeh"
+        },
+        "share_count": 7413761,
+        "ownership_percent": 0.55,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mr. R. P . Pathirana",
+          "normalized_name": "R. P. Pathirana"
+        },
+        "share_count": 1963323,
+        "ownership_percent": null,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mr. V. K. Hirdaramani",
+          "normalized_name": "V. K. Hirdaramani"
+        },
+        "share_count": 186145,
+        "ownership_percent": null,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mr. A. A. Akbarally",
+          "normalized_name": "A. A. Akbarally"
+        },
+        "share_count": 166145,
+        "ownership_percent": null,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mr. Huzefa Akbarally",
+          "normalized_name": "Huzefa Akbarally"
+        },
+        "share_count": 166145,
+        "ownership_percent": null,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mr. Hussain Akbarally",
+          "normalized_name": "Hussain Akbarally"
+        },
+        "share_count": 166145,
+        "ownership_percent": null,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mr. Dilshan Hettiarachchi",
+          "normalized_name": "Dilshan Hettiaratchi"
+        },
+        "share_count": 332888,
+        "ownership_percent": null,
+        "as_of_date": "2025-03-31"
+      }
+    ]
+  },
+  "financial_metrics": [
+    {
+      "raw_name": "Group Revenue",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "6,902,690",
+      "normalized_value": 6902690000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": "2025-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Group Revenue",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "5,851,800",
+      "normalized_value": 5851800000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Operating Profit",
+      "normalized_name": "Operating Profit",
+      "normalized_id": "operating_profit",
+      "raw_value": "3,015,244",
+      "normalized_value": 3015244000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": "2025-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Operating Profit",
+      "normalized_name": "Operating Profit",
+      "normalized_id": "operating_profit",
+      "raw_value": "2,855,838",
+      "normalized_value": 2855838000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit Before Taxation",
+      "normalized_name": "Profit Before Tax",
+      "normalized_id": "profit_before_tax",
+      "raw_value": "2,949,902",
+      "normalized_value": 2949902000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": "2025-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit Before Taxation",
+      "normalized_name": "Profit Before Tax",
+      "normalized_id": "profit_before_tax",
+      "raw_value": "2,555,104",
+      "normalized_value": 2555104000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit After Taxation",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "2,249,690",
+      "normalized_value": 2249690000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": "2025-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit After Taxation",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "1,750,594",
+      "normalized_value": 1750594000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit Attributable to Parent",
+      "normalized_name": "Profit Attributable to Parent",
+      "normalized_id": "profit_attributable_to_parent",
+      "raw_value": "1,787,078",
+      "normalized_value": 1787078000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": "2025-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit Attributable to Parent",
+      "normalized_name": "Profit Attributable to Parent",
+      "normalized_id": "profit_attributable_to_parent",
+      "raw_value": "1,549,546",
+      "normalized_value": 1549546000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total Assets",
+      "normalized_name": "Total Assets",
+      "normalized_id": "total_assets",
+      "raw_value": "39,424,452",
+      "normalized_value": 39424452000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total Assets",
+      "normalized_name": "Total Assets",
+      "normalized_id": "total_assets",
+      "raw_value": "38,041,861",
+      "normalized_value": 38041861000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Stated Capital",
+      "normalized_name": "Stated Capital",
+      "normalized_id": "stated_capital",
+      "raw_value": "18,226,456",
+      "normalized_value": 18226456000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Stated Capital",
+      "normalized_name": "Stated Capital",
+      "normalized_id": "stated_capital",
+      "raw_value": "18,226,456",
+      "normalized_value": 18226456000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Retained Earnings",
+      "normalized_name": "Retained Earnings",
+      "normalized_id": "retained_earnings",
+      "raw_value": "4,510,596",
+      "normalized_value": 4510596000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Retained Earnings",
+      "normalized_name": "Retained Earnings",
+      "normalized_id": "retained_earnings",
+      "raw_value": "4,178,500",
+      "normalized_value": 4178500000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Equity Attributable to the Equity Holders of the Parent",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "23,266,655",
+      "normalized_value": 23266655000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Equity Attributable to the Equity Holders of the Parent",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "22,994,184",
+      "normalized_value": 22994184000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total Liabilities",
+      "normalized_name": "Total Liabilities",
+      "normalized_id": "total_liabilities",
+      "raw_value": "13,025,179",
+      "normalized_value": 13025179000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total Liabilities",
+      "normalized_name": "Total Liabilities",
+      "normalized_id": "total_liabilities",
+      "raw_value": "12,582,327",
+      "normalized_value": 12582327000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Current Assets",
+      "normalized_name": "Current Assets",
+      "normalized_id": "current_assets",
+      "raw_value": "7,092,144",
+      "normalized_value": 7092144000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Current Assets",
+      "normalized_name": "Current Assets",
+      "normalized_id": "current_assets",
+      "raw_value": "7,261,345",
+      "normalized_value": 7261345000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Current Liabilities",
+      "normalized_name": "Current Liabilities",
+      "normalized_id": "current_liabilities",
+      "raw_value": "2,040,838",
+      "normalized_value": 2040838000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Current Liabilities",
+      "normalized_name": "Current Liabilities",
+      "normalized_id": "current_liabilities",
+      "raw_value": "2,928,451",
+      "normalized_value": 2928451000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Gearing Ratio %",
+      "normalized_name": "Debt to Equity Ratio",
+      "normalized_id": "debt_to_equity_ratio",
+      "raw_value": "28.31%",
+      "normalized_value": 28.31,
+      "unit": "%",
+      "currency": null,
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Gearing Ratio %",
+      "normalized_name": "Debt to Equity Ratio",
+      "normalized_id": "debt_to_equity_ratio",
+      "raw_value": "28.12%",
+      "normalized_value": 28.12,
+      "unit": "%",
+      "currency": null,
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Return on Capital Employed %",
+      "normalized_name": "Return on Capital Employed",
+      "normalized_id": "return_on_capital_employed",
+      "raw_value": "9.65%",
+      "normalized_value": 9.65,
+      "unit": "%",
+      "currency": null,
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Return on Capital Employed %",
+      "normalized_name": "Return on Capital Employed",
+      "normalized_id": "return_on_capital_employed",
+      "raw_value": "9.73%",
+      "normalized_value": 9.73,
+      "unit": "%",
+      "currency": null,
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Return on Assets %",
+      "normalized_name": "Return on Assets",
+      "normalized_id": "return_on_assets",
+      "raw_value": "5.71%",
+      "normalized_value": 5.71,
+      "unit": "%",
+      "currency": null,
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Return on Assets %",
+      "normalized_name": "Return on Assets",
+      "normalized_id": "return_on_assets",
+      "raw_value": "4.60%",
+      "normalized_value": 4.6,
+      "unit": "%",
+      "currency": null,
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Earnings Per Share Rs.",
+      "normalized_name": "Earnings Per Share",
+      "normalized_id": "earnings_per_share",
+      "raw_value": "1.32",
+      "normalized_value": 1.32,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Earnings Per Share Rs.",
+      "normalized_name": "Earnings Per Share",
+      "normalized_id": "earnings_per_share",
+      "raw_value": "1.15",
+      "normalized_value": 1.15,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net Asset Value Per Share Rs.",
+      "normalized_name": "Net Asset Value Per Share",
+      "normalized_id": "net_asset_value_per_share",
+      "raw_value": "17.22",
+      "normalized_value": 17.22,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net Asset Value Per Share Rs.",
+      "normalized_name": "Net Asset Value Per Share",
+      "normalized_id": "net_asset_value_per_share",
+      "raw_value": "17.02",
+      "normalized_value": 17.02,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Market Capitalisation",
+      "normalized_name": "Market Capitalisation",
+      "normalized_id": "market_capitalisation",
+      "raw_value": "33,769,224",
+      "normalized_value": 33769224000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Market Capitalisation",
+      "normalized_name": "Market Capitalisation",
+      "normalized_id": "market_capitalisation",
+      "raw_value": "26,475,071",
+      "normalized_value": 26475071000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Price Earning Ratio Times",
+      "normalized_name": "Price Earning Ratio",
+      "normalized_id": "price_earning_ratio",
+      "raw_value": "18.90",
+      "normalized_value": 18.9,
+      "unit": "Times",
+      "currency": null,
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Price Earning Ratio Times",
+      "normalized_name": "Price Earning Ratio",
+      "normalized_id": "price_earning_ratio",
+      "raw_value": "17.09",
+      "normalized_value": 17.09,
+      "unit": "Times",
+      "currency": null,
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Interest Cover Times",
+      "normalized_name": "Interest Cover",
+      "normalized_id": "interest_cover",
+      "raw_value": "3.73",
+      "normalized_value": 3.73,
+      "unit": "Times",
+      "currency": null,
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Interest Cover Times",
+      "normalized_name": "Interest Cover",
+      "normalized_id": "interest_cover",
+      "raw_value": "2.79",
+      "normalized_value": 2.79,
+      "unit": "Times",
+      "currency": null,
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Highest Price For The Year Rs.",
+      "normalized_name": "Highest Price For The Year",
+      "normalized_id": "highest_price_for_the_year",
+      "raw_value": "27.80",
+      "normalized_value": 27.8,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Highest Price For The Year Rs.",
+      "normalized_name": "Highest Price For The Year",
+      "normalized_id": "highest_price_for_the_year",
+      "raw_value": "20.40",
+      "normalized_value": 20.4,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Lowest Price For The Year Rs.",
+      "normalized_name": "Lowest Price For The Year",
+      "normalized_id": "lowest_price_for_the_year",
+      "raw_value": "19.20",
+      "normalized_value": 19.2,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Lowest Price For The Year Rs.",
+      "normalized_name": "Lowest Price For The Year",
+      "normalized_id": "lowest_price_for_the_year",
+      "raw_value": "16.50",
+      "normalized_value": 16.5,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Closing",
+      "normalized_name": "Closing Price",
+      "normalized_id": "closing_price",
+      "raw_value": "25.00",
+      "normalized_value": 25.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": null
+    },
+    {
+      "raw_name": "Closing",
+      "normalized_name": "Closing Price",
+      "normalized_id": "closing_price",
+      "raw_value": "19.60",
+      "normalized_value": 19.6,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": null
+    }
+  ],
+  "products_services": [
+    {
+      "raw_name": "Solar Power Generation",
+      "normalized_name": "Solar Power Generation",
+      "normalized_id": "solar_power_generation",
+      "category": "Service",
+      "description": "Generates Electricity using Solar Power",
+      "launch_date": null
+    },
+    {
+      "raw_name": "Wind Power Generation",
+      "normalized_name": "Wind Power Generation",
+      "normalized_id": "wind_power_generation",
+      "category": "Service",
+      "description": "Generates Electricity using Wind Power",
+      "launch_date": null
+    },
+    {
+      "raw_name": "Hydro Power Generation",
+      "normalized_name": "Hydro Power Generation",
+      "normalized_id": "hydro_power_generation",
+      "category": "Service",
+      "description": "Generates Electricity using Hydro Power",
+      "launch_date": null
+    },
+    {
+      "raw_name": "E-Two Wheelers",
+      "normalized_name": "Electric Two-Wheelers",
+      "normalized_id": "electric_two_wheelers",
+      "category": "Product",
+      "description": "New business venture focusing on E-Two Wheelers",
+      "launch_date": null
+    },
+    {
+      "raw_name": "EPC services",
+      "normalized_name": "EPC Services",
+      "normalized_id": "epc_services",
+      "category": "Service",
+      "description": "Engineering Procurement and Construction services",
+      "launch_date": null
+    },
+    {
+      "raw_name": "O&M Services",
+      "normalized_name": "O&M Services",
+      "normalized_id": "o_m_services",
+      "category": "Service",
+      "description": "Operation and Maintenance services",
+      "launch_date": null
+    },
+    {
+      "raw_name": "Proprietary SCADA System Development",
+      "normalized_name": "SCADA System",
+      "normalized_id": "scada_system",
+      "category": "Product",
+      "description": "Developed a comprehensive SCADA solution tailored for solar power plants",
+      "launch_date": null
+    },
+    {
+      "raw_name": "Generator Integration Solution (Solar PV + Diesel)",
+      "normalized_name": "Generator Integration Solution",
+      "normalized_id": "generator_integration_solution",
+      "category": "Product",
+      "description": "Solution allowing direct integration of solar PV systems with diesel generators",
+      "launch_date": null
+    },
+    {
+      "raw_name": "Electric vehicles",
+      "normalized_name": "Electric Vehicles",
+      "normalized_id": "electric_vehicles",
+      "category": "Product",
+      "description": "Importing, assembling and selling brand-new electric vehicles",
+      "launch_date": null
+    },
+    {
+      "raw_name": "EV spare parts",
+      "normalized_name": "EV Spare Parts",
+      "normalized_id": "ev_spare_parts",
+      "category": "Product",
+      "description": "Selling electric vehicle spare parts",
+      "launch_date": null
+    },
+    {
+      "raw_name": "EV after sales services",
+      "normalized_name": "EV After Sales Services",
+      "normalized_id": "ev_after_sales_services",
+      "category": "Service",
+      "description": "Providing after sales services for electric vehicles",
+      "launch_date": null
+    }
+  ],
+  "subsidiaries": [
+    {
+      "raw_name": "Renewgen (Pvt) Limited",
+      "normalized_name": "Renewgen",
+      "normalized_id": "renewgen",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "SKY Solar (Pvt) Ltd.",
+      "normalized_name": "Sky Solar",
+      "normalized_id": "sky_solar",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "Kebitigollewa Solar Power (Private) Ltd.",
+      "normalized_name": "Kebitigollewa Solar Power",
+      "normalized_id": "kebitigollewa_solar_power",
+      "relationship_type": "subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 88.5
+    },
+    {
+      "raw_name": "Suryadhanavi (Pvt) Ltd.",
+      "normalized_name": "Suryadhanavi",
+      "normalized_id": "suryadhanavi",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "Hirujanani (Pvt) Ltd.",
+      "normalized_name": "Hirujanani",
+      "normalized_id": "hirujanani",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "Tororo Pv Power (Pvt) Ltd.",
+      "normalized_name": "Tororo Pv Power",
+      "normalized_id": "tororo_pv_power",
+      "relationship_type": "subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 80.0
+    },
+    {
+      "raw_name": "Seguwantivu Wind Power (Pvt) Limited",
+      "normalized_name": "Seguwantivu Wind Power",
+      "normalized_id": "seguwantivu_wind_power",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "Vidatamunai Wind Power (Pvt) Limited",
+      "normalized_name": "Vidatamunai Wind Power",
+      "normalized_id": "vidatamunai_wind_power",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "Powergen Lanka (Pvt) Limited",
+      "normalized_name": "Powergen Lanka",
+      "normalized_id": "powergen_lanka",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "Hiruras Power (Pvt) Ltd.",
+      "normalized_name": "Hiruras Power",
+      "normalized_id": "hiruras_power",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "Daily Life Renewable Energy (Pvt) Ltd.",
+      "normalized_name": "Daily Life Renewable Energy",
+      "normalized_id": "daily_life_renewable_energy",
+      "relationship_type": "subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 95.83
+    },
+    {
+      "raw_name": "Sunny Clime Lanka (Pvt) Ltd.",
+      "normalized_name": "Sunny Clime Lanka",
+      "normalized_id": "sunny_clime_lanka",
+      "relationship_type": "subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 90.0
+    },
+    {
+      "raw_name": "Seruwawila Photovoltaic (Pvt) Ltd.",
+      "normalized_name": "Seruwawila Photovoltaic",
+      "normalized_id": "seruwawila_photovoltaic",
+      "relationship_type": "subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 90.0
+    },
+    {
+      "raw_name": "Energy Reclamation (Pvt) Limited",
+      "normalized_name": "Energy Reclamation",
+      "normalized_id": "energy_reclamation",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "Solar Universe (Pvt) Ltd.",
+      "normalized_name": "Solar Universe",
+      "normalized_id": "solar_universe",
+      "relationship_type": "subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 50.0
+    },
+    {
+      "raw_name": "Sooryashakthi (Pvt) Ltd.",
+      "normalized_name": "Sooryashakthi",
+      "normalized_id": "sooryashakthi",
+      "relationship_type": "subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 50.0
+    },
+    {
+      "raw_name": "BlueSky EV (Pvt) Ltd.",
+      "normalized_name": "Bluesky EV",
+      "normalized_id": "bluesky_ev",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "Satva Automotive (Pvt) Ltd.",
+      "normalized_name": "Satva Automotive",
+      "normalized_id": "satva_automotive",
+      "relationship_type": "subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 96.0
+    },
+    {
+      "raw_name": "Terraqua International (Pvt) Ltd",
+      "normalized_name": "Terraqua International",
+      "normalized_id": "terraqua_international",
+      "relationship_type": "subsidiary",
+      "relationship_description": "Generates Electricity using Hydro Power and sells electricity to the Ceylon Electricity Board.",
+      "ownership_percent": null
+    },
+    {
+      "raw_name": "Terraqua Kokawita (Pvt) Ltd",
+      "normalized_name": "Terraqua Kokawita",
+      "normalized_id": "terraqua_kokawita",
+      "relationship_type": "subsidiary",
+      "relationship_description": null,
+      "ownership_percent": null
+    },
+    {
+      "raw_name": "Peak Power Delta (Pvt) Ltd",
+      "normalized_name": "Peak Power Delta",
+      "normalized_id": "peak_power_delta",
+      "relationship_type": "subsidiary",
+      "relationship_description": null,
+      "ownership_percent": null
+    },
+    {
+      "raw_name": "HPD Power (Pvt) Ltd",
+      "normalized_name": "HPD Power",
+      "normalized_id": "hpd_power",
+      "relationship_type": "subsidiary",
+      "relationship_description": null,
+      "ownership_percent": null
+    },
+    {
+      "raw_name": "Melanka Power Moraketiya (Pvt) Ltd",
+      "normalized_name": "Melanka Power Moraketiya",
+      "normalized_id": "melanka_power_moraketiya",
+      "relationship_type": "subsidiary",
+      "relationship_description": null,
+      "ownership_percent": null
+    },
+    {
+      "raw_name": "Vydexa (Lanka) Power Corporation (Pvt) Ltd",
+      "normalized_name": "Vydexa (Lanka) Power Corporation",
+      "normalized_id": "vydexa_lanka_power_corporation",
+      "relationship_type": "subsidiary",
+      "relationship_description": "Generates Electricity using Solar Power (Ground Mounted) and sells electricity to the Ceylon Electricity Board.",
+      "ownership_percent": null
+    }
+  ]
+}

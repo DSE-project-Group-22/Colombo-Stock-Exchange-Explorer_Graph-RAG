@@ -1,0 +1,707 @@
+{
+  "company": {
+    "raw_name": "Ceylon Investment PLC",
+    "normalized_name": "Ceylon Investment",
+    "ticker": "CINV",
+    "founded_on": "1919-01-01",
+    "listed_on": null,
+    "industry": "Diversified Financials"
+  },
+  "sectors": [
+    {
+      "normalized_name": "Diversified Financials"
+    }
+  ],
+  "auditor": {
+    "normalized_name": "KPMG"
+  },
+  "directors": [
+    {
+      "raw_name": "Mrs. M. A. R. C. Cooray",
+      "normalized_name": "M. A. R. C. Cooray",
+      "raw_title": "Chairperson",
+      "normalized_title": "Chairman",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-07-01",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. D. C. R. Gunawardena",
+      "normalized_name": "D. C. R. Gunawardena",
+      "raw_title": "Non-Executive",
+      "normalized_title": "Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": "2024-03-31",
+      "as_of_date": "2024-03-31",
+      "is_independent": false,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. A. P. Weeratunge",
+      "normalized_name": "A. P. Weeratunge",
+      "raw_title": "Non-Executive",
+      "normalized_title": "Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-07-01",
+      "is_independent": false,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. V. M. Fernando",
+      "normalized_name": "V. M. Fernando",
+      "raw_title": "Non-Executive/ Independent*",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-07-01",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. K. Selvanathan",
+      "normalized_name": "K. Selvanathan",
+      "raw_title": "Executive",
+      "normalized_title": "Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-07-01",
+      "is_independent": false,
+      "is_executive": true
+    },
+    {
+      "raw_name": "Mr. S. M. Perera",
+      "normalized_name": "S. M. Perera",
+      "raw_title": "Executive",
+      "normalized_title": "Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-07-01",
+      "is_independent": false,
+      "is_executive": true
+    }
+  ],
+  "executives": [
+    {
+      "raw_name": "Mr. K. Selvanathan",
+      "normalized_name": "K. Selvanathan",
+      "normalized_id": "k_selvanathan",
+      "raw_title": "Executive",
+      "normalized_title": "Executive Director",
+      "department": null,
+      "appointed_date": null,
+      "as_of_date": "2024-07-01"
+    },
+    {
+      "raw_name": "Mr. S. M. Perera",
+      "normalized_name": "S. M. Perera",
+      "normalized_id": "s_m_perera",
+      "raw_title": "Executive",
+      "normalized_title": "Executive Director",
+      "department": null,
+      "appointed_date": null,
+      "as_of_date": "2024-07-01"
+    }
+  ],
+  "shareholdings": {
+    "company_holdings": [
+      {
+        "holder": {
+          "raw_name": "Ceylon Guardian Investment Trust Plc A/C No.3",
+          "normalized_name": "Ceylon Guardian Investment Trust A/C No.3"
+        },
+        "ownership_percent": 65.94,
+        "share_count": 65518370,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Associated Electrical Corporation Ltd",
+          "normalized_name": "Associated Electrical Corporation"
+        },
+        "ownership_percent": 1.4,
+        "share_count": 1395358,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Thurston Investments Limited",
+          "normalized_name": "Thurston Investments"
+        },
+        "ownership_percent": 0.88,
+        "share_count": 878377,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Oakley Investments (Private) Limited",
+          "normalized_name": "Oakley Investments"
+        },
+        "ownership_percent": 0.82,
+        "share_count": 810398,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "People's Leasing & Finance Plc/Mr.M.A.N.Yoosufali",
+          "normalized_name": "People's Leasing & Finance/M. A. N. Yoosufali"
+        },
+        "ownership_percent": 0.6,
+        "share_count": 600000,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Bank Of Ceylon No. 1 Account",
+          "normalized_name": "Bank Of Ceylon No. 1 Account"
+        },
+        "ownership_percent": 0.54,
+        "share_count": 538124,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "J.B. Cocoshell (Pvt) Ltd",
+          "normalized_name": "J.B. Cocoshell"
+        },
+        "ownership_percent": 0.48,
+        "share_count": 477739,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mercantile Bank (Agency) Private Limited",
+          "normalized_name": "Mercantile Bank (Agency)"
+        },
+        "ownership_percent": 0.42,
+        "share_count": 412939,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Union Investments Private Limited",
+          "normalized_name": "Union Investments"
+        },
+        "ownership_percent": 0.31,
+        "share_count": 310175,
+        "as_of_date": "2024-03-31"
+      }
+    ],
+    "individual_holdings": [
+      {
+        "holder": {
+          "raw_name": "Mr. K.C. Vignarajah",
+          "normalized_name": "K. C. Vignarajah"
+        },
+        "share_count": 1470921,
+        "ownership_percent": 1.48,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mrs. M.L. De Silva",
+          "normalized_name": "M. L. De Silva"
+        },
+        "share_count": 1342757,
+        "ownership_percent": 1.35,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Miss G.I.A. De Silva",
+          "normalized_name": "G. I. A. De Silva"
+        },
+        "share_count": 1314088,
+        "ownership_percent": 1.32,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mr. Y.H. Abdulhussein",
+          "normalized_name": "Y. H. Abdulhussein"
+        },
+        "share_count": 903636,
+        "ownership_percent": 0.91,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mr. G.J.W. De Silva",
+          "normalized_name": "G. J. W. De Silva"
+        },
+        "share_count": 883194,
+        "ownership_percent": 0.89,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Miss R.H. Abdulhussein",
+          "normalized_name": "R. H. Abdulhussein"
+        },
+        "share_count": 844517,
+        "ownership_percent": 0.85,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Miss N.K.R.H. De Silva",
+          "normalized_name": "N. K. R. H. De Silva"
+        },
+        "share_count": 562721,
+        "ownership_percent": 0.57,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mr. H. M. Abdulhussein",
+          "normalized_name": "H. M. Abdulhussein"
+        },
+        "share_count": 420819,
+        "ownership_percent": 0.42,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mr. L.H. Abeysundera",
+          "normalized_name": "L. H. Abeysundera"
+        },
+        "share_count": 388225,
+        "ownership_percent": 0.39,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Miss G.N.A. De Silva",
+          "normalized_name": "G. N. A. De Silva"
+        },
+        "share_count": 384178,
+        "ownership_percent": 0.39,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Miss J.B. Aymer",
+          "normalized_name": "J. B. Aymer"
+        },
+        "share_count": 347135,
+        "ownership_percent": 0.35,
+        "as_of_date": "2024-03-31"
+      }
+    ]
+  },
+  "financial_metrics": [
+    {
+      "raw_name": "Revenue",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "653,887",
+      "normalized_value": 653887000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit from operations",
+      "normalized_name": "Operating Profit",
+      "normalized_id": "operating_profit",
+      "raw_value": "1,074,503",
+      "normalized_value": 1074503000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit before taxation",
+      "normalized_name": "Profit Before Tax",
+      "normalized_id": "profit_before_tax",
+      "raw_value": "1,690,456",
+      "normalized_value": 1690456000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit for the year",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "1,605,443",
+      "normalized_value": 1605443000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total assets",
+      "normalized_name": "Total Assets",
+      "normalized_id": "total_assets",
+      "raw_value": "12,429,978",
+      "normalized_value": 12429978000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total equity",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "11,737,483",
+      "normalized_value": 11737483000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Return on ordinary shareholders' funds (%)",
+      "normalized_name": "Return on Equity",
+      "normalized_id": "return_on_equity",
+      "raw_value": "13.68",
+      "normalized_value": 13.68,
+      "unit": "%",
+      "currency": null,
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Earnings per share (Rs.)",
+      "normalized_name": "Earnings Per Share",
+      "normalized_id": "earnings_per_share",
+      "raw_value": "16.06",
+      "normalized_value": 16.06,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net assets value per share (Rs.)",
+      "normalized_name": "Net Asset Value Per Share",
+      "normalized_id": "net_asset_value_per_share",
+      "raw_value": "118.13",
+      "normalized_value": 118.13,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Stated capital",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "838,033",
+      "normalized_value": 838033000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net cash generated from / (used in) operating activities",
+      "normalized_name": "Cash and Cash Equivalents",
+      "normalized_id": "cash_and_cash_equivalents",
+      "raw_value": "499,729",
+      "normalized_value": 499729000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Cash and cash equivalents",
+      "normalized_name": "Cash and Cash Equivalents",
+      "normalized_id": "cash_and_cash_equivalents",
+      "raw_value": "818,469",
+      "normalized_value": 818469000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Current liabilities",
+      "normalized_name": "Total Liabilities",
+      "normalized_id": "total_liabilities",
+      "raw_value": "21,167",
+      "normalized_value": 21167000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Short term borrowings",
+      "normalized_name": "Total Liabilities",
+      "normalized_id": "total_liabilities",
+      "raw_value": "653,153",
+      "normalized_value": 653153000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Revenue",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "314,925",
+      "normalized_value": 314925000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit from operations",
+      "normalized_name": "Operating Profit",
+      "normalized_id": "operating_profit",
+      "raw_value": "496,966",
+      "normalized_value": 496966000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit before taxation",
+      "normalized_name": "Profit Before Tax",
+      "normalized_id": "profit_before_tax",
+      "raw_value": "703,268",
+      "normalized_value": 703268000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit for the year",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "656,802",
+      "normalized_value": 656802000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total assets",
+      "normalized_name": "Total Assets",
+      "normalized_id": "total_assets",
+      "raw_value": "10,858,365",
+      "normalized_value": 10858365000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total equity",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "10,572,207",
+      "normalized_value": 10572207000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Return on ordinary shareholders' funds (%)",
+      "normalized_name": "Return on Equity",
+      "normalized_id": "return_on_equity",
+      "raw_value": "6.21",
+      "normalized_value": 6.21,
+      "unit": "%",
+      "currency": null,
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Earnings per share (Rs.)",
+      "normalized_name": "Earnings Per Share",
+      "normalized_id": "earnings_per_share",
+      "raw_value": "6.57",
+      "normalized_value": 6.57,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net assets value per share (Rs.)",
+      "normalized_name": "Net Asset Value Per Share",
+      "normalized_id": "net_asset_value_per_share",
+      "raw_value": "105.36",
+      "normalized_value": 105.36,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Stated capital",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "838,033",
+      "normalized_value": 838033000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net cash generated from / (used in) operating activities",
+      "normalized_name": "Cash and Cash Equivalents",
+      "normalized_id": "cash_and_cash_equivalents",
+      "raw_value": "(835,060)",
+      "normalized_value": -835060000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Cash and cash equivalents",
+      "normalized_name": "Cash and Cash Equivalents",
+      "normalized_id": "cash_and_cash_equivalents",
+      "raw_value": "53,604",
+      "normalized_value": 53604000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Current liabilities",
+      "normalized_name": "Total Liabilities",
+      "normalized_id": "total_liabilities",
+      "raw_value": "22,668",
+      "normalized_value": 22668000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Short term borrowings",
+      "normalized_name": "Total Liabilities",
+      "normalized_id": "total_liabilities",
+      "raw_value": "251,629",
+      "normalized_value": 251629000.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    }
+  ],
+  "products_services": [
+    {
+      "raw_name": "specialized investment vehicles focusing on listed equity investments",
+      "normalized_name": "Specialized Investment Vehicles Focusing on Listed Equity Investments",
+      "normalized_id": "specialized_investment_vehicles_focusing_on_listed_equity_investments",
+      "category": "Service",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "holding and managing of an investment portfolio",
+      "normalized_name": "Holding and Managing of an Investment Portfolio",
+      "normalized_id": "holding_and_managing_of_an_investment_portfolio",
+      "category": "Service",
+      "description": null,
+      "launch_date": null
+    }
+  ],
+  "subsidiaries": []
+}

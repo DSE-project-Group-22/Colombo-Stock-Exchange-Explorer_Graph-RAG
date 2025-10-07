@@ -1,143 +1,287 @@
 // Query 1
-MERGE (c:Company {name: 'The Fortress Resorts PLC'}) ON CREATE SET c.id = 'the_fortress_resorts_plc';
+// Step 1: Main Company;
 
 // Query 2
-MERGE (p:Person {name: 'S.D.R. Arudpragasam'}) ON CREATE SET p.id = 's_d_r_arudpragasam';
+MERGE (c:Company {name: 'Fortress Resorts'}) ON CREATE SET c.id = 'fortress_resorts', c.region = 'Sri Lanka', c.listed_on = 'Colombo Stock Exchange';
 
 // Query 3
-MERGE (p:Person {name: 'R.C.A. Welikala'}) ON CREATE SET p.id = 'r_c_a_welikala';
+// Step 2: Auditor;
 
 // Query 4
-MERGE (p:Person {name: 'R.N. Bopearatchy'}) ON CREATE SET p.id = 'r_n_bopearatchy';
+MERGE (a:Auditor:Company {name: 'Ernst & Young'}) ON CREATE SET a.id = 'ernst_and_young', a.type = 'Auditing Firm';
 
 // Query 5
-MERGE (p:Person {name: 'E. T. De Zoysa'}) ON CREATE SET p.id = 'e_t_de_zoysa';
+MATCH (c:Company {name: 'Fortress Resorts'}), (a:Auditor {name: 'Ernst & Young'}) MERGE (c)-[r:AUDITED_BY]->(a) ON CREATE SET r.year = 2024;
 
 // Query 6
-MERGE (p:Person {name: 'R. S. A. Wickramasingha'}) ON CREATE SET p.id = 'r_s_a_wickramasingha';
+// Step 3: People - Directors and Executives;
 
 // Query 7
-MERGE (p:Person {name: 'D. S. Wickramasingha'}) ON CREATE SET p.id = 'd_s_wickramasingha';
+MERGE (p:Person {name: 'Jan P Van Twest'}) ON CREATE SET p.id = 'jan_p_van_twest';
 
 // Query 8
-MERGE (p:Person {name: 'N. K. Wickramasingha'}) ON CREATE SET p.id = 'n_k_wickramasingha';
+MERGE (p:Person {name: 'K D H Perera'}) ON CREATE SET p.id = 'k_d_h_perera';
 
 // Query 9
-MERGE (p:Person {name: 'L. J. M. De Silva'}) ON CREATE SET p.id = 'l_j_m_de_silva';
+MERGE (p:Person {name: 'J A S S Adhihetty'}) ON CREATE SET p.id = 'j_a_s_s_adhihetty';
 
 // Query 10
-MERGE (p:Person {name: 'M. U. S. G. Thilakawardana'}) ON CREATE SET p.id = 'm_u_s_g_thilakawardana';
+MERGE (p:Person {name: 'Malik J Fernando'}) ON CREATE SET p.id = 'malik_j_fernando';
 
 // Query 11
-MERGE (p:Person {name: 'D. M. A. Kulasooriya'}) ON CREATE SET p.id = 'd_m_a_kulasooriya';
+MERGE (p:Person {name: 'L N de S Wijeyeratne'}) ON CREATE SET p.id = 'l_n_de_s_wijeyeratne';
 
 // Query 12
-MERGE (p:Person {name: 'M. S. Nanayakkara'}) ON CREATE SET p.id = 'm_s_nanayakkara';
+MERGE (p:Person {name: 'Chatura V Cabraal'}) ON CREATE SET p.id = 'chatura_v_cabraal';
 
 // Query 13
-MERGE (p:Person {name: 'H.N.J. Chandrasekara'}) ON CREATE SET p.id = 'h_n_j_chandrasekara';
+MERGE (p:Person {name: 'C U Weerawardane'}) ON CREATE SET p.id = 'c_u_weerawardane';
 
 // Query 14
-MERGE (p:Person {name: 'K.A.K. Jayatilake'}) ON CREATE SET p.id = 'k_a_k_jayatilake';
+MERGE (p:Person {name: 'J R Gunaratne'}) ON CREATE SET p.id = 'j_r_gunaratne';
 
 // Query 15
-MERGE (m:Metric {name: 'Revenue'}) ON CREATE SET m.id = 'revenue', m.unit = 'Rs';
+MERGE (p:Person {name: 'A A K Amarasinghe'}) ON CREATE SET p.id = 'a_a_k_amarasinghe';
 
 // Query 16
-MERGE (m:Metric {name: 'Cash Inflow From Operations'}) ON CREATE SET m.id = 'cash_inflow_from_operations', m.unit = 'Rs';
+MERGE (p:Person {name: 'D C Fernando'}) ON CREATE SET p.id = 'd_c_fernando';
 
 // Query 17
-MERGE (m:Metric {name: 'Net Profit Ratio'}) ON CREATE SET m.id = 'net_profit_ratio', m.unit = '%';
+MERGE (p:Person {name: 'V Leelananda'}) ON CREATE SET p.id = 'v_leelananda';
 
 // Query 18
-MERGE (m:Metric {name: 'Taxes'}) ON CREATE SET m.id = 'taxes', m.unit = 'Rs';
+MERGE (p:Person {name: 'K A D B Perera'}) ON CREATE SET p.id = 'k_a_d_b_perera';
 
 // Query 19
-MERGE (m:Metric {name: 'Return on Equity'}) ON CREATE SET m.id = 'return_on_equity', m.unit = '%';
+// Step 4: HOLDS_POSITION Relationships;
 
 // Query 20
-MERGE (m:Metric {name: 'Asset Turnover Ratio'}) ON CREATE SET m.id = 'asset_turnover_ratio', m.unit = 'Times';
+MATCH (p:Person {name: 'Jan P Van Twest'}), (c:Company {name: 'Fortress Resorts'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Executive Director', r.as_of = date('2024-03-31');
 
 // Query 21
-MERGE (m:Metric {name: 'Dividend Per Share'}) ON CREATE SET m.id = 'dividend_per_share', m.unit = 'Rs';
+MATCH (p:Person {name: 'K D H Perera'}), (c:Company {name: 'Fortress Resorts'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2024-03-31');
 
 // Query 22
-MERGE (m:Metric {name: 'Debt: Equity Ratio'}) ON CREATE SET m.id = 'debt_equity_ratio', m.unit = '%';
+MATCH (p:Person {name: 'J A S S Adhihetty'}), (c:Company {name: 'Fortress Resorts'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Board Member', r.as_of = date('2024-03-31');
 
 // Query 23
-MERGE (s:Sector {name: 'Consumer Services'}) ON CREATE SET s.id = 'consumer_services';
+MATCH (p:Person {name: 'Malik J Fernando'}), (c:Company {name: 'Fortress Resorts'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Board Member', r.as_of = date('2024-03-31');
 
 // Query 24
-MERGE (p:Product {name: 'Resort Hotel Operation'}) ON CREATE SET p.id = 'resort_hotel_operation';
+MATCH (p:Person {name: 'L N de S Wijeyeratne'}), (c:Company {name: 'Fortress Resorts'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-03-31');
 
 // Query 25
-MATCH (p:Person {name: 'S.D.R. Arudpragasam'}), (c:Company {name: 'The Fortress Resorts PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2024-03-31');
+MATCH (p:Person {name: 'Chatura V Cabraal'}), (c:Company {name: 'Fortress Resorts'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-03-31');
 
 // Query 26
-MATCH (p:Person {name: 'R.C.A. Welikala'}), (c:Company {name: 'The Fortress Resorts PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-03-31');
+MATCH (p:Person {name: 'C U Weerawardane'}), (c:Company {name: 'Fortress Resorts'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-03-31');
 
 // Query 27
-MATCH (p:Person {name: 'R.N. Bopearatchy'}), (c:Company {name: 'The Fortress Resorts PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-03-31');
+MATCH (p:Person {name: 'J R Gunaratne'}), (c:Company {name: 'Fortress Resorts'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-03-31');
 
 // Query 28
-MATCH (p:Person {name: 'E. T. De Zoysa'}), (c:Company {name: 'The Fortress Resorts PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Managing Director', r.as_of = date('2021-03-31');
+MATCH (p:Person {name: 'A A K Amarasinghe'}), (c:Company {name: 'Fortress Resorts'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Board Member', r.as_of = date('2024-03-31');
 
 // Query 29
-MATCH (p:Person {name: 'R. S. A. Wickramasingha'}), (c:Company {name: 'The Fortress Resorts PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2021-03-31');
+MATCH (p:Person {name: 'D C Fernando'}), (c:Company {name: 'Fortress Resorts'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Board Member', r.as_of = date('2024-03-31');
 
 // Query 30
-MATCH (p:Person {name: 'D. S. Wickramasingha'}), (c:Company {name: 'The Fortress Resorts PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MATCH (p:Person {name: 'V Leelananda'}), (c:Company {name: 'Fortress Resorts'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-03-31');
 
 // Query 31
-MATCH (p:Person {name: 'N. K. Wickramasingha'}), (c:Company {name: 'The Fortress Resorts PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MATCH (p:Person {name: 'K A D B Perera'}), (c:Company {name: 'Fortress Resorts'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Board Member', r.as_of = date('2024-03-31');
 
 // Query 32
-MATCH (p:Person {name: 'L. J. M. De Silva'}), (c:Company {name: 'The Fortress Resorts PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+// Step 5: Metrics;
 
 // Query 33
-MATCH (p:Person {name: 'M. U. S. G. Thilakawardana'}), (c:Company {name: 'The Fortress Resorts PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MERGE (m:Metric {name: 'Revenue'}) ON CREATE SET m.id = 'revenue', m.unit = 'Rs';
 
 // Query 34
-MATCH (p:Person {name: 'D. M. A. Kulasooriya'}), (c:Company {name: 'The Fortress Resorts PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MERGE (m:Metric {name: 'Profit Before Tax'}) ON CREATE SET m.id = 'profit_before_tax', m.unit = 'Rs';
 
 // Query 35
-MATCH (p:Person {name: 'M. S. Nanayakkara'}), (c:Company {name: 'The Fortress Resorts PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MERGE (m:Metric {name: 'Profit After Tax'}) ON CREATE SET m.id = 'profit_after_tax', m.unit = 'Rs';
 
 // Query 36
-MATCH (c:Company {name: 'The Fortress Resorts PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 7764000000, r.year = 2024;
+MERGE (m:Metric {name: 'Earnings Per Share'}) ON CREATE SET m.id = 'earnings_per_share', m.unit = 'Rs';
 
 // Query 37
-MATCH (c:Company {name: 'The Fortress Resorts PLC'}), (m:Metric {name: 'Cash Inflow From Operations'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 2655000000, r.year = 2024;
+MERGE (m:Metric {name: 'Return on Equity'}) ON CREATE SET m.id = 'return_on_equity', m.unit = '%';
 
 // Query 38
-MATCH (c:Company {name: 'The Fortress Resorts PLC'}), (m:Metric {name: 'Net Profit Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 21.17, r.year = 2024;
+MERGE (m:Metric {name: 'Total Assets'}) ON CREATE SET m.id = 'total_assets', m.unit = 'Rs';
 
 // Query 39
-MATCH (c:Company {name: 'The Fortress Resorts PLC'}), (m:Metric {name: 'Taxes'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 491000000, r.year = 2024;
+MERGE (m:Metric {name: 'Total Equity'}) ON CREATE SET m.id = 'total_equity', m.unit = 'Rs';
 
 // Query 40
-MATCH (c:Company {name: 'The Fortress Resorts PLC'}), (m:Metric {name: 'Return on Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 25.80, r.year = 2024;
+MERGE (m:Metric {name: 'Debt to Equity Ratio'}) ON CREATE SET m.id = 'debt_to_equity_ratio', m.unit = '%';
 
 // Query 41
-MATCH (c:Company {name: 'The Fortress Resorts PLC'}), (m:Metric {name: 'Asset Turnover Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.79, r.year = 2024;
+MERGE (m:Metric {name: 'Operating Profit'}) ON CREATE SET m.id = 'operating_profit', m.unit = 'Rs';
 
 // Query 42
-MATCH (c:Company {name: 'The Fortress Resorts PLC'}), (m:Metric {name: 'Dividend Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 26.85, r.year = 2024;
+// Step 6: HAS_METRIC Relationships;
 
 // Query 43
-MATCH (c:Company {name: 'The Fortress Resorts PLC'}), (m:Metric {name: 'Debt: Equity Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 7, r.year = 2024;
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 921487000.0, r.year = 2024;
 
 // Query 44
-MATCH (c:Company {name: 'The Fortress Resorts PLC'}), (s:Sector {name: 'Consumer Services'}) MERGE (c)-[:IN_SECTOR]->(s);
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 266705000.0, r.year = 2024;
 
 // Query 45
-MATCH (c:Company {name: 'The Fortress Resorts PLC'}), (p:Product {name: 'Resort Hotel Operation'}) MERGE (c)-[:OFFERS]->(p);
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 212342000.0, r.year = 2024;
 
 // Query 46
-UNWIND [{id: 'the_fortress_resorts_plc_directors_and_executives_0', content: '(Pvt) Ltd\na\nr\nThe DIRECTORS of the Company are also DIRECTORS of following companies with which the Company had transactions\nin the ordinary course of business during the year.\nKey management includes members of the Board of DIRECTORS of the Company. The compensation paid or payable\nto key management for employee services is shown below:\nMr. H.N.J \nChandrasekara\nMr. K.A.K \nJayatilake\nr\na', chunk_type: 'directors_and_executives', index: 0}, {id: 'the_fortress_resorts_plc_directors_and_executives_1', content: 'contracts in which they have an interest are disclosed in \nNote 34.1.1 to the financial statements on page 68.\nDIRECTORS’ Interest in Shares\nDIRECTORS of the Company who have an interest in the \nshares of the Company are required to disclose their \nshareholdings and any acquisitions/ disposals to the \nBoard in compliance with Section 200 of the Companies \nAct No. 07 of 2007. However, none of the DIRECTORS held \nany shares during the period under review nor in the \nprevious year.\nDIRECTORS’ Remuneration\nKey Management Personnel Compensation in respect of \nthe Company and the Group for the financial year 2021/ \n2022 is detailed in Note 34.1.2 to the Financial Statements \non page 68.\nDirectorate\nThe names of the DIRECTORS who held office during the \nfinancial year are given below and brief profiles of the \nDIRECTORS who are currently in office appear on pages 5 \nto 6.\nMr. S.D.R. Arudpragasam - Chairman\nMr. R.C.A. Welikala - Director\nMr. R.N. Bopearatchy - Director', chunk_type: 'directors_and_executives', index: 1}, {id: 'the_fortress_resorts_plc_directors_and_executives_2', content: 'Company in the preparation of the Financial \nStatements are given on pages 71 to 79, \nwhich are consistent with those of the \nprevious period.\nDIRECTORS’ responsibility for Financial \nReporting\nThe DIRECTORS are responsible for the \npreparation of the Financial Statements of \nthe Company and the Group to reflect a true \nand fair view of the state of its affairs.\nInformation on the DIRECTORS of the \nCompany and the Group \nDIRECTORS of the Company as at  \n31st March 2021\nThe names of the DIRECTORS who held office \nas at the end of the accounting period are \ngiven below and their brief profiles appear on \npages 18 and 19.\nExecutive DIRECTORS\nMr. E. T . De Zoysa - Managing Director\nNon-Executive DIRECTORS\nMr. R. S. A. Wickramasingha - Chairman\nMs. D. S. Wickramasingha - Director\nMs. N. K. Wickramasingha - Director \nMr. L. J. M. De Silva - Director \nMr. M. U. S. G. Thilakawardana - Director*\nDr. D. M. A. Kulasooriya - Director*\nMr. M. S. Nanayakkara - Director*', chunk_type: 'directors_and_executives', index: 2}, {id: 'the_fortress_resorts_plc_directors_and_executives_3', content: 'from pages 28 to 67 of the Annual Report. \nDIRECTORATE \nThe Board of DIRECTORS of the Company as at date is set out in \n“Corporate Information”. The DIRECTORS of the Company who held \noffice during the year under review and changes thereto are \nindicated below.', chunk_type: 'directors_and_executives', index: 3}, {id: 'the_fortress_resorts_plc_directors_and_executives_4', content: 'in the Shareholders Information section on pages 166 to 167.\nThe Company endeavours at all times to ensure equitable treatment to all \nshareholders.\nSubstantial Shareholdings\nThere were 1738 registered shareholders, holding ordinary voting shares \nas at 31st March 2025 (1,582 registered shareholders as at 31st March \n2024).\nThe names of the twenty largest shareholders, the number of shares held, \nand the percentages held are given on page 167 of the Annual Report. \nThe distribution schedule of the shareholders and public holdings are \ndisclosed on page 166 of the Annual Report.\nDirectorate\nAs at 31st March 2025 the Board of DIRECTORS of the Company consisted \nof eight DIRECTORS with wide commercial, academic knowledge and \nexperience. The DIRECTORS profile is given on pages 56 to 57 of this Annual \nReport.\nThe Board of DIRECTORS of the Company and its subsidiaries as at 31st \nMarch 2025 are listed below.\nName of the Director\nJohn Keells PLC \nPLC\nJohn \nKeells PLC \nStockbrokers\nJohn Keells PLC', chunk_type: 'directors_and_executives', index: 4}, {id: 'the_fortress_resorts_plc_financial_performance_0', content: 'best practices, our aim is to optimise our financial resources, leveraging them to drive short-term \ngrowth whilst consolidating gains and investing in expansions, new products and markets for long-\nterm success. This section will outline our approach to strengthen our financial capital base and \nprovide a detailed overview of the results achieved for the financial year (FY) ended 31st March, \n2024.\nFINANCIAL \nCAPITAL\nRs. 7,764 Mn\nRevenue\nFY 2022/23: 8,199mn\nRs. 2,655 Mn \nCash Inflow From \nOperations\nFY 2022/23: Rs. 3,553 Mn\n21.17%\nNet Profit Ratio\nFY 2022/23: 31.45% \nRs. 491 Mn \nTaxes\nFY 2022/23: 719 Mn\n25.80%\nReturn on Equity\nFY 2022/23:41.81%\n0.79 times \nAsset Turnover Ratio\nFY 2022/23: 0.90 \ntimes\nRs. 26.85\nDividend Per Share\nFY 2022/23: Rs 19.00\n7%\nDebt: Equity Ratio\nFY 2022/23: 5%\nSound Internal \nControls\nLiquidity & Fund \nManagement\nError free \nFinancial \nReporting\nSafeguard of \nAssetsProfitability\nOur Materiality Focus\nStakeholders Impacted', chunk_type: 'financial_performance', index: 0}] AS chunk MERGE (ch:Chunk {id: chunk.id}) ON CREATE SET ch.content = chunk.content, ch.chunk_type = chunk.chunk_type, ch.index = chunk.index;
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Earnings Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1.91, r.year = 2024;
 
 // Query 47
-MATCH (c:Company {name: 'The Fortress Resorts PLC'}) WITH c UNWIND ['the_fortress_resorts_plc_directors_and_executives_0', 'the_fortress_resorts_plc_directors_and_executives_1', 'the_fortress_resorts_plc_directors_and_executives_2', 'the_fortress_resorts_plc_directors_and_executives_3', 'the_fortress_resorts_plc_directors_and_executives_4', 'the_fortress_resorts_plc_financial_performance_0'] AS chunk_id MATCH (ch:Chunk {id: chunk_id}) MERGE (c)-[:HAS_CONTENT]->(ch);
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Return on Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 12.0, r.year = 2024;
 
-// Total queries: 47
-// Generated on: 2025-09-30T14:31:21.978305
+// Query 48
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 2178190000.0, r.year = 2024;
+
+// Query 49
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1815347000.0, r.year = 2024;
+
+// Query 50
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Debt to Equity Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 9.0, r.year = 2024;
+
+// Query 51
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 339308000.0, r.year = 2024;
+
+// Query 52
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 434696000.0, r.year = 2023;
+
+// Query 53
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -680000.0, r.year = 2023;
+
+// Query 54
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -19842000.0, r.year = 2023;
+
+// Query 55
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Earnings Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -0.18, r.year = 2023;
+
+// Query 56
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Return on Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = -1.0, r.year = 2023;
+
+// Query 57
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1826630000.0, r.year = 2023;
+
+// Query 58
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1609145000.0, r.year = 2023;
+
+// Query 59
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Debt to Equity Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 7.0, r.year = 2023;
+
+// Query 60
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 73633000.0, r.year = 2023;
+
+// Query 61
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 349167000.0, r.year = 2022;
+
+// Query 62
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 27283000.0, r.year = 2022;
+
+// Query 63
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 33049000.0, r.year = 2022;
+
+// Query 64
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Earnings Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.30, r.year = 2022;
+
+// Query 65
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Return on Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 2.0, r.year = 2022;
+
+// Query 66
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1919266000.0, r.year = 2022;
+
+// Query 67
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1628664000.0, r.year = 2022;
+
+// Query 68
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Debt to Equity Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 9.0, r.year = 2022;
+
+// Query 69
+MATCH (c:Company {name: 'Fortress Resorts'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 116490000.0, r.year = 2022;
+
+// Query 70
+// Step 7: Sectors;
+
+// Query 71
+MERGE (s:Sector {name: 'Consumer Services'}) ON CREATE SET s.id = 'consumer_services';
+
+// Query 72
+// Step 8: IN_SECTOR Relationships;
+
+// Query 73
+MATCH (c:Company {name: 'Fortress Resorts'}), (s:Sector {name: 'Consumer Services'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 74
+// Step 9: Products;
+
+// Query 75
+MERGE (p:Product {name: 'Lodging'}) ON CREATE SET p.id = 'lodging';
+
+// Query 76
+MERGE (p:Product {name: 'Food Services'}) ON CREATE SET p.id = 'food_services';
+
+// Query 77
+MERGE (p:Product {name: 'Beverage Services'}) ON CREATE SET p.id = 'beverage_services';
+
+// Query 78
+MERGE (p:Product {name: 'Spa Services'}) ON CREATE SET p.id = 'spa_services';
+
+// Query 79
+MERGE (p:Product {name: 'Laundry Services'}) ON CREATE SET p.id = 'laundry_services';
+
+// Query 80
+MERGE (p:Product {name: 'Transport Services'}) ON CREATE SET p.id = 'transport_services';
+
+// Query 81
+MERGE (p:Product {name: 'Excursion Services'}) ON CREATE SET p.id = 'excursion_services';
+
+// Query 82
+MERGE (p:Product {name: 'Boutique Sales'}) ON CREATE SET p.id = 'boutique_sales';
+
+// Query 83
+// Step 10: OFFERS Relationships;
+
+// Query 84
+MATCH (c:Company {name: 'Fortress Resorts'}), (p:Product {name: 'Lodging'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 85
+MATCH (c:Company {name: 'Fortress Resorts'}), (p:Product {name: 'Food Services'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 86
+MATCH (c:Company {name: 'Fortress Resorts'}), (p:Product {name: 'Beverage Services'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 87
+MATCH (c:Company {name: 'Fortress Resorts'}), (p:Product {name: 'Spa Services'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 88
+MATCH (c:Company {name: 'Fortress Resorts'}), (p:Product {name: 'Laundry Services'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 89
+MATCH (c:Company {name: 'Fortress Resorts'}), (p:Product {name: 'Transport Services'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 90
+MATCH (c:Company {name: 'Fortress Resorts'}), (p:Product {name: 'Excursion Services'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 91
+MATCH (c:Company {name: 'Fortress Resorts'}), (p:Product {name: 'Boutique Sales'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 92
+// Step 11: Company-Company Relationships;
+
+// Query 93
+MERGE (sub:Company {name: 'La Forteresse'}) ON CREATE SET sub.id = 'la_forteresse';
+
+// Query 94
+MATCH (parent:Company {name: 'Fortress Resorts'}), (child:Company {name: 'La Forteresse'}) MERGE (parent)-[r:OWNS]->(child) ON CREATE SET r.pct = 100.0, r.as_of = date('2024-03-31');
+
+// Query 95
+MATCH (manager:Company {name: 'Fortress Resorts'}), (managed:Company {name: 'La Forteresse'}) MERGE (manager)-[r:MANAGES]->(managed) ON CREATE SET r.as_of = date('2024-03-31');
+
+// Total queries: 95
+// Generated on: 2025-10-02T22:56:18.898700

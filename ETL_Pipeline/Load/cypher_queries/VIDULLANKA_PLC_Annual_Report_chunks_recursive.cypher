@@ -1,155 +1,359 @@
 // Query 1
-MERGE (c:Company {name: 'Vidullanka PLC'}) ON CREATE SET c.id = 'vidullanka_plc';
+// Step 1: Main Company;
 
 // Query 2
-MERGE (p:Person {name: 'S.D.R. Arudpragasam'}) ON CREATE SET p.id = 's_d_r_arudpragasam';
+MERGE (c:Company {name: 'Vidullanka'}) ON CREATE SET c.id = 'vidullanka', c.region = 'Sri Lanka', c.listed_on = 'Colombo Stock Exchange';
 
 // Query 3
-MERGE (p:Person {name: 'R.C.A. Welikala'}) ON CREATE SET p.id = 'r_c_a_welikala';
+MERGE (c:Company {name: 'Venergy Lanka'}) ON CREATE SET c.id = 'venergy_lanka';
 
 // Query 4
-MERGE (p:Person {name: 'R.N. Bopearatchy'}) ON CREATE SET p.id = 'r_n_bopearatchy';
+MERGE (c:Company {name: 'Vidul Plantation'}) ON CREATE SET c.id = 'vidul_plantation';
 
 // Query 5
-MERGE (p:Person {name: 'E. T. De Zoysa'}) ON CREATE SET p.id = 'e_t_de_zoysa';
+MERGE (c:Company {name: 'Vidul Biomass'}) ON CREATE SET c.id = 'vidul_biomass';
 
 // Query 6
-MERGE (p:Person {name: 'R. S. A. Wickramasingha'}) ON CREATE SET p.id = 'r_s_a_wickramasingha';
+MERGE (c:Company {name: 'Vidul Agri'}) ON CREATE SET c.id = 'vidul_agri';
 
 // Query 7
-MERGE (p:Person {name: 'D. S. Wickramasingha'}) ON CREATE SET p.id = 'd_s_wickramasingha';
+MERGE (c:Company {name: 'Horana Solar Power'}) ON CREATE SET c.id = 'horana_solar_power';
 
 // Query 8
-MERGE (p:Person {name: 'N. K. Wickramasingha'}) ON CREATE SET p.id = 'n_k_wickramasingha';
+MERGE (c:Company {name: 'Orik Corporation'}) ON CREATE SET c.id = 'orik_corporation';
 
 // Query 9
-MERGE (p:Person {name: 'L. J. M. De Silva'}) ON CREATE SET p.id = 'l_j_m_de_silva';
+// Step 2: Auditor;
 
 // Query 10
-MERGE (p:Person {name: 'M. U. S. G. Thilakawardana'}) ON CREATE SET p.id = 'm_u_s_g_thilakawardana';
+MERGE (a:Auditor:Company {name: 'BDO Partners'}) ON CREATE SET a.id = 'bdo_partners', a.type = 'Auditing Firm';
 
 // Query 11
-MERGE (p:Person {name: 'D. M. A. Kulasooriya'}) ON CREATE SET p.id = 'd_m_a_kulasooriya';
+// Step 3: AUDITED_BY Relationship;
 
 // Query 12
-MERGE (p:Person {name: 'M. S. Nanayakkara'}) ON CREATE SET p.id = 'm_s_nanayakkara';
+MATCH (c:Company {name: 'Vidullanka'}), (a:Auditor {name: 'BDO Partners'}) MERGE (c)-[r:AUDITED_BY]->(a) ON CREATE SET r.year = 2024;
 
 // Query 13
-MERGE (m:Metric {name: 'Revenue'}) ON CREATE SET m.id = 'revenue', m.unit = 'Rs';
+// Step 4: People - Directors and Executives;
 
 // Query 14
-MERGE (m:Metric {name: 'Cash Inflow From Operations'}) ON CREATE SET m.id = 'cash_inflow_from_operations', m.unit = 'Rs';
+MERGE (p:Person {name: 'Osman Kassim'}) ON CREATE SET p.id = 'osman_kassim';
 
 // Query 15
-MERGE (m:Metric {name: 'Net Profit Ratio'}) ON CREATE SET m.id = 'net_profit_ratio', m.unit = '%';
+MERGE (p:Person {name: 'Riyaz M. Sangani'}) ON CREATE SET p.id = 'riyaz_m_sangani';
 
 // Query 16
-MERGE (m:Metric {name: 'Taxes'}) ON CREATE SET m.id = 'taxes', m.unit = 'Rs';
+MERGE (p:Person {name: 'Ranjan Mather'}) ON CREATE SET p.id = 'ranjan_mather';
 
 // Query 17
-MERGE (m:Metric {name: 'Return on Equity'}) ON CREATE SET m.id = 'return_on_equity', m.unit = '%';
+MERGE (p:Person {name: 'Sujendra Mather'}) ON CREATE SET p.id = 'sujendra_mather';
 
 // Query 18
-MERGE (m:Metric {name: 'Asset Turnover Ratio'}) ON CREATE SET m.id = 'asset_turnover_ratio', m.unit = 'Times';
+MERGE (p:Person {name: 'Shahid M. Sangani'}) ON CREATE SET p.id = 'shahid_m_sangani';
 
 // Query 19
-MERGE (m:Metric {name: 'Dividend Per Share'}) ON CREATE SET m.id = 'dividend_per_share', m.unit = 'Rs';
+MERGE (p:Person {name: 'Sattar Kassim'}) ON CREATE SET p.id = 'sattar_kassim';
 
 // Query 20
-MERGE (m:Metric {name: 'Debt: Equity Ratio'}) ON CREATE SET m.id = 'debt_equity_ratio', m.unit = '%';
+MERGE (p:Person {name: 'Rizvi Zaheed'}) ON CREATE SET p.id = 'rizvi_zaheed';
 
 // Query 21
-MERGE (s:Sector {name: 'Energy'}) ON CREATE SET s.id = 'energy';
+MERGE (p:Person {name: 'Deepthie Wickramasuriya'}) ON CREATE SET p.id = 'deepthie_wickramasuriya';
 
 // Query 22
-MATCH (p:Person {name: 'S.D.R. Arudpragasam'}), (c:Company {name: 'Vidullanka PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2024-03-31');
+MERGE (p:Person {name: 'Sidath Fernando'}) ON CREATE SET p.id = 'sidath_fernando';
 
 // Query 23
-MATCH (p:Person {name: 'R.C.A. Welikala'}), (c:Company {name: 'Vidullanka PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-03-31');
+// Step 5: HOLDS_POSITION Relationships;
 
 // Query 24
-MATCH (p:Person {name: 'R.N. Bopearatchy'}), (c:Company {name: 'Vidullanka PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2024-03-31');
+MATCH (p:Person {name: 'Osman Kassim'}), (c:Company {name: 'Vidullanka'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2024-03-31');
 
 // Query 25
-MATCH (p:Person {name: 'E. T. De Zoysa'}), (c:Company {name: 'Vidullanka PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Managing Director', r.as_of = date('2021-03-31');
+MATCH (p:Person {name: 'Riyaz M. Sangani'}), (c:Company {name: 'Vidullanka'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chief Executive Officer', r.as_of = date('2024-03-31');
 
 // Query 26
-MATCH (p:Person {name: 'R. S. A. Wickramasingha'}), (c:Company {name: 'Vidullanka PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Chairman', r.as_of = date('2021-03-31');
+MATCH (p:Person {name: 'Ranjan Mather'}), (c:Company {name: 'Vidullanka'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Non-Executive Director', r.as_of = date('2024-03-31');
 
 // Query 27
-MATCH (p:Person {name: 'D. S. Wickramasingha'}), (c:Company {name: 'Vidullanka PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MATCH (p:Person {name: 'Sujendra Mather'}), (c:Company {name: 'Vidullanka'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Non-Executive Director', r.as_of = date('2024-03-31');
 
 // Query 28
-MATCH (p:Person {name: 'N. K. Wickramasingha'}), (c:Company {name: 'Vidullanka PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MATCH (p:Person {name: 'Shahid M. Sangani'}), (c:Company {name: 'Vidullanka'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Non-Executive Director', r.as_of = date('2024-03-31');
 
 // Query 29
-MATCH (p:Person {name: 'L. J. M. De Silva'}), (c:Company {name: 'Vidullanka PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MATCH (p:Person {name: 'Sattar Kassim'}), (c:Company {name: 'Vidullanka'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Non-Executive Director', r.as_of = date('2024-03-31');
 
 // Query 30
-MATCH (p:Person {name: 'M. U. S. G. Thilakawardana'}), (c:Company {name: 'Vidullanka PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MATCH (p:Person {name: 'Rizvi Zaheed'}), (c:Company {name: 'Vidullanka'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-03-31');
 
 // Query 31
-MATCH (p:Person {name: 'D. M. A. Kulasooriya'}), (c:Company {name: 'Vidullanka PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MATCH (p:Person {name: 'Deepthie Wickramasuriya'}), (c:Company {name: 'Vidullanka'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-03-31');
 
 // Query 32
-MATCH (p:Person {name: 'M. S. Nanayakkara'}), (c:Company {name: 'Vidullanka PLC'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Director', r.as_of = date('2021-03-31');
+MATCH (p:Person {name: 'Sidath Fernando'}), (c:Company {name: 'Vidullanka'}) MERGE (p)-[r:HOLDS_POSITION]->(c) ON CREATE SET r.title = 'Independent Non-Executive Director', r.as_of = date('2024-03-31');
 
 // Query 33
-MATCH (c:Company {name: 'Vidullanka PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 7764000000, r.year = 2024;
+// Step 6: Metrics;
 
 // Query 34
-MATCH (c:Company {name: 'Vidullanka PLC'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 8199000000, r.year = 2023;
+MERGE (m:Metric {name: 'Revenue'}) ON CREATE SET m.id = 'revenue', m.unit = 'Rs';
 
 // Query 35
-MATCH (c:Company {name: 'Vidullanka PLC'}), (m:Metric {name: 'Cash Inflow From Operations'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 2655000000, r.year = 2024;
+MERGE (m:Metric {name: 'Operating Profit'}) ON CREATE SET m.id = 'operating_profit', m.unit = 'Rs';
 
 // Query 36
-MATCH (c:Company {name: 'Vidullanka PLC'}), (m:Metric {name: 'Cash Inflow From Operations'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 3553000000, r.year = 2023;
+MERGE (m:Metric {name: 'Profit Before Tax'}) ON CREATE SET m.id = 'profit_before_tax', m.unit = 'Rs';
 
 // Query 37
-MATCH (c:Company {name: 'Vidullanka PLC'}), (m:Metric {name: 'Net Profit Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 21.17, r.year = 2024;
+MERGE (m:Metric {name: 'Profit After Tax'}) ON CREATE SET m.id = 'profit_after_tax', m.unit = 'Rs';
 
 // Query 38
-MATCH (c:Company {name: 'Vidullanka PLC'}), (m:Metric {name: 'Net Profit Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 31.45, r.year = 2023;
+MERGE (m:Metric {name: 'Earnings Per Share'}) ON CREATE SET m.id = 'earnings_per_share', m.unit = 'Rs';
 
 // Query 39
-MATCH (c:Company {name: 'Vidullanka PLC'}), (m:Metric {name: 'Taxes'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 491000000, r.year = 2024;
+MERGE (m:Metric {name: 'Return on Equity'}) ON CREATE SET m.id = 'return_on_equity', m.unit = '%';
 
 // Query 40
-MATCH (c:Company {name: 'Vidullanka PLC'}), (m:Metric {name: 'Taxes'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 719000000, r.year = 2023;
+MERGE (m:Metric {name: 'Current Ratio'}) ON CREATE SET m.id = 'current_ratio', m.unit = 'Times';
 
 // Query 41
-MATCH (c:Company {name: 'Vidullanka PLC'}), (m:Metric {name: 'Return on Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 25.80, r.year = 2024;
+MERGE (m:Metric {name: 'Total Assets'}) ON CREATE SET m.id = 'total_assets', m.unit = 'Rs';
 
 // Query 42
-MATCH (c:Company {name: 'Vidullanka PLC'}), (m:Metric {name: 'Return on Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 41.81, r.year = 2023;
+MERGE (m:Metric {name: 'Total Equity'}) ON CREATE SET m.id = 'total_equity', m.unit = 'Rs';
 
 // Query 43
-MATCH (c:Company {name: 'Vidullanka PLC'}), (m:Metric {name: 'Asset Turnover Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.79, r.year = 2024;
+// Step 7: HAS_METRIC Relationships;
 
 // Query 44
-MATCH (c:Company {name: 'Vidullanka PLC'}), (m:Metric {name: 'Asset Turnover Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.90, r.year = 2023;
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 5692546000, r.year = 2024;
 
 // Query 45
-MATCH (c:Company {name: 'Vidullanka PLC'}), (m:Metric {name: 'Dividend Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 26.85, r.year = 2024;
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 3836435000, r.year = 2023;
 
 // Query 46
-MATCH (c:Company {name: 'Vidullanka PLC'}), (m:Metric {name: 'Dividend Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 19.00, r.year = 2023;
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 2567672000, r.year = 2022;
 
 // Query 47
-MATCH (c:Company {name: 'Vidullanka PLC'}), (m:Metric {name: 'Debt: Equity Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 7, r.year = 2024;
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1797070000, r.year = 2021;
 
 // Query 48
-MATCH (c:Company {name: 'Vidullanka PLC'}), (m:Metric {name: 'Debt: Equity Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 5, r.year = 2023;
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Revenue'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1440380000, r.year = 2020;
 
 // Query 49
-MATCH (c:Company {name: 'Vidullanka PLC'}), (s:Sector {name: 'Energy'}) MERGE (c)-[:IN_SECTOR]->(s);
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 2714335000, r.year = 2024;
 
 // Query 50
-UNWIND [{id: 'vidullanka_plc_directors_and_executives_0', content: '(Pvt) Ltd\na\nr\nThe DIRECTORS of the Company are also DIRECTORS of following companies with which the Company had transactions\nin the ordinary course of business during the year.\nKey management includes members of the Board of DIRECTORS of the Company. The compensation paid or payable\nto key management for employee services is shown below:\nMr. H.N.J \nChandrasekara\nMr. K.A.K \nJayatilake\nr\na', chunk_type: 'directors_and_executives', index: 0}, {id: 'vidullanka_plc_directors_and_executives_1', content: 'contracts in which they have an interest are disclosed in \nNote 34.1.1 to the financial statements on page 68.\nDIRECTORS’ Interest in Shares\nDIRECTORS of the Company who have an interest in the \nshares of the Company are required to disclose their \nshareholdings and any acquisitions/ disposals to the \nBoard in compliance with Section 200 of the Companies \nAct No. 07 of 2007. However, none of the DIRECTORS held \nany shares during the period under review nor in the \nprevious year.\nDIRECTORS’ Remuneration\nKey Management Personnel Compensation in respect of \nthe Company and the Group for the financial year 2021/ \n2022 is detailed in Note 34.1.2 to the Financial Statements \non page 68.\nDirectorate\nThe names of the DIRECTORS who held office during the \nfinancial year are given below and brief profiles of the \nDIRECTORS who are currently in office appear on pages 5 \nto 6.\nMr. S.D.R. Arudpragasam - Chairman\nMr. R.C.A. Welikala - Director\nMr. R.N. Bopearatchy - Director', chunk_type: 'directors_and_executives', index: 1}, {id: 'vidullanka_plc_directors_and_executives_2', content: 'shareholders of the Company is given on \npage 248 under Shareholders’ Information.\nPublic Holding \nInformation on public holding in terms of \nthe Listing Rules is given on page 244 under \nShareholders’ Information.\nInformation on the DIRECTORS of the \nCompany and DIRECTORS of Group \nCompanies as at 31st March 2024\nThe Board of DIRECTORS of the Company \nas at 31st March 2024 consisted of Seven \n(7) DIRECTORS, with a broad range of skills, \nexperience and attributes which include \nentrepreneurship, finance, audit, legal, \nmarketing and banking, as detailed in the \nbrief Profiles of the DIRECTORS on pages \n31-34.\nNames of the DIRECTORS who held office \nduring the year and as at 31st March 2024 \nas required by section 168 (1) (h) of the \nCompanies Act are given below : \nCHANGES IN THE DIRECTORATE DURING \nTHE YEAR\nThere were no changes in the directorate \nduring the period under review\nDIRECTORS of the subsidiaries and the \nassociate company as at 31st March 2024', chunk_type: 'directors_and_executives', index: 2}, {id: 'vidullanka_plc_directors_and_executives_3', content: 'Company in the preparation of the Financial \nStatements are given on pages 71 to 79, \nwhich are consistent with those of the \nprevious period.\nDIRECTORS’ responsibility for Financial \nReporting\nThe DIRECTORS are responsible for the \npreparation of the Financial Statements of \nthe Company and the Group to reflect a true \nand fair view of the state of its affairs.\nInformation on the DIRECTORS of the \nCompany and the Group \nDIRECTORS of the Company as at  \n31st March 2021\nThe names of the DIRECTORS who held office \nas at the end of the accounting period are \ngiven below and their brief profiles appear on \npages 18 and 19.\nExecutive DIRECTORS\nMr. E. T . De Zoysa - Managing Director\nNon-Executive DIRECTORS\nMr. R. S. A. Wickramasingha - Chairman\nMs. D. S. Wickramasingha - Director\nMs. N. K. Wickramasingha - Director \nMr. L. J. M. De Silva - Director \nMr. M. U. S. G. Thilakawardana - Director*\nDr. D. M. A. Kulasooriya - Director*\nMr. M. S. Nanayakkara - Director*', chunk_type: 'directors_and_executives', index: 3}, {id: 'vidullanka_plc_directors_and_executives_4', content: 'from pages 28 to 67 of the Annual Report. \nDIRECTORATE \nThe Board of DIRECTORS of the Company as at date is set out in \n“Corporate Information”. The DIRECTORS of the Company who held \noffice during the year under review and changes thereto are \nindicated below.', chunk_type: 'directors_and_executives', index: 4}, {id: 'vidullanka_plc_financial_performance_0', content: 'best practices, our aim is to optimise our financial resources, leveraging them to drive short-term \ngrowth whilst consolidating gains and investing in expansions, new products and markets for long-\nterm success. This section will outline our approach to strengthen our financial capital base and \nprovide a detailed overview of the results achieved for the financial year (FY) ended 31st March, \n2024.\nFINANCIAL \nCAPITAL\nRs. 7,764 Mn\nRevenue\nFY 2022/23: 8,199mn\nRs. 2,655 Mn \nCash Inflow From \nOperations\nFY 2022/23: Rs. 3,553 Mn\n21.17%\nNet Profit Ratio\nFY 2022/23: 31.45% \nRs. 491 Mn \nTaxes\nFY 2022/23: 719 Mn\n25.80%\nReturn on Equity\nFY 2022/23:41.81%\n0.79 times \nAsset Turnover Ratio\nFY 2022/23: 0.90 \ntimes\nRs. 26.85\nDividend Per Share\nFY 2022/23: Rs 19.00\n7%\nDebt: Equity Ratio\nFY 2022/23: 5%\nSound Internal \nControls\nLiquidity & Fund \nManagement\nError free \nFinancial \nReporting\nSafeguard of \nAssetsProfitability\nOur Materiality Focus\nStakeholders Impacted', chunk_type: 'financial_performance', index: 0}] AS chunk MERGE (ch:Chunk {id: chunk.id}) ON CREATE SET ch.content = chunk.content, ch.chunk_type = chunk.chunk_type, ch.index = chunk.index;
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 2248750000, r.year = 2023;
 
 // Query 51
-MATCH (c:Company {name: 'Vidullanka PLC'}) WITH c UNWIND ['vidullanka_plc_directors_and_executives_0', 'vidullanka_plc_directors_and_executives_1', 'vidullanka_plc_directors_and_executives_2', 'vidullanka_plc_directors_and_executives_3', 'vidullanka_plc_directors_and_executives_4', 'vidullanka_plc_financial_performance_0'] AS chunk_id MATCH (ch:Chunk {id: chunk_id}) MERGE (c)-[:HAS_CONTENT]->(ch);
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1654858000, r.year = 2022;
 
-// Total queries: 51
-// Generated on: 2025-09-30T13:21:36.967793
+// Query 52
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1125011000, r.year = 2021;
+
+// Query 53
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Operating Profit'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 899346000, r.year = 2020;
+
+// Query 54
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 2242006000, r.year = 2024;
+
+// Query 55
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1649743000, r.year = 2023;
+
+// Query 56
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1357075000, r.year = 2022;
+
+// Query 57
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 814920000, r.year = 2021;
+
+// Query 58
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Profit Before Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 582099000, r.year = 2020;
+
+// Query 59
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1353186000, r.year = 2024;
+
+// Query 60
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1023010000, r.year = 2023;
+
+// Query 61
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 865877000, r.year = 2022;
+
+// Query 62
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 594951000, r.year = 2021;
+
+// Query 63
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Profit After Tax'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 361662000, r.year = 2020;
+
+// Query 64
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Earnings Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1.36, r.year = 2024;
+
+// Query 65
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Earnings Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1.02, r.year = 2023;
+
+// Query 66
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Earnings Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.93, r.year = 2022;
+
+// Query 67
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Earnings Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.68, r.year = 2021;
+
+// Query 68
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Earnings Per Share'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.41, r.year = 2020;
+
+// Query 69
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Return on Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 18.0, r.year = 2024;
+
+// Query 70
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Return on Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 14.8, r.year = 2023;
+
+// Query 71
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Return on Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 15.1, r.year = 2022;
+
+// Query 72
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Return on Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 16.3, r.year = 2021;
+
+// Query 73
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Return on Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 12.1, r.year = 2020;
+
+// Query 74
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Current Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1.61, r.year = 2024;
+
+// Query 75
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Current Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1.54, r.year = 2023;
+
+// Query 76
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Current Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 1.61, r.year = 2022;
+
+// Query 77
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Current Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.99, r.year = 2021;
+
+// Query 78
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Current Ratio'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 0.81, r.year = 2020;
+
+// Query 79
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 13019465000, r.year = 2024;
+
+// Query 80
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Total Assets'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 13023778000, r.year = 2023;
+
+// Query 81
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 7528840000, r.year = 2024;
+
+// Query 82
+MATCH (c:Company {name: 'Vidullanka'}), (m:Metric {name: 'Total Equity'}) MERGE (c)-[r:HAS_METRIC]->(m) SET r.value = 6889285000, r.year = 2023;
+
+// Query 83
+// Step 8: Sectors;
+
+// Query 84
+MERGE (s:Sector {name: 'Energy'}) ON CREATE SET s.id = 'energy';
+
+// Query 85
+MERGE (s:Sector {name: 'Food, Beverage, and Tobacco'}) ON CREATE SET s.id = 'food_beverage_and_tobacco';
+
+// Query 86
+MERGE (s:Sector {name: 'Capital Goods'}) ON CREATE SET s.id = 'capital_goods';
+
+// Query 87
+// Step 9: IN_SECTOR Relationships;
+
+// Query 88
+MATCH (c:Company {name: 'Vidullanka'}), (s:Sector {name: 'Energy'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 89
+MATCH (c:Company {name: 'Vidullanka'}), (s:Sector {name: 'Food, Beverage, and Tobacco'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 90
+MATCH (c:Company {name: 'Vidullanka'}), (s:Sector {name: 'Capital Goods'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 91
+MATCH (c:Company {name: 'Venergy Lanka'}), (s:Sector {name: 'Energy'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 92
+MATCH (c:Company {name: 'Vidul Plantation'}), (s:Sector {name: 'Food, Beverage, and Tobacco'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 93
+MATCH (c:Company {name: 'Vidul Biomass'}), (s:Sector {name: 'Energy'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 94
+MATCH (c:Company {name: 'Vidul Agri'}), (s:Sector {name: 'Food, Beverage, and Tobacco'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 95
+MATCH (c:Company {name: 'Horana Solar Power'}), (s:Sector {name: 'Energy'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 96
+MATCH (c:Company {name: 'Orik Corporation'}), (s:Sector {name: 'Energy'}) MERGE (c)-[:IN_SECTOR]->(s);
+
+// Query 97
+// Step 10: Products;
+
+// Query 98
+MERGE (p:Product {name: 'Renewable Energy Generation'}) ON CREATE SET p.id = 'renewable_energy_generation';
+
+// Query 99
+MERGE (p:Product {name: 'Project Development'}) ON CREATE SET p.id = 'project_development';
+
+// Query 100
+MERGE (p:Product {name: 'Installation & Construction'}) ON CREATE SET p.id = 'installation_and_construction';
+
+// Query 101
+MERGE (p:Product {name: 'Operation & Maintenance'}) ON CREATE SET p.id = 'operation_and_maintenance';
+
+// Query 102
+MERGE (p:Product {name: 'Consultancy Services'}) ON CREATE SET p.id = 'consultancy_services';
+
+// Query 103
+MERGE (p:Product {name: 'Turnkey Solutions'}) ON CREATE SET p.id = 'turnkey_solutions';
+
+// Query 104
+MERGE (p:Product {name: 'Emobility'}) ON CREATE SET p.id = 'emobility';
+
+// Query 105
+MERGE (p:Product {name: 'Sustainable Fuelwood'}) ON CREATE SET p.id = 'sustainable_fuelwood';
+
+// Query 106
+// Step 11: OFFERS Relationships;
+
+// Query 107
+MATCH (c:Company {name: 'Vidullanka'}), (p:Product {name: 'Renewable Energy Generation'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 108
+MATCH (c:Company {name: 'Vidullanka'}), (p:Product {name: 'Project Development'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 109
+MATCH (c:Company {name: 'Vidullanka'}), (p:Product {name: 'Installation & Construction'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 110
+MATCH (c:Company {name: 'Vidullanka'}), (p:Product {name: 'Operation & Maintenance'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 111
+MATCH (c:Company {name: 'Vidullanka'}), (p:Product {name: 'Consultancy Services'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 112
+MATCH (c:Company {name: 'Vidullanka'}), (p:Product {name: 'Turnkey Solutions'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 113
+MATCH (c:Company {name: 'Venergy Lanka'}), (p:Product {name: 'Project Development'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 114
+MATCH (c:Company {name: 'Venergy Lanka'}), (p:Product {name: 'Emobility'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 115
+MATCH (c:Company {name: 'Vidul Agri'}), (p:Product {name: 'Sustainable Fuelwood'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 116
+MATCH (c:Company {name: 'Horana Solar Power'}), (p:Product {name: 'Renewable Energy Generation'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 117
+MATCH (c:Company {name: 'Orik Corporation'}), (p:Product {name: 'Renewable Energy Generation'}) MERGE (c)-[:OFFERS]->(p);
+
+// Query 118
+// Step 12: Company-Company Relationships (MANAGES);
+
+// Query 119
+MATCH (manager:Company {name: 'Vidul Biomass'}), (managed:Company {name: 'Vidul Plantation'}) MERGE (manager)-[r:MANAGES]->(managed) ON CREATE SET r.description = 'operates power plant supplied by';
+
+// Total queries: 119
+// Generated on: 2025-10-02T22:28:20.230054

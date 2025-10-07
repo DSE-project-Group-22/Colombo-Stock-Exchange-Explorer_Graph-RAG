@@ -1,0 +1,864 @@
+{
+  "company": {
+    "raw_name": "Ceylon Cold Stores PLC",
+    "normalized_name": "Ceylon Cold Stores",
+    "ticker": null,
+    "founded_on": "1866-01-01",
+    "listed_on": "1970-01-01",
+    "industry": null
+  },
+  "sectors": [
+    {
+      "normalized_name": "Food, Beverage, and Tobacco"
+    },
+    {
+      "normalized_name": "Food and Staples Retailing"
+    }
+  ],
+  "auditor": {
+    "normalized_name": "Ernst & Young"
+  },
+  "directors": [
+    {
+      "raw_name": "Mr. J G A Cooray",
+      "normalized_name": "J. G. A. Cooray",
+      "raw_title": "Non-Executive Director",
+      "normalized_title": "Non-Executive Director",
+      "appointed_date": "2018-01-01",
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": false,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. D P Gamlath",
+      "normalized_name": "D. P. Gamlath",
+      "raw_title": "Executive Director",
+      "normalized_title": "Executive Director",
+      "appointed_date": "2021-01-01",
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": null,
+      "is_executive": true
+    },
+    {
+      "raw_name": "Mr. S Kanag-Isvaran",
+      "normalized_name": "S. Kanag-Isvaran",
+      "raw_title": "Independent Non-Executive Director",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": "2024-06-19",
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Ms. R N K Fernando",
+      "normalized_name": "R. N. K. Fernando",
+      "raw_title": "Independent Non-Executive Director",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": "2024-06-19",
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. H A J De Silva Wijeyeratne",
+      "normalized_name": "H. A. J. De Silva Wijeyeratne",
+      "raw_title": "Independent Non-Executive Director",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": "2025-01-01",
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. K N J Balendra",
+      "normalized_name": "K. N. J. Balendra",
+      "raw_title": "Chairperson NED/NID",
+      "normalized_title": "Chairman",
+      "appointed_date": "2018-01-01",
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": false,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. K C Subasinghe",
+      "normalized_name": "K. C. Subasinghe",
+      "raw_title": "NED/NID",
+      "normalized_title": "Non-Executive Director",
+      "appointed_date": "2021-01-01",
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": false,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Dr. (Ms.) R S W Wijeratnam",
+      "normalized_name": "R. S. W. Wijeratnam",
+      "raw_title": "NED/NID",
+      "normalized_title": "Non-Executive Director",
+      "appointed_date": "2016-01-01",
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": false,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Ms. P N Fernando",
+      "normalized_name": "P. N. Fernando",
+      "raw_title": "ED/NID",
+      "normalized_title": "Executive Director",
+      "appointed_date": "2021-01-01",
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": null,
+      "is_executive": true
+    },
+    {
+      "raw_name": "Ms. S T Ratwatte",
+      "normalized_name": "S. T. Ratwatte",
+      "raw_title": "NED/ID",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": "2016-06-17",
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": true,
+      "is_executive": false
+    }
+  ],
+  "executives": [],
+  "shareholdings": {
+    "company_holdings": [
+      {
+        "holder": {
+          "raw_name": "John Keells Holdings & Subsidiaries",
+          "normalized_name": "John Keells Holdings"
+        },
+        "ownership_percent": 81.36,
+        "share_count": 773212040,
+        "as_of_date": "2025-03-31"
+      }
+    ],
+    "individual_holdings": [
+      {
+        "holder": {
+          "raw_name": "Directors and Spouses",
+          "normalized_name": "Directors & Spouses"
+        },
+        "share_count": 904040,
+        "ownership_percent": 0.09,
+        "as_of_date": "2025-03-31"
+      }
+    ]
+  },
+  "financial_metrics": [
+    {
+      "raw_name": "Revenue",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "157,934 Rs. million",
+      "normalized_value": 157934000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2025,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Gross Profit",
+      "normalized_name": "Gross Income",
+      "normalized_id": "gross_income",
+      "raw_value": "22,741 Rs. million",
+      "normalized_value": 22741000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2025,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Operating Profit",
+      "normalized_name": "Operating Profit",
+      "normalized_id": "operating_profit",
+      "raw_value": "11,314 Rs. million",
+      "normalized_value": 11314000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2025,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit Before Tax",
+      "normalized_name": "Profit Before Tax",
+      "normalized_id": "profit_before_tax",
+      "raw_value": "9,002 Rs. million",
+      "normalized_value": 9002000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2025,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit After Tax",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "5,958 Rs. million",
+      "normalized_value": 5958000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2025,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total Assets",
+      "normalized_name": "Total Assets",
+      "normalized_id": "total_assets",
+      "raw_value": "81,885 Rs. million",
+      "normalized_value": 81885000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2025,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total Liabilities",
+      "normalized_name": "Total Liabilities",
+      "normalized_id": "total_liabilities",
+      "raw_value": "57,920 Rs. million",
+      "normalized_value": 57920000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2025,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Shareholders’ Funds",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "23,965 Rs. million",
+      "normalized_value": 23965000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2025,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Debt/Equity %",
+      "normalized_name": "Debt to Equity Ratio",
+      "normalized_id": "debt_to_equity_ratio",
+      "raw_value": "66.78 %",
+      "normalized_value": 66.78,
+      "unit": "%",
+      "currency": null,
+      "year": 2025,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Return on Equity (%)",
+      "normalized_name": "Return on Equity",
+      "normalized_id": "return_on_equity",
+      "raw_value": "26.72",
+      "normalized_value": 26.72,
+      "unit": "%",
+      "currency": null,
+      "year": 2025,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Earnings per Share (Rs.)",
+      "normalized_name": "Earnings Per Share",
+      "normalized_id": "earnings_per_share",
+      "raw_value": "6.27",
+      "normalized_value": 6.27,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2025,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net Assets per Share (Rs.)",
+      "normalized_name": "Net Asset Value Per Share",
+      "normalized_id": "net_asset_value_per_share",
+      "raw_value": "25.22",
+      "normalized_value": 25.22,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2025,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Current Ratio (No.of Times)",
+      "normalized_name": "Current Ratio",
+      "normalized_id": "current_ratio",
+      "raw_value": "0.71",
+      "normalized_value": 0.71,
+      "unit": "Times",
+      "currency": null,
+      "year": 2025,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Revenue",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "139,625 Rs. million",
+      "normalized_value": 139625000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Gross Profit",
+      "normalized_name": "Gross Income",
+      "normalized_id": "gross_income",
+      "raw_value": "17,497 Rs. million",
+      "normalized_value": 17497000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Operating Profit",
+      "normalized_name": "Operating Profit",
+      "normalized_id": "operating_profit",
+      "raw_value": "8,155 Rs. million",
+      "normalized_value": 8155000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit Before Tax",
+      "normalized_name": "Profit Before Tax",
+      "normalized_id": "profit_before_tax",
+      "raw_value": "4,931 Rs. million",
+      "normalized_value": 4931000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit After Tax",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "3,427 Rs. million",
+      "normalized_value": 3427000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total Assets",
+      "normalized_name": "Total Assets",
+      "normalized_id": "total_assets",
+      "raw_value": "73,744 Rs. million",
+      "normalized_value": 73744000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total Liabilities",
+      "normalized_name": "Total Liabilities",
+      "normalized_id": "total_liabilities",
+      "raw_value": "53,293 Rs. million",
+      "normalized_value": 53293000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Shareholders’ Funds",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "20,451 Rs. million",
+      "normalized_value": 20451000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Debt/Equity %",
+      "normalized_name": "Debt to Equity Ratio",
+      "normalized_id": "debt_to_equity_ratio",
+      "raw_value": "82.32 %",
+      "normalized_value": 82.32,
+      "unit": "%",
+      "currency": null,
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Return on Equity (%)",
+      "normalized_name": "Return on Equity",
+      "normalized_id": "return_on_equity",
+      "raw_value": "17.23",
+      "normalized_value": 17.23,
+      "unit": "%",
+      "currency": null,
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Earnings per Share (Rs.)",
+      "normalized_name": "Earnings Per Share",
+      "normalized_id": "earnings_per_share",
+      "raw_value": "3.61",
+      "normalized_value": 3.61,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net Assets per Share (Rs.)",
+      "normalized_name": "Net Asset Value Per Share",
+      "normalized_id": "net_asset_value_per_share",
+      "raw_value": "21.52",
+      "normalized_value": 21.52,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Current Ratio (No.of Times)",
+      "normalized_name": "Current Ratio",
+      "normalized_id": "current_ratio",
+      "raw_value": "0.66",
+      "normalized_value": 0.66,
+      "unit": "Times",
+      "currency": null,
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net Revenue generated during the year under review by the Company",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "Rs. 24,508 million",
+      "normalized_value": 24508000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2025,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Company recorded a Profit After Tax",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "Rs. 4,325 million",
+      "normalized_value": 4325000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2025,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Consolidated Net Revenue of the CCS Group",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "Rs. 157,934 million",
+      "normalized_value": 157934000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2025,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Consolidated Profit After Tax",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "Rs. 5,958 million",
+      "normalized_value": 5958000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2025,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net Revenue generated during the year under review by the Company",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "Rs. 21,504 million",
+      "normalized_value": 21504000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Company recorded a Profit After Tax",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "Rs. 2,662 million",
+      "normalized_value": 2662000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Consolidated Net Revenue of the CCS Group",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "Rs. 139,625 million",
+      "normalized_value": 139625000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Consolidated Profit After Tax",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "Rs. 3,427 million",
+      "normalized_value": 3427000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    }
+  ],
+  "products_services": [
+    {
+      "raw_name": "Canned beverages",
+      "normalized_name": "Canned Beverages",
+      "normalized_id": "canned_beverages",
+      "category": "product",
+      "description": null,
+      "launch_date": "2024-04-01"
+    },
+    {
+      "raw_name": "Ape Rasa",
+      "normalized_name": "Ape Rasa",
+      "normalized_id": "ape_rasa",
+      "category": "brand",
+      "description": "four uniquely Sri Lankan flavours",
+      "launch_date": "2024-04-01"
+    },
+    {
+      "raw_name": "Vegan ice cream",
+      "normalized_name": "Vegan Ice Cream",
+      "normalized_id": "vegan_ice_cream",
+      "category": "product",
+      "description": null,
+      "launch_date": "2024-04-01"
+    },
+    {
+      "raw_name": "Kulfi",
+      "normalized_name": "Kulfi",
+      "normalized_id": "kulfi",
+      "category": "brand",
+      "description": null,
+      "launch_date": "2024-04-01"
+    },
+    {
+      "raw_name": "Fruit flavoured CSD range",
+      "normalized_name": "Fruit Flavoured CSD Range",
+      "normalized_id": "fruit_flavoured_csd_range",
+      "category": "product",
+      "description": null,
+      "launch_date": "2024-04-01"
+    },
+    {
+      "raw_name": "Elephant",
+      "normalized_name": "Elephant",
+      "normalized_id": "elephant",
+      "category": "brand",
+      "description": "Aerated Water",
+      "launch_date": "1883-01-01"
+    },
+    {
+      "raw_name": "Keells",
+      "normalized_name": "Keells",
+      "normalized_id": "keells",
+      "category": "brand",
+      "description": "supermarkets",
+      "launch_date": null
+    },
+    {
+      "raw_name": "IMORICH",
+      "normalized_name": "Imorich",
+      "normalized_id": "imorich",
+      "category": "brand",
+      "description": "ice cream",
+      "launch_date": null
+    },
+    {
+      "raw_name": "Fit-O",
+      "normalized_name": "Fit-O",
+      "normalized_id": "fit_o",
+      "category": "brand",
+      "description": "fruit juice line",
+      "launch_date": null
+    },
+    {
+      "raw_name": "Batman Choco Knight",
+      "normalized_name": "Batman Choco Knight",
+      "normalized_id": "batman_choco_knight",
+      "category": "brand",
+      "description": "kids’ stick range",
+      "launch_date": "2024-04-01"
+    },
+    {
+      "raw_name": "Flash Cotton Candy",
+      "normalized_name": "Flash Cotton Candy",
+      "normalized_id": "flash_cotton_candy",
+      "category": "brand",
+      "description": "kids’ stick range",
+      "launch_date": "2024-04-01"
+    },
+    {
+      "raw_name": "Wonder bar",
+      "normalized_name": "Wonder Bar",
+      "normalized_id": "wonder_bar",
+      "category": "brand",
+      "description": "multi pack",
+      "launch_date": "2024-04-01"
+    },
+    {
+      "raw_name": "Faluda Cones & Pani Cadju",
+      "normalized_name": "Faluda Cones & Pani Cadju",
+      "normalized_id": "faluda_cones_pani_cadju",
+      "category": "product",
+      "description": null,
+      "launch_date": "2024-04-01"
+    },
+    {
+      "raw_name": "Cream Soda",
+      "normalized_name": "Cream Soda",
+      "normalized_id": "cream_soda",
+      "category": "product",
+      "description": "new flavour in CSD range",
+      "launch_date": "2024-04-01"
+    },
+    {
+      "raw_name": "Apple Pop",
+      "normalized_name": "Apple Pop",
+      "normalized_id": "apple_pop",
+      "category": "product",
+      "description": "new flavour in CSD range; seasonal limited edition beverage flavour",
+      "launch_date": "2024-04-01"
+    },
+    {
+      "raw_name": "Kiwi Pop",
+      "normalized_name": "Kiwi Pop",
+      "normalized_id": "kiwi_pop",
+      "category": "product",
+      "description": "seasonal limited edition beverage flavour",
+      "launch_date": "2024-04-01"
+    },
+    {
+      "raw_name": "Salted Caramel",
+      "normalized_name": "Salted Caramel",
+      "normalized_id": "salted_caramel",
+      "category": "product",
+      "description": "new flavour in IMORICH ice cream range",
+      "launch_date": "2024-04-01"
+    },
+    {
+      "raw_name": "Blueberry Cheesecake",
+      "normalized_name": "Blueberry Cheesecake",
+      "normalized_id": "blueberry_cheesecake",
+      "category": "product",
+      "description": "new flavour in IMORICH cone range",
+      "launch_date": "2024-04-01"
+    },
+    {
+      "raw_name": "Almond Crunch",
+      "normalized_name": "Almond Crunch",
+      "normalized_id": "almond_crunch",
+      "category": "product",
+      "description": "new flavour in IMORICH cone range",
+      "launch_date": "2024-04-01"
+    },
+    {
+      "raw_name": "Mixed Fruit",
+      "normalized_name": "Mixed Fruit",
+      "normalized_id": "mixed_fruit",
+      "category": "product",
+      "description": "new flavour in ice cream range",
+      "launch_date": "2024-04-01"
+    },
+    {
+      "raw_name": "Frozen yoghurt",
+      "normalized_name": "Frozen Yoghurt",
+      "normalized_id": "frozen_yoghurt",
+      "category": "product",
+      "description": "Mango and Mixed Berry",
+      "launch_date": "2024-04-01"
+    },
+    {
+      "raw_name": "Low sugar ice cream",
+      "normalized_name": "Low Sugar Ice Cream",
+      "normalized_id": "low_sugar_ice_cream",
+      "category": "product",
+      "description": "Vanilla, Chocolate",
+      "launch_date": "2024-04-01"
+    },
+    {
+      "raw_name": "Waffle cones",
+      "normalized_name": "Waffle Cones",
+      "normalized_id": "waffle_cones",
+      "category": "product",
+      "description": "dry product range",
+      "launch_date": "2024-04-01"
+    },
+    {
+      "raw_name": "Fusion range",
+      "normalized_name": "Fusion Range",
+      "normalized_id": "fusion_range",
+      "category": "product",
+      "description": "4 varieties",
+      "launch_date": "2024-04-01"
+    },
+    {
+      "raw_name": "Ice pops",
+      "normalized_name": "Ice Pops",
+      "normalized_id": "ice_pops",
+      "category": "product",
+      "description": "4 flavours of water",
+      "launch_date": "2024-04-01"
+    }
+  ],
+  "subsidiaries": [
+    {
+      "raw_name": "Jaykay Marketing Services (Pvt) Ltd",
+      "normalized_name": "Jaykay Marketing Services",
+      "normalized_id": "jaykay_marketing_services",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "The Colombo Ice Company (Pvt) Ltd",
+      "normalized_name": "Colombo Ice Company",
+      "normalized_id": "colombo_ice_company",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "LogiPark International (Pvt) Ltd",
+      "normalized_name": "LogiPark International",
+      "normalized_id": "logipark_international",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    }
+  ]
+}

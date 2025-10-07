@@ -1,0 +1,964 @@
+{
+  "company": {
+    "raw_name": "LAUGFS Gas PLC",
+    "normalized_name": "LAUGFS Gas",
+    "ticker": null,
+    "founded_on": "1982-01-01",
+    "listed_on": "2010-12-01",
+    "industry": "Energy"
+  },
+  "sectors": [
+    {
+      "normalized_name": "Energy"
+    },
+    {
+      "normalized_name": "Real Estate"
+    },
+    {
+      "normalized_name": "Transportation"
+    },
+    {
+      "normalized_name": "Materials"
+    }
+  ],
+  "auditor": {
+    "normalized_name": "Ernst & Young"
+  },
+  "directors": [
+    {
+      "raw_name": "Mr. W. K. H. Wegapitiya",
+      "normalized_name": "W. K. H. Wegapitiya",
+      "raw_title": "Group Chairman",
+      "normalized_title": "Chairman",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": false,
+      "is_executive": true
+    },
+    {
+      "raw_name": "Mr. U. K. Thilak De Silva",
+      "normalized_name": "U. K. Thilak De Silva",
+      "raw_title": "Group Deputy Chairman",
+      "normalized_title": "Deputy Chairman",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": false,
+      "is_executive": true
+    },
+    {
+      "raw_name": "Mr. P. Kudabalage",
+      "normalized_name": "P. Kudabalage",
+      "raw_title": "Group Managing Director/ GCEO",
+      "normalized_title": "Managing Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": false,
+      "is_executive": true
+    },
+    {
+      "raw_name": "Prof. S.P.P. Amaratunge",
+      "normalized_name": "S. P. P. Amaratunge",
+      "raw_title": "Independent Non-Executive Director",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. R. Selvaskandan",
+      "normalized_name": "R. Selvaskandan",
+      "raw_title": "Independent Non-Executive Director",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. K. R. Goonesinghe",
+      "normalized_name": "K. R. Goonesinghe",
+      "raw_title": "Independent Non-Executive Director",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. P. M. B. Fernando",
+      "normalized_name": "P. M. B. Fernando",
+      "raw_title": "Independent Non-Executive Director",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": null,
+      "as_of_date": "2024-03-31",
+      "is_independent": true,
+      "is_executive": false
+    }
+  ],
+  "executives": [
+    {
+      "raw_name": "Mr. W. K. H. Wegapitiya",
+      "normalized_name": "W. K. H. Wegapitiya",
+      "normalized_id": "w_k_h_wegapitiya",
+      "raw_title": "Group Chairman",
+      "normalized_title": "Chairman",
+      "department": null,
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Mr. U. K. Thilak De Silva",
+      "normalized_name": "U. K. Thilak De Silva",
+      "normalized_id": "u_k_thilak_de_silva",
+      "raw_title": "Group Deputy Chairman",
+      "normalized_title": "Deputy Chairman",
+      "department": null,
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Mr. P. Kudabalage",
+      "normalized_name": "P. Kudabalage",
+      "normalized_id": "p_kudabalage",
+      "raw_title": "Group Managing Director/ GCEO",
+      "normalized_title": "Managing Director",
+      "department": null,
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    },
+    {
+      "raw_name": "Mr. P. Kudabalage",
+      "normalized_name": "P. Kudabalage",
+      "normalized_id": "p_kudabalage",
+      "raw_title": "Group Managing Director/ GCEO",
+      "normalized_title": "Chief Executive Officer",
+      "department": null,
+      "appointed_date": null,
+      "as_of_date": "2024-03-31"
+    }
+  ],
+  "shareholdings": {
+    "company_holdings": [
+      {
+        "holder": {
+          "raw_name": "LAUGFS HOLDINGS LIMITED",
+          "normalized_name": "LAUGFS Holdings"
+        },
+        "ownership_percent": 74.024,
+        "share_count": 247980050,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "EMPLOYEES PROVIDENT FUND",
+          "normalized_name": "Employees Provident Fund"
+        },
+        "ownership_percent": 17.283,
+        "share_count": 57897800,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "HATTON NATIONAL BANK PLC /ALMAS HOLDINGS (PRIVATE) LIMITED",
+          "normalized_name": "Hatton National Bank /Almas Holdings"
+        },
+        "ownership_percent": 2.723,
+        "share_count": 9123613,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "HATTON NATIONAL BANK PLC /ALMAS CAPITAL (PRIVATE) LIMITED",
+          "normalized_name": "Hatton National Bank /Almas Capital"
+        },
+        "ownership_percent": 0.832,
+        "share_count": 2786658,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "ALMAS HOLDINGS (PRIVATE) LIMITED",
+          "normalized_name": "Almas Holdings"
+        },
+        "ownership_percent": 0.336,
+        "share_count": 1125638,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "EMPLOYEES PROVIDENT FUND",
+          "normalized_name": "Employees Provident Fund"
+        },
+        "ownership_percent": 34.695,
+        "share_count": 18041300,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "HATTON NATIONAL BANK PLC /ALMAS HOLDINGS (PRIVATE) LIMITED",
+          "normalized_name": "Hatton National Bank /Almas Holdings"
+        },
+        "ownership_percent": 23.063,
+        "share_count": 11992849,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "HATTON NATIONAL BANK PLC /ALMAS CAPITAL (PRIVATE) LIMITED",
+          "normalized_name": "Hatton National Bank /Almas Capital"
+        },
+        "ownership_percent": 12.098,
+        "share_count": 6291119,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "BANK OF CEYLON NO. 1 ACCOUNT",
+          "normalized_name": "Bank of Ceylon No 1 Account"
+        },
+        "ownership_percent": 3.238,
+        "share_count": 1683646,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "ALMAS HOLDINGS (PRIVATE) LIMITED",
+          "normalized_name": "Almas Holdings"
+        },
+        "ownership_percent": 2.8,
+        "share_count": 1455763,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "J.B.COCOSHELL (PVT) LTD",
+          "normalized_name": "J.B. Cocoshell"
+        },
+        "ownership_percent": 1.376,
+        "share_count": 715434,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "NARATHA VENTURES PRIVATE LIMITED",
+          "normalized_name": "Naratha Ventures"
+        },
+        "ownership_percent": 0.592,
+        "share_count": 308000,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "ACUITY PARTNERS (PVT) LIMITED/ MR. DON JANAKA NISHAN HETTIARACHCHI",
+          "normalized_name": "Acuity Partners / Don Janaka Nishan Hettiarachchi"
+        },
+        "ownership_percent": 0.481,
+        "share_count": 250000,
+        "as_of_date": "2024-03-31"
+      }
+    ],
+    "individual_holdings": [
+      {
+        "holder": {
+          "raw_name": "Mr. W K H Wegapitiya",
+          "normalized_name": "W. K. H. Wegapitiya"
+        },
+        "share_count": 1549416,
+        "ownership_percent": 0.463,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mr. U K T N De Silva",
+          "normalized_name": "U. K. T. N. De Silva"
+        },
+        "share_count": 1077897,
+        "ownership_percent": 0.322,
+        "as_of_date": "2024-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mr. P M B Fernando",
+          "normalized_name": "P. M. B. Fernando"
+        },
+        "share_count": 100,
+        "ownership_percent": 0.0,
+        "as_of_date": "2024-03-31"
+      }
+    ]
+  },
+  "financial_metrics": [
+    {
+      "raw_name": "Revenue",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "31,199,516,961",
+      "normalized_value": 31199516961.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Revenue",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "22,526,749,864",
+      "normalized_value": 22526749864.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Revenue",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "24,023,408,169",
+      "normalized_value": 24023408169.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2022,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2022-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Revenue",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "35,533,768,139",
+      "normalized_value": 35533768139.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2021,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2021-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Revenue",
+      "normalized_name": "Revenue",
+      "normalized_id": "revenue",
+      "raw_value": "27,202,063,581",
+      "normalized_value": 27202063581.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2020,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2020-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Gross Profit/ (Loss)",
+      "normalized_name": "Gross Profit",
+      "normalized_id": "gross_profit",
+      "raw_value": "4,505,814,495",
+      "normalized_value": 4505814495.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Gross Profit/ (Loss)",
+      "normalized_name": "Gross Profit",
+      "normalized_id": "gross_profit",
+      "raw_value": "6,429,555,348",
+      "normalized_value": 6429555348.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Gross Profit/ (Loss)",
+      "normalized_name": "Gross Profit",
+      "normalized_id": "gross_profit",
+      "raw_value": "(952,358,801)",
+      "normalized_value": -952358801.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2022,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2022-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Gross Profit/ (Loss)",
+      "normalized_name": "Gross Profit",
+      "normalized_id": "gross_profit",
+      "raw_value": "3,734,582,466",
+      "normalized_value": 3734582466.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2021,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2021-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Gross Profit/ (Loss)",
+      "normalized_name": "Gross Profit",
+      "normalized_id": "gross_profit",
+      "raw_value": "2,822,858,051",
+      "normalized_value": 2822858051.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2020,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2020-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit/(Loss) Before Tax",
+      "normalized_name": "Profit Before Tax",
+      "normalized_id": "profit_before_tax",
+      "raw_value": "(777,129,222)",
+      "normalized_value": -777129222.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit/(Loss) Before Tax",
+      "normalized_name": "Profit Before Tax",
+      "normalized_id": "profit_before_tax",
+      "raw_value": "(884,100,198)",
+      "normalized_value": -884100198.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit/(Loss) Before Tax",
+      "normalized_name": "Profit Before Tax",
+      "normalized_id": "profit_before_tax",
+      "raw_value": "(4,119,070,070)",
+      "normalized_value": -4119070070.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2022,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2022-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit/(Loss) Before Tax",
+      "normalized_name": "Profit Before Tax",
+      "normalized_id": "profit_before_tax",
+      "raw_value": "(914,726,326)",
+      "normalized_value": -914726326.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2021,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2021-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit/(Loss) Before Tax",
+      "normalized_name": "Profit Before Tax",
+      "normalized_id": "profit_before_tax",
+      "raw_value": "(1,841,848,856)",
+      "normalized_value": -1841848856.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2020,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2020-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit/ (Loss) for the Year from Continuing Operations",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "(958,758,705)",
+      "normalized_value": -958758705.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit/ (Loss) for the Year from Continuing Operations",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "(1,200,714,836)",
+      "normalized_value": -1200714836.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit/ (Loss) for the Year from Continuing Operations",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "(3,620,996,364)",
+      "normalized_value": -3620996364.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2022,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2022-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit/ (Loss) for the Year from Continuing Operations",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "(658,286,260)",
+      "normalized_value": -658286260.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2021,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2021-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit/ (Loss) for the Year from Continuing Operations",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "(1,690,368,991)",
+      "normalized_value": -1690368991.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2020,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2020-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total Assets",
+      "normalized_name": "Total Assets",
+      "normalized_id": "total_assets",
+      "raw_value": "44,907,458",
+      "normalized_value": 44907458.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Total Assets",
+      "normalized_name": "Total Assets",
+      "normalized_id": "total_assets",
+      "raw_value": "45,703,676",
+      "normalized_value": 45703676.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Total Assets",
+      "normalized_name": "Total Assets",
+      "normalized_id": "total_assets",
+      "raw_value": "40,801,808",
+      "normalized_value": 40801808.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total Assets",
+      "normalized_name": "Total Assets",
+      "normalized_id": "total_assets",
+      "raw_value": "44,697,527",
+      "normalized_value": 44697527.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total Liabilities",
+      "normalized_name": "Total Liabilities",
+      "normalized_id": "total_liabilities",
+      "raw_value": "41,364,122",
+      "normalized_value": 41364122.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Total Liabilities",
+      "normalized_name": "Total Liabilities",
+      "normalized_id": "total_liabilities",
+      "raw_value": "41,248,651",
+      "normalized_value": 41248651.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Total Liabilities",
+      "normalized_name": "Total Liabilities",
+      "normalized_id": "total_liabilities",
+      "raw_value": "20,823,697",
+      "normalized_value": 20823697.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total Liabilities",
+      "normalized_name": "Total Liabilities",
+      "normalized_id": "total_liabilities",
+      "raw_value": "24,148,204",
+      "normalized_value": 24148204.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total Equity",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "3,543,336,671",
+      "normalized_value": 3543336671.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Total Equity",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "4,455,025,395",
+      "normalized_value": 4455025395.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Total Equity",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "19,978,110,987",
+      "normalized_value": 19978110987.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total Equity",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "20,549,323,051",
+      "normalized_value": 20549323051.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Debt/Equity",
+      "normalized_name": "Debt to Equity Ratio",
+      "normalized_id": "debt_to_equity_ratio",
+      "raw_value": "83%",
+      "normalized_value": 83.0,
+      "unit": "%",
+      "currency": null,
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Debt/Equity",
+      "normalized_name": "Debt to Equity Ratio",
+      "normalized_id": "debt_to_equity_ratio",
+      "raw_value": "88%",
+      "normalized_value": 88.0,
+      "unit": "%",
+      "currency": null,
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Debt/Equity",
+      "normalized_name": "Debt to Equity Ratio",
+      "normalized_id": "debt_to_equity_ratio",
+      "raw_value": "36%",
+      "normalized_value": 36.0,
+      "unit": "%",
+      "currency": null,
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Debt/Equity",
+      "normalized_name": "Debt to Equity Ratio",
+      "normalized_id": "debt_to_equity_ratio",
+      "raw_value": "46%",
+      "normalized_value": 46.0,
+      "unit": "%",
+      "currency": null,
+      "year": 2023,
+      "as_of_date": "2023-03-31",
+      "period_start": null,
+      "period_end": null,
+      "is_consolidated": false
+    },
+    {
+      "raw_name": "Operating Profit/(Loss)",
+      "normalized_name": "Operating Profit",
+      "normalized_id": "operating_profit",
+      "raw_value": "3,216,385,682",
+      "normalized_value": 3216385682.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2024,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Operating Profit/(Loss)",
+      "normalized_name": "Operating Profit",
+      "normalized_id": "operating_profit",
+      "raw_value": "4,789,262,926",
+      "normalized_value": 4789262926.0,
+      "unit": "Rs",
+      "currency": "LKR",
+      "year": 2023,
+      "as_of_date": null,
+      "period_start": null,
+      "period_end": "2023-03-31",
+      "is_consolidated": true
+    }
+  ],
+  "products_services": [
+    {
+      "raw_name": "Liquefied Petroleum Gas",
+      "normalized_name": "Liquefied Petroleum Gas",
+      "normalized_id": "liquefied_petroleum_gas",
+      "category": "Product",
+      "description": "import, storage, marketing, distribution and sale of Liquefied Petroleum Gas (LPG) in Sri Lanka",
+      "launch_date": null
+    },
+    {
+      "raw_name": "LPG consultancy services",
+      "normalized_name": "LPG Consultancy Services",
+      "normalized_id": "lpg_consultancy_services",
+      "category": "Service",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "LPG Transshipment Terminal operation",
+      "normalized_name": "LPG Transshipment Terminal Operation",
+      "normalized_id": "lpg_transshipment_terminal_operation",
+      "category": "Service",
+      "description": "Owns and operates South Asia’s largest LPG Transshipment Terminal with a 30,000 MT storage facility at Hambantota International Port",
+      "launch_date": null
+    },
+    {
+      "raw_name": "LPG storage",
+      "normalized_name": "LPG Storage",
+      "normalized_id": "lpg_storage",
+      "category": "Service",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "ocean transportation services",
+      "normalized_name": "Ocean Transportation Services",
+      "normalized_id": "ocean_transportation_services",
+      "category": "Service",
+      "description": "provides ocean transportation services",
+      "launch_date": null
+    },
+    {
+      "raw_name": "vessel chartering services",
+      "normalized_name": "Vessel Chartering Services",
+      "normalized_id": "vessel_chartering_services",
+      "category": "Service",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "procurement of LPG",
+      "normalized_name": "Procurement of LPG",
+      "normalized_id": "procurement_of_lpg",
+      "category": "Service",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "trading of LPG",
+      "normalized_name": "Trading of LPG",
+      "normalized_id": "trading_of_lpg",
+      "category": "Service",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "commercial property operation",
+      "normalized_name": "Commercial Property Operation",
+      "normalized_id": "commercial_property_operation",
+      "category": "Service",
+      "description": "Operation of a commercial property at Kirulapone",
+      "launch_date": null
+    },
+    {
+      "raw_name": "Gas Challenger",
+      "normalized_name": "Gas Challenger",
+      "normalized_id": "gas_challenger",
+      "category": "Brand",
+      "description": "LPG vessel",
+      "launch_date": null
+    },
+    {
+      "raw_name": "Gas Success",
+      "normalized_name": "Gas Success",
+      "normalized_id": "gas_success",
+      "category": "Brand",
+      "description": "LPG vessel",
+      "launch_date": null
+    },
+    {
+      "raw_name": "Gas Courage",
+      "normalized_name": "Gas Courage",
+      "normalized_id": "gas_courage",
+      "category": "Brand",
+      "description": "LPG vessel",
+      "launch_date": null
+    }
+  ],
+  "subsidiaries": [
+    {
+      "raw_name": "LAUGFS Maritime Services (Pvt) Ltd.",
+      "normalized_name": "LAUGFS Maritime Services",
+      "normalized_id": "laugfs_maritime_services",
+      "relationship_type": "subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "LAUGFS Property Developers (Pvt) Ltd.",
+      "normalized_name": "LAUGFS Property Developers",
+      "normalized_id": "laugfs_property_developers",
+      "relationship_type": "subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 75.0
+    },
+    {
+      "raw_name": "LAUGFS Terminals Ltd.",
+      "normalized_name": "LAUGFS Terminals",
+      "normalized_id": "laugfs_terminals",
+      "relationship_type": "subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "SLOGAL Energy DMCC",
+      "normalized_name": "Slogal Energy",
+      "normalized_id": "slogal_energy",
+      "relationship_type": "subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    }
+  ]
+}

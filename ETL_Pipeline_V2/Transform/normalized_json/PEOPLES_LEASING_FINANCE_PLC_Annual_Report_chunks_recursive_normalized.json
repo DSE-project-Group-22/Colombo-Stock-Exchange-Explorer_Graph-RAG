@@ -1,0 +1,922 @@
+{
+  "company": {
+    "raw_name": "People’s Leasing & Finance PLC",
+    "normalized_name": "People's Leasing & Finance",
+    "ticker": null,
+    "founded_on": "1995-08-22",
+    "listed_on": "2011-11-24",
+    "industry": "Diversified Financials"
+  },
+  "sectors": [
+    {
+      "normalized_name": "Diversified Financials"
+    },
+    {
+      "normalized_name": "Insurance"
+    }
+  ],
+  "auditor": {
+    "normalized_name": "Ernst & Young"
+  },
+  "directors": [
+    {
+      "raw_name": "Prof. S M A K Samarakoon",
+      "normalized_name": "S. M. A. K. Samarakoon",
+      "raw_title": "Chairman",
+      "normalized_title": "Chairman",
+      "appointed_date": "2024-12-31",
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": null,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. Pravir Samarasinghe",
+      "normalized_name": "Pravir Samarasinghe",
+      "raw_title": "Independent Non-Executive Director",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": "2025-02-11",
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. S. Sudarshan",
+      "normalized_name": "S. Sudarshan",
+      "raw_title": "Independent Non-Executive Director",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": "2025-02-11",
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. Clive Fonseka",
+      "normalized_name": "Clive Fonseka",
+      "raw_title": "Non-Independent Non- Executive Director",
+      "normalized_title": "Non-Executive Director",
+      "appointed_date": "2025-02-11",
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": false,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. K J D G Perera",
+      "normalized_name": "K. J. D. G. Perera",
+      "raw_title": "Director",
+      "normalized_title": "Board Member",
+      "appointed_date": "2025-01-23",
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": null,
+      "is_executive": null
+    },
+    {
+      "raw_name": "Ms. P G U Gallage",
+      "normalized_name": "P. G. U. Gallage",
+      "raw_title": "Director",
+      "normalized_title": "Board Member",
+      "appointed_date": "2025-01-31",
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": null,
+      "is_executive": null
+    },
+    {
+      "raw_name": "Mr. R B R Emerson",
+      "normalized_name": "R. B. R. Emerson",
+      "raw_title": "Director",
+      "normalized_title": "Board Member",
+      "appointed_date": "2025-02-10",
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": null,
+      "is_executive": null
+    },
+    {
+      "raw_name": "Mr. P G A C Perera",
+      "normalized_name": "P. G. A. C. Perera",
+      "raw_title": "Director",
+      "normalized_title": "Board Member",
+      "appointed_date": "2025-02-10",
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": null,
+      "is_executive": null
+    },
+    {
+      "raw_name": "Mrs. K S R S Kolu Kaluge",
+      "normalized_name": "K. S. R. S. Kolu Kaluge",
+      "raw_title": "Director",
+      "normalized_title": "Board Member",
+      "appointed_date": "2025-02-17",
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": null,
+      "is_executive": null
+    },
+    {
+      "raw_name": "Mr. M J Thilakarathne",
+      "normalized_name": "M. J. Thilakarathne",
+      "raw_title": "Director",
+      "normalized_title": "Board Member",
+      "appointed_date": "2025-03-11",
+      "resigned_date": null,
+      "as_of_date": "2025-03-31",
+      "is_independent": null,
+      "is_executive": null
+    },
+    {
+      "raw_name": "Mr. Yudhishtran Kanagasabai",
+      "normalized_name": "Yudhishtran Kanagasabai",
+      "raw_title": "Independent Non-Executive Director",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": "2025-02-11",
+      "as_of_date": "2025-02-11",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. U. L. Asoka W. Bandara",
+      "normalized_name": "U. L. Asoka W. Bandara",
+      "raw_title": "Independent Non-Executive Director",
+      "normalized_title": "Independent Non-Executive Director",
+      "appointed_date": null,
+      "resigned_date": "2025-02-10",
+      "as_of_date": "2025-02-10",
+      "is_independent": true,
+      "is_executive": false
+    },
+    {
+      "raw_name": "Mr. M P Amirthanayagam",
+      "normalized_name": "M. P. Amirthanayagam",
+      "raw_title": "Chairman",
+      "normalized_title": "Chairman",
+      "appointed_date": null,
+      "resigned_date": "2024-12-31",
+      "as_of_date": "2024-12-31",
+      "is_independent": null,
+      "is_executive": false
+    }
+  ],
+  "executives": [
+    {
+      "raw_name": "Mr. Sanjeewa Bandaranayake",
+      "normalized_name": "Sanjeewa Bandaranayake",
+      "normalized_id": "sanjeewa_bandaranayake",
+      "raw_title": "Chief Executive Officer/General Manager",
+      "normalized_title": "Chief Executive Officer",
+      "department": null,
+      "appointed_date": "2024-08-06",
+      "as_of_date": "2025-03-31"
+    },
+    {
+      "raw_name": "Mr. Udesh Gunawardena",
+      "normalized_name": "Udesh Gunawardena",
+      "normalized_id": "udesh_gunawardena",
+      "raw_title": "Chief Operating Officer",
+      "normalized_title": "Chief Operating Officer",
+      "department": null,
+      "appointed_date": null,
+      "as_of_date": "2025-03-31"
+    },
+    {
+      "raw_name": "Mr. Prabath Gunasena",
+      "normalized_name": "Prabath Gunasena",
+      "normalized_id": "prabath_gunasena",
+      "raw_title": "Senior Deputy General Manager/Chief Information Officer",
+      "normalized_title": "Senior Manager",
+      "department": null,
+      "appointed_date": null,
+      "as_of_date": "2025-03-31"
+    },
+    {
+      "raw_name": "Mr. Ranil Perera",
+      "normalized_name": "Ranil Perera",
+      "normalized_id": "ranil_perera",
+      "raw_title": "Head of Operations",
+      "normalized_title": "Senior Manager",
+      "department": "Operations",
+      "appointed_date": null,
+      "as_of_date": "2025-03-31"
+    },
+    {
+      "raw_name": "Mr. Neil Thushantha",
+      "normalized_name": "Neil Thushantha",
+      "normalized_id": "neil_thushantha",
+      "raw_title": "Assistant General Manager-Branch Network",
+      "normalized_title": "General Manager",
+      "department": "Branch Network",
+      "appointed_date": null,
+      "as_of_date": "2025-03-31"
+    },
+    {
+      "raw_name": "Ms. Zairaa Kaleel",
+      "normalized_name": "Zairaa Kaleel",
+      "normalized_id": "zairaa_kaleel",
+      "raw_title": "Compliance Officer",
+      "normalized_title": "Senior Manager",
+      "department": "Compliance",
+      "appointed_date": null,
+      "as_of_date": "2025-03-31"
+    },
+    {
+      "raw_name": "Ms. Nirosha Kannangara",
+      "normalized_name": "Nirosha Kannangara",
+      "normalized_id": "nirosha_kannangara",
+      "raw_title": "Company Secretary",
+      "normalized_title": "Company Secretary",
+      "department": null,
+      "appointed_date": null,
+      "as_of_date": "2025-03-31"
+    }
+  ],
+  "shareholdings": {
+    "company_holdings": [
+      {
+        "holder": {
+          "raw_name": "People’s Leasing & Finance PLC",
+          "normalized_name": "People's Leasing & Finance"
+        },
+        "ownership_percent": 100.0,
+        "share_count": null,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "People’s Leasing & Finance PLC",
+          "normalized_name": "People's Leasing & Finance"
+        },
+        "ownership_percent": 100.0,
+        "share_count": null,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "People’s Leasing & Finance PLC",
+          "normalized_name": "People's Leasing & Finance"
+        },
+        "ownership_percent": 100.0,
+        "share_count": null,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "People’s Leasing & Finance PLC",
+          "normalized_name": "People's Leasing & Finance"
+        },
+        "ownership_percent": 100.0,
+        "share_count": null,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "People’s Leasing & Finance PLC",
+          "normalized_name": "People's Leasing & Finance"
+        },
+        "ownership_percent": 75.0,
+        "share_count": null,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "People’s Leasing & Finance PLC",
+          "normalized_name": "People's Leasing & Finance"
+        },
+        "ownership_percent": 51.0,
+        "share_count": null,
+        "as_of_date": "2025-03-31"
+      }
+    ],
+    "individual_holdings": [
+      {
+        "holder": {
+          "raw_name": "Mr. K C J C Fonseka",
+          "normalized_name": "K. C. J. C. Fonseka"
+        },
+        "share_count": 66133,
+        "ownership_percent": null,
+        "as_of_date": "2025-03-31"
+      },
+      {
+        "holder": {
+          "raw_name": "Mr. M P Amirthanayagam",
+          "normalized_name": "M. P. Amirthanayagam"
+        },
+        "share_count": 13632,
+        "ownership_percent": null,
+        "as_of_date": "2024-03-31"
+      }
+    ]
+  },
+  "financial_metrics": [
+    {
+      "raw_name": "Profit after tax (PAT)",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "3,603 Mn",
+      "normalized_value": 3603000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": "2025-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Profit after tax (PAT)",
+      "normalized_name": "Profit After Tax",
+      "normalized_id": "profit_after_tax",
+      "raw_value": "3,540",
+      "normalized_value": 3540000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Return on assets (ROA)",
+      "normalized_name": "Return on Assets",
+      "normalized_id": "return_on_assets",
+      "raw_value": "3.27",
+      "normalized_value": 3.27,
+      "unit": "%",
+      "currency": null,
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": "2025-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Return on assets (ROA)",
+      "normalized_name": "Return on Assets",
+      "normalized_id": "return_on_assets",
+      "raw_value": "3.25",
+      "normalized_value": 3.25,
+      "unit": "%",
+      "currency": null,
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Return on Equity (ROE)",
+      "normalized_name": "Return on Equity",
+      "normalized_id": "return_on_equity",
+      "raw_value": "8.56%",
+      "normalized_value": 8.56,
+      "unit": "%",
+      "currency": null,
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": "2025-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Return on Equity (ROE)",
+      "normalized_name": "Return on Equity",
+      "normalized_id": "return_on_equity",
+      "raw_value": "8.68%",
+      "normalized_value": 8.68,
+      "unit": "%",
+      "currency": null,
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total Assets to Equity Ratio",
+      "normalized_name": "Total Assets to Equity Ratio",
+      "normalized_id": "total_assets_to_equity_ratio",
+      "raw_value": "4.59",
+      "normalized_value": 4.59,
+      "unit": "Times",
+      "currency": null,
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": "2025-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total Assets to Equity Ratio",
+      "normalized_name": "Total Assets to Equity Ratio",
+      "normalized_id": "total_assets_to_equity_ratio",
+      "raw_value": "3.82",
+      "normalized_value": 3.82,
+      "unit": "Times",
+      "currency": null,
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Cash, balances with banks & reverse repo",
+      "normalized_name": "Cash and Cash Equivalents",
+      "normalized_id": "cash_and_cash_equivalents",
+      "raw_value": "21,728 Mn",
+      "normalized_value": 21728000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": "2025-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Cash, balances with banks & reverse repo",
+      "normalized_name": "Cash and Cash Equivalents",
+      "normalized_id": "cash_and_cash_equivalents",
+      "raw_value": "24,016",
+      "normalized_value": 24016000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Loans & receivables",
+      "normalized_name": "Loans & Receivables",
+      "normalized_id": "loans_receivables",
+      "raw_value": "157,092 Mn",
+      "normalized_value": 157092000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": "2025-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Loans & receivables",
+      "normalized_name": "Loans & Receivables",
+      "normalized_id": "loans_receivables",
+      "raw_value": "103,650",
+      "normalized_value": 103650000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Investments in subsidiaries",
+      "normalized_name": "Investments in Subsidiaries",
+      "normalized_id": "investments_in_subsidiaries",
+      "raw_value": "3,832 Mn",
+      "normalized_value": 3832000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": "2025-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Investments in subsidiaries",
+      "normalized_name": "Investments in Subsidiaries",
+      "normalized_id": "investments_in_subsidiaries",
+      "raw_value": "3,455",
+      "normalized_value": 3455000000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Gross income",
+      "normalized_name": "Gross Income",
+      "normalized_id": "gross_income",
+      "raw_value": "28,427,584",
+      "normalized_value": 28427584000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": "2025-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Gross income",
+      "normalized_name": "Gross Income",
+      "normalized_id": "gross_income",
+      "raw_value": "27,103,798",
+      "normalized_value": 27103798000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net Interest Income",
+      "normalized_name": "Net Interest Income",
+      "normalized_id": "net_interest_income",
+      "raw_value": "14,071,332",
+      "normalized_value": 14071332000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": "2025-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Net Interest Income",
+      "normalized_name": "Net Interest Income",
+      "normalized_id": "net_interest_income",
+      "raw_value": "11,919,135",
+      "normalized_value": 11919135000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total liabilities and equity",
+      "normalized_name": "Total Assets",
+      "normalized_id": "total_assets",
+      "raw_value": "194,478,351",
+      "normalized_value": 194478351000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": "2025-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total liabilities and equity",
+      "normalized_name": "Total Assets",
+      "normalized_id": "total_assets",
+      "raw_value": "164,183,659",
+      "normalized_value": 164183659000.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total Liabilities 78.20",
+      "normalized_name": "Total Liabilities",
+      "normalized_id": "total_liabilities",
+      "raw_value": "78.20",
+      "normalized_value": 152100564082.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": "2025-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total Liabilities 73.65",
+      "normalized_name": "Total Liabilities",
+      "normalized_id": "total_liabilities",
+      "raw_value": "73.65",
+      "normalized_value": 120900404735.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total equity 21.80",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "21.80",
+      "normalized_value": 42406380518.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2025,
+      "as_of_date": "2025-03-31",
+      "period_start": null,
+      "period_end": "2025-03-31",
+      "is_consolidated": true
+    },
+    {
+      "raw_name": "Total equity 26.17",
+      "normalized_name": "Total Equity",
+      "normalized_id": "total_equity",
+      "raw_value": "26.17",
+      "normalized_value": 42971080703.0,
+      "unit": "Rs",
+      "currency": "Rs",
+      "year": 2024,
+      "as_of_date": "2024-03-31",
+      "period_start": null,
+      "period_end": "2024-03-31",
+      "is_consolidated": true
+    }
+  ],
+  "products_services": [
+    {
+      "raw_name": "Lease & Hire-purchase",
+      "normalized_name": "Lease & Hire-purchase",
+      "normalized_id": "lease_hire_purchase",
+      "category": "product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Loans",
+      "normalized_name": "Loans",
+      "normalized_id": "loans",
+      "category": "product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Islamic",
+      "normalized_name": "Islamic Finance",
+      "normalized_id": "islamic_finance",
+      "category": "product",
+      "description": "Includes Ijarah, Murabah, Musharakah and Trading Murabah products",
+      "launch_date": null
+    },
+    {
+      "raw_name": "Insurance business",
+      "normalized_name": "General Insurance",
+      "normalized_id": "general_insurance",
+      "category": "service",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Personal Loans",
+      "normalized_name": "Personal Loans",
+      "normalized_id": "personal_loans",
+      "category": "product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "PLC Solar Lease",
+      "normalized_name": "PLC Solar Lease",
+      "normalized_id": "plc_solar_lease",
+      "category": "product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "People’s Friendly Lease",
+      "normalized_name": "People's Friendly Lease",
+      "normalized_id": "people_s_friendly_lease",
+      "category": "product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Auto Loan",
+      "normalized_name": "Auto Loan",
+      "normalized_id": "auto_loan",
+      "category": "product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Shakthi Business Loan",
+      "normalized_name": "Shakthi Business Loan",
+      "normalized_id": "shakthi_business_loan",
+      "category": "product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Self-e-cash",
+      "normalized_name": "Self-e-cash",
+      "normalized_id": "self_e_cash",
+      "category": "product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Margin Trading",
+      "normalized_name": "Margin Trading",
+      "normalized_id": "margin_trading",
+      "category": "service",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Ran Naya Gold Loan",
+      "normalized_name": "Ran Naya Gold Loan",
+      "normalized_id": "ran_naya_gold_loan",
+      "category": "product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Wadi’ah Gold Safekeeping",
+      "normalized_name": "Wadi'ah Gold Safekeeping",
+      "normalized_id": "wadi_ah_gold_safekeeping",
+      "category": "service",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Ijarah",
+      "normalized_name": "Ijarah",
+      "normalized_id": "ijarah",
+      "category": "product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Trading Murabaha",
+      "normalized_name": "Trading Murabaha",
+      "normalized_id": "trading_murabaha",
+      "category": "product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Musharakah",
+      "normalized_name": "Musharakah",
+      "normalized_id": "musharakah",
+      "category": "product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Mudharabah Savings Account",
+      "normalized_name": "Mudharabah Savings Account",
+      "normalized_id": "mudharabah_savings_account",
+      "category": "product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Mudharabah Investment Account",
+      "normalized_name": "Mudharabah Investment Account",
+      "normalized_id": "mudharabah_investment_account",
+      "category": "product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Wakala Investment",
+      "normalized_name": "Wakala Investment",
+      "normalized_id": "wakala_investment",
+      "category": "product",
+      "description": "New Product",
+      "launch_date": null
+    },
+    {
+      "raw_name": "Super Savings",
+      "normalized_name": "Super Savings",
+      "normalized_id": "super_savings",
+      "category": "product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Senior Citizen Savings",
+      "normalized_name": "Senior Citizen Savings",
+      "normalized_id": "senior_citizen_savings",
+      "category": "product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Senehasa Minor Savings Account",
+      "normalized_name": "Senehasa Minor Savings Account",
+      "normalized_id": "senehasa_minor_savings_account",
+      "category": "product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "People’s Leasing Fixed Deposits",
+      "normalized_name": "People's Leasing Fixed Deposits",
+      "normalized_id": "people_s_leasing_fixed_deposits",
+      "category": "product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Minors’ Fixed Deposit",
+      "normalized_name": "Minors' Fixed Deposit",
+      "normalized_id": "minors_fixed_deposit",
+      "category": "product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Senehas Minor’s Fixed Deposits",
+      "normalized_name": "Senehas Minor's Fixed Deposits",
+      "normalized_id": "senehas_minor_s_fixed_deposits",
+      "category": "product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "Premier Reward Plan",
+      "normalized_name": "Premier Reward Plan",
+      "normalized_id": "premier_reward_plan",
+      "category": "product",
+      "description": null,
+      "launch_date": null
+    },
+    {
+      "raw_name": "\"Senehasa Minor's\" Future Investment Plan",
+      "normalized_name": "Senehasa Minor's Future Investment Plan",
+      "normalized_id": "senehasa_minor_s_future_investment_plan",
+      "category": "product",
+      "description": null,
+      "launch_date": null
+    }
+  ],
+  "subsidiaries": [
+    {
+      "raw_name": "People’s Leasing Fleet Management Limited",
+      "normalized_name": "People's Leasing Fleet Management",
+      "normalized_id": "people_s_leasing_fleet_management",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "People’s Leasing Property Development Limited",
+      "normalized_name": "People's Leasing Property Development",
+      "normalized_id": "people_s_leasing_property_development",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "People’s Leasing Havelock Properties Limited",
+      "normalized_name": "People's Leasing Havelock Properties",
+      "normalized_id": "people_s_leasing_havelock_properties",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "People’s Micro-commerce Ltd",
+      "normalized_name": "People's Micro-commerce",
+      "normalized_id": "people_s_micro_commerce",
+      "relationship_type": "wholly-owned subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 100.0
+    },
+    {
+      "raw_name": "People’s Insurance PLC",
+      "normalized_name": "People's Insurance",
+      "normalized_id": "people_s_insurance",
+      "relationship_type": "subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 75.0
+    },
+    {
+      "raw_name": "Alliance Finance PLC",
+      "normalized_name": "Alliance Finance",
+      "normalized_id": "alliance_finance",
+      "relationship_type": "subsidiary",
+      "relationship_description": null,
+      "ownership_percent": 51.0
+    }
+  ]
+}
