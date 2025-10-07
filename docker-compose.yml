@@ -249,7 +249,7 @@ services:
       - JWT_ACCESS_TOKEN_EXPIRE_MINUTES=30
       - JWT_REFRESH_TOKEN_EXPIRE_DAYS=7
       # Development Configuration
-      - DEVELOPMENT_MODE=false
+      - DEVELOPMENT_MODE=true
       - PYTHONDONTWRITEBYTECODE=1
       - PYTHONUNBUFFERED=1
       - PYTHONPATH=/utils:$PYTHONPATH
