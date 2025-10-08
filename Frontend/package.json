@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "e2e:open": "start-server-and-test dev http://localhost:5173 \"cypress open --e2e\"",
-    "e2e:run":  "start-server-and-test dev http://localhost:5173 \"cypress run --e2e --browser chrome\""
+    "e2e:run": "start-server-and-test dev http://localhost:5173 \"cypress run --e2e --browser chrome\""
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.6",
@@ -18,7 +18,9 @@
     "event-source-polyfill": "^1.0.31",
     "neovis.js": "^2.1.0",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "vis-data": "^8.0.3",
+    "vis-network": "^10.0.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
