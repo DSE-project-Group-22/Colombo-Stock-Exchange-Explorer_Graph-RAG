@@ -192,7 +192,9 @@ class MessageProcessor:
                     'thread_id': thread_id,
                     'user_id': user_id,
                     'timestamp': end_time.isoformat(),
-                    'processing_time_ms': processing_time_ms
+                    'processing_time_ms': processing_time_ms,
+                    # Include legacy 'response' key expected by subscriber/poll endpoints
+                    'response': response_text
                 }
                 
                 # Send response via Redis pub/sub using helper
