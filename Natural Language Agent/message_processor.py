@@ -23,7 +23,7 @@ from models import ChatMessage, MessageRole, MessageMetadata
 
 # Import config and helpers
 from config import settings, get_redis_url
-from helpers.redis_helper import store_chat_message, publish_response
+from helpers.redis_helper import store_chat_message, publish_response, create_message
 
 logger = logging.getLogger(__name__)
 
@@ -176,11 +176,21 @@ class MessageProcessor:
                 )
                 await self.store_message(agent_msg)
                 
-                # Create response payload
+                # Create standardized response message
+                message = create_message(
+                    message_type="response",
+                    status="completed",
+                    title="Here's what I found",
+                    description="",
+                    content=response_text
+                )
+                
+                # Add routing metadata
                 response = {
+                    **message,
                     'correlation_id': correlation_id,
                     'thread_id': thread_id,
-                    'response': response_text,
+                    'user_id': user_id,
                     'timestamp': end_time.isoformat(),
                     'processing_time_ms': processing_time_ms
                 }

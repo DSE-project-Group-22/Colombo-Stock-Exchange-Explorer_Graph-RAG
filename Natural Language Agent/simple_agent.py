@@ -57,7 +57,7 @@ async def agent_node(state: SimpleAgentState) -> Dict[str, Any]:
     3. Returns updated messages
     """
     from agent_tools import get_all_tools
-    from helpers.redis_helper import publish_intermediate_step
+    from helpers.redis_helper import publish_intermediate_step, create_message
     
     llm = get_llm()
     
@@ -72,19 +72,79 @@ async def agent_node(state: SimpleAgentState) -> Dict[str, Any]:
     try:
         tools = await get_all_tools()
         logger.info(f"Agent has access to {len(tools)} tools")
+        
+        # Critical: Verify we have at least the essential tools
+        if not tools or len(tools) == 0:
+            error_msg = "Critical error: Unable to load any tools. Cannot process queries without database access."
+            logger.error(error_msg)
+            
+            # Publish error step if we have streaming context
+            if correlation_id and redis_client:
+                message = create_message(
+                    message_type="step",
+                    status="error",
+                    title="System Error",
+                    description="Unable to access database tools. Please contact support.",
+                    content=None
+                )
+                
+                await publish_intermediate_step(
+                    redis_client=redis_client,
+                    correlation_id=correlation_id,
+                    user_id=user_id,
+                    thread_id=thread_id,
+                    message=message
+                )
+                step_counter += 1
+            
+            # Return error message instead of proceeding
+            return {
+                "messages": [AIMessage(content=error_msg)],
+                "iteration": state['iteration'] + 1,
+                "step_counter": step_counter
+            }
+            
     except Exception as e:
         logger.error(f"Failed to get tools: {e}")
-        tools = []
+        error_msg = f"Failed to initialize agent tools: {str(e)}. Cannot process queries without database access."
+        
+        # Publish error step if we have streaming context
+        if correlation_id and redis_client:
+            message = create_message(
+                message_type="step",
+                status="error",
+                title="Tool Initialization Failed",
+                description="Unable to initialize required tools. Please check system configuration.",
+                content=None
+            )
+            
+            await publish_intermediate_step(
+                redis_client=redis_client,
+                correlation_id=correlation_id,
+                user_id=user_id,
+                thread_id=thread_id,
+                message=message
+            )
+            step_counter += 1
+        
+        # Return error instead of continuing without tools
+        return {
+            "messages": [AIMessage(content=error_msg)],
+            "iteration": state['iteration'] + 1,
+            "step_counter": step_counter
+        }
     
     # Bind tools to LLM
     llm_with_tools = llm.bind_tools(tools) if tools else llm
+    
+    # Get chat history from state (needed for all iterations)
+    chat_history = state.get('chat_history', '')
     
     # On first iteration, set up the conversation
     if state['iteration'] == 0:
         system_msg = SystemMessage(content=SIMPLE_AGENT_SYSTEM_PROMPT)
         
         # Create user message from chat history
-        chat_history = state.get('chat_history', '')
         if chat_history:
             # Use the prompt template for formatting
             user_content = USER_PROMPT_TEMPLATE.format(chat_history=chat_history)
@@ -100,18 +160,30 @@ async def agent_node(state: SimpleAgentState) -> Dict[str, Any]:
     
     # Publish thinking step if we have streaming context
     if correlation_id and redis_client:
+        # Extract the user's actual query from chat history
+        user_query = ""
+        if chat_history:
+            lines = chat_history.split('\n')
+            # Get the last user message
+            for line in reversed(lines):
+                if line.startswith('Human:'):
+                    user_query = line.replace('Human:', '').strip()
+                    break
+        
+        message = create_message(
+            message_type="step",
+            status="thinking",
+            title="Analyzing your question",
+            description=user_query[:150] if user_query else "Processing your request",
+            content=None
+        )
+        
         await publish_intermediate_step(
             redis_client=redis_client,
             correlation_id=correlation_id,
             user_id=user_id,
             thread_id=thread_id,
-            step_type="agent_thinking",
-            content={
-                "message": f"Processing query (iteration {state['iteration'] + 1})",
-                "iteration": state['iteration'] + 1
-            },
-            step_number=step_counter,
-            metadata={"agent_type": "simple_agent"}
+            message=message
         )
         step_counter += 1
     
@@ -129,18 +201,22 @@ async def agent_node(state: SimpleAgentState) -> Dict[str, Any]:
             logger.info("LLM provided final answer without tool calls")
             # Publish agent response step if no tools
             if correlation_id and redis_client:
+                response_preview = response.content[:200] if response.content else "Formulating response..."
+                
+                message = create_message(
+                    message_type="step",
+                    status="processing",
+                    title="Preparing response",
+                    description=response_preview,
+                    content=None
+                )
+                
                 await publish_intermediate_step(
                     redis_client=redis_client,
                     correlation_id=correlation_id,
                     user_id=user_id,
                     thread_id=thread_id,
-                    step_type="agent_thinking",
-                    content={
-                        "message": response.content[:500] if response.content else "Agent formulating response...",
-                        "has_tool_calls": False
-                    },
-                    step_number=step_counter,
-                    metadata={"agent_type": "simple_agent", "iteration": state['iteration'] + 1}
+                    message=message
                 )
                 step_counter += 1
             
@@ -151,15 +227,28 @@ async def agent_node(state: SimpleAgentState) -> Dict[str, Any]:
         
         # Publish error step
         if correlation_id and redis_client:
+            error_str = str(e)
+            if "timeout" in error_str.lower():
+                title = "Taking longer than expected"
+                desc = "Still working on your request"
+            else:
+                title = "Minor hiccup"
+                desc = "Working around the issue"
+            
+            message = create_message(
+                message_type="step",
+                status="error",
+                title=title,
+                description=desc,
+                content=None
+            )
+            
             await publish_intermediate_step(
                 redis_client=redis_client,
                 correlation_id=correlation_id,
                 user_id=user_id,
                 thread_id=thread_id,
-                step_type="error",
-                content={"error": str(e)},
-                step_number=step_counter,
-                metadata={"agent_type": "simple_agent"}
+                message=message
             )
             step_counter += 1
     
@@ -173,7 +262,7 @@ async def agent_node(state: SimpleAgentState) -> Dict[str, Any]:
 async def tool_node(state: SimpleAgentState) -> Dict[str, Any]:
     """Execute tools if the last message has tool calls"""
     from agent_tools import get_all_tools
-    from helpers.redis_helper import publish_intermediate_step
+    from helpers.redis_helper import publish_intermediate_step, create_message
     
     logger.info("Executing tool calls")
     
@@ -194,18 +283,34 @@ async def tool_node(state: SimpleAgentState) -> Dict[str, Any]:
             # Publish tool call steps
             for tool_call in last_message.tool_calls:
                 if correlation_id and redis_client:
+                    tool_name = tool_call.get('name', 'unknown')
+                    tool_args = tool_call.get('args', {})
+                    
+                    # Get the query from args if available
+                    query = tool_args.get('query', '') or tool_args.get('question', '') or ''
+                    if not query and tool_args:
+                        # If no query field, use first string value or stringify args
+                        for value in tool_args.values():
+                            if isinstance(value, str):
+                                query = value[:150]
+                                break
+                        if not query:
+                            query = str(tool_args)[:150]
+                    
+                    message = create_message(
+                        message_type="step",
+                        status="calling_tool",
+                        title=f"Searching {tool_name.replace('_', ' ')}",
+                        description=query[:150] if query else "Looking up information",
+                        content={"tool": tool_name}
+                    )
+                    
                     await publish_intermediate_step(
                         redis_client=redis_client,
                         correlation_id=correlation_id,
                         user_id=user_id,
                         thread_id=thread_id,
-                        step_type="tool_call",
-                        content={
-                            "tool_name": tool_call.get('name', 'unknown'),
-                            "tool_input": tool_call.get('args', {})
-                        },
-                        step_number=step_counter,
-                        metadata={"agent_type": "simple_agent"}
+                        message=message
                     )
                     step_counter += 1
         
@@ -221,18 +326,37 @@ async def tool_node(state: SimpleAgentState) -> Dict[str, Any]:
         if correlation_id and redis_client and tool_messages:
             for tool_msg in tool_messages:
                 # Tool messages contain the results
+                result = str(tool_msg.content) if hasattr(tool_msg, 'content') else ""
+                
+                # Simple result analysis
+                if "no results" in result.lower() or "not found" in result.lower():
+                    title = "No results found"
+                    desc = "The search didn't return any matching data"
+                elif result.startswith('[') or result.startswith('{'):
+                    title = "Found information"
+                    desc = "Processing the results"
+                elif result:
+                    title = "Retrieved information"
+                    # Take first 150 chars of result as description
+                    desc = result[:150] + "..." if len(result) > 150 else result
+                else:
+                    title = "Completed search"
+                    desc = "Moving to next step"
+                
+                message = create_message(
+                    message_type="step",
+                    status="processing",
+                    title=title,
+                    description=desc,
+                    content=None  # Don't send raw results to frontend
+                )
+                
                 await publish_intermediate_step(
                     redis_client=redis_client,
                     correlation_id=correlation_id,
                     user_id=user_id,
                     thread_id=thread_id,
-                    step_type="tool_result",
-                    content={
-                        "message": str(tool_msg.content)[:1000] if hasattr(tool_msg, 'content') else "Tool completed",
-                        "tool_message_type": tool_msg.__class__.__name__
-                    },
-                    step_number=step_counter,
-                    metadata={"agent_type": "simple_agent"}
+                    message=message
                 )
                 step_counter += 1
         
@@ -249,15 +373,28 @@ async def tool_node(state: SimpleAgentState) -> Dict[str, Any]:
         
         # Publish error step
         if correlation_id and redis_client:
+            error_str = str(e)
+            if "connection" in error_str.lower() or "unavailable" in error_str.lower():
+                title = "Connection issue"
+                desc = "Trying alternative approach"
+            else:
+                title = "Tool temporarily unavailable"
+                desc = "Using cached information instead"
+            
+            message = create_message(
+                message_type="step",
+                status="error",
+                title=title,
+                description=desc,
+                content=None
+            )
+            
             await publish_intermediate_step(
                 redis_client=redis_client,
                 correlation_id=correlation_id,
                 user_id=user_id,
                 thread_id=thread_id,
-                step_type="error",
-                content={"error": f"Tool execution failed: {str(e)}"},
-                step_number=step_counter,
-                metadata={"agent_type": "simple_agent"}
+                message=message
             )
             step_counter += 1
         
