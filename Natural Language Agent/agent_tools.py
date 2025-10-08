@@ -170,12 +170,16 @@ async def get_all_tools() -> List:
     tools_list = mcp_tools + [query_graph_database]
     
     # Add web search tool only if configured
-    web_search_tool = create_web_search_tool()
-    if web_search_tool:
-        tools_list.append(web_search_tool)
-        logger.info("Web search tool added to available tools")
-    else:
-        logger.info("Web search tool not available (no API key or not installed)")
+    try:
+        web_search_tool = create_web_search_tool()
+        if web_search_tool:
+            tools_list.append(web_search_tool)
+            logger.info("Web search tool added to available tools")
+        else:
+            logger.info("Web search tool not available (no API key or not installed)")
+    except Exception as e:
+        logger.warning(f"Failed to create web search tool: {e}")
+        # Continue without web search tool
     
     _tools_cache = tools_list
     logger.info(f"Total tools available: {len(_tools_cache)}")

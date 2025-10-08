@@ -12,6 +12,35 @@ from config import settings
 logger = logging.getLogger(__name__)
 
 
+def create_message(
+    message_type: str,  # "step" or "response"
+    status: str,        # "thinking", "calling_tool", "processing", "completed", "error"
+    title: str,         # What's happening
+    description: str,   # More detail if needed
+    content: Any = None # The actual data/message
+) -> Dict[str, Any]:
+    """
+    Create a simple, consistent message for steps and responses.
+    
+    Args:
+        message_type: Either "step" or "response"
+        status: Current status of the operation
+        title: Brief, user-friendly title
+        description: More detailed explanation
+        content: Optional data payload
+        
+    Returns:
+        Standardized message dictionary
+    """
+    return {
+        "type": message_type,
+        "status": status,
+        "title": title,
+        "description": description,
+        "content": content
+    }
+
+
 async def store_chat_message(redis_client, thread_id: str, role: str, content: str, timestamp: Optional[datetime] = None) -> bool:
     """
     Store a chat message in Redis.
@@ -32,7 +61,7 @@ async def store_chat_message(redis_client, thread_id: str, role: str, content: s
     
     try:
         if timestamp is None:
-            timestamp = datetime.utcnow()
+            timestamp = datetime.now(timezone.utc)
         
         message = {
             "role": role,
@@ -233,24 +262,17 @@ async def publish_intermediate_step(
     correlation_id: str,
     user_id: str,
     thread_id: str,
-    step_type: str,
-    content: Dict[str, Any],
-    step_number: int = 0,
-    metadata: Optional[Dict[str, Any]] = None
+    message: Dict[str, Any]
 ) -> bool:
     """
-    Publish intermediate processing step to multiple Redis channels.
-    Publishes to correlation, user, and thread channels for maximum flexibility.
+    Publish intermediate processing step to Redis channel using standardized format.
     
     Args:
         redis_client: Redis async client
-        correlation_id: Request correlation ID
+        correlation_id: Request correlation ID (determines the channel)
         user_id: User ID making the request
         thread_id: Thread identifier
-        step_type: Type of step ("agent_thinking", "tool_call", "tool_result", "error")
-        content: Step content (message, tool info, etc.)
-        step_number: Sequential step number within request
-        metadata: Optional metadata about the step
+        message: Standardized message dict from create_message()
     
     Returns:
         True if successful, False otherwise
@@ -260,43 +282,34 @@ async def publish_intermediate_step(
         return False
     
     try:
-        # Create step message
+        # Add routing metadata (for infrastructure, not for user display)
         step_data = {
+            **serialize_neo4j_dates(message),  # Handle Neo4j dates
             "correlation_id": correlation_id,
             "user_id": user_id,
             "thread_id": thread_id,
-            "step_number": step_number,
-            "step_type": step_type,
-            "content": serialize_neo4j_dates(content),  # Handle Neo4j dates
-            "timestamp": datetime.now(timezone.utc).isoformat(),
-            "metadata": metadata or {}
+            "timestamp": datetime.now(timezone.utc).isoformat()
         }
         
         # Serialize message
-        message = json.dumps(step_data, default=str)
+        message_json = json.dumps(step_data, default=str)
         
-        # Publish to correlation-specific channel only
+        # Publish to correlation-specific channel
         channel = f"steps:{correlation_id}"
         
         try:
-            await redis_client.publish(channel, message)
+            await redis_client.publish(channel, message_json)
             logger.debug(f"Published step to channel: {channel}")
-            publish_count = 1
+            
+            # Simple logging based on status
+            status = message.get('status', '')
+            title = message.get('title', '')
+            logger.info(f"[STEP] {correlation_id}: {status} - {title}")
+            
+            return True
         except Exception as e:
             logger.warning(f"Failed to publish to channel {channel}: {e}")
-            publish_count = 0
-        
-        # Log the step for monitoring
-        if step_type == "agent_thinking":
-            logger.info(f"[STEP] {correlation_id}: Agent thinking - {content.get('message', '')[:100]}")
-        elif step_type == "tool_call":
-            logger.info(f"[STEP] {correlation_id}: Calling tool {content.get('tool_name', 'unknown')}")
-        elif step_type == "tool_result":
-            logger.info(f"[STEP] {correlation_id}: Tool result received")
-        elif step_type == "error":
-            logger.warning(f"[STEP] {correlation_id}: Error - {content.get('error', 'unknown')}")
-        
-        return publish_count > 0
+            return False
         
     except Exception as e:
         logger.error(f"Failed to publish intermediate step: {e}")

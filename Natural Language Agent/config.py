@@ -88,6 +88,13 @@ class Settings(BaseSettings):
         """Validate that OpenAI API key is present"""
         return bool(self.openai_api_key and self.openai_api_key != "your_openai_api_key_here")
     
+    def validate_tavily_key(self) -> bool:
+        """
+        Validate that Tavily API key is configured and not empty.
+        Returns True if key exists and is not empty, False otherwise.
+        """
+        return bool(self.tavily_api_key and self.tavily_api_key.strip())
+    
     class Config:
         env_file = ".env"
         case_sensitive = False
