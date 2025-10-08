@@ -1,8 +1,8 @@
-import MainDashboard from './Components/MainDashboard'
-// import Header from './Components/Header'
-import Chatbot from './Components/ChatInterface'
+import Header from './Components/Header'
+import ChatInterface from './Components/ChatInterface'
 import NavBar from './Components/NavBar'
-import Graph from './Components/Graph'
+import GraphVisualizer from './Components/GraphVisualizer'
+// import Graph from './Components/Graph'
 
 // import "@fontsource/inter"; // Defaults to weight 400
 
@@ -12,9 +12,9 @@ function App() {
   return (
     <div>
       <NavBar/>
-      <MainDashboard />
-      <Graph/>
-      <Chatbot/>
+      <Header/>
+      <GraphVisualizer/>
+      <ChatInterface/>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 
 echo "Starting Neo4j database clearing and Cypher query execution..."
@@ -20,6 +20,8 @@ server.http.listen_address=0.0.0.0:7474
 server.config.strict_validation.enabled=false
 dbms.security.procedures.unrestricted=gds.*,apoc.*
 dbms.security.procedures.allowlist=gds.*,apoc.*
+dbms.connector.http.enabled=true
+dbms.security.http_access_control_allow_origin=*
 EOT
 
 # Start Neo4j in the background with verbose logging
