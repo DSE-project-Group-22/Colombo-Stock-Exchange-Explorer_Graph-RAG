@@ -21,6 +21,19 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# Module-level storage for current streaming context (for tool access)
+_current_streaming_context = None
+
+
+def get_current_streaming_context():
+    """
+    Get current streaming context for tool access.
+    
+    Returns:
+        Dict with streaming context if available, None otherwise
+    """
+    return _current_streaming_context
+
 # Initialize Langfuse client once at module level if enabled
 langfuse_client = None
 if settings.langfuse_enabled and settings.langfuse_public_key and settings.langfuse_secret_key:
@@ -314,9 +327,24 @@ async def tool_node(state: SimpleAgentState) -> Dict[str, Any]:
                     )
                     step_counter += 1
         
-        # Execute tools and get results
-        # Use ainvoke for async tools
-        result = await tool_executor.ainvoke({"messages": state['messages']})
+        # Set streaming context for tools before execution
+        global _current_streaming_context
+        if correlation_id and redis_client:
+            from helpers.supervisor_streaming import create_supervisor_streaming_context
+            _current_streaming_context = create_supervisor_streaming_context(
+                correlation_id=correlation_id,
+                user_id=user_id,
+                thread_id=thread_id,
+                redis_client=redis_client
+            )
+        
+        try:
+            # Execute tools and get results
+            # Use ainvoke for async tools
+            result = await tool_executor.ainvoke({"messages": state['messages']})
+        finally:
+            # Clear context after tool execution
+            _current_streaming_context = None
         
         # ToolNode only returns the tool messages, we need to append them
         tool_messages = result['messages']

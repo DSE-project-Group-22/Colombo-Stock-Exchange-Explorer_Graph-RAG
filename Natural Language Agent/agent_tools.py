@@ -56,10 +56,15 @@ async def query_graph_database(query: str) -> str:
         from supervisor_agent import run_supervisor_query
         from config import settings
         
+        # Get streaming context if available
+        from simple_agent import get_current_streaming_context
+        streaming_context = get_current_streaming_context()
+        
         result = await run_supervisor_query(
             user_query=query,
             max_iterations=settings.supervisor_max_iterations,
-            verbose=settings.agent_verbose  # Use global verbose setting for consistent logging
+            verbose=settings.agent_verbose,  # Use global verbose setting for consistent logging
+            streaming_context=streaming_context  # Pass context for step publishing
         )
         
         answer = result.get('answer', 'Unable to process query')

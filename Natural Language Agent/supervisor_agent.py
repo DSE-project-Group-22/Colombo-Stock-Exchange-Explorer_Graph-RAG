@@ -39,6 +39,7 @@ class SupervisorState(TypedDict):
     should_continue: bool                    # Whether to continue querying
     iteration: int                           # Current iteration count
     max_iterations: int                      # Safety limit
+    streaming_context: Optional[Any]         # Streaming context for publishing steps
 
 
 # =====================================================================================
@@ -67,7 +68,7 @@ class SupervisorDecision(BaseModel):
 # SUPERVISOR NODE
 # =====================================================================================
 
-def supervisor_node(state: SupervisorState) -> SupervisorState:
+async def supervisor_node(state: SupervisorState) -> SupervisorState:
     """
     Supervisor node that analyzes context and decides next action.
     Trusts the LLM to follow the two-phase approach intelligently.
@@ -120,7 +121,15 @@ def supervisor_node(state: SupervisorState) -> SupervisorState:
     structured_llm = llm.with_structured_output(SupervisorDecision)
     
     try:
-        decision = structured_llm.invoke(prompt)
+        decision = await structured_llm.ainvoke(prompt)
+        
+        # Publish reasoning step if we have streaming context
+        streaming_context = state.get('streaming_context')
+        if streaming_context and hasattr(streaming_context, 'publish_reasoning_step'):
+            await streaming_context.publish_reasoning_step(
+                reasoning=decision.reasoning,
+                iteration=state['iteration']
+            )
         
         # Log LLM decision for visibility when verbose
         if settings.agent_verbose:
@@ -137,6 +146,13 @@ def supervisor_node(state: SupervisorState) -> SupervisorState:
             state['should_continue'] = False
             state['current_query'] = None  # Clear any pending query
             state['final_answer'] = decision.final_answer
+            
+            # Publish synthesis step
+            if streaming_context and hasattr(streaming_context, 'publish_synthesis'):
+                await streaming_context.publish_synthesis(
+                    total_queries=len(state['query_history'])
+                )
+            
             logger.info("Final Answer Ready")
             
     except Exception as e:
@@ -174,6 +190,15 @@ async def executor_node(state: SupervisorState) -> SupervisorState:
     
     if settings.agent_verbose:
         logger.info(f"Executing: {state['current_query']}")
+    
+    # Publish query execution step
+    streaming_context = state.get('streaming_context')
+    query_number = len(state['query_history']) + 1
+    if streaming_context and hasattr(streaming_context, 'publish_query_execution'):
+        await streaming_context.publish_query_execution(
+            query=state['current_query'],
+            query_number=query_number
+        )
     
     try:
         # Execute query asynchronously (will use cached chain from helper)
@@ -322,7 +347,8 @@ def build_supervisor_graph() -> StateGraph:
 async def run_supervisor_query(
     user_query: str,
     max_iterations: int = None,
-    verbose: bool = None
+    verbose: bool = None,
+    streaming_context = None
 ) -> Dict[str, Any]:
     """
     Run a query through the supervisor agent asynchronously.
@@ -331,6 +357,7 @@ async def run_supervisor_query(
         user_query: The user's natural language question
         max_iterations: Maximum number of query iterations (defaults to config)
         verbose: Whether to print progress (defaults to config)
+        streaming_context: Optional SupervisorStreamingContext for publishing intermediate steps
     
     Returns:
         Dict with 'answer', 'queries_executed', 'success' keys
@@ -362,7 +389,8 @@ async def run_supervisor_query(
             'final_answer': None,
             'should_continue': True,
             'iteration': 0,
-            'max_iterations': max_iterations
+            'max_iterations': max_iterations,
+            'streaming_context': streaming_context
         }
         
         # Run the graph asynchronously
