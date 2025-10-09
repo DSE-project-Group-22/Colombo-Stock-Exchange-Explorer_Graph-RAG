@@ -1,4 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
+from fastapi.responses import JSONResponse
+import httpx
 from pydantic import BaseModel
 from typing import Optional
 from app.schemas.api import QueryResponse, HealthResponse, ChatRequestResponse, ChatPollResponse, ChatStatusResponse, ThreadMessagesResponse, ThreadMessage
@@ -255,3 +257,85 @@ async def health_check():
             "redis": messaging_health.get('redis', 'not_initialized')
         }
     )
+
+
+@router.post("/marketStatus")
+async def market_status_proxy():
+    """
+    Proxy endpoint to fetch market status from https://www.cse.lk/api/marketStatus
+    Adds headers similar to a browser request to improve chances the upstream returns JSON.
+    Returns parsed JSON when possible, otherwise returns the raw text under the `raw` key.
+    """
+    url = "https://www.cse.lk/api/marketStatus"
+    headers = {
+        "Accept": "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+        "Origin": "https://www.cse.lk",
+        "Referer": "https://www.cse.lk/",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
+    }
+
+    try:
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            # send an empty JSON body to mimic a browser/API client when required
+            resp = await client.post(url, headers=headers, json={})
+    except Exception as e:
+        raise HTTPException(status_code=502, detail=f"Upstream request failed: {str(e)}")
+
+    content_type = resp.headers.get("content-type", "")
+    text = resp.text
+
+    if resp.status_code >= 400:
+        # forward upstream error
+        raise HTTPException(status_code=502, detail=f"Upstream returned {resp.status_code}")
+
+    # Try to parse as JSON
+    if "application/json" in content_type.lower():
+        try:
+            return JSONResponse(status_code=200, content=resp.json())
+        except Exception:
+            # fallthrough to raw text
+            pass
+
+    # If not JSON, return raw text under `raw` key to the frontend
+    return JSONResponse(status_code=200, content={"raw": text})
+
+
+@router.post("/aspiData")
+async def aspi_data_proxy():
+    """
+    Proxy endpoint to fetch ASPI data from https://www.cse.lk/api/aspiData
+    Uses the same headers and POST method as marketStatus proxy.
+    """
+    url = "https://www.cse.lk/api/aspiData"
+    headers = {
+        "Accept": "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+        "Origin": "https://www.cse.lk",
+        "Referer": "https://www.cse.lk/",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
+    }
+
+    try:
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            resp = await client.post(url, headers=headers, json={})
+    except Exception as e:
+        raise HTTPException(status_code=502, detail=f"Upstream request failed: {str(e)}")
+
+    content_type = resp.headers.get("content-type", "")
+    text = resp.text
+
+    if resp.status_code >= 400:
+        # forward upstream error
+        raise HTTPException(status_code=502, detail=f"Upstream returned {resp.status_code}")
+
+    # Try to parse as JSON
+    if "application/json" in content_type.lower():
+        try:
+            return JSONResponse(status_code=200, content=resp.json())
+        except Exception:
+            # fallthrough to raw text
+            pass
+
+    # If not JSON, return raw text under `raw` key to the frontend
+    return JSONResponse(status_code=200, content={"raw": text})

@@ -1,16 +1,13 @@
 import React, { useState, useRef, useEffect, useMemo } from "react";
 import axios from "axios";
 
-// If you need Authorization header support in SSE, install polyfill:
-// npm i event-source-polyfill
-let EventSourcePolyfill;
+let EventSourcePolyfill: any;
 try {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
   EventSourcePolyfill = require("event-source-polyfill").EventSourcePolyfill;
 } catch (_) {}
 
 const ChatInterface = () => {
-  const [messages, setMessages] = useState([
+  const [messages, setMessages] = useState<any[]>([
     {
       sender: "assistant",
       text:
@@ -19,9 +16,11 @@ const ChatInterface = () => {
   ]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const [activeStream, setActiveStream] = useState(null); // to close SSE when needed
-  const [agentActivity, setAgentActivity] = useState("Idle"); // <-- show what the agent is doing
-  const messagesEndRef = useRef(null);
+  const [activeStream, setActiveStream] = useState<any>(null);
+  const [agentActivity, setAgentActivity] = useState("Idle");
+  const messagesEndRef = useRef<HTMLDivElement | null>(null);
+
+  const hasStreamedRef = useRef(false);
 
   // ---- Config ----
   const API_BASE = "http://localhost:8080";
@@ -33,8 +32,14 @@ const ChatInterface = () => {
   };
   useEffect(() => { scrollToBottom(); }, [messages]);
 
-  // Map backend step payloads to human-readable activity text
-  const formatActivity = (data = {}) => {
+  useEffect(() => {
+    return () => {
+      try { activeStream?.close?.(); } catch {}
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const formatActivity = (data: any = {}) => {
     const type = (data.step_type || data.type || "").toLowerCase();
     const name = data.name || data.tool || data.provider || "";
     const { current, total, percent } = data.progress || {};
@@ -86,8 +91,13 @@ const ChatInterface = () => {
     }
   };
 
-  // Helpers to manage a streaming assistant bubble
-  const upsertStreamingAssistant = (delta) => {
+  // Append non-empty text to a streaming assistant bubble (create only when first text arrives)
+  const upsertStreamingAssistant = (delta?: string) => {
+    const t = (delta ?? "").replace(/\s+/g, " ").trim();
+    if (!t) return;
+
+    hasStreamedRef.current = true;
+
     setMessages((prev) => {
       const lastIdx = [...prev]
         .map((m, i) => ({ i, m }))
@@ -96,15 +106,18 @@ const ChatInterface = () => {
         .pop();
 
       if (lastIdx == null) {
-        return [...prev, { sender: "assistant", text: delta || "", _streaming: true }];
+        return [...prev, { sender: "assistant", text: t, _streaming: true }];
       }
       const next = [...prev];
-      next[lastIdx] = { ...next[lastIdx], text: (next[lastIdx].text || "") + (delta || "") };
+      next[lastIdx] = { ...next[lastIdx], text: (next[lastIdx].text || "") + (next[lastIdx].text ? " " : "") + t };
       return next;
     });
   };
 
-  const finalizeStreamingAssistant = (finalText) => {
+  // Finalize: only create/keep a message if there is actual text or an existing streaming bubble
+  const finalizeStreamingAssistant = (finalText?: string) => {
+    const t = (finalText ?? "").toString().trim();
+
     setMessages((prev) => {
       const lastIdx = [...prev]
         .map((m, i) => ({ i, m }))
@@ -112,28 +125,39 @@ const ChatInterface = () => {
         .map(({ i }) => i)
         .pop();
 
-      if (lastIdx == null) return [...prev, { sender: "assistant", text: finalText || "" }];
-      const next = [...prev];
-      next[lastIdx] = { ...next[lastIdx], _streaming: false, text: finalText ?? next[lastIdx].text };
-      return next;
+      if (lastIdx == null && !t) {
+        return prev;
+      }
+
+      if (lastIdx != null) {
+        const next = [...prev];
+        const existing = (next[lastIdx].text || "").toString();
+        const merged = t ? (existing ? existing + (existing.endsWith(" ") ? "" : " ") + t : t) : existing;
+        next[lastIdx] = { ...next[lastIdx], _streaming: false, text: merged };
+        return next;
+      }
+
+      return [...prev, { sender: "assistant", text: t }];
     });
+
+    hasStreamedRef.current = false;
   };
 
   const closeActiveStream = () => {
     try { activeStream?.close?.(); } catch {}
     setActiveStream(null);
+    hasStreamedRef.current = false;
   };
-  useEffect(() => () => closeActiveStream(), []);
 
   // ---- Polling fallback (if SSE not available or fails) ----
-  const startPollingFallback = async (pollUrl) => {
+  const startPollingFallback = async (pollUrl: string) => {
     setAgentActivity("Waiting for response…");
     const interval = setInterval(async () => {
       try {
         const res = await axios.get(`${API_BASE}${pollUrl}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
-        const { status, response } = res.data; // backend uses "response"
+        const { status, response } = res.data;
         if (status === "completed") {
           clearInterval(interval);
           finalizeStreamingAssistant(response || "");
@@ -145,8 +169,7 @@ const ChatInterface = () => {
           setIsTyping(false);
           setAgentActivity("Idle");
         }
-      } catch (err) {
-        console.error("Polling failed:", err);
+      } catch {
         clearInterval(interval);
         finalizeStreamingAssistant("Sorry, there was an error processing your request.");
         setIsTyping(false);
@@ -155,48 +178,57 @@ const ChatInterface = () => {
     }, 2000);
   };
 
-  // ---- Open SSE stream, show ACTIVITY instead of appending [step] lines ----
-  const openSSE = ({ correlation_id, poll_url }) => {
+  // Small helper to robustly pick text fields
+  const pickText = (obj: any) =>
+    ["delta", "partial", "text", "content", "message", "output", "result", "response"]
+      .map((k) => obj?.[k])
+      .find((v) => typeof v === "string" && v.trim().length > 0);
+
+  // ---- Open SSE stream ----
+  const openSSE = ({ correlation_id, poll_url }: { correlation_id: string; poll_url: string }) => {
     const url = `${CHAT_REST}/stream/${correlation_id}`;
 
-    let es;
+    hasStreamedRef.current = false;
+
+    let es: EventSource;
     try {
       if (EventSourcePolyfill) {
         es = new EventSourcePolyfill(url, {
           headers: { Authorization: `Bearer ${token}` },
           heartbeatTimeout: 60_000,
-        });
+        }) as unknown as EventSource;
       } else {
-        // Native EventSource won't send Authorization header; use cookies or a token param if needed.
         es = new EventSource(url);
       }
 
       setActiveStream(es);
       setAgentActivity("Connecting…");
-      upsertStreamingAssistant(""); // placeholder bubble to stream final text into
 
-      es.addEventListener("step", (ev) => {
+      es.addEventListener("step", (ev: MessageEvent) => {
         try {
           const data = JSON.parse(ev.data);
+          const activity = formatActivity(data);
+          setAgentActivity(activity);
 
-          // UPDATE the live activity banner for every step:
-          setAgentActivity(formatActivity(data));
-
-          // Only append to the chat bubble when the step contains actual text tokens/partials.
-          if (typeof data?.delta === "string") upsertStreamingAssistant(data.delta);
-          else if (typeof data?.partial === "string") upsertStreamingAssistant(data.partial);
-          else if (typeof data?.text === "string") upsertStreamingAssistant(data.text);
-
-          // Do NOT append generic “[step]” lines anymore.
+          const t = pickText(data);
+          if (t) upsertStreamingAssistant(t);
         } catch {
           setAgentActivity("Working…");
         }
       });
 
-      es.addEventListener("response", (ev) => {
+      es.addEventListener("response", (ev: MessageEvent) => {
         try {
           const data = JSON.parse(ev.data);
-          const finalText = data?.response ?? data?.text ?? data?.answer ?? "";
+          const finalText =
+            data?.response ??
+            data?.text ??
+            data?.answer ??
+            data?.content ??
+            data?.message ??
+            data?.output ??
+            data?.result ??
+            "";
           finalizeStreamingAssistant(finalText);
         } catch {
           finalizeStreamingAssistant("");
@@ -206,6 +238,7 @@ const ChatInterface = () => {
       });
 
       es.addEventListener("complete", () => {
+        finalizeStreamingAssistant();
         es.close();
         setActiveStream(null);
         setIsTyping(false);
@@ -213,22 +246,21 @@ const ChatInterface = () => {
       });
 
       es.addEventListener("timeout", () => {
-        console.warn("SSE timeout; falling back to polling.");
+        finalizeStreamingAssistant();
         es.close();
         setActiveStream(null);
         setAgentActivity("Timed out — switching to polling…");
         startPollingFallback(poll_url);
       });
 
-      es.addEventListener("error", (e) => {
-        console.error("SSE error:", e);
+      es.addEventListener("error", () => {
+        finalizeStreamingAssistant();
         es.close();
         setActiveStream(null);
         setAgentActivity("Stream error — switching to polling…");
         startPollingFallback(poll_url);
       });
-    } catch (e) {
-      console.error("Failed to open SSE:", e);
+    } catch {
       setAgentActivity("Stream failed — switching to polling…");
       startPollingFallback(poll_url);
     }
@@ -255,10 +287,12 @@ const ChatInterface = () => {
         }
       );
 
-      const { correlation_id, poll_url } = res.data;
+      const { correlation_id, poll_url } = res.data || {};
+      if (!correlation_id || !poll_url) {
+        throw new Error("Missing correlation_id or poll_url in response");
+      }
       openSSE({ correlation_id, poll_url });
-    } catch (error) {
-      console.error("Error calling chat API:", error);
+    } catch {
       setMessages((prev) => [
         ...prev,
         { sender: "assistant", text: "Sorry, there was an error processing your request." },
@@ -293,7 +327,7 @@ const ChatInterface = () => {
             <div className="flex items-center space-x-3">
               <div className="bg-yellow-500 p-2 rounded-lg">
                 <svg className="w-5 h-5 text-slate-900" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+                  <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c-1.1 0-2-.9-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
                 </svg>
               </div>
               <div className="flex-1">
@@ -450,7 +484,7 @@ const ChatInterface = () => {
           <div className="bg-slate-800 rounded-xl p-6 border border-yellow-500 border-opacity-30">
             <div className="bg-yellow-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
               <svg className="w-6 h-6 text-slate-900" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c1.1 0 2 .9 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c1.1 0 2 .9 2 2h14c1.1 0 2-.9 2-2V5c-1.1 0-2-.9-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
               </svg>
             </div>
             <h4 className="text-white font-bold text-lg mb-2">Company Insights</h4>
