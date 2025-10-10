@@ -27,16 +27,24 @@ const ChatInterface = () => {
   const CHAT_REST = `${API_BASE}/api/chat`;
   const token = useMemo(() => localStorage.getItem("token") || "", []);
 
+  // ✅ Thread ID — created once per page load and persists until refresh
+  const [threadId] = useState(() => {
+    return crypto.randomUUID?.() || Math.random().toString(36).substring(2, 10);
+  });
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
-  useEffect(() => { scrollToBottom(); }, [messages]);
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   useEffect(() => {
     return () => {
-      try { activeStream?.close?.(); } catch {}
+      try {
+        activeStream?.close?.();
+      } catch {}
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const formatActivity = (data: any = {}) => {
@@ -91,7 +99,6 @@ const ChatInterface = () => {
     }
   };
 
-  // Append non-empty text to a streaming assistant bubble (create only when first text arrives)
   const upsertStreamingAssistant = (delta?: string) => {
     const t = (delta ?? "").replace(/\s+/g, " ").trim();
     if (!t) return;
@@ -109,12 +116,17 @@ const ChatInterface = () => {
         return [...prev, { sender: "assistant", text: t, _streaming: true }];
       }
       const next = [...prev];
-      next[lastIdx] = { ...next[lastIdx], text: (next[lastIdx].text || "") + (next[lastIdx].text ? " " : "") + t };
+      next[lastIdx] = {
+        ...next[lastIdx],
+        text:
+          (next[lastIdx].text || "") +
+          (next[lastIdx].text ? " " : "") +
+          t,
+      };
       return next;
     });
   };
 
-  // Finalize: only create/keep a message if there is actual text or an existing streaming bubble
   const finalizeStreamingAssistant = (finalText?: string) => {
     const t = (finalText ?? "").toString().trim();
 
@@ -132,7 +144,11 @@ const ChatInterface = () => {
       if (lastIdx != null) {
         const next = [...prev];
         const existing = (next[lastIdx].text || "").toString();
-        const merged = t ? (existing ? existing + (existing.endsWith(" ") ? "" : " ") + t : t) : existing;
+        const merged = t
+          ? existing
+            ? existing + (existing.endsWith(" ") ? "" : " ") + t
+            : t
+          : existing;
         next[lastIdx] = { ...next[lastIdx], _streaming: false, text: merged };
         return next;
       }
@@ -144,12 +160,13 @@ const ChatInterface = () => {
   };
 
   const closeActiveStream = () => {
-    try { activeStream?.close?.(); } catch {}
+    try {
+      activeStream?.close?.();
+    } catch {}
     setActiveStream(null);
     hasStreamedRef.current = false;
   };
 
-  // ---- Polling fallback (if SSE not available or fails) ----
   const startPollingFallback = async (pollUrl: string) => {
     setAgentActivity("Waiting for response…");
     const interval = setInterval(async () => {
@@ -165,27 +182,35 @@ const ChatInterface = () => {
           setAgentActivity("Idle");
         } else if (status === "error") {
           clearInterval(interval);
-          finalizeStreamingAssistant("Sorry, there was an error processing your request.");
+          finalizeStreamingAssistant(
+            "Sorry, there was an error processing your request."
+          );
           setIsTyping(false);
           setAgentActivity("Idle");
         }
       } catch {
         clearInterval(interval);
-        finalizeStreamingAssistant("Sorry, there was an error processing your request.");
+        finalizeStreamingAssistant(
+          "Sorry, there was an error processing your request."
+        );
         setIsTyping(false);
         setAgentActivity("Idle");
       }
     }, 2000);
   };
 
-  // Small helper to robustly pick text fields
   const pickText = (obj: any) =>
     ["delta", "partial", "text", "content", "message", "output", "result", "response"]
       .map((k) => obj?.[k])
       .find((v) => typeof v === "string" && v.trim().length > 0);
 
-  // ---- Open SSE stream ----
-  const openSSE = ({ correlation_id, poll_url }: { correlation_id: string; poll_url: string }) => {
+  const openSSE = ({
+    correlation_id,
+    poll_url,
+  }: {
+    correlation_id: string;
+    poll_url: string;
+  }) => {
     const url = `${CHAT_REST}/stream/${correlation_id}`;
 
     hasStreamedRef.current = false;
@@ -266,7 +291,6 @@ const ChatInterface = () => {
     }
   };
 
-  // ---- Send message to POST /api/chat and then stream ----
   const handleSend = async () => {
     if (!input.trim()) return;
 
@@ -278,7 +302,7 @@ const ChatInterface = () => {
     try {
       const res = await axios.post(
         `${CHAT_REST}`,
-        { message: input },
+        { message: input, thread_id: threadId },
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -295,7 +319,10 @@ const ChatInterface = () => {
     } catch {
       setMessages((prev) => [
         ...prev,
-        { sender: "assistant", text: "Sorry, there was an error processing your request." },
+        {
+          sender: "assistant",
+          text: "Sorry, there was an error processing your request.",
+        },
       ]);
       setIsTyping(false);
       setAgentActivity("Idle");
@@ -305,10 +332,7 @@ const ChatInterface = () => {
   };
 
   return (
-    <section
-      id="chat-assistant"
-      className="w-full bg-slate-900 py-16 border-y-4 border-yellow-500"
-    >
+    <section id="chat-assistant" className="w-full bg-slate-900 py-16 border-y-4 border-yellow-500">
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -317,6 +341,9 @@ const ChatInterface = () => {
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Get instant insights about CSE stocks, market trends, and company analysis powered by AI
+          </p>
+          <p className="text-xs text-gray-400 mt-2">
+            Thread ID: <span className="font-mono text-yellow-400">{threadId}</span>
           </p>
         </div>
 
@@ -327,59 +354,43 @@ const ChatInterface = () => {
             <div className="flex items-center space-x-3">
               <div className="bg-yellow-500 p-2 rounded-lg">
                 <svg className="w-5 h-5 text-slate-900" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c-1.1 0-2-.9-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+                  <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
                 </svg>
               </div>
               <div className="flex-1">
                 <h3 className="text-lg font-bold">CSE Market Assistant</h3>
                 <p className="text-sm text-gray-300">Powered by AI • Real-time insights</p>
               </div>
-
-              {/* Live agent activity chip */}
               <div className="flex items-center gap-2">
-                <div
-                  className={`w-2 h-2 rounded-full ${
-                    agentActivity !== "Idle" ? "bg-amber-400 animate-pulse" : "bg-green-500"
-                  }`}
-                />
-                <span data-cy="agent-activity" className="text-xs text-gray-300">{agentActivity}</span>
+                <div className={`w-2 h-2 rounded-full ${agentActivity !== "Idle" ? "bg-amber-400 animate-pulse" : "bg-green-500"}`} />
+                <span className="text-xs text-gray-300">{agentActivity}</span>
               </div>
             </div>
           </div>
 
           {/* Messages Area */}
-          <div data-cy="messages" className="h-[500px] overflow-y-auto bg-gradient-to-br from-slate-50 to-gray-100 p-6">
+          <div className="h-[500px] overflow-y-auto bg-gradient-to-br from-slate-50 to-gray-100 p-6">
             <div className="space-y-6">
               {messages.map((msg, i) => (
                 <div key={i} className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}>
                   <div className="flex space-x-3 max-w-[80%]">
                     {msg.sender === "assistant" && (
-                      <div className="flex-shrink-0">
-                        <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center shadow-md">
-                          <svg className="w-5 h-5 text-slate-900" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                          </svg>
-                        </div>
+                      <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center shadow-md">
+                        <svg className="w-5 h-5 text-slate-900" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                        </svg>
                       </div>
                     )}
 
-                    <div
-                      className={`px-5 py-3 rounded-2xl shadow-md ${
-                        msg.sender === "user"
-                          ? "bg-slate-900 text-white rounded-br-none"
-                          : "bg-white text-gray-900 rounded-bl-none border border-gray-200"
-                      }`}
-                    >
+                    <div className={`px-5 py-3 rounded-2xl shadow-md ${msg.sender === "user" ? "bg-slate-900 text-white rounded-br-none" : "bg-white text-gray-900 rounded-bl-none border border-gray-200"}`}>
                       <p className="text-sm leading-relaxed whitespace-pre-wrap">{msg.text}</p>
                     </div>
 
                     {msg.sender === "user" && (
-                      <div className="flex-shrink-0">
-                        <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center shadow-md">
-                          <svg className="w-5 h-5 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                          </svg>
-                        </div>
+                      <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center shadow-md">
+                        <svg className="w-5 h-5 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                        </svg>
                       </div>
                     )}
                   </div>
@@ -389,12 +400,10 @@ const ChatInterface = () => {
               {isTyping && (
                 <div className="flex justify-start">
                   <div className="flex space-x-3 max-w-[80%]">
-                    <div className="flex-shrink-0">
-                      <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center shadow-md">
-                        <svg className="w-5 h-5 text-slate-900" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                        </svg>
-                      </div>
+                    <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center shadow-md">
+                      <svg className="w-5 h-5 text-slate-900" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                      </svg>
                     </div>
                     <div className="bg-white border border-gray-200 px-5 py-3 rounded-2xl rounded-bl-none shadow-md">
                       <div className="flex space-x-1 items-center text-gray-600 text-sm">
@@ -436,8 +445,7 @@ const ChatInterface = () => {
             <div className="flex space-x-3">
               <div className="flex-1 relative">
                 <textarea
-                  data-cy="nl-input"
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent bg-white text-sm"
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-yellow-500 bg-white text-sm"
                   placeholder="Ask me about CSE stocks, market analysis, company insights..."
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
@@ -451,8 +459,7 @@ const ChatInterface = () => {
                 />
               </div>
               <button
-                data-cy="send"
-                className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-slate-900 rounded-xl font-bold disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-105 disabled:transform-none shadow-lg flex items-center space-x-2"
+                className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-slate-900 rounded-xl font-bold disabled:opacity-50 transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center space-x-2"
                 onClick={handleSend}
                 disabled={!input.trim() || isTyping}
               >
@@ -462,10 +469,7 @@ const ChatInterface = () => {
                 </svg>
               </button>
             </div>
-
-            <p className="text-xs text-gray-500 mt-2 text-center">
-              Press Enter to send • Shift+Enter for new line
-            </p>
+            <p className="text-xs text-gray-500 mt-2 text-center">Press Enter to send • Shift+Enter for new line</p>
           </div>
         </div>
 
@@ -474,7 +478,7 @@ const ChatInterface = () => {
           <div className="bg-slate-800 rounded-xl p-6 border border-yellow-500 border-opacity-30">
             <div className="bg-yellow-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
               <svg className="w-6 h-6 text-slate-900" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z" />
               </svg>
             </div>
             <h4 className="text-white font-bold text-lg mb-2">Real-time Analysis</h4>
@@ -484,7 +488,7 @@ const ChatInterface = () => {
           <div className="bg-slate-800 rounded-xl p-6 border border-yellow-500 border-opacity-30">
             <div className="bg-yellow-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
               <svg className="w-6 h-6 text-slate-900" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c1.1 0 2 .9 2 2h14c1.1 0 2-.9 2-2V5c-1.1 0-2-.9-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c1.1 0 2 .9 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-.9-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
               </svg>
             </div>
             <h4 className="text-white font-bold text-lg mb-2">Company Insights</h4>
@@ -494,7 +498,7 @@ const ChatInterface = () => {
           <div className="bg-slate-800 rounded-xl p-6 border border-yellow-500 border-opacity-30">
             <div className="bg-yellow-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
               <svg className="w-6 h-6 text-slate-900" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
               </svg>
             </div>
             <h4 className="text-white font-bold text-lg mb-2">Smart Recommendations</h4>
