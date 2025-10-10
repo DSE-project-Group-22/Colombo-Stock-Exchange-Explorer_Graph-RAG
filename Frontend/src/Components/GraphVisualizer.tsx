@@ -42,14 +42,9 @@ async function pollVisualization(correlationId: string, signal?: AbortSignal) {
   };
 }
 
-// ─────────────────────────────────────────────────────────────
-// Neo4j HTTP (transactional)
-const NEO4J_HTTP_URL = (
-  import.meta.env.VITE_NEO4J_HTTP_URL ??
-  "http://localhost:7474/db/neo4j/tx/commit"
-).toString();
-const NEO4J_USER = (import.meta.env.VITE_NEO4J_USER ?? "neo4j").toString();
-const NEO4J_PASSWORD = (import.meta.env.VITE_NEO4J_PASSWORD ?? "password").toString();
+const NEO4J_HTTP_URL = String(import.meta.env.VITE_NEO4J_HTTP_URL ?? "");
+const NEO4J_USER = String(import.meta.env.VITE_NEO4J_USER ?? "");
+const NEO4J_PASSWORD = String(import.meta.env.VITE_NEO4J_PASSWORD ?? "");
 
 type Neo4jHTTPGraphNode = {
   id: string;
@@ -111,6 +106,18 @@ const GraphVisualizer: React.FC = () => {
 
   const fetchCypherGraph = useCallback(
     async (cypherText: string) => {
+      // Guard against missing configuration early and provide a clear error
+      if (!NEO4J_HTTP_URL) {
+        throw new Error(
+          "Neo4j HTTP URL is not configured. Set VITE_NEO4J_HTTP_URL in your Frontend/.env"
+        );
+      }
+      if (!NEO4J_USER || !NEO4J_PASSWORD) {
+        throw new Error(
+          "Neo4j credentials are not configured. Set VITE_NEO4J_USER and VITE_NEO4J_PASSWORD in your Frontend/.env"
+        );
+      }
+
       const res = await fetch(NEO4J_HTTP_URL, {
         method: "POST",
         headers: {
