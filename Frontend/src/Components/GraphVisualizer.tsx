@@ -500,26 +500,26 @@ const GraphVisualizer: React.FC = () => {
               <div>
                 <p className="text-sm font-semibold text-indigo-200 mb-3">Popular Queries:</p>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-                  {[
-                    "Show companies in the Banking sector connected by shared directors",
-                    "Find the most connected directors (top 10 by degree)",
-                    "List companies that share a director with John Keells Holdings",
-                    "Communities of tightly-knit company clusters",
-                  ].map((query, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setNlQuery(query)}
-                      disabled={isLoading}
-                      className="group text-left px-4 py-3 bg-slate-700 border-2 border-slate-600 text-gray-200 rounded-xl text-sm hover:border-yellow-500 hover:bg-slate-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-sm hover:shadow-md"
-                    >
-                      <div className="flex items-start space-x-2">
-                        <svg className="w-4 h-4 text-gray-400 group-hover:text-yellow-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                        <span>{query}</span>
-                      </div>
-                    </button>
-                  ))}
+                    {[
+                      "Which directors serve on multiple company boards?",
+                      "Show me all companies in the banking sector",
+                      "Find relationships between auditors and their clients",
+                      "Find all people connected to telecommunications companies"
+                    ].map((query, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setNlQuery(query)}
+                        disabled={isLoading}
+                        className="group text-left px-4 py-3 bg-slate-700 border-2 border-slate-600 text-gray-200 rounded-xl text-sm hover:border-yellow-500 hover:bg-slate-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-sm hover:shadow-md"
+                      >
+                        <div className="flex items-start space-x-2">
+                          <svg className="w-4 h-4 text-gray-400 group-hover:text-yellow-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                          <span>{query}</span>
+                        </div>
+                      </button>
+                    ))}
                 </div>
               </div>
             </div>
