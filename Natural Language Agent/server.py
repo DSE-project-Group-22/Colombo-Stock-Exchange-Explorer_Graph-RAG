@@ -34,8 +34,10 @@ logger = logging.getLogger(__name__)
 
 # Global connections and status
 redis_client: Optional[redis.Redis] = None
-kafka_processor: Optional[MessageProcessor] = None
-kafka_task: Optional[asyncio.Task] = None
+chat_processor: Optional[MessageProcessor] = None
+viz_processor: Optional[MessageProcessor] = None
+chat_task: Optional[asyncio.Task] = None
+viz_task: Optional[asyncio.Task] = None
 neo4j_connected: bool = False
 neo4j_stats: Dict[str, Any] = {}
 
@@ -76,7 +78,7 @@ class ChatHistoryResponse(BaseModel):
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Lifespan event handler for FastAPI application"""
-    global redis_client, kafka_processor, kafka_task, neo4j_connected, neo4j_stats
+    global redis_client, chat_processor, viz_processor, chat_task, viz_task, neo4j_connected, neo4j_stats
     
     # Startup
     logger.info("Starting Natural Language Agent service with Kafka...")
@@ -148,35 +150,59 @@ async def lifespan(app: FastAPI):
     except Exception as e:
         logger.error(f"Unexpected error during startup: {e}")
     
-    # Start Kafka consumer in background
+    # Start Kafka consumers in background (2 processors for concurrent processing)
     try:
-        kafka_processor = MessageProcessor()
-        await kafka_processor.startup()
-        
-        # Create background task for Kafka processing
-        kafka_task = asyncio.create_task(kafka_processor.process_messages())
-        logger.info("Kafka consumer started in background")
-        
+        # Chat processor - handles chat.requests topic
+        chat_processor = MessageProcessor(
+            topics=['chat.requests'],
+            max_concurrent=5  # 5 concurrent chat threads
+        )
+        await chat_processor.startup()
+        chat_task = asyncio.create_task(chat_processor.process_messages())
+        logger.info("Chat processor started (max_concurrent=5)")
+
+        # Visualization processor - handles visualization.requests topic
+        viz_processor = MessageProcessor(
+            topics=['visualization.requests'],
+            max_concurrent=10  # 10 concurrent visualization requests
+        )
+        await viz_processor.startup()
+        viz_task = asyncio.create_task(viz_processor.process_messages())
+        logger.info("Visualization processor started (max_concurrent=10)")
+
+        logger.info("Both Kafka processors running in parallel")
+
     except Exception as e:
-        logger.error(f"Failed to start Kafka consumer: {e}")
+        logger.error(f"Failed to start Kafka consumers: {e}")
         logger.warning("Service will run without Kafka support")
     
     yield
     
     # Shutdown
     logger.info("Shutting down Natural Language Agent service...")
-    
-    # Stop Kafka consumer
-    if kafka_task and not kafka_task.done():
-        kafka_task.cancel()
+
+    # Stop both Kafka processors
+    if chat_task and not chat_task.done():
+        chat_task.cancel()
         try:
-            await kafka_task
+            await chat_task
         except asyncio.CancelledError:
             pass
-    
-    if kafka_processor:
-        await kafka_processor.shutdown()
-        logger.info("Kafka consumer stopped")
+
+    if viz_task and not viz_task.done():
+        viz_task.cancel()
+        try:
+            await viz_task
+        except asyncio.CancelledError:
+            pass
+
+    if chat_processor:
+        await chat_processor.shutdown()
+        logger.info("Chat processor stopped")
+
+    if viz_processor:
+        await viz_processor.shutdown()
+        logger.info("Visualization processor stopped")
     
     if redis_client:
         redis_client.close()
