@@ -80,7 +80,7 @@ Step 2 (Discovery): "What companies are in the Banks sector?"
   → Result: [Commercial Bank of Ceylon PLC, Bank of Ceylon, HNB, ...]
   
 Step 3 (Retrieval): "Get ALL auditor relationships for Banks sector"
-  Query: MATCH (c:Company)-[:PART_OF_SECTOR]->(:Sector {name:"Banks"})
+  Query: MATCH (c:Company)-[:PART_OF_SECTOR]->(:Sector (name:"Banks"))
          MATCH (c)-[:AUDITED_BY]->(a:Auditor)
          RETURN c.name, c.ticker_symbol, a.name
   → Process results to find auditors appearing >1 time
