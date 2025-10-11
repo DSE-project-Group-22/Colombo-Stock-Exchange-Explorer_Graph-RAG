@@ -11,11 +11,18 @@ export default defineConfig({
   }
   ,
   server: {
+    port: parseInt(process.env.VITE_DEV_SERVER_PORT || '5173'),
     proxy: {
       '/api': {
-        target: 'http://localhost:8080',
+        target: process.env.VITE_API_BASE_URL || 'http://localhost:8080',
         changeOrigin: true,
         secure: false,
+      },
+      '/neo4j': {
+        target: process.env.VITE_NEO4J_PROXY_TARGET || 'http://localhost:7474',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/neo4j/, '')
       }
     }
   }

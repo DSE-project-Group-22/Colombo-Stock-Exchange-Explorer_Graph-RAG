@@ -22,8 +22,8 @@ const ChatInterface = () => {
 
   const hasStreamedRef = useRef(false);
 
-  const API_BASE = import.meta.env.VITE_API_BASE_URL;
-  const CHAT_REST = `${API_BASE}/api/chat`;
+  // Use relative path to leverage Vite proxy in development
+  const CHAT_REST = `/api/chat`;
   const token = useMemo(() => localStorage.getItem("token") || "", []);
 
   const [threadId] = useState(() => {

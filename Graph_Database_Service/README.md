@@ -11,7 +11,8 @@ This setup creates a Neo4j Docker container with automatic script execution and 
 ## Features
 
 - **Default Credentials**: Username: `neo4j`, Password: `password`
-- **Automatic Script Execution**: All `.cypher` files in `ETL Pipeline/Load/cypher_queries/` are executed on startup
+- **Automatic Script Execution**: `.cypher` files in `ETL Pipeline/Load/cypher_queries/` run automatically the first time the container starts
+- **Persistent Data**: Subsequent restarts reuse the data stored in the `neo4j_data` volume so scripts are not re-executed
 - **APOC Plugin**: Pre-installed for advanced procedures
 - **Graph Data Science**: Pre-installed for graph algorithms
 - **Frontend Ready**: Accessible via HTTP and Bolt protocols
@@ -60,7 +61,9 @@ driver = GraphDatabase.driver(
 
 ## Script Execution
 
-The container automatically executes all `.cypher` files from `ETL Pipeline/Load/cypher_queries/` in alphabetical order during startup. 
+On the first start (or whenever the `neo4j_data` volume is empty) the container executes all `.cypher` files from `ETL Pipeline/Load/cypher_queries/` in alphabetical order. A marker file (`/data/.seeded`) is written afterwards so later restarts skip re-seeding.
+
+To force a fresh seed, remove the `neo4j_data` volume (for example `docker compose down -v`) or delete the `/data/.seeded` file inside the container before restarting.
 
 ### Script Naming Convention
 For ordered execution, prefix your scripts with numbers:

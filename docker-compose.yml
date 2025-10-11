@@ -268,6 +268,35 @@ services:
     networks:
       - cse-explorer-network
 
+  # Frontend development server
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile.dev
+    container_name: cse-explorer-frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - "./Frontend:/app"
+      - frontend_node_modules:/app/node_modules
+    environment:
+      # API Gateway Configuration (for Vite proxy target only, not used in browser)
+      - VITE_API_BASE_URL=http://api-gateway:8080
+      # Neo4j Configuration (proxy target and credentials)
+      - VITE_NEO4J_PROXY_TARGET=http://graph-db:7474
+      - VITE_NEO4J_USER=neo4j
+      - VITE_NEO4J_PASSWORD=password
+      # Dev Server Configuration
+      - VITE_DEV_SERVER_PORT=5173
+      # Cypress Test Configuration
+      - VITE_CYPRESS_BASE_URL=http://localhost:5173
+    depends_on:
+      api-gateway:
+        condition: service_started
+      graph-db:
+        condition: service_healthy
+    networks:
+      - cse-explorer-network
 
 
 volumes:
@@ -278,6 +307,7 @@ volumes:
   zookeeper_data:
   zookeeper_logs:
   kafka_data:
+  frontend_node_modules:
 
 networks:
   cse-explorer-network:

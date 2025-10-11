@@ -4,8 +4,8 @@ import { DataSet } from "vis-data";
 
 // ─────────────────────────────────────────────────────────────
 // API (FastAPI) — NL → Cypher
-const API_BASE = "http://localhost:8080";
-const API_VISUALIZE_BASE = `${API_BASE}/api/visualize`;
+// Use relative path to leverage Vite proxy in development
+const API_VISUALIZE_BASE = `/api/visualize`;
 
 async function createVisualization(message: string, threadId?: string) {
   const res = await fetch(`${API_VISUALIZE_BASE}/`, {
@@ -42,9 +42,10 @@ async function pollVisualization(correlationId: string, signal?: AbortSignal) {
   };
 }
 
-const NEO4J_HTTP_URL = String(import.meta.env.VITE_NEO4J_HTTP_URL ?? "");
-const NEO4J_USER = String(import.meta.env.VITE_NEO4J_USER ?? "");
-const NEO4J_PASSWORD = String(import.meta.env.VITE_NEO4J_PASSWORD ?? "");
+// Use relative path to leverage Vite proxy - no longer needs full URL
+const NEO4J_HTTP_URL = "/neo4j/db/neo4j/tx/commit";
+const NEO4J_USER = String(import.meta.env.VITE_NEO4J_USER ?? "neo4j");
+const NEO4J_PASSWORD = String(import.meta.env.VITE_NEO4J_PASSWORD ?? "password");
 
 type Neo4jHTTPGraphNode = {
   id: string;
@@ -106,12 +107,7 @@ const GraphVisualizer: React.FC = () => {
 
   const fetchCypherGraph = useCallback(
     async (cypherText: string) => {
-      // Guard against missing configuration early and provide a clear error
-      if (!NEO4J_HTTP_URL) {
-        throw new Error(
-          "Neo4j HTTP URL is not configured. Set VITE_NEO4J_HTTP_URL in your Frontend/.env"
-        );
-      }
+      // Guard against missing credentials
       if (!NEO4J_USER || !NEO4J_PASSWORD) {
         throw new Error(
           "Neo4j credentials are not configured. Set VITE_NEO4J_USER and VITE_NEO4J_PASSWORD in your Frontend/.env"
