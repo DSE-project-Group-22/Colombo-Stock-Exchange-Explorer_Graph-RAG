@@ -395,8 +395,8 @@ const ChatInterface = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                   {[
                     "What are the top performing stocks today?",
-                    "Analyze the banking sector performance",
-                    "Show me recent market trends",
+                    "Who are the directors of John Keells PLC?",
+                    "What are subsidiaries of Dialog Axiata?",
                     "Tell me about John Keells Holdings",
                   ].map((prompt, idx) => (
                     <button

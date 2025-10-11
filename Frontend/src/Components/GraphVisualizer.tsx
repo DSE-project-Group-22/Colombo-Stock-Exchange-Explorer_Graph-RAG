@@ -499,8 +499,8 @@ const GraphVisualizer: React.FC = () => {
                     {[
                       "Which directors serve on multiple company boards?",
                       "Show me all companies in the banking sector",
-                      "Find relationships between auditors and their clients",
-                      "Find all people connected to telecommunications companies"
+                      "Show the board members of Odel",
+                      "Who are the directors of Dialog Axiata" 
                     ].map((query, idx) => (
                       <button
                         key={idx}
