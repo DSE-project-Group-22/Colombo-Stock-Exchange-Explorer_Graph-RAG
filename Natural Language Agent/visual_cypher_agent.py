@@ -116,27 +116,27 @@ async def visualization_cypher_node(state: VisualAgentState) -> VisualAgentState
     """
     Node 2: Generate visualization-optimized Cypher using entity search results.
     Creates queries that return graph structures suitable for visualization.
-    Enforces use of exact entity names from search results.
+    Handles both entity-based and pattern-based queries.
     """
-    
-    # Check if entity resolution succeeded
-    if not state['entity_search_results']:
-        logger.warning("No entities found in search - cannot generate visualization query")
-        state['final_cypher'] = ""
-        return state
-    
-    # Build entity context from search results with strong emphasis on using exact names
-    entity_context = f"""
-ENTITY RESOLUTION RESULTS (Use these EXACT names in your query):
+
+    # Build entity context (even if empty - visualizer will handle it)
+    if state['entity_search_results']:
+        entity_context = f"""
+ENTITY RESOLUTION RESULTS (Use these EXACT names if relevant to the query):
 
 Search Query Used: {state['entity_search_cypher']}
 
 Verified Entity Names Found in Database:
 {state['entity_search_results']}
 
-⚠️ CRITICAL: Use ONLY the exact entity names shown above. 
+⚠️ CRITICAL: Use ONLY the exact entity names shown above if they are relevant to the query.
 DO NOT use the user's original words from: "{state['user_query']}"
 The names above are the VERIFIED database names - use them exactly as shown."""
+    else:
+        entity_context = """
+No specific entities were found or mentioned in the query.
+Generate a pattern-based query directly from the user's intent."""
+        logger.info("No entities found - visualizer will generate pattern-based query")
     
     # Get visualization prompt
     viz_prompt = get_visualization_prompt(

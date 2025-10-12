@@ -497,9 +497,9 @@ const GraphVisualizer: React.FC = () => {
                 <p className="text-sm font-semibold text-indigo-200 mb-3">Popular Queries:</p>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
                     {[
-                      "Which directors serve on multiple company boards?",
+                      "Who are the directors that sit on multiple companies in the same sector",
                       "Show me all companies in the banking sector",
-                      "Show the board members of Odel",
+                      "What are the banking sector companies audited by earnst and young",
                       "Who are the directors of Dialog Axiata" 
                     ].map((query, idx) => (
                       <button
