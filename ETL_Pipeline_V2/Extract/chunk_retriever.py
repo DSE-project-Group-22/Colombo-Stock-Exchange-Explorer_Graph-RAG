@@ -58,7 +58,7 @@ def setup_config() -> Dict[str, Any]:
         
         # Chunking parameters
         "chunk_size": 1000,
-        "chunk_overlap": 50,
+        "chunk_overlap": 40,
         "separators": ["\n\n", "\n", " ", ""],
         
         # Retrieval parameters
@@ -81,22 +81,23 @@ def get_questions_for_schema() -> Dict[str, str]:
     Returns the dictionary of predefined questions for data extraction.
     """
     questions = {
-        "company_overview": "What is the company's name, ticker symbol, founding date, listing date, and industry?",
-        "sectors": "What sectors or industries does the company operate in?",
-        "auditor_details": "Who is the company's auditor, and what are the audit details including year and period?",
-        "board_of_directors": "Who are the members of the board of directors, their titles, independence status, and appointment dates?",
-        "executives": "Who are the key executives, their positions, departments, and appointment dates?",
-        "company_holdings": "What are the company's holdings in other companies, including ownership percentages and share counts?",
-        "individual_holdings": "What are the shareholdings of individuals in the company, including percentages and counts?",
-        "financial_metrics": "What are the key financial metrics such as revenue, profit, assets, equity, ratios, and their values for specific years?",
-        "products_services": "What products, services, or brands does the company offer, including descriptions and launch dates?",
-        "subsidiaries": "What are the company's subsidiaries, their relationships, ownership percentages, and descriptions?",
-        "governance_structure": "What is the corporate governance structure and policies?",
-        "risk_factors": "What are the main risk factors and challenges facing the company?",
-        "operational_highlights": "What are the key operational highlights and achievements?",
-        "capital_structure": "What is the capital structure and funding sources?",
-        "regulatory_compliance": "What regulatory requirements and compliance measures are mentioned?"
+    "company_overview": "What is the company's name, ticker symbol, founding date, listing date, and industry?",
+    "sectors": "What sectors or industries does the company operate in?",
+    "auditor_details": "Who is the company's auditor, and what are the audit details including year and period?",
+    "board_of_directors": "Who are the members of the board of directors, their titles, independence status, and appointment dates?",
+    "executives": "Who are the key executives, their positions, departments, and appointment dates?",
+    "company_holdings": "What are the company's holdings in other companies, including ownership percentages and share counts?",
+    "individual_holdings": "What are the shareholdings of individuals in the company, including percentages and counts?",
+    "financial_discussion": "What does management report or discuss about the company's financial condition, results of operations, and performance trends?",
+    "products_services": "What products, services, or brands does the company offer, including descriptions and launch dates?",
+    "subsidiaries": "What are the company's subsidiaries, their relationships, ownership percentages, and descriptions?",
+    "governance_structure": "What is the corporate governance structure and policies?",
+    "risk_factors": "What are the main risk factors and challenges facing the company?",
+    "operational_highlights": "What are the key operational highlights and achievements?",
+    "capital_structure": "What is the capital structure and funding sources?",
+    "regulatory_compliance": "What regulatory requirements and compliance measures are mentioned?"
     }
+
     
     print(f"✓ Loaded {len(questions)} predefined questions for chunk retrieval")
     return questions
