@@ -48,7 +48,7 @@ services:
     volumes:
       - neo4j_data:/data
       - neo4j_logs:/logs
-      - ./ETL_Pipeline_V2/Transform/cypher_script/cypher:/cypher_queries:ro
+      - ./ETL_Pipeline_V2/Load/cypher_script/cypher:/cypher_queries:ro
     networks:
       - cse-explorer-network
     healthcheck:

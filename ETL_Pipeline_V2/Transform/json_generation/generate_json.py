@@ -28,7 +28,7 @@ except ImportError:
 
 # Configuration - Base path approach
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-SOURCE_DIR = os.path.join(BASE_DIR, '..', 'Extract', 'batch_output')
+SOURCE_DIR = os.path.join(BASE_DIR, '..', '..', 'Extract', 'batch_output')
 OUTPUT_DIR = os.path.join(BASE_DIR, 'normalized_json')
 LOG_DIR = os.path.join(BASE_DIR, 'logs')
 
@@ -53,7 +53,7 @@ Your task is to meticulously analyze the provided JSON content and generate a st
 
 Stick strictly to the information provided in the JSON content. Do not add, infer, fabricate, or hallucinate any data that is not explicitly and directly stated in the text. Base all extractions on clear, unambiguous evidence from the provided content. If information is missing or uncertain, use null for optional fields, empty arrays for lists, and avoid populating fields without direct support. Prioritize accuracy and conservatism in extraction to minimize errors.
 
-PRIORITY: Extract all structured data (companies, people, metrics, sectors, relationships) with proper normalization.
+PRIORITY: Extract all structured data (companies, people, sectors, relationships) with proper normalization.
 
 ---
 
@@ -197,92 +197,6 @@ PRIORITY: Extract all structured data (companies, people, metrics, sectors, rela
 - 'Healthcare' / 'Health' → 'Health Care Equipment and Services'
 - 'Manufacturing' → Requires context analysis (could be Materials, Capital Goods, or Consumer Durables and Apparel)
 
-
-### F. Metric Normalization
-
-**Standardized Metric Names (MUST USE THESE EXACTLY):**
-- Revenue (NOT 'Turnover', 'Gross Revenue', 'Total Revenue', 'Sales')
-- Profit After Tax (NOT 'PAT', 'Net Profit', 'Bottom Line', 'Net Income')
-- Profit Before Tax (NOT 'PBT')
-- Total Assets
-- Total Equity (NOT 'Shareholders' Equity', 'Net Worth')
-- Net Interest Income
-- Gross Income
-- Operating Profit (NOT 'EBIT', 'Operating Income')
-- Earnings Per Share (NOT 'EPS')
-- Return on Equity (NOT 'ROE')
-- Current Ratio
-- Debt to Equity Ratio (NOT 'D/E Ratio', 'Gearing Ratio')
-- Total Liabilities
-- Cash and Cash Equivalents
-- Net Asset Value Per Share (NOT 'NAV')
-
-**Standardized Units (ONLY THESE):**
-- Rs (Sri Lankan Rupees - for monetary values)
-- % (Percentages - for ratios, returns, growth rates)
-- Times (for ratios like current ratio)
-- Count (for discrete quantities like employee count)
-- Ratio (for dimensionless ratios)
-
-**Value Normalization Rules (CRITICAL FOR CONSISTENCY):**
-
-*Base Assumption:* All monetary values are in Sri Lankan Rupees (Rs) unless explicitly stated otherwise.
-
-*Unit Multipliers (apply strictly):*
-- 'Mn' / 'million' / 'Million' / 'Mil' → multiply by 1,000,000
-  - '6,604 Mn' → 6,604,000,000
-  - 'Rs. 10.5 million' → 10,500,000
-  - '1,250.75 Mn' → 1,250,750,000
-
-- "'000" / 'thousand' / 'Thousand' / '000' → multiply by 1,000
-  - '31,055,222 '000' → 31,055,222,000
-  - '500 thousand' → 500,000
-  - "15,000 '000" → 15,000,000
-
-- 'Bn' / 'billion' / 'Billion' → multiply by 1,000,000,000
-  - '1.2 Bn' → 1,200,000,000
-  - 'Rs. 5.5 billion' → 5,500,000,000
-
-*Percentage Handling:*
-- Keep as decimal value (e.g., '5.5%' → 5.5 with unit '%')
-- Remove '%' symbol from value, store in unit field
-
-*Ratio/Times Handling:*
-- Keep as decimal/float (e.g., '2.5 Times' → 2.5 with unit 'Times')
-- '1.25:1' → 1.25 with unit 'Ratio'
-
-*Count Handling:*
-- Integer values (e.g., '500 employees' → 500 with unit 'Count')
-
-*Negative Values:*
-- Preserve sign for negative values
-- '(500) Mn' → -500,000,000
-- '-1,250' → -1,250
-- Values in parentheses without minus sign are negative
-
-*Text Removal:*
-- Remove ALL: 'Rs', 'Rs.', 'LKR', commas, spaces, parentheses (convert to negative), currency symbols
-- Keep ONLY: digits, decimal point, negative sign
-
-*Parsing Steps:*
-1. Extract raw_value string exactly as appears
-2. Identify unit multiplier ('Mn', "'000", 'Bn', etc.)
-3. Remove all non-numeric characters except decimal point and negative indicators
-4. Convert to float
-5. Apply multiplier
-6. Store in normalized_value as float
-7. Store unit in standardized format
-
-*Examples:*
-- Raw: 'Rs. 6,604 Mn' → normalized_value: 6604000000, unit: 'Rs'
-- Raw: '31,055,222 '000' → normalized_value: 31055222000, unit: 'Rs'
-- Raw: '5.5%' → normalized_value: 5.5, unit: '%'
-- Raw: '(1,250) Mn' → normalized_value: -1250000000, unit: 'Rs'
-- Raw: '2.5 Times' → normalized_value: 2.5, unit: 'Times'
-- Raw: '500 employees' → normalized_value: 500, unit: 'Count'
-- Raw: '25,599' → normalized_value: 25599, unit: 'Rs'
-
-
 ---
 
 ## 2. EXTRACTION RULES
@@ -320,17 +234,10 @@ PRIORITY: Extract all structured data (companies, people, metrics, sectors, rela
    - Identify primary sector (typically first mentioned or explicitly stated)
    - If no match, set normalized_name to null, skip
 
-6. **Financial Metrics Extraction**
-   - From financial_highlights, income_statement, balance_sheet, cash_flow sections
-   - For each metric:
-     - Extract raw name and raw value (exactly as appears)
-     - Apply metric name normalization
-     - Apply value normalization rules (critical for consistency)
-     - Extract year, quarter, date range
-     - Determine if audited, consolidated
+
    
 
-7. **Products/Services Extraction**
+6. **Products/Services Extraction**
    - From products_services, business_segments, brands sections
    - Extract raw name
    - Normalize name
@@ -338,7 +245,7 @@ PRIORITY: Extract all structured data (companies, people, metrics, sectors, rela
    - Extract status (active, discontinued, planned)
    - Extract launch date if available
 
-8. **Shareholding Extraction**
+7. **Shareholding Extraction**
    - **Company Holdings (CRITICAL VALIDATION):**
      - BOTH holder and target companies MUST be explicitly named
      - Ownership percentage MUST be explicitly stated (not inferred)
@@ -358,7 +265,7 @@ PRIORITY: Extract all structured data (companies, people, metrics, sectors, rela
      - Extract as_of_date
 
 
-10. **Subsidiaries**
+8. **Subsidiaries**
     - Extract from sections explicitly mentioning subsidiaries, associates, or group companies
     - Only include if relationship is clearly stated as subsidiary or equivalent
     - Apply company normalization including normalized_id
@@ -463,22 +370,6 @@ The JSON must conform to the structure defined below with all fields properly ty
     ]
   },
 
-  "financial_metrics": [
-    {
-      "raw_name": "string",
-      "normalized_name": "string",
-      "raw_value": "string",
-      "normalized_value": "float",
-      "unit": "string",
-      "currency": "string | null",
-      "year": "integer | null",
-      "as_of_date": "YYYY-MM-DD | null",
-      "period_start": "YYYY-MM-DD | null",
-      "period_end": "YYYY-MM-DD | null",
-      "is_consolidated": "boolean | null"
-    }
-  ],
-
   "products_services": [
     {
       "raw_name": "string",
@@ -505,7 +396,6 @@ EXCLUSIVE GOAL: Extract structured, normalized data with validation flags and co
 Company names: Always store raw AND normalized versions
 Auditors: Only include if matched to hardcoded list
 Titles: Only use standardized values
-Metrics: Apply strict value normalization (convert to base units)
 Sectors: Only use exact CSE sector names
 Shareholdings: BOTH companies must be named, percentage must be stated
 Dates: Always YYYY-MM-DD format
